@@ -1,0 +1,19 @@
+.hero {
+	height: 100dvh;
+  width: 100dvw;
+  top:24%;
+	overflow: hidden;
+	position: relative;
+  /* border: solid black 1px; */
+}
+
+.hero .slidingTextContainer {
+	position: absolute;
+	bottom: -20px;
+	font-size: 60vh;
+	white-space: nowrap;
+	color: #ffffff09;
+	width: 50%;
+	font-weight: bold;
+
+}

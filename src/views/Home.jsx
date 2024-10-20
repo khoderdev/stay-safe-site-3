@@ -2,8 +2,10 @@ import { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import Hero from '../components/hero/Hero';
+// import MotionGrid from '../components/grid/AppStoreCard';
 
-export default function Layers() {
+export default function Home() {
   const main = useRef();
   const scrollTween = useRef();
   const { contextSafe } = useGSAP(
@@ -41,19 +43,17 @@ export default function Layers() {
 
   return (
     <main ref={main}>
-      <section className="description panel bg-[#f0f0fe] dark:bg-black">
-        <div>
-          <h1>Layered pinning</h1>
-          <p>Use pinning to layer panels on top of each other as you scroll.</p>
-          <div className="scroll-down">
-            Scroll down<div className="arrow"></div>
-          </div>
-        </div>
+      <section className="panel bg-[#f0f0fe] dark:bg-black ">
+        <Hero />
       </section>
-      <section className="panel bg-white dark:bg-[#000]">ONE</section>
+      <section className="panel bg-white dark:bg-[#000]">
+
+      </section>
       <section className="panel bg-[#f0f0fe] dark:bg-black">TWO</section>
       <section className="panel bg-white dark:bg-[#000]">THREE</section>
-      <section className="panel bg-[#f0f0fe] dark:bg-black">FOUR</section>
+      <section className="panel bg-[#f0f0fe] dark:bg-black">
+        {/* <MotionGrid /> */}
+      </section>
     </main>
   );
 }

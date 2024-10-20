@@ -39,7 +39,7 @@ export default function Header() {
   };
 
   return (
-    <header ref={headerRef} className="bg-white dark:bg-black shadow-md shadow-slate-200 dark:shadow-[#00000021] relative z-50 flex items-center justify-between">
+    <header ref={headerRef} className="bg-white dark:bg-black shadow-md shadow-slate-200 dark:shadow-[#00000021] relative z-50 flex items-center justify-between lg:pl-32 lg:pr-6">
       {/* Logo */}
       <motion.div
         className="flex-shrink-0 pl-2"
@@ -49,13 +49,13 @@ export default function Header() {
       >
         <Link to="/">
           <img
-            src="/logo-dark.png"
-            alt="staysafe-logo-dark"
+            src="/logo-light.png"
+            alt="staysafe-logo"
             className={`w-32 p-2 md:w-36 ${theme === 'dark' ? 'block' : 'hidden'}`}
           />
           <img
-            src="/logo-light.png"
-            alt="staysafe-logo-light"
+            src="/logo-dark.png"
+            alt="staysafe-logo"
             className={`w-32 p-2 md:w-36 ${theme === 'dark' ? 'hidden' : 'block'}`}
           />
         </Link>
@@ -81,37 +81,39 @@ export default function Header() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.5 }}
           exit={{ opacity: 0 }}
-          onClick={toggleSidebar}
+          onClick={toggleSidebar} 
         />
       )}
 
       {/* Desktop Menu */}
-      <nav className="hidden md:flex space-x-6 text-lg font-semibold">
-        <Link to="/" className="text-black hover:text-blue dark:text-white dark:hover:text-blue transition-colors">
-          Home
-        </Link>
-        <Link to="/about" className="text-black hover:text-blue dark:text-white dark:hover:text-blue transition-colors">
-          About
-        </Link>
-        <Link to="/services" className="text-black hover:text-blue dark:text-white dark:hover:text-blue transition-colors">
-          Services
-        </Link>
-        <Link to="/contact" className="text-black hover:text-blue dark:text-white dark:hover:text-blue transition-colors">
-          Contact
-        </Link>
-      </nav>
+      <div className='flex justify-between items-center space-x-10'>
+        <nav className="hidden md:flex space-x-6 text-[1rem] font-semibold">
+          <Link to="/" className="text-black hover:text-blue dark:text-[#f0f0ee] dark:hover:text-blue transition-colors">
+            Home
+          </Link>
+          <Link to="/about" className="text-black hover:text-blue dark:text-[#f0f0ee] dark:hover:text-blue transition-colors">
+            About
+          </Link>
+          <Link to="/services" className="text-black hover:text-blue dark:text-[#f0f0ee] dark:hover:text-blue transition-colors">
+            Services
+          </Link>
+          <Link to="/contact" className="text-black hover:text-blue dark:text-[#f0f0ee] dark:hover:text-blue transition-colors">
+            Contact
+          </Link>
+        </nav>
 
-      <div className="flex space-x-2 pr-2 items-center">
-        <div className='hidden md:block'>
-          <SocialLinks />
+        <div className="flex space-x-2 pr-2 items-center">
+          <div className='hidden md:block'>
+            <SocialLinks />
+          </div>
+          {/* Theme Toggle */}
+          <ThemeToggle />
+
+          {/* Menu Toggle Button */}
+          <button onClick={toggleSidebar} className="md:hidden p-2 text-3xl text-black dark:text-white z-50 relative focus:outline-none border-none bg-transparent">
+            {isOpen ? <HiX /> : <HiMenuAlt4 />}
+          </button>
         </div>
-        {/* Theme Toggle */}
-        <ThemeToggle />
-
-        {/* Menu Toggle Button */}
-        <button onClick={toggleSidebar} className="md:hidden p-2 text-3xl text-black dark:text-white z-50 relative focus:outline-none border-none bg-transparent">
-          {isOpen ? <HiX /> : <HiMenuAlt4 />}
-        </button>
       </div>
     </header>
   );
