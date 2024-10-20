@@ -1,0 +1,830 @@
+[
+    {
+        "Locality": "Aamaret Shalhoub",
+        "Governorate": "Mount Lebanon",
+        "Name": "Saint Elie",
+        "Number": "01 880098"
+    },
+    {
+        "Locality": "Aamaret Shalhoub",
+        "Governorate": "Mount Lebanon",
+        "Name": "Nqoula",
+        "Number": "01 899399"
+    },
+    {
+        "Locality": "Achrafieh",
+        "Governorate": "Beirut",
+        "Name": "Nour",
+        "Number": "01 202283"
+    },
+    {
+        "Locality": "Achrafieh",
+        "Governorate": "Beirut",
+        "Name": "Achrafieh",
+        "Number": "01 321258"
+    },
+    {
+        "Locality": "Achrafieh",
+        "Governorate": "Beirut",
+        "Name": "Hote Dieu",
+        "Number": "01 614760"
+    },
+    {
+        "Locality": "Ain Mreisseh",
+        "Governorate": "Beirut",
+        "Name": "Ain Mreisseh",
+        "Number": "01 356999"
+    },
+    {
+        "Locality": "Ain Remmeneh",
+        "Governorate": "Mount Lebanon",
+        "Name": "Anna",
+        "Number": "01 545121"
+    },
+    {
+        "Locality": "Ain Remmeneh",
+        "Governorate": "Mount Lebanon",
+        "Name": "Antoun",
+        "Number": "01 281416"
+    },
+    {
+        "Locality": "Akkar",
+        "Governorate": "Akkar",
+        "Name": "Sandra",
+        "Number": "06 028692"
+    },
+    {
+        "Locality": "Akkar",
+        "Governorate": "Akkar",
+        "Name": "PharmaLife",
+        "Number": "06 350 905"
+    },
+    {
+        "Locality": "AL Absyeh",
+        "Governorate": "South",
+        "Name": "Al Nour",
+        "Number": "07 342 742"
+    },
+    {
+        "Locality": "AL Akbyeh",
+        "Governorate": "South",
+        "Name": "Bazoun",
+        "Number": "07 260 640"
+    },
+    {
+        "Locality": "AL Dawra",
+        "Governorate": "Mount Lebanon",
+        "Name": "Matar",
+        "Number": "01 243 334"
+    },
+    {
+        "Locality": "AL Dawra",
+        "Governorate": "Mount Lebanon",
+        "Name": "Saint Rafaa",
+        "Number": "01 265 102"
+    },
+    {
+        "Locality": "Al Dweir",
+        "Governorate": "South",
+        "Name": "Ali",
+        "Number": "07 436 788"
+    },
+    {
+        "Locality": "Al Ghazieh",
+        "Governorate": "South",
+        "Name": "Adam",
+        "Number": "07 224 413"
+    },
+    {
+        "Locality": "AL Marej",
+        "Governorate": "Bekaa",
+        "Name": "AL Mahba",
+        "Number": "03 763 671"
+    },
+    {
+        "Locality": "AL Maten",
+        "Governorate": "Mount Lebanon",
+        "Name": "Pascal",
+        "Number": "04 982 482"
+    },
+    {
+        "Locality": "Al Zaydanieh",
+        "Governorate": "Beirut",
+        "Name": "Al Shiaar Al Jadeed",
+        "Number": "01 788 129"
+    },
+    {
+        "Locality": "Aley",
+        "Governorate": "Mount Lebanon",
+        "Name": "Pharmaost",
+        "Number": "05 554 059"
+    },
+    {
+        "Locality": "Aley",
+        "Governorate": "Mount Lebanon",
+        "Name": "Kareem",
+        "Number": "05 559 048"
+    },
+    {
+        "Locality": "Aley",
+        "Governorate": "Mount Lebanon",
+        "Name": "Reef",
+        "Number": "05 552 882"
+    },
+    {
+        "Locality": "Amarat Shalhoub",
+        "Governorate": "Mount Lebanon",
+        "Name": "Khoury",
+        "Number": "03 539 666"
+    },
+    {
+        "Locality": "Amchit",
+        "Governorate": "Mount Lebanon",
+        "Name": "Nour",
+        "Number": "09 624 471"
+    },
+    {
+        "Locality": "Amioun",
+        "Governorate": "North",
+        "Name": "Jessie",
+        "Number": "06 951 999"
+    },
+    {
+        "Locality": "Amrousieh",
+        "Governorate": "Mount Lebanon",
+        "Name": "Bazzeh",
+        "Number": "03 250 221"
+    },
+    {
+        "Locality": "Ansryeh",
+        "Governorate": "South",
+        "Name": "Mariam",
+        "Number": "07 390 547"
+    },
+    {
+        "Locality": "Antelias",
+        "Governorate": "Mount Lebanon",
+        "Name": "Saint Therese",
+        "Number": "04 525 676"
+    },
+    {
+        "Locality": "Antelias",
+        "Governorate": "Mount Lebanon",
+        "Name": "New Trad",
+        "Number": "01 797 268"
+    },
+    {
+        "Locality": "Ashkoot",
+        "Governorate": "Mount Lebanon",
+        "Name": "Rita",
+        "Number": "09 953 376"
+    },
+    {
+        "Locality": "Baabda",
+        "Governorate": "Mount Lebanon",
+        "Name": "Feghaly",
+        "Number": "05 952 241"
+    },
+    {
+        "Locality": "Badaro",
+        "Governorate": "Beirut",
+        "Name": "Badaro",
+        "Number": "01 324 623"
+    },
+    {
+        "Locality": "Balouneh",
+        "Governorate": "Mount Lebanon",
+        "Name": "Emilio Alouf",
+        "Number": "03 953 375"
+    },
+    {
+        "Locality": "Batroun",
+        "Governorate": "North",
+        "Name": "Dagher",
+        "Number": "06 740 123"
+    },
+    {
+        "Locality": "Beer Hassan",
+        "Governorate": "Mount Lebanon",
+        "Name": "Asia",
+        "Number": "01 838 538"
+    },
+    {
+        "Locality": "Beit Mery",
+        "Governorate": "Mount Lebanon",
+        "Name": "Broumieh Swan",
+        "Number": "04 530 260"
+    },
+    {
+        "Locality": "Barr Elias",
+        "Governorate": "Bekaa",
+        "Name": "Pharma Line",
+        "Number": "08 511 780"
+    },
+    {
+        "Locality": "Bikfaya",
+        "Governorate": "Mount Lebanon",
+        "Name": "Bikfaya",
+        "Number": "04 984 981"
+    },
+    {
+        "Locality": "Bourj Brajneh",
+        "Governorate": "Mount Lebanon",
+        "Name": "Manar",
+        "Number": "01 451132"
+    },
+    {
+        "Locality": "Broumana",
+        "Governorate": "Mount Lebanon",
+        "Name": "Sabah",
+        "Number": "04 961999"
+    },
+    {
+        "Locality": "Burj Ain El Sekkeh",
+        "Governorate": "Mount Lebanon",
+        "Name": "Jamal Jaber",
+        "Number": "01 450106"
+    },
+    {
+        "Locality": "Burj Brajneh",
+        "Governorate": "Mount Lebanon",
+        "Name": "Kasseer",
+        "Number": "01 450402"
+    },
+    {
+        "Locality": "Burj Brajneh",
+        "Governorate": "Mount Lebanon",
+        "Name": "Alsadek",
+        "Number": "01 456708"
+    },
+    {
+        "Locality": "Chiyah",
+        "Governorate": "Mount Lebanon",
+        "Name": "Mazen",
+        "Number": "01 278888"
+    },
+    {
+        "Locality": "Chiyah",
+        "Governorate": "Mount Lebanon",
+        "Name": "Faten",
+        "Number": "01 278737"
+    },
+    {
+        "Locality": "Chtoura",
+        "Governorate": "Bekaa",
+        "Name": "Chtoura",
+        "Number": "08 540507"
+    },
+    {
+        "Locality": "Chweifat",
+        "Governorate": "Mount Lebanon",
+        "Name": "Grand",
+        "Number": "05 800090"
+    },
+    {
+        "Locality": "Chweifat",
+        "Governorate": "Mount Lebanon",
+        "Name": "Ziad",
+        "Number": "05 441949"
+    },
+    {
+        "Locality": "Chweifat",
+        "Governorate": "Mount Lebanon",
+        "Name": "Aljurdy",
+        "Number": "05 437950"
+    },
+    {
+        "Locality": "Dbayeh",
+        "Governorate": "Mount Lebanon",
+        "Name": "Mashmousheh",
+        "Number": "01 315777"
+    },
+    {
+        "Locality": "Dbayeh",
+        "Governorate": "Mount Lebanon",
+        "Name": "Saint Elia",
+        "Number": "04 546899"
+    },
+    {
+        "Locality": "Dhour Shweir",
+        "Governorate": "Mount Lebanon",
+        "Name": "Al Shweir",
+        "Number": "04 390092"
+    },
+    {
+        "Locality": "Fatqa",
+        "Governorate": "Mount Lebanon",
+        "Name": "Saint Joseph",
+        "Number": "09 741076"
+    },
+    {
+        "Locality": "Forn El Chebbek",
+        "Governorate": "Mount Lebanon",
+        "Name": "New Forn El Chebbek",
+        "Number": "01 291152"
+    },
+    {
+        "Locality": "Forn El Chebbek",
+        "Governorate": "Mount Lebanon",
+        "Name": "New Forn El Chebbek",
+        "Number": "01 291151"
+    },
+    {
+        "Locality": "Forn El Chebbek",
+        "Governorate": "Mount Lebanon",
+        "Name": "Al Shifaa'",
+        "Number": "01 291202"
+    },
+    {
+        "Locality": "Ghoubeiry",
+        "Governorate": "Mount Lebanon",
+        "Name": "Kolkas",
+        "Number": "01 555983"
+    },
+    {
+        "Locality": "Hadath",
+        "Governorate": "Mount Lebanon",
+        "Name": "New Mount Lebanon",
+        "Number": "05 459880"
+    },
+    {
+        "Locality": "Hadath",
+        "Governorate": "Mount Lebanon",
+        "Name": "Jabal Lebanon Al Jadeda",
+        "Number": "05 459880"
+    },
+    {
+        "Locality": "Halba",
+        "Governorate": "Akkar",
+        "Name": "Al Sharif",
+        "Number": "06 690468"
+    },
+    {
+        "Locality": "Hamra",
+        "Governorate": "Beirut",
+        "Name": "Alkolieh",
+        "Number": "01 367900"
+    },
+    {
+        "Locality": "Hamra",
+        "Governorate": "Beirut",
+        "Name": "Al Madina",
+        "Number": "01 349349"
+    },
+    {
+        "Locality": "Haret Hreik",
+        "Governorate": "Mount Lebanon",
+        "Name": "Jalal",
+        "Number": "01 546761"
+    },
+    {
+        "Locality": "Haret Hreik",
+        "Governorate": "Mount Lebanon",
+        "Name": "Hakim",
+        "Number": "01 278858"
+    },
+    {
+        "Locality": "Haret Hreik",
+        "Governorate": "Mount Lebanon",
+        "Name": "Al Qa'em",
+        "Number": "01 273852"
+    },
+    {
+        "Locality": "Haret Hreik",
+        "Governorate": "Mount Lebanon",
+        "Name": "Taleb",
+        "Number": "01 545692"
+    },
+    {
+        "Locality": "Hazmieh",
+        "Governorate": "Mount Lebanon",
+        "Name": "Express",
+        "Number": "01 280644"
+    },
+    {
+        "Locality": "Hazmieh",
+        "Governorate": "Mount Lebanon",
+        "Name": "Martaqla",
+        "Number": "05 950318"
+    },
+    {
+        "Locality": "Hazmieh",
+        "Governorate": "Mount Lebanon",
+        "Name": "Pharmarin",
+        "Number": "05 955751"
+    },
+    {
+        "Locality": "Hazmieh",
+        "Governorate": "Mount Lebanon",
+        "Name": "New Gardenia",
+        "Number": "05 452314"
+    },
+    {
+        "Locality": "Hazmieh",
+        "Governorate": "Mount Lebanon",
+        "Name": "Pharma Life",
+        "Number": "05 455255"
+    },
+    {
+        "Locality": "Hotel Dieu",
+        "Governorate": "Beirut",
+        "Name": "Adleiyeh",
+        "Number": "01 422900"
+    },
+    {
+        "Locality": "Jal El Deib",
+        "Governorate": "Mount Lebanon",
+        "Name": "Saint Michael",
+        "Number": "01 562802"
+    },
+    {
+        "Locality": "Jbeil",
+        "Governorate": "Beirut",
+        "Name": "Frem",
+        "Number": "09 322121"
+    },
+    {
+        "Locality": "Jbeil",
+        "Governorate": "Mount Lebanon",
+        "Name": "Saint George",
+        "Number": "09 541147"
+    },
+    {
+        "Locality": "Jbeil",
+        "Governorate": "Mount Lebanon",
+        "Name": "Rahbany",
+        "Number": "09 946 100"
+    },
+    {
+        "Locality": "Jbeil",
+        "Governorate": "Mount Lebanon",
+        "Name": "Desiree",
+        "Number": "09 949 959"
+    },
+    {
+        "Locality": "Jnah",
+        "Governorate": "Beirut",
+        "Name": "Summerland",
+        "Number": "01 853 215"
+    },
+    {
+        "Locality": "Jnah",
+        "Governorate": "Beirut",
+        "Name": "Daloul",
+        "Number": "01 820202"
+    },
+    {
+        "Locality": "Jounieh",
+        "Governorate": "Mount Lebanon",
+        "Name": "Mouwad",
+        "Number": "09 930223"
+    },
+    {
+        "Locality": "Khalda ALKoba",
+        "Governorate": "Mount Lebanon",
+        "Name": "Grand",
+        "Number": "05 800090"
+    },
+    {
+        "Locality": "Kmatieh",
+        "Governorate": "Mount Lebanon",
+        "Name": "Marina Pharm",
+        "Number": "03 956970"
+    },
+    {
+        "Locality": "Kob Elias",
+        "Governorate": "Bekaa",
+        "Name": "Rasha ALTobyeh",
+        "Number": "08 501 955"
+    },
+    {
+        "Locality": "Korneesh Mazraa",
+        "Governorate": "Beirut",
+        "Name": "Jamal",
+        "Number": "01 303 365"
+    },
+    {
+        "Locality": "Korneesh Mazraa",
+        "Governorate": "Beirut",
+        "Name": "Mazen",
+        "Number": "01 313 362"
+    },
+    {
+        "Locality": "Kornet Shahwan",
+        "Governorate": "Mount Lebanon",
+        "Name": "Saint Claire",
+        "Number": "04 915 020"
+    },
+    {
+        "Locality": "Koura",
+        "Governorate": "North",
+        "Name": "Nehmeh",
+        "Number": "86 558 797"
+    },
+    {
+        "Locality": "Koura",
+        "Governorate": "North",
+        "Name": "Rima",
+        "Number": "06 953 112"
+    },
+    {
+        "Locality": "Kraytem",
+        "Governorate": "Beirut",
+        "Name": "Kraytem",
+        "Number": "01 781 414"
+    },
+    {
+        "Locality": "Majdal Slem",
+        "Governorate": "South",
+        "Name": "AL Mojtaba",
+        "Number": "07 371 020"
+    },
+    {
+        "Locality": "Mar Roukouz",
+        "Governorate": "Mount Lebanon",
+        "Name": "Green Pharmacy",
+        "Number": "01 680 105"
+    },
+    {
+        "Locality": "Mathaf",
+        "Governorate": "Beirut",
+        "Name": "Mathaf",
+        "Number": "01 615 823"
+    },
+    {
+        "Locality": "Mazraat Yashoa",
+        "Governorate": "Mount Lebanon",
+        "Name": "Hakim",
+        "Number": "04 926 925"
+    },
+    {
+        "Locality": "Mazraat Yashoa",
+        "Governorate": "Mount Lebanon",
+        "Name": "Saint Rita",
+        "Number": "04 915 422"
+    },
+    {
+        "Locality": "Msaytbeh",
+        "Governorate": "Beirut",
+        "Name": "Ksar",
+        "Number": "01 366 122"
+    },
+    {
+        "Locality": "Nabatiyeh",
+        "Governorate": "Nabatiyeh",
+        "Name": "Jalal",
+        "Number": "07 370 909"
+    },
+    {
+        "Locality": "Nabatiyeh",
+        "Governorate": "Nabatiyeh",
+        "Name": "Al Amiri",
+        "Number": "03 031 006"
+    },
+    {
+        "Locality": "Nabatiyeh",
+        "Governorate": "Nabatiyeh",
+        "Name": "Souzan",
+        "Number": "07 769 198"
+    },
+    {
+        "Locality": "Nabatiyeh",
+        "Governorate": "Nabatiyeh",
+        "Name": "Al Ekleem",
+        "Number": "07 533 103"
+    },
+    {
+        "Locality": "Nehme Highway",
+        "Governorate": "Mount Lebanon",
+        "Name": "Pharma Sea",
+        "Number": "05 603 244"
+    },
+    {
+        "Locality": "Ras Beirut",
+        "Governorate": "Beirut",
+        "Name": "Ras Beirut",
+        "Number": "01 788 383"
+    },
+    {
+        "Locality": "Ras Beirut",
+        "Governorate": "Beirut",
+        "Name": "Kadoura",
+        "Number": "01 740 106"
+    },
+    {
+        "Locality": "Ras Esta",
+        "Governorate": "North",
+        "Name": "Jihad",
+        "Number": "08 660 623"
+    },
+    {
+        "Locality": "Rawche",
+        "Governorate": "Beirut",
+        "Name": "Sami",
+        "Number": "01 343 888"
+    },
+    {
+        "Locality": "Saad Nayel",
+        "Governorate": "Bekaa",
+        "Name": "Shoubasi",
+        "Number": "08 508 107"
+    },
+    {
+        "Locality": "Sahel Almaa",
+        "Governorate": "Mount Lebanon",
+        "Name": "Basil",
+        "Number": "09 637 363"
+    },
+    {
+        "Locality": "Sarafand",
+        "Governorate": "South",
+        "Name": "Khalife",
+        "Number": "03 388 267"
+    },
+    {
+        "Locality": "Sebline",
+        "Governorate": "Mount Lebanon",
+        "Name": "Sebline",
+        "Number": "07 972 498"
+    },
+    {
+        "Locality": "Sidon",
+        "Governorate": "South",
+        "Name": "AL Morjan",
+        "Number": "07 722 009"
+    },
+    {
+        "Locality": "Sidon",
+        "Governorate": "South",
+        "Name": "Riham",
+        "Number": "07 752 200"
+    },
+    {
+        "Locality": "Sidon",
+        "Governorate": "South",
+        "Name": "AL Basat",
+        "Number": "07 721 821"
+    },
+    {
+        "Locality": "Sidon",
+        "Governorate": "South",
+        "Name": "Mashmoushi",
+        "Number": "07 753 864"
+    },
+    {
+        "Locality": "Sidon",
+        "Governorate": "South",
+        "Name": "AL Habbal",
+        "Number": "07 751 446"
+    },
+    {
+        "Locality": "Sidon",
+        "Governorate": "South",
+        "Name": "Jardaly",
+        "Number": "07 723 051"
+    },
+    {
+        "Locality": "Sidon",
+        "Governorate": "South",
+        "Name": "Baasiri",
+        "Number": "07 725 623"
+    },
+    {
+        "Locality": "Sidon",
+        "Governorate": "South",
+        "Name": "Down Town",
+        "Number": "07 753 227"
+    },
+    {
+        "Locality": "Sidon",
+        "Governorate": "South",
+        "Name": "Al Helo",
+        "Number": "07 750 076"
+    },
+    {
+        "Locality": "Sidon",
+        "Governorate": "South",
+        "Name": "Al Mostafa",
+        "Number": "07 754 055"
+    },
+    {
+        "Locality": "Sidon",
+        "Governorate": "South",
+        "Name": "Rassil",
+        "Number": "76 558 797"
+    },
+    {
+        "Locality": "Sodeco",
+        "Governorate": "Beirut",
+        "Name": "Sodeco Square",
+        "Number": "01 422 428"
+    },
+    {
+        "Locality": "Talet Khayyat",
+        "Governorate": "Beirut",
+        "Name": "Al Labban",
+        "Number": "01 788 388"
+    },
+    {
+        "Locality": "Airport Road",
+        "Governorate": "Mount Lebanon",
+        "Name": "Zeitouna",
+        "Number": "01 453 130"
+    },
+    {
+        "Locality": "Airport Road",
+        "Governorate": "Mount Lebanon",
+        "Name": "Alsaha",
+        "Number": "01 458 354"
+    },
+    {
+        "Locality": "Tripoli",
+        "Governorate": "North",
+        "Name": "Alem",
+        "Number": "06 626 000"
+    },
+    {
+        "Locality": "Tripoli",
+        "Governorate": "North",
+        "Name": "Zein",
+        "Number": "06 383 735"
+    },
+    {
+        "Locality": "Tripoli",
+        "Governorate": "North",
+        "Name": "AL Aoutour",
+        "Number": "06 427 476"
+    },
+    {
+        "Locality": "Tripoli",
+        "Governorate": "North",
+        "Name": "MinaPharm ALHalabi",
+        "Number": "06 441 970"
+    },
+    {
+        "Locality": "Tripoli",
+        "Governorate": "North",
+        "Name": "Chaza",
+        "Number": "06 200 050"
+    },
+    {
+        "Locality": "Tripoli",
+        "Governorate": "North",
+        "Name": "AL Fhayhaa",
+        "Number": "06 433 311"
+    },
+    {
+        "Locality": "Tripoli",
+        "Governorate": "North",
+        "Name": "Karima",
+        "Number": "06 600 462"
+    },
+    {
+        "Locality": "Tripoli",
+        "Governorate": "North",
+        "Name": "Al Thouraya",
+        "Number": "06 390 901"
+    },
+    {
+        "Locality": "Zahleh",
+        "Governorate": "Bekaa",
+        "Name": "Pharma Ville",
+        "Number": "08 800 204"
+    },
+    {
+        "Locality": "Zgharta",
+        "Governorate": "North",
+        "Name": "Mar Charbel",
+        "Number": "06 666 156"
+    },
+    {
+        "Locality": "Zouk Khrab",
+        "Governorate": "Mount Lebanon",
+        "Name": "Saint Elia",
+        "Number": "04 546 899"
+    },
+    {
+        "Locality": "Zouk Mkeyel",
+        "Governorate": "Mount Lebanon",
+        "Name": "New Zouk",
+        "Number": "09 213 615"
+    },
+    {
+        "Locality": "Zouk Mkeyel",
+        "Governorate": "Mount Lebanon",
+        "Name": "Layal",
+        "Number": "03 376 749"
+    },
+    {
+        "Locality": "Zouk Mosbeh",
+        "Governorate": "Mount Lebanon",
+        "Name": "Saint Therese",
+        "Number": "09 231 980"
+    },
+    {
+        "Locality": "Zouk Mosbeh",
+        "Governorate": "Mount Lebanon",
+        "Name": "Pharma Ville",
+        "Number": "09 223 171"
+    }
+]

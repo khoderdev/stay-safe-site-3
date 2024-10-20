@@ -81,7 +81,7 @@ export default function Header() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.5 }}
           exit={{ opacity: 0 }}
-          onClick={toggleSidebar} 
+          onClick={toggleSidebar}
         />
       )}
 
@@ -107,8 +107,9 @@ export default function Header() {
             <SocialLinks />
           </div>
           {/* Theme Toggle */}
-          <ThemeToggle />
-
+          <div className='z-50 '>
+            <ThemeToggle />
+          </div>
           {/* Menu Toggle Button */}
           <button onClick={toggleSidebar} className="md:hidden p-2 text-3xl text-black dark:text-white z-50 relative focus:outline-none border-none bg-transparent">
             {isOpen ? <HiX /> : <HiMenuAlt4 />}

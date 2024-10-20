@@ -28,8 +28,8 @@ const useAnimatedSplitting = (className, options = {}) => {
           rotationX: () => gsap.utils.random(-90, 90),
         },
         {
-          duration: options.duration || 2, // Use passed duration or default to 2
-          ease: options.ease || 'expo', // Use passed ease or default to 'expo'
+          duration: options.duration || 2, 
+          ease: options.ease || 'expo',
           opacity: 1,
           rotationX: 0,
           rotationY: 0,
@@ -37,8 +37,8 @@ const useAnimatedSplitting = (className, options = {}) => {
           yPercent: 0,
           z: 0,
           stagger: {
-            each: options.stagger || 0.2, // Use passed stagger or default to 0.2
-            from: options.from || 'random', // Use passed from option or default to 'random'
+            each: options.stagger || 0.2, 
+            from: options.from || 'random', 
           },
         }
       );

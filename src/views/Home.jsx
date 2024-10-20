@@ -3,7 +3,11 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import Hero from '../components/hero/Hero';
-// import MotionGrid from '../components/grid/AppStoreCard';
+import SearchPharmacies from "../components/pharmacies/SearchPharmacies";
+import PackYearsCalculator from "../components/calculator/index";
+import MediDietScore from '../components/calculator/medi-diet-score/MediDietScore';
+import PHQ9 from '../components/depressing-screening/PHQ9';
+import OnScrollComponent from '../components/dx-prevention/OnScrollComponent';
 
 export default function Home() {
   const main = useRef();
@@ -47,12 +51,19 @@ export default function Home() {
         <Hero />
       </section>
       <section className="panel bg-white dark:bg-[#000]">
-
+        <OnScrollComponent />
       </section>
-      <section className="panel bg-[#f0f0fe] dark:bg-black">TWO</section>
-      <section className="panel bg-white dark:bg-[#000]">THREE</section>
       <section className="panel bg-[#f0f0fe] dark:bg-black">
-        {/* <MotionGrid /> */}
+        <SearchPharmacies />
+      </section>
+      <section className="panel bg-white dark:bg-[#000]">
+        <PackYearsCalculator />
+      </section>
+      <section className="panel bg-[#f0f0fe] dark:bg-black">
+        <MediDietScore />
+      </section>
+      <section className="panel bg-[#fff] dark:bg-black">
+        <PHQ9 />
       </section>
     </main>
   );

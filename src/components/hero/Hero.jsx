@@ -91,7 +91,7 @@ const sliderVariants = {
 const Hero = () => {
 
   return (
-    <div className='hero sm:p-6 -mt-[25rem] text-black dark:text-[#f0f0ee]'>
+    <div className='hero sm:p-6 -mt-[18rem] text-black dark:text-[#f0f0ee]'>
       <div className="wrapper">
         <motion.div
           className="textContainer"
@@ -99,8 +99,8 @@ const Hero = () => {
           initial='initial'
           animate='animate'
         >
-          <motion.h2 variants={textVariants} className='pb-10 text-pink'>
-            StaySafe
+          <motion.h2 variants={textVariants} className='pb-4 text-4xl text-pink'>
+            Stay Safe
           </motion.h2>
 
           <motion.h1
@@ -130,7 +130,7 @@ const Hero = () => {
       </div>
       <div style={{ overflow: 'hidden', whiteSpace: 'nowrap', width: '100%' }}>
         <motion.div
-          className="slidingTextContainer !text-slate-200"
+          className="slidingTextContainer !text-slate-200 dark:!text-[#212121]"
           variants={sliderVariants}
           initial='initial'
           animate='animate'
