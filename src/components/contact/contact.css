@@ -1,0 +1,125 @@
+.contact {
+  height: 100dvh;
+  max-width: 1000px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+@media (max-width: 738px) {
+  .contact {
+    width: 100%;
+    padding: 10px;
+    flex-direction: column;
+    gap: 0px;
+  }
+}
+
+.contact .textContainer {
+  font-size: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+@media (max-width: 738px) {
+  .contact .textContainer {
+    /* display: flex; */
+    gap: 50px;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+.contact .textContainer h1 {
+  font-size: 68px;
+  line-height: 66px;
+}
+
+@media (max-width: 738px) {
+  .contact .textContainer h1 {
+    font-size: 32px;
+  }
+}
+
+.contact .textContainer span {
+  font-weight: 300;
+}
+
+.contact .formContainer {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+@media (max-width: 738px) {
+  .contact .formContainer {
+    width: 100%;
+    /* margin-top: 40px; */
+    padding: 50px;
+  }
+}
+
+.contact .formContainer .phoneSvgWrap {
+  stroke: #e55e72;
+  position: absolute;
+  margin: auto;
+  z-index: -1;
+}
+
+/* .contact .formContainer .phoneSvgWrap .phoneSvg {
+  width: 380px;
+  height: 450px;
+  border: solid white 1px;
+} */
+
+@media (max-width: 738px) {
+  .contact .formContainer .phoneSvgWrap .phoneSvg {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+.contact .formContainer form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact .formContainer form input,
+.contact .formContainer form textarea {
+  padding: 20px;
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  border-radius: 5px;
+}
+
+@media (max-width: 738px) {
+  .contact .formContainer form input,
+  .contact .formContainer form textarea {
+    padding: 10px;
+  }
+}
+
+.contact .formContainer form button {
+  padding: 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #e55e72;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+@media (max-width: 738px) {
+  .contact .formContainer form button {
+    padding: 10px;
+  }
+}

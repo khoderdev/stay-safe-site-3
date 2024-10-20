@@ -1,0 +1,73 @@
+.nav {
+	width: 100dvw;
+	position: sticky;
+}
+
+nav ul {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	gap: 1rem;
+	list-style: none;
+	animation: fadeIn 1s ease-out;
+}
+
+/* Animate the list items */
+nav li {
+	animation: slideIn 0.8s ease-in-out;
+}
+
+nav li a {
+	/* color: var(--white, #fff); */
+	text-decoration: none;
+	font-size: 15px;
+	display: inline-block;
+	font-weight: 500;
+	position: relative;
+	transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+/* Add a hover effect to links */
+nav li a:hover {
+	color: var(--primary-color, #e55e72);
+	transform: scale(1.05);
+}
+
+/* Create an underline effect with animation */
+nav li a::after {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 3px;
+	bottom: -25px;
+	left: 0;
+	background-color: var(--primary-color, #e55e72);
+	transition: width 0.4s ease-in-out;
+}
+
+nav li a:hover::after {
+	width: 100%;
+}
+
+/* Keyframe animations */
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+		transform: translateY(-20px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes slideIn {
+	0% {
+		opacity: 0;
+		transform: translateX(-30px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
