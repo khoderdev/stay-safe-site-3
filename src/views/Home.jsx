@@ -8,6 +8,7 @@ import PackYearsCalculator from "../components/calculator/index";
 import MediDietScore from '../components/calculator/medi-diet-score/MediDietScore';
 import PHQ9 from '../components/depressing-screening/PHQ9';
 import OnScrollComponent from '../components/dx-prevention/OnScrollComponent';
+import SexualInfectionsQuiz from '../components/quiz/SexualInfectionsQuiz';
 
 export default function Home() {
   const main = useRef();
@@ -65,6 +66,9 @@ export default function Home() {
       <section className="panel bg-[#fff] dark:bg-black">
         <PHQ9 />
       </section>
+      {/* <section className="panel bg-white dark:bg-[#000] ">
+        <SexualInfectionsQuiz />
+      </section> */}
     </main>
   );
 }
