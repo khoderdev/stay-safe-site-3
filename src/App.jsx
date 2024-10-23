@@ -52,9 +52,9 @@ const router = createBrowserRouter([
       {
         path: "/write",
         element: (
-          // <PrivateRoute>
-          <Write />
-          // </PrivateRoute>
+          <PrivateRoute>
+            <Write />
+          </PrivateRoute>
         ),
       },
       {
@@ -145,7 +145,7 @@ function App() {
           ? 'transform'
           : 'fixed',
       });
-      
+
       ScrollTrigger.addEventListener('refresh', () => {
         locomotiveScroll.update(); // Update Locomotive Scroll positions
         ScrollTrigger.refresh();   // Refresh GSAP ScrollTrigger

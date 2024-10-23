@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 // import { useState, useContext } from "react";
 // import { Link, useNavigate } from "react-router-dom";
 // import { AuthContext } from "../hooks/authContext";
@@ -111,9 +112,10 @@ const Login = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen" style={{ backgroundImage: 'url("/stay2.webp")', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+    <div className="flex items-center justify-center min-h-screen relative" style={{ backgroundImage: 'url("/stay2.webp")', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
 
-      <div className="w-full max-w-md p-8 space-y-3 bg-white rounded-lg shadow-lg animate__animated animate__fadeIn">
+      <div className="w-full max-w-md p-8 space-y-3 bg-white rounded-lg shadow-lg animate__animated animate__fadeIn z-10">
         <h1 className="text-2xl font-semibold text-center">Login</h1>
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
@@ -148,7 +150,7 @@ const Login = () => {
           </div>
           <button
             type="submit"
-            className="w-full py-3 font-semibold text-white bg-blue-600 rounded hover:bg-blue-700 transition-colors duration-300"
+            className="btn-3 w-full py-3 font-semibold text-white bg-blue-600 rounded hover:bg-blue-700 transition-colors duration-300"
           >
             Login
           </button>
@@ -159,6 +161,8 @@ const Login = () => {
         </form>
       </div>
     </div>
+
+
   );
 };
 

@@ -117,7 +117,7 @@ export default function Header() {
         {currentUser ? (
           <span onClick={logout}>Logout</span>
         ) : (
-          <Link className="link" to="/login">
+          <Link className="link text-black dark:text-[#f0f0ee]" to="/login">
             Login
           </Link>
         )}
