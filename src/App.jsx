@@ -118,7 +118,7 @@ function App() {
       locomotiveScroll = new LocomotiveScroll({
         el: document.querySelector('[data-scroll-container]'),
         smooth: true,
-        lerp: 0.1, // Adjust the inertia (lower = more smoothness)
+        lerp: 0.05, // Adjust the inertia (lower = more smoothness)
         getDirection: true,
         mobile: {
           smooth: true,
@@ -145,11 +145,16 @@ function App() {
           ? 'transform'
           : 'fixed',
       });
-
+      
       ScrollTrigger.addEventListener('refresh', () => {
-        locomotiveScroll.update(); // Ensure footer is accounted for
-        ScrollTrigger.refresh();   // Recalculate GSAP triggers
+        locomotiveScroll.update(); // Update Locomotive Scroll positions
+        ScrollTrigger.refresh();   // Refresh GSAP ScrollTrigger
       });
+
+      // ScrollTrigger.addEventListener('refresh', () => {
+      //   locomotiveScroll.update(); // Ensure footer is accounted for
+      //   ScrollTrigger.refresh();   // Recalculate GSAP triggers
+      // });
 
       ScrollTrigger.refresh(); // Initial refresh
     })();

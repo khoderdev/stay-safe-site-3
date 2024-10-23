@@ -89,7 +89,8 @@ a {
 	overflow: visible;
 }
 
-footer {
+
+/* footer {
 	display: flex;
 	width: 100dvw;
 	height: 100dvh;
@@ -97,7 +98,7 @@ footer {
 	z-index: 10;
 	background-color: #333; 
 	padding: 20px;
-}
+} */
 
 /* Vertical scrollbar */
 ::-webkit-scrollbar {

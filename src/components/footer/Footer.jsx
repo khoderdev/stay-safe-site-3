@@ -2,9 +2,11 @@ import React from 'react'
 
 function Footer() {
   return (
-    <footer >
+    <div className='text-black dark:text-white text-4xl'>
+
       Footer
-    </footer>
+
+    </div>
   )
 }
 
