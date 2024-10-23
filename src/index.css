@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@400;600&display=swap'); */
 
 * {
 	margin: 0;
@@ -15,14 +14,20 @@
 	-webkit-font-smoothing: antialiased;
 }
 
+[data-scroll-container] {
+	overflow: hidden;
+}
+
 html,
 body {
 	margin: 0;
-	height: 100%;
+	width: 100dvw;
+	height: 100dvh;
 	overflow-x: hidden;
 	overflow-y: scroll;
 	-webkit-overflow-scrolling: touch;
 	overflow-scrolling: touch;
+	background-color: red;
 }
 
 .panel {
@@ -35,8 +40,48 @@ body {
 	text-align: center;
 	position: relative;
 	box-sizing: border-box;
-	padding: 10px;
+	height: 100dvh;
+	position: sticky;
+	top: 0;
+	scroll-behavior: smooth;
+	scroll-snap-type: y mandatory;
+	scroll-padding-top: 0px;
 }
+
+/* 
+.panel {
+	height: 100dvh;
+	position: sticky;
+	top: 0;
+	scroll-behavior: smooth;
+	scroll-snap-type: y mandatory;
+	scroll-padding-top: 0px;
+} */
+
+.section {
+	width: 100dvw;
+	height: 100dvh;
+	scroll-snap-align: center;
+}
+
+@media screen and (max-width: 1024px) {
+  .scroll-container {
+    overflow-y: scroll;
+    height: 100dvh;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    scroll-padding-top: 0px;
+  }
+}
+
+/* .scroll-container {
+	overflow-y: scroll;
+	height: 100dvh;
+	scroll-behavior: smooth;
+	scroll-snap-type: y mandatory;
+	scroll-padding-top: 0px;
+} */
+
 
 a {
 	text-decoration: none !important;
@@ -76,20 +121,6 @@ a {
 	background-color: #ff9900;
 }
 
-.panel {
-	height: 100dvh;
-	position: sticky;
-	top: 0;
-	scroll-behavior: smooth;
-	scroll-snap-type: y mandatory;
-	scroll-padding-top: 0px;
-}
-
-.section {
-	width: 100dvw;
-	height: 100dvh;
-	scroll-snap-align: center;
-}
 
 .btn-1 {
 	display: flex;
@@ -109,12 +140,36 @@ a {
 	font-weight: normal;
 }
 
+.btn-2 {
+	display: flex;
+	width: fit-content;
+	justify-content: space-between;
+	border: solid #0e100f 2px;
+	border-radius: 0.5rem;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	transition: all 0.3s ease;
+	color: #0e100f;
+	cursor: pointer;
+	box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+	font-size: 16px;
+	font-weight: normal;
+}
+
+.btn-2:hover {
+	border-color: #e55e72;
+	/* color: #48ffbc; */
+	background-color: #e55e72;
+}
+
 .btn-main-normal:hover {
 	border-color: #34d399;
 	/* color: #48ffbc; */
 	background-color: transparent;
 }
-.btn-main-lg {
+.btn-3 {
 	display: flex;
 	width: fit-content;
 	justify-content: space-between;
@@ -125,15 +180,16 @@ a {
 	padding-top: 4px;
 	padding-bottom: 4px;
 	transition: all 0.3s ease;
-	background-color: #000;
+	background-color: #0e100f;
 	cursor: pointer;
 	box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
 	font-size: 18px;
 	font-weight: normal;
 }
 
-.btn-main-lg:hover {
-	border-color: #34d399;
+.btn-3:hover {
+	color: #0e100f;
+	border-color: #0e100f;
 	border-width: 2px;
 	background-color: transparent;
 }
@@ -169,30 +225,6 @@ a {
 	border-color: #22c55e;
 	color: #fff;
 	background-color: transparent;
-}
-
-.btn-2 {
-	display: flex;
-	width: fit-content;
-	justify-content: space-between;
-	border: solid #e55e72 2px;
-	border-radius: 0.5rem;
-	padding-left: 10px;
-	padding-right: 10px;
-	padding-top: 2px;
-	padding-bottom: 2px;
-	transition: all 0.3s ease;
-	background-color: #000;
-	cursor: pointer;
-	box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
-	font-size: 16px;
-	font-weight: normal;
-}
-
-.btn-2:hover {
-	border-color: #e55e72;
-	/* color: #48ffbc; */
-	background-color: #e55e72;
 }
 
 .btn-bordered-yellow {

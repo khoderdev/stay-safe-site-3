@@ -1,14 +1,16 @@
-import { useState, useRef } from 'react';
+import { useState,useContext, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useTheme } from '../../hooks/useTheme';
+import { AuthContext } from "../../hooks/authContext";
 import ThemeToggle from './ThemeToggle';
 import { HiMenuAlt4, HiX } from 'react-icons/hi';
 import MenuLinks from './links/Links';
-import SocialLinks from './links/SocialLinks';
+// import SocialLinks from './links/SocialLinks';
 
 
 export default function Header() {
+  const { currentUser, logout } = useContext(AuthContext);
   const { theme } = useTheme();
   const headerRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
@@ -49,12 +51,12 @@ export default function Header() {
       >
         <Link to="/">
           <img
-            src="/logo-light.png"
+            src="/logo-dark.png"
             alt="staysafe-logo"
             className={`w-32 p-2 md:w-36 ${theme === 'dark' ? 'block' : 'hidden'}`}
           />
           <img
-            src="/logo-dark.png"
+            src="/logo-light.png"
             alt="staysafe-logo"
             className={`w-32 p-2 md:w-36 ${theme === 'dark' ? 'hidden' : 'block'}`}
           />
@@ -91,21 +93,39 @@ export default function Header() {
           <Link to="/" className="text-black hover:text-blue dark:text-[#f0f0ee] dark:hover:text-blue transition-colors">
             Home
           </Link>
-          <Link to="/about" className="text-black hover:text-blue dark:text-[#f0f0ee] dark:hover:text-blue transition-colors">
-            About
+          <Link to="/mdc" className="text-black hover:text-blue dark:text-[#f0f0ee] dark:hover:text-blue transition-colors">
+            MDC
           </Link>
-          <Link to="/services" className="text-black hover:text-blue dark:text-[#f0f0ee] dark:hover:text-blue transition-colors">
-            Services
+          <Link to="/enviremental-health" className="text-black hover:text-blue dark:text-[#f0f0ee] dark:hover:text-blue transition-colors">
+            Enviremental Health
           </Link>
-          <Link to="/contact" className="text-black hover:text-blue dark:text-[#f0f0ee] dark:hover:text-blue transition-colors">
-            Contact
+          <Link to="/ohs" className="text-black hover:text-blue dark:text-[#f0f0ee] dark:hover:text-blue transition-colors">
+            OHS
+          </Link>
+          <Link to="/patient-guidance-support" className="text-black hover:text-blue dark:text-[#f0f0ee] dark:hover:text-blue transition-colors">
+            Patient Guidance & Support
+          </Link>
+          <Link to="/about-us" className="text-black hover:text-blue dark:text-[#f0f0ee] dark:hover:text-blue transition-colors">
+            About us
+          </Link>
+          <Link to="/write" className="text-black hover:text-blue dark:text-[#f0f0ee] dark:hover:text-blue transition-colors">
+            Write
           </Link>
         </nav>
 
+        <span>{currentUser?.username}</span>
+        {currentUser ? (
+          <span onClick={logout}>Logout</span>
+        ) : (
+          <Link className="link" to="/login">
+            Login
+          </Link>
+        )}
+
         <div className="flex space-x-2 pr-2 items-center">
-          <div className='hidden md:block'>
+          {/* <div className='hidden md:block'>
             <SocialLinks />
-          </div>
+          </div> */}
           {/* Theme Toggle */}
           <div className='z-50 '>
             <ThemeToggle />

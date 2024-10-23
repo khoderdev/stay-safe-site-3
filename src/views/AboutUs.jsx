@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { VisitContext } from '../hooks/VisitContext'; // Import VisitContext
 
-const HomePage = () => {
+const AboutUsPage = () => {
   const { visitCount } = useContext(VisitContext);
 
   return (
@@ -12,4 +12,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default AboutUsPage;

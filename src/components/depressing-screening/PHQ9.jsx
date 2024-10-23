@@ -84,11 +84,11 @@ const PHQ9Quiz = () => {
     setCurrentStep(0);
     setAnswers({});
     setScore(null);
-    setGuidanceMessage(''); 
+    setGuidanceMessage('');
   };
 
   return (
-    <div className="flex flex-col bg-[#f0f0fe] dark:bg-[#000] justify-between py-6 lg:w-[60%] place-self-center rounded-xl drop-shadow-lg">
+    <div className="flex flex-col bg-white dark:!bg-[#000] justify-between py-6 lg:w-[60%] place-self-center rounded-xl drop-shadow-lg">
       <div className="quiz-container mb-4 flex justify-center">
         {score === null ? (
           <div className="w-full">
