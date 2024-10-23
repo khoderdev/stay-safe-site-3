@@ -88,7 +88,7 @@ const PHQ9Quiz = () => {
   };
 
   return (
-    <div className="flex flex-col bg-white dark:!bg-[#000] justify-between py-6 lg:w-[60%] place-self-center rounded-xl drop-shadow-lg">
+    <div className="flex flex-col justify-between py-6 lg:w-[60%] place-self-center rounded-xl drop-shadow-lg">
       <div className="quiz-container mb-4 flex justify-center">
         {score === null ? (
           <div className="w-full">
@@ -117,7 +117,7 @@ const PHQ9Quiz = () => {
                           className="hidden"
                         />
                         <motion.div
-                          className={`cube-radio !bg-[#f0f0fe] dark:!bg-black  !shadow-md ${answers[questions[currentStep].id] === index ? "selected" : ""
+                          className={`cube-radio !bg-[#f0f0fe] dark:!bg-black hover:animate-jump !shadow-md ${answers[questions[currentStep].id] === index ? "selected" : ""
                             }`}
                           initial={{ scale: 1 }}
                           animate={
