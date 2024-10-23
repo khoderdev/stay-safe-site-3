@@ -156,7 +156,8 @@ const Login = () => {
           </button>
           {err && <p className="text-red-500">{err}</p>}
           <span className="block text-center">
-            Don't you have an account? <Link to="/register" className="text-blue-600 hover:underline">Register</Link>
+            Don't you have an account?
+            <Link to="/register" className="text-blue ml-2 hover:underline">Register</Link>
           </span>
         </form>
       </div>

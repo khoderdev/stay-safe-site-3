@@ -22,12 +22,10 @@ function Layout() {
   return (
     <div className="flex flex-col min-h-screen !bg-white dark:!bg-[#000]" data-scroll-container>
       <Header />
-      <div className="flex-grow">
+      <div className="flex-grow overflow-scroll">
         <Outlet />
       </div>
-      {/* <div className="w-full border-2 border-green-500 z-40 !bg-white dark:!bg-[#212121]">
-      <Footer />
-      </div> */}
+      {/* <Footer /> */}
     </div>
   );
 }

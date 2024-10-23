@@ -3,9 +3,7 @@ import React from 'react'
 function Footer() {
   return (
     <div className='text-black dark:text-white text-4xl'>
-
       Footer
-
     </div>
   )
 }

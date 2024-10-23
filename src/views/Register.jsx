@@ -81,7 +81,7 @@ const Register = () => {
           </button>
           {err && <p className="text-red-500">{typeof err === "string" ? err : JSON.stringify(err)}</p>}
           <span className="block text-center">
-            Do you have an account? <Link to="/login" className="text-blue-600 hover:underline">Login</Link>
+            Do you have an account? <Link to="/login" className="text-blue ml-1 hover:underline">Login</Link>
           </span>
         </form>
       </div>

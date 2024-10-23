@@ -92,7 +92,7 @@ const Posts = () => {
   };
 
   return (
-    <div className="home p-6 dark:bg-black text-black dark:text-[#f0f0fe] transition-all duration-300">
+    <div className="flex h-full p-6 dark:bg-black text-black dark:text-[#f0f0fe] transition-all duration-300 overflow-y-scroll">
       <div className="posts grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {posts.map((post) => (
           <Link

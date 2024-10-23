@@ -1,4 +1,4 @@
-import { useState,useContext, useRef } from 'react';
+import { useState, useContext, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useTheme } from '../../hooks/useTheme';
@@ -113,15 +113,16 @@ export default function Header() {
           </Link>
         </nav>
 
-        <span>{currentUser?.username}</span>
-        {currentUser ? (
-          <span onClick={logout}>Logout</span>
-        ) : (
-          <Link className="link text-black dark:text-[#f0f0ee]" to="/login">
-            Login
-          </Link>
-        )}
-
+        <div className='hidden md:flex space-x-4 '>
+          <Link to='/posts' className="link text-black dark:text-[#f0f0ee]">{currentUser?.username}</Link>
+          {currentUser ? (
+            <span className="link text-black dark:text-[#f0f0ee]" onClick={logout}>Logout</span>
+          ) : (
+            <Link className="link text-black dark:text-[#f0f0ee]" to="/login">
+              Login
+            </Link>
+          )}
+        </div>
         <div className="flex space-x-2 pr-2 items-center">
           {/* <div className='hidden md:block'>
             <SocialLinks />
