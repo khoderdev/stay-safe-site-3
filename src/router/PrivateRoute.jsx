@@ -1,12 +1,28 @@
-import React, { useContext } from 'react';
+// import React, { useContext } from 'react';
+// import { Navigate } from 'react-router-dom';
+// import { useAuth } from '../hooks/useAuth';
+
+// const PrivateRoute = ({ children }) => {
+//   const { currentUser } = useContext(useAuth);
+//   console.log("Current User: ", currentUser);
+
+//   if (!currentUser) {
+//     return <Navigate to="/login" />;
+//   }
+
+//   return children;
+// };
+
+// export default PrivateRoute;
+import React from 'react';
 import { Navigate } from 'react-router-dom';
-import { AuthContext } from '../hooks/authContext';
+import { useAuth } from '../hooks/useAuth';
 
 const PrivateRoute = ({ children }) => {
-  const { currentUser } = useContext(AuthContext);
-  console.log("Current User: ", currentUser); // Debugging
+  const { user } = useAuth(); // Call the hook directly
+  console.log("Current User: ", user);
 
-  if (!currentUser) {
+  if (!user) {
     return <Navigate to="/login" />;
   }
 

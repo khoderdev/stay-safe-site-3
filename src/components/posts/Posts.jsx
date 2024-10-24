@@ -63,12 +63,16 @@
 // };
 
 // export default Posts;
+
+
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
 import moment from "moment";
+import { useAuth } from '../../hooks/useAuth';
 
 const Posts = () => {
+  const { token } = useAuth();
   const [posts, setPosts] = useState([]);
   const cat = useLocation().search;
 
@@ -76,6 +80,9 @@ const Posts = () => {
     const fetchData = async () => {
       try {
         const res = await axios.get(`http://localhost:8800/posts${cat}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
           withCredentials: true,
         });
         setPosts(res.data);
@@ -84,7 +91,7 @@ const Posts = () => {
       }
     };
     fetchData();
-  }, [cat]);
+  }, [cat, token]);
 
   const getText = (html) => {
     const doc = new DOMParser().parseFromString(html, "text/html");
@@ -92,8 +99,8 @@ const Posts = () => {
   };
 
   return (
-    <div className="flex h-full p-6 dark:bg-black text-black dark:text-[#f0f0fe] transition-all duration-300 overflow-y-scroll">
-      <div className="posts grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <div className="flex p-6 dark:text-[#f0f0fe] bg-[#fff] dark:bg-[#121212] transition-all duration-300">
+      <div className="posts grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 p-10 overflow-y-scroll">
         {posts.map((post) => (
           <Link
             to={`/post/${post.id}`}

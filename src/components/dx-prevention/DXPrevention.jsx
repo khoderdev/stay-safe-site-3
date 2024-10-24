@@ -286,7 +286,7 @@ function DXPrevention() {
     <div id="section-2">
       <div className="imageContainer">
         <motion.img
-          src='/prevention.gif'
+          src='/prev-circle.gif'
           alt='dx prevention'
           className='2xl:w-full'
         />

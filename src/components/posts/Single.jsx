@@ -1,185 +1,114 @@
-// import { useEffect, useState } from "react";
-// import Edit from "../img/edit.png";
-// import Delete from "../img/delete.png";
-// import { Link, useLocation, useNavigate } from "react-router-dom";
-// import Menu from "../components/Menu";
-// import axios from "axios";
-// import moment from "moment";
-// import { useContext } from "react";
-// import { AuthContext } from "../hooks/authContext";
-// import DOMPurify from "dompurify";
-
-// const Single = () => {
-//   const [post, setPost] = useState({});
-
-//   const location = useLocation();
-//   const navigate = useNavigate();
-
-//   const postId = location.pathname.split("/")[2];
-
-//   const { currentUser } = useContext(AuthContext);
-
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       try {
-//         const res = await axios.get(`http://localhost:8800/posts/${postId}`);
-//         setPost(res.data);
-//       } catch (err) {
-//         console.log(err);
-//       }
-//     };
-//     fetchData();
-//   }, [postId]);
-
-//   const handleDelete = async () => {
-//     try {
-//       await axios.delete(`http://localhost:8800/posts/${postId}`, {
-//         withCredentials: true,
-//       });
-//       navigate("/")
-//     } catch (err) {
-//       console.log(err);
-//     }
-//   }
-
-//   const getText = (html) => {
-//     const doc = new DOMParser().parseFromString(html, "text/html")
-//     return doc.body.textContent
-//   }
-
-//   return (
-//     <div className="single">
-//       <div className="content">
-//         <img src={`../../../api/upload/${post?.img}`} alt="" />
-//         <div className="user">
-//           {post.userImg && <img
-//             src={post.userImg}
-//             alt=""
-//           />}
-//           <div className="info">
-//             <span>{post.username}</span>
-//             <p>Posted {moment(post.date).fromNow()}</p>
-//           </div>
-//           {currentUser.username === post.username && (
-//             <div className="edit">
-//               <Link to={`/write?edit=2`} state={post}>
-//                 <img src={Edit} alt="" />
-//               </Link>
-//               <img onClick={handleDelete} src={Delete} alt="" />
-//             </div>
-//           )}
-//         </div>
-//         <h1>{post.title}</h1>
-//         <p
-//           dangerouslySetInnerHTML={{
-//             __html: DOMPurify.sanitize(post.desc),
-//           }}
-//         ></p>      </div>
-//       <Menu cat={post.cat} />
-//     </div>
-//   );
-// };
-
-// export default Single;
 import { useEffect, useState } from "react";
 import Edit from "./img/edit.png";
 import Delete from "./img/delete.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import PostImage from "./PostImage";
 import axios from "axios";
 import moment from "moment";
-import { useContext } from "react";
-import { AuthContext } from "../../hooks/authContext";
+import { useAuth } from "../../hooks/useAuth";
 import DOMPurify from "dompurify";
 
 const Single = () => {
+  const { token, user: currentUser } = useAuth();
   const [post, setPost] = useState({});
-
   const location = useLocation();
   const navigate = useNavigate();
-
   const postId = location.pathname.split("/")[2];
-
-  const { currentUser } = useContext(AuthContext);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`http://localhost:8800/posts/${postId}`);
+        const res = await axios.get(`http://localhost:8800/posts/${postId}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          withCredentials: true,
+        });
         setPost(res.data);
       } catch (err) {
-        console.log(err);
+        console.error(err);
       }
     };
     fetchData();
-  }, [postId]);
+  }, [postId, token]);
 
   const handleDelete = async () => {
     try {
       await axios.delete(`http://localhost:8800/posts/${postId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
         withCredentials: true,
       });
       navigate("/posts");
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   };
 
-  // const getText = (html) => {
-  //   const doc = new DOMParser().parseFromString(html, "text/html");
-  //   return doc.body.textContent;
-  // };
-
   return (
-    <div className="single w-full h-screen flex flex-col space-y-6 lg:space-y-0 lg:flex-row p-4 lg:p-8 lg:gap-16 text-gray-800 dark:text-[#f0f0fe] animate-fade-in border border-red-500">
+    <div className="single w-full h-screen flex flex-col p-4 text-gray-800 dark:text-[#f0f0fe]  bg-white dark:bg-gray-800 overflow-y-auto animate-fade-in lg:p-8 lg:pt-2">
+      <h1 className="text-3xl font-extrabold text-center text-gray-900 dark:text-white animate-fade-in mb-8">Post Details</h1>
 
-      <div className="content lg:w-[35%] p-1 space-y-4 border">
-        <h1 className="text-3xl font-bold">Details</h1>
 
-        <div className="user flex flex-col items-start">User:
-          <div className="flex items-center gap-4 ">
-            {post.userImg && (
+      <div className="content flex flex-col lg:flex-row space-y-8 w-full h-[100dvh] self-center p-4 border rounded-lg">
+
+        <div className="user flex lg:flex-col lg:w-[20rem] items-start lg:border-r">
+
+          <div className="w-full lg:w-fit flex space-x-3 ">
+            {post.user?.img ? (
               <img
-                src={post.userImg}
-                alt=""
-                className="w-12 h-12 rounded-full object-cover border-2 border-transparent shadow-sm"
+                src={post.user.img}
+                alt="User Avatar"
+                className="w-14 h-14 rounded-full object-cover border border-gray-300 shadow-sm"
               />
+            ) : (
+              <div className="w-14 h-14 rounded-full bg-gray-300" />
             )}
-
-            <div className="info flex flex-col">
-              <span className="font-semibold text-lg ">{post.username}</span>
-              <p className="text-sm">Posted {moment(post.date).fromNow()}</p>
+            <div className="info flex flex-col ">
+              <span className="font-semibold text-lg text-gray-800 dark:text-gray-200">{post.user?.username}</span>
+              <p className="text-sm text-gray-600 dark:text-gray-400">
+                Posted {moment(post.date).fromNow()}
+              </p>
             </div>
-            {currentUser?.username === post?.username && (
-              <div className="edit flex items-center gap-2 ml-auto">
-                <Link to={`/write?edit=2`} state={post} className="hover:opacity-80">
-                  <img src={Edit} alt="Edit" className="w-6 h-6 cursor-pointer" />
+          </div>
+
+          <div className="flex flex-col lg:flex-row lg:w-full justify-center lg:mt-4">
+            {currentUser?.id === post.uid && (
+              <div className="edit flex flex-col lg:flex-row items-center space-x-2">
+                <Link to={`/write?edit=2`} state={post} className="transition-opacity duration-200 hover:opacity-80">
+                  <img src={Edit} alt="Edit" className="w-7 h-7 cursor-pointer" />
                 </Link>
                 <img
                   onClick={handleDelete}
                   src={Delete}
                   alt="Delete"
-                  className="w-6 h-6 cursor-pointer hover:opacity-80"
+                  className="w-7 h-7 cursor-pointer transition-opacity duration-200 hover:opacity-80"
                 />
               </div>
             )}
           </div>
         </div>
-        <div className=" lg:mt-10 ">
-          <h1 className="text-xl font-bold">Post:</h1>
-          <h1 className="text-3xl font-bold animate-fade-down">{post.title}</h1>
-          <p
-            dangerouslySetInnerHTML={{
-              __html: DOMPurify.sanitize(post.desc),
-            }}
-            className="text-lg leading-relaxed"
-          ></p>
+
+        <div className="contents-and-img flex justify-around post-content">
+
+          <div className="w-[50%] flex flex-col items-center space-y-5">
+            <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-200 animate-fade-in">{post.title}</h2>
+            <p
+              dangerouslySetInnerHTML={{
+                __html: DOMPurify.sanitize(post.desc),
+              }}
+              className="text-lg leading-relaxed text-gray-700 dark:text-gray-300"
+            ></p>
+          </div>
+
+          <div className="flex justify-end border-green-500">
+            <img
+              src={`http://localhost:8800/upload/${post.img}`}
+              alt="Post Image"
+              className="max-w-[80%] object-cover"
+            />
+          </div>
         </div>
-      </div>
-      <div className="">
-        <PostImage 
-        cat={post.cat}
-         />
       </div>
     </div>
   );

@@ -29,6 +29,8 @@ import OHS from "./views/OHS";
 import EnvirementalHealth from "./views/EnvirementalHealth";
 import PatientGuidanceSupport from "./views/PatientGuidanceSupport";
 import PrivateRoute from './router/PrivateRoute';
+import CircularText from './components/dx-prevention/Circle';
+import Users from './views/Users';
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, useGSAP);
 
@@ -40,6 +42,14 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/users",
+        element: <Users />,
+      },
+      {
+        path: "/spin",
+        element: <CircularText />,
       },
       {
         path: "/posts",
@@ -109,12 +119,106 @@ const router = createBrowserRouter([
   },
 ]);
 
-function App() {
+// function App() {
 
+//   useEffect(() => {
+//     let locomotiveScroll;
+//     (async () => {
+//       const LocomotiveScroll = (await import('locomotive-scroll')).default;
+//       locomotiveScroll = new LocomotiveScroll({
+//         el: document.querySelector('[data-scroll-container]'),
+//         smooth: true,
+//         lerp: 0.05, // Adjust the inertia (lower = more smoothness)
+//         getDirection: true,
+//         mobile: {
+//           smooth: true,
+//         },
+//         tablet: {
+//           smooth: true,
+//         },
+//       });
+
+//       // Update ScrollTrigger on each scroll
+//       locomotiveScroll.on('scroll', ScrollTrigger.update);
+
+//       // Setup ScrollTrigger to sync with Locomotive Scroll
+//       ScrollTrigger.scrollerProxy('[data-scroll-container]', {
+//         scrollTop(value) {
+//           return arguments.length
+//             ? locomotiveScroll.scrollTo(value, 0, 0)
+//             : locomotiveScroll.scroll.instance.scroll.y;
+//         },
+//         getBoundingClientRect() {
+//           return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
+//         },
+//         pinType: document.querySelector('[data-scroll-container]').style.transform
+//           ? 'transform'
+//           : 'fixed',
+//       });
+
+//       ScrollTrigger.addEventListener('refresh', () => {
+//         locomotiveScroll.update(); // Update Locomotive Scroll positions
+//         ScrollTrigger.refresh();   // Refresh GSAP ScrollTrigger
+//       });
+
+
+
+//       ScrollTrigger.refresh(); // Initial refresh
+//     })();
+
+//     // Cleanup on unmount
+//     return () => locomotiveScroll?.destroy();
+//   }, []);
+
+// useEffect(() => {
+//   let locomotiveScroll;
+//   (async () => {
+//     const LocomotiveScroll = (await import('locomotive-scroll')).default;
+//     locomotiveScroll = new LocomotiveScroll({
+//       el: document.querySelector('[data-scroll-container]'),
+//       smooth: true,
+//       lerp: 0.1, // Adjust the inertia (lower = more smoothness)
+//       getDirection: true,
+//       mobile: {
+//         smooth: true,
+//       },
+//       tablet: {
+//         smooth: true,
+//       },
+//     });
+
+//     // Update ScrollTrigger on each scroll
+//     locomotiveScroll.on('scroll', ScrollTrigger.update);
+
+//     // Setup ScrollTrigger to sync with Locomotive Scroll
+//     ScrollTrigger.scrollerProxy('[data-scroll-container]', {
+//       scrollTop(value) {
+//         return arguments.length
+//           ? locomotiveScroll.scrollTo(value, 0, 0)
+//           : locomotiveScroll.scroll.instance.scroll.y;
+//       },
+//       getBoundingClientRect() {
+//         return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
+//       },
+//       pinType: document.querySelector('[data-scroll-container]').style.transform
+//         ? 'transform'
+//         : 'fixed',
+//     });
+
+//     ScrollTrigger.addEventListener('refresh', () => locomotiveScroll.update());
+//     ScrollTrigger.refresh();
+//   })();
+
+//   // Cleanup on unmount
+//   return () => locomotiveScroll?.destroy();
+// }, []);
+function App() {
   useEffect(() => {
     let locomotiveScroll;
-    (async () => {
+
+    const initScroll = async () => {
       const LocomotiveScroll = (await import('locomotive-scroll')).default;
+
       locomotiveScroll = new LocomotiveScroll({
         el: document.querySelector('[data-scroll-container]'),
         smooth: true,
@@ -146,66 +250,24 @@ function App() {
           : 'fixed',
       });
 
+      // Refresh on ScrollTrigger refresh
       ScrollTrigger.addEventListener('refresh', () => {
         locomotiveScroll.update(); // Update Locomotive Scroll positions
-        ScrollTrigger.refresh();   // Refresh GSAP ScrollTrigger
       });
 
-      // ScrollTrigger.addEventListener('refresh', () => {
-      //   locomotiveScroll.update(); // Ensure footer is accounted for
-      //   ScrollTrigger.refresh();   // Recalculate GSAP triggers
-      // });
+      // Initial refresh
+      ScrollTrigger.refresh();
+    };
 
-      ScrollTrigger.refresh(); // Initial refresh
-    })();
+    initScroll();
 
     // Cleanup on unmount
-    return () => locomotiveScroll?.destroy();
+    return () => {
+      ScrollTrigger.removeEventListener('refresh'); // Remove the refresh listener
+      locomotiveScroll?.destroy(); // Destroy Locomotive Scroll instance
+    };
   }, []);
-
-  // useEffect(() => {
-  //   let locomotiveScroll;
-  //   (async () => {
-  //     const LocomotiveScroll = (await import('locomotive-scroll')).default;
-  //     locomotiveScroll = new LocomotiveScroll({
-  //       el: document.querySelector('[data-scroll-container]'),
-  //       smooth: true,
-  //       lerp: 0.1, // Adjust the inertia (lower = more smoothness)
-  //       getDirection: true,
-  //       mobile: {
-  //         smooth: true,
-  //       },
-  //       tablet: {
-  //         smooth: true,
-  //       },
-  //     });
-
-  //     // Update ScrollTrigger on each scroll
-  //     locomotiveScroll.on('scroll', ScrollTrigger.update);
-
-  //     // Setup ScrollTrigger to sync with Locomotive Scroll
-  //     ScrollTrigger.scrollerProxy('[data-scroll-container]', {
-  //       scrollTop(value) {
-  //         return arguments.length
-  //           ? locomotiveScroll.scrollTo(value, 0, 0)
-  //           : locomotiveScroll.scroll.instance.scroll.y;
-  //       },
-  //       getBoundingClientRect() {
-  //         return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
-  //       },
-  //       pinType: document.querySelector('[data-scroll-container]').style.transform
-  //         ? 'transform'
-  //         : 'fixed',
-  //     });
-
-  //     ScrollTrigger.addEventListener('refresh', () => locomotiveScroll.update());
-  //     ScrollTrigger.refresh();
-  //   })();
-
-  //   // Cleanup on unmount
-  //   return () => locomotiveScroll?.destroy();
-  // }, []);
-
+  
   return (
     <>
       <RouterProvider router={router} />

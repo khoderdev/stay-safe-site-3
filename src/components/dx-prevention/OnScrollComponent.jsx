@@ -1,13 +1,16 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { gsap } from 'gsap';
 import Splitting from 'splitting';
 import 'splitting/dist/splitting.css';
 import 'splitting/dist/splitting-cells.css';
+import Button from '../buttons/Button';
+import CircularText from './Circle';
 
 const OnScrollComponent = () => {
   const [showButton, setShowButton] = useState(false);
   const titlesRef = useRef([]); // Hold references to title elements
-  const imgRef = useRef(null); // Reference for the image
+  const circleRef = useRef(null); // Reference for the circle
   const buttonRef = useRef(null); // Reference for the button
 
   // Initialize GSAP animations and Splitting.js
@@ -47,17 +50,17 @@ const OnScrollComponent = () => {
       );
     };
 
-    // Animate image opacity, scale, and rotation
+    // Animate circle opacity, scale, and rotation
     const animateImage = () => {
-      if (imgRef.current) {
+      if (circleRef.current) {
         timeline
-          .to(imgRef.current, {
+          .to(circleRef.current, {
             opacity: 1,
             scale: 1.1,
             y: 0,
           })
-          .to(imgRef.current, {
-            rotation: 200, // Reintroduce image rotation
+          .to(circleRef.current, {
+            rotation: 200, // Reintroduce circle rotation
             duration: 1, // Adjusted duration for smoothness
             ease: 'power2.inOut',
           });
@@ -111,16 +114,12 @@ const OnScrollComponent = () => {
 
   return (
     <div className="flex flex-col items-center relative">
-      <img
-        src="/prev-circle.gif"
-        alt="dx prevention"
-        ref={imgRef}
-        className="opacity-0 scale-0 transform" // Apply transform for smoother animation
+      <CircularText
+        ref={circleRef}
       />
-
       {!showButton ? (
         <p
-          className="animated__content text-center"
+          className="animated__content text-center text-black dark:text-[#f0f0ee]"
           data-splitting
           ref={(el) => (titlesRef.current[0] = el)}
         >
@@ -133,19 +132,18 @@ const OnScrollComponent = () => {
           HIV HPV COPD Bladder Cancer Cholera <br />
           Work-Related Musculoskeletal Diseases <br />
           High Cholesterol Slips & Lapses COVID-19 Asthma <br />
-          Food Poisoning Mumps Influenza Hearing Loss Hepatitis <br />
-          Colon Cancer Skin Cancer Hand-Arm Vibration Syndrome <br />
-          Tuberculosis Chlamydia Sleep Apnea Diphtheria Mesothelioma Mpox <br />
+          Food Poisoning Mumps n Syndrome <br />
+          Tuberculosis Chlamydia Sleep Apnea DiphtherInfluenza Hearing Loss Hepatitis <br />
+          Colon Cancer Skin Cancer Hand-Arm Vibratioia Mesothelioma Mpox <br />
           Brucellosis Measles Occupational Coronary Artery Disease MERS Polio
         </p>
       ) : (
-        <button
+        <Button
           ref={buttonRef}
-          className="px-6 py-2 mt-10 bg-pink text-gray-50 rounded-md shadow-lg"
           aria-label="Show details"
         >
           Let's Show You How
-        </button>
+        </Button>
       )}
     </div>
   );
