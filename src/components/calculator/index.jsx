@@ -281,7 +281,7 @@ const PackYearsCalculator = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-stretch p-4 sm:p-6 shadow-md w-full h-screen text-black dark:text-white text-sm overflow-y-auto gap-4">
+    <div className="flex flex-col md:flex-row items-stretch py-4 sm:p-6 shadow-md w-full h-screen text-black dark:text-white text-sm overflow-y-auto gap-4">
       <Form
         age={age}
         handleAgeChange={handleAgeChange}
