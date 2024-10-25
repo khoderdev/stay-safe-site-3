@@ -141,139 +141,6 @@ const PackYearsCalculator = () => {
     );
   };
 
-  // return (
-  //   <div className="flex flex-col md:flex-row items-stretch p-4 sm:p-6 shadow-md w-full h-full text-black dark:text-white overflow-y-auto gap-4">
-  //     <Form
-  //       age={age}
-  //       handleAgeChange={handleAgeChange}
-  //       gender={gender}
-  //       handleGenderChange={handleGenderChange}
-  //       smoker={smoker}
-  //       handleSmokerChange={handleSmokerChange}
-  //       packsPerDay={packsPerDay}
-  //       handlePacksPerDayChange={handlePacksPerDayChange}
-  //       yearsSmoked={yearsSmoked}
-  //       handleYearsSmokedChange={handleYearsSmokedChange}
-  //       isAdult={isAdult}
-  //       inputStyles={inputStyles} // Ensure this is defined elsewhere
-  //       selectStyles={selectStyles} // Ensure this is defined elsewhere
-  //       result={result}
-  //     />
-
-  //     <div className="md:w-[50%] w-full h-full overflow-y-auto grid grid-cols-1 drop-shadow-md">
-  //       {(!gender && !smoker && !packsPerDay && !yearsSmoked) && (
-  //         <div className="flex items-center justify-center h-full">
-  //           {/* Any content to show when no inputs are provided */}
-  //         </div>
-  //       )}
-
-  //       {/* Display warning if age is out of valid range */}
-  //       {(age < 20 || age > 75) && (
-  //         <div className="p-4 mb-4">
-  //           <p className="text-white text-md">
-  //             Applicable Ages are from 20 to 75 Only, Please Correct your Age Value.
-  //           </p>
-  //         </div>
-  //       )}
-
-  //       {/* Conditional rendering for screening messages */}
-  //       {!shouldHideMessages(parseInt(age, 10)) && (
-  //         <>
-  //           {monthlyScreening.length > 1 && (
-  //             <div className="p-4 mb-4 rounded bg-[#f0f0fe] dark:bg-black">
-  //               <h2 className="text-lg mb-2">Monthly</h2>
-  //               <div className="grid grid-cols-2 gap-4">
-  //                 {monthlyScreening.map((message, index) => (
-  //                   <motion.div
-  //                     key={index}
-  //                     className="bg-[#fff] dark:bg-[#000] p-2 rounded"
-  //                     transition={{ type: 'spring', stiffness: 100 }}
-  //                     variants={wordVariants}
-  //                     initial="hidden"
-  //                     whileInView="visible"
-  //                     custom={index + 1}
-  //                     viewport={{ once: false }}
-  //                     exit={{ opacity: 0, y: -10 }}
-  //                   >
-  //                     {message}
-  //                   </motion.div>
-  //                 ))}
-  //               </div>
-  //             </div>
-  //           )}
-
-  //           {yearlyScreening.length > 1 && (
-  //             <div className="p-4 mb-4 rounded bg-[#f0f0fe] dark:bg-black">
-  //               <h2 className="text-lg mb-3">At Least Once Yearly</h2>
-  //               <div className="grid grid-cols-3 gap-2">
-  //                 {yearlyScreening.map((message, index) => (
-  //                   <motion.div
-  //                     key={index}
-  //                     className="bg-[#fff] dark:bg-[#000] p-2 rounded text-center"
-  //                     initial={{ opacity: 0, y: 20 }}
-  //                     animate={{ opacity: 1, y: 0 }}
-  //                     exit={{ opacity: 0, y: -10 }}
-  //                     whileInView={{ opacity: 1, y: 0 }}
-  //                     transition={{ type: 'spring', stiffness: 100, damping: 20 }}
-  //                     viewport={{ once: false, amount: 0.5 }}
-  //                   >
-  //                     {message}
-  //                   </motion.div>
-  //                 ))}
-  //               </div>
-  //             </div>
-  //           )}
-
-  //           {onceAYear.length > 1 && (
-  //             <div className="p-4 mb-4 rounded bg-[#f0f0fe] dark:bg-black">
-  //               <h2 className="text-lg mb-3">Once a Year</h2>
-  //               <div className="grid grid-cols-3 gap-2">
-  //                 {onceAYear.map((message, index) => (
-  //                   <motion.div
-  //                     key={index}
-  //                     className="bg-[#fff] dark:bg-[#000] p-2 rounded text-center"
-  //                     transition={{ type: 'spring', stiffness: 100 }}
-  //                     variants={wordVariants}
-  //                     initial="hidden"
-  //                     whileInView="visible"
-  //                     custom={index + 1}
-  //                     viewport={{ once: false }}
-  //                     exit={{ opacity: 0, y: -10 }}
-  //                   >
-  //                     {message}
-  //                   </motion.div>
-  //                 ))}
-  //               </div>
-  //             </div>
-  //           )}
-
-  //           {otherScreening.length > 1 && (
-  //             <div className="p-4 mb-4 rounded bg-[#f0f0fe] dark:bg-black">
-  //               <h2 className="text-lg mb-3">Other Screening</h2>
-  //               <div className="grid grid-cols-3 gap-2">
-  //                 {otherScreening.map((message, index) => (
-  //                   <motion.div
-  //                     key={index}
-  //                     className="bg-[#fff] dark:bg-[#000] p-2 rounded text-center"
-  //                     transition={{ type: 'spring', stiffness: 100 }}
-  //                     variants={wordVariants}
-  //                     initial="hidden"
-  //                     whileInView="visible"
-  //                     custom={index + 1}
-  //                     viewport={{ once: false }}
-  //                     exit={{ opacity: 0, y: -10 }}
-  //                   >
-  //                     {message}
-  //                   </motion.div>
-  //                 ))}
-  //               </div>
-  //             </div>
-  //           )}
-  //         </>
-  //       )}
-  //     </div>
-  //   </div>
-  // );
 
   // Updated logic for conditional rendering
   const shouldShowGenderMessage = (ageNum) => {
@@ -281,7 +148,7 @@ const PackYearsCalculator = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-stretch py-4 sm:p-6 shadow-md w-full h-screen text-black dark:text-white text-sm overflow-y-auto gap-4">
+    <div className="flex flex-col md:flex-row items-stretch py-4 pb-32 sm:p-6 shadow-md w-full h-screen text-black dark:text-white text-sm overflow-y-auto gap-4">
       <Form
         age={age}
         handleAgeChange={handleAgeChange}
@@ -298,7 +165,7 @@ const PackYearsCalculator = () => {
         selectStyles={selectStyles}
         result={result}
       />
-      <div className="md:w-[50%] w-full h-full  overflow-y-auto grid grid-cols-1 drop-shadow-md">
+      <div className="md:w-[50%] w-full h-full overflow-y-auto grid grid-cols-1 drop-shadow-md">
         {/* Remove gender message if age warning is displayed */}
         {(!gender && !smoker && !packsPerDay && !yearsSmoked && (age >= 20 && age <= 75)) && (
           <div className="flex items-center justify-center h-full">
@@ -308,9 +175,9 @@ const PackYearsCalculator = () => {
 
         {/* Display warning if age is out of valid range */}
         {(age < 20 || age > 75) && (
-         <div className="flex items-center justify-center h-full">
-            <p className="text-gray-500 text-md">
-              Applicable Ages are from 20 to 75 Only, Please Correct your Age Value.
+          <div className="flex items-start justify-center pt-12 h-full">
+            <p className="text-gray-500 text-md md:text-xl">
+              These recommendations apply to otherwise healthy<br/> individuals between the ages of 20 and 75.
             </p>
           </div>
         )}
@@ -320,7 +187,7 @@ const PackYearsCalculator = () => {
           <>
             {/* Monthly Screening Messages */}
             {monthlyScreening.length > 0 && (
-              <div className="p-4 mb-4 rounded bg-[#f0f0fe] dark:bg-black">
+              <div className="p-4 mb-4 rounded bg-[#f0f0fe] dark:bg-[#111]">
                 <h2 className="text-lg mb-2">Monthly</h2>
                 <div className="grid grid-cols-2 gap-4">
                   {monthlyScreening.map((message, index) => (
@@ -343,7 +210,7 @@ const PackYearsCalculator = () => {
             )}
             {/* Yearly Screening Messages */}
             {yearlyScreening.length > 0 && (
-              <div className="p-4 mb-4 rounded bg-[#f0f0fe] dark:bg-black">
+              <div className="p-4 mb-4 rounded bg-[#f0f0fe] dark:bg-[#111]">
                 <h2 className="text-lg mb-2">Yearly</h2>
                 <div className="grid grid-cols-2 gap-4">
                   {yearlyScreening.map((message, index) => (
@@ -366,7 +233,7 @@ const PackYearsCalculator = () => {
             )}
             {/* Once a Year Screening Messages */}
             {onceAYear.length > 0 && (
-              <div className="p-4 mb-4 rounded bg-[#f0f0fe] dark:bg-black">
+              <div className="p-4 mb-4 rounded bg-[#f0f0fe] dark:bg-[#111]">
                 <h2 className="text-lg mb-2">Once a Year</h2>
                 <div className="grid grid-cols-2 gap-4">
                   {onceAYear.map((message, index) => (
@@ -389,7 +256,7 @@ const PackYearsCalculator = () => {
             )}
             {/* Other Screening Messages */}
             {otherScreening.length > 0 && (
-              <div className="p-4 mb-4 rounded bg-[#f0f0fe] dark:bg-black">
+              <div className="p-4 mb-4 rounded bg-[#f0f0fe] dark:bg-[#111]">
                 <h2 className="text-lg mb-2">Other</h2>
                 <div className="grid grid-cols-2 gap-4">
                   {otherScreening.map((message, index) => (

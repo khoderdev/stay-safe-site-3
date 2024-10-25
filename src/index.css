@@ -63,13 +63,13 @@ body {
 	}
 }
 
-/* .scroll-container {
+.scroll-container {
 	overflow-y: scroll;
 	height: 100dvh;
 	scroll-behavior: smooth;
 	scroll-snap-type: y mandatory;
 	scroll-padding-top: 0px;
-} */
+}
 
 a {
 	text-decoration: none !important;
