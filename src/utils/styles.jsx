@@ -1,9 +1,9 @@
 export const inputStyles = ({
-  marginTop = 'mt-1',
-  marginLeft = 'ml-2',
+  marginTop = 'mt-0',
+  marginLeft = 'ml-0',
   paddingX = 'px-3',
-  paddingY = 'py-1',
-  width = 'w-20',
+  paddingY = 'py-0',
+  width = 'w-0',
 } = {}) => `
   ${marginTop} ${marginLeft} ${paddingX} ${paddingY} ${width}
   border border-gray-300 dark:border-black
@@ -13,11 +13,11 @@ export const inputStyles = ({
 `;
 
 export const selectStyles = ({
-  marginTop = 'mt-1',
-  marginLeft = 'ml-2',
+  marginTop = 'mt-0',
+  marginLeft = 'ml-0',
   paddingX = 'px-2',
-  paddingY = 'py-[8px]',
-  width = 'w-24',
+  paddingY = 'py-0',
+  width = 'w-0',
 } = {}) => `
   ${marginTop} ${marginLeft} ${paddingX} ${paddingY} ${width}
   cursor-pointer border border-gray-300 dark:border-black

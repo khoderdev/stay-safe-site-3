@@ -281,7 +281,7 @@ const PackYearsCalculator = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-stretch p-4 sm:p-6 shadow-md w-full h-full text-black dark:text-white overflow-y-auto gap-4">
+    <div className="flex flex-col md:flex-row items-stretch p-4 sm:p-6 shadow-md w-full h-screen text-black dark:text-white text-sm overflow-y-auto gap-4">
       <Form
         age={age}
         handleAgeChange={handleAgeChange}
@@ -298,7 +298,7 @@ const PackYearsCalculator = () => {
         selectStyles={selectStyles}
         result={result}
       />
-      <div className="md:w-[50%] w-full h-full overflow-y-auto grid grid-cols-1 drop-shadow-md">
+      <div className="md:w-[50%] w-full h-full  overflow-y-auto grid grid-cols-1 drop-shadow-md">
         {/* Remove gender message if age warning is displayed */}
         {(!gender && !smoker && !packsPerDay && !yearsSmoked && (age >= 20 && age <= 75)) && (
           <div className="flex items-center justify-center h-full">
@@ -309,7 +309,7 @@ const PackYearsCalculator = () => {
         {/* Display warning if age is out of valid range */}
         {(age < 20 || age > 75) && (
          <div className="flex items-center justify-center h-full">
-            <p className="text-white text-md">
+            <p className="text-gray-500 text-md">
               Applicable Ages are from 20 to 75 Only, Please Correct your Age Value.
             </p>
           </div>
@@ -326,7 +326,7 @@ const PackYearsCalculator = () => {
                   {monthlyScreening.map((message, index) => (
                     <motion.div
                       key={index}
-                      className="bg-[#fff] dark:bg-[#000] p-2 rounded"
+                      className="bg-[#fff] dark:bg-[#000] p-2 rounded text-sm"
                       transition={{ type: 'spring', stiffness: 100 }}
                       variants={wordVariants}
                       initial="hidden"
@@ -349,7 +349,7 @@ const PackYearsCalculator = () => {
                   {yearlyScreening.map((message, index) => (
                     <motion.div
                       key={index}
-                      className="bg-[#fff] dark:bg-[#000] p-2 rounded"
+                      className="bg-[#fff] dark:bg-[#000] p-2 rounded text-sm"
                       transition={{ type: 'spring', stiffness: 100 }}
                       variants={wordVariants}
                       initial="hidden"
@@ -372,7 +372,7 @@ const PackYearsCalculator = () => {
                   {onceAYear.map((message, index) => (
                     <motion.div
                       key={index}
-                      className="bg-[#fff] dark:bg-[#000] p-2 rounded"
+                      className="bg-[#fff] dark:bg-[#000] p-2 rounded text-sm"
                       transition={{ type: 'spring', stiffness: 100 }}
                       variants={wordVariants}
                       initial="hidden"
@@ -395,7 +395,7 @@ const PackYearsCalculator = () => {
                   {otherScreening.map((message, index) => (
                     <motion.div
                       key={index}
-                      className="bg-[#fff] dark:bg-[#000] p-2 rounded"
+                      className="bg-[#fff] dark:bg-[#000] p-2 rounded text-sm"
                       transition={{ type: 'spring', stiffness: 100 }}
                       variants={wordVariants}
                       initial="hidden"

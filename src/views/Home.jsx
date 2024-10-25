@@ -47,7 +47,7 @@ export default function Home() {
   };
 
   return (
-    <main ref={main} className='scroll-container'>
+    <main ref={main} className='scroll-'>
       <section className="panel bg-[#f0f0fe] dark:bg-black">
         <Hero />
       </section>
