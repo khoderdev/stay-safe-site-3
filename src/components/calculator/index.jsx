@@ -88,15 +88,32 @@ const PackYearsCalculator = () => {
     const value = e.target.value;
     const ageNum = parseInt(value, 10);
 
-    // Check if the input is valid
-    if (value === '' || ageNum === 0) {
-      // Do not reset the age here
+    // Allow clearing the input
+    if (value === '') {
+      setAge('');
       return;
     }
 
     if (ageNum > 0 && ageNum <= 100) {
       setAge(value);
     }
+  };
+
+
+  const handlePacksPerDayChange = (e) => {
+    let value = parseFloat(e.target.value);
+
+    // Check if the value is not a number, negative, or exceeds 10
+    if (isNaN(value) || value < 0) {
+      value = ''; // Clear if invalid or negative
+    } else if (value > 10) {
+      value = 10; // Limit to max 10
+    } else {
+      // Round to the nearest increment of 0.1 to prevent rounding errors
+      value = Math.round(value * 10) / 10;
+    }
+
+    setPacksPerDay(value);
   };
 
   const resetForm = () => {
@@ -113,7 +130,6 @@ const PackYearsCalculator = () => {
     // Adjust according to how your useScreeningMessages hook works.
   };
 
-  const handlePacksPerDayChange = (e) => handleNumberInputChange(e, setPacksPerDay);
   const handleYearsSmokedChange = (e) => handleNumberInputChange(e, setYearsSmoked);
 
   const handleGenderChange = (e) => {
@@ -143,9 +159,9 @@ const PackYearsCalculator = () => {
 
 
   // Updated logic for conditional rendering
-  const shouldShowGenderMessage = (ageNum) => {
-    return (ageNum >= 1 && ageNum <= 19) || (ageNum >= 76 && ageNum <= 100);
-  };
+  // const shouldShowGenderMessage = (ageNum) => {
+  //   return (ageNum >= 1 && ageNum <= 19) || (ageNum >= 76 && ageNum <= 100);
+  // };
 
   return (
     <div className="flex flex-col md:flex-row items-stretch py-4 pb-32 sm:p-6 shadow-md w-full h-screen text-black dark:text-white text-sm overflow-y-auto gap-4">
@@ -177,7 +193,7 @@ const PackYearsCalculator = () => {
         {(age < 20 || age > 75) && (
           <div className="flex items-start justify-center pt-12 h-full">
             <p className="text-gray-500 text-md md:text-xl">
-              These recommendations apply to otherwise healthy<br/> individuals between the ages of 20 and 75.
+              These recommendations apply to otherwise healthy <br /> individuals between the ages of 20 and 75.
             </p>
           </div>
         )}

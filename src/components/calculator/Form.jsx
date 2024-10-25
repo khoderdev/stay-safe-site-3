@@ -80,6 +80,8 @@ const Form = ({
                   className={`${inputStyles()} w-[77%] md:w-[50%] !py-[2px]`}
                   aria-label="Packs Per Day"
                   disabled={shouldDisableInputs}
+                  step="0.1"
+                  max="10"
                 />
               </div>
 
