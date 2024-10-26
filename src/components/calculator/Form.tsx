@@ -21,9 +21,9 @@ const Form: React.FC<FormProps> = ({
 
   return (
     <div className="flex flex-col md:w-[50%] w-full p-4 rounded  bg-[#f0f0fe] dark:bg-black">
-      <div className="grid grid-cols-2 text-left items-center md:grid-cols-1 gap-x-10 gap-y-4 md:pr-28">
+      <div className="grid grid-cols-2 text-left items-center md:grid-cols-1 gap-x-10 gap-y-4 md:gap-y-8 md:pr-28">
         <div className="col-span-1 md:col-span-2 w-full md:flex md:justify-between text-left">
-          <label className="text-lg md:text-[1.3rem]">Age</label>
+          <label className="text-lg md:text-[1.1rem]">Age</label>
           <input
             type="number"
             value={age}
@@ -35,7 +35,7 @@ const Form: React.FC<FormProps> = ({
         </div>
 
         <div className="col-span-1 md:col-span-2 w-full md:flex md:justify-between text-left">
-          <label className="text-lg md:text-[1.3rem]">Gender</label>
+          <label className="text-lg md:text-[1.1rem]">Gender</label>
           <select
             value={gender}
             onChange={handleGenderChange}
@@ -50,7 +50,7 @@ const Form: React.FC<FormProps> = ({
         </div>
 
         <div className="col-span-2 flex w-full justify-between text-left items-center">
-          <label className="text-lg md:text-[1.3rem] w-[60%] md:w-[40%]">Ever smoked?</label>
+          <label className="text-lg md:text-[1.1rem] w-[60%] md:w-[40%]">Ever smoked?</label>
           <div className="flex items-center w-[50%] pl-1">
             <input
               type="checkbox"
@@ -68,7 +68,7 @@ const Form: React.FC<FormProps> = ({
           <>
             <div className="col-span-2 flex flex-row md:flex md:flex-col md:space-y-4 w-full mt-2">
               <div className="col-span-1 md:col-span-2 w-[60%] flex flex-col justify-end md:w-full md:flex md:flex-row md:justify-between md:items-center border-green-500">
-                <label className="w-full md:w-[50%] flex flex-col text-[1rem] md:text-[1.3rem]">
+                <label className="w-full md:w-[50%] flex flex-col text-[1rem] md:text-[1.1rem]">
                   Smoked Packs per day
                   <span className="text-[10px] md:text-[12px] font-light">(each pack equals 20 cigarettes)</span>
                 </label>
@@ -86,7 +86,7 @@ const Form: React.FC<FormProps> = ({
               </div>
 
               <div className="col-span-1 md:col-span-2 w-[46%] flex flex-col justify-between md:w-full md:flex md:flex-row md:justify-between">
-                <label className="text-lg md:text-[1.3rem] w-full md:w-[50%]">Years smoked</label>
+                <label className="text-lg md:text-[1.1rem] w-full md:w-[50%]">Years smoked</label>
                 <input
                   type="number"
                   value={yearsSmoked}

@@ -5,8 +5,7 @@ import { motion, useAnimation } from 'framer-motion';
 import Form from './Form';
 import './calculator.css';
 import React from 'react';
-
-interface PackYearsCalculatorProps { }
+import { PackYearsCalculatorProps } from '../../utils/types';
 
 
 const PackYearsCalculator: React.FC<PackYearsCalculatorProps> = () => {
@@ -165,9 +164,11 @@ const PackYearsCalculator: React.FC<PackYearsCalculatorProps> = () => {
   };
 
   return (
-    <div onWheel={handleWheel} className="col-span-2 flex flex-col  items-stretch py-4 sm:p-6 shadow-md w-full h-screen text-black dark:text-white text-sm overflow-y-auto gap-4">
+    <div onWheel={handleWheel} className="col-span-2 flex flex-col items-stretch py-4 sm:p-6 shadow-md w-full h-screen text-black dark:text-white text-sm overflow-y-auto gap-4">
       <div className='col-span-1 md:col-span-2'>
-        <h1 className='title text-2xl mb-2'>Pack Years Screening</h1>
+        <h1 className='title flex flex-col gap-y-3 text-left text-2xl mb-2'>
+          <span className='text-5xl'>Why wait until it's too late?</span>
+          Get the screening you need!</h1>
       </div>
       <div className='col-span-1 flex flex-col md:flex-row w-full h-screen gap-4'>
         <Form
@@ -302,7 +303,7 @@ const PackYearsCalculator: React.FC<PackYearsCalculatorProps> = () => {
           )}
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 
