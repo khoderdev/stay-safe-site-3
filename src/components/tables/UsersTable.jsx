@@ -19,7 +19,7 @@ function UsersTable() {
   // Function to fetch users data from the server
   const fetchUsers = async () => {
     try {
-      const res = await axios.get('https://api.staysafeaa.org/users', { withCredentials: true });
+      const res = await axios.get('http://localhost:8800/users', { withCredentials: true });
       setData(res.data); // Set the fetched data
       setFilteredData(res.data); // Initially, set the filtered data to all users
       console.log('Fetched users:', res.data);

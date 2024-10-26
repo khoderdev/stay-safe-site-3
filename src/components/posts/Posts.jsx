@@ -109,7 +109,7 @@ const Posts = () => {
           >
             <div className="img">
               <img
-                src={`../upload/${post.img}`}
+                src={`http://localhost:8800/upload/${post.img}`}
                 alt=""
                 className="w-full h-48 object-cover transition-transform duration-200 hover:scale-110"
               />
