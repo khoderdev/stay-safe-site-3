@@ -71,6 +71,7 @@ const Form: React.FC<FormProps> = ({
                 <label className="w-full md:w-[50%] flex flex-col text-[1rem] md:text-[1.1rem]">
                   Smoked Packs per day
                   <span className="text-[10px] md:text-[12px] font-light">(each pack equals 20 cigarettes)</span>
+                  <span className="text-[10px] md:text-[12px] font-light">(each 1 hooka head is equivalent to 5 packs)</span>
                 </label>
                 <input
                   type="number"
@@ -81,7 +82,7 @@ const Form: React.FC<FormProps> = ({
                   aria-label="Packs Per Day"
                   disabled={shouldDisableInputs}
                   step="0.1"
-                  max="10"
+                  max="40"
                 />
               </div>
 

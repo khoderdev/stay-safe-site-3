@@ -158,16 +158,16 @@ a {
 	display: flex;
 	width: fit-content;
 	justify-content: space-between;
-	border: solid #0e100f 2px;
-	border-radius: 0.5rem;
-	padding-left: 10px;
-	padding-right: 10px;
-	padding-top: 2px;
-	padding-bottom: 2px;
+	border: solid #d4eff4 1px;
+	border-radius: 20rem;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-top: 4px;
+	padding-bottom: 4px;
 	transition: all 0.3s ease;
 	color: #0e100f;
 	cursor: pointer;
-	box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+	box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.1);
 	font-size: 16px;
 	font-weight: normal;
 }

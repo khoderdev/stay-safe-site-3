@@ -17,7 +17,9 @@ import EnvirementalHealth from "../views/EnvirementalHealth";
 import PatientGuidanceSupport from "../views/PatientGuidanceSupport";
 import PrivateRoute from '../router/PrivateRoute';
 import CircularText from '../components/dx-prevention/Circle';
+import DynamicDietPage from '../components/qualitative-diets/DynamicDietPage';
 import Users from '../views/Users';
+import QualitativeDiets from "../components/qualitative-diets/QualitativeDiets";
 
 
 const router = createBrowserRouter([
@@ -25,6 +27,14 @@ const router = createBrowserRouter([
     path: "/",
     element: <Layout />,
     children: [
+      {
+        path: "/qualitative-diets ",
+        element: < QualitativeDiets />,
+      },
+      {
+        path: "/:dietName",
+        element: < DynamicDietPage />,
+      },
       {
         path: "/",
         element: <Home />,
@@ -91,6 +101,7 @@ const router = createBrowserRouter([
       },
     ],
   },
+
   {
     path: "/register",
     element: <Register />,

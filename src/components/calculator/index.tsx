@@ -104,7 +104,7 @@ const PackYearsCalculator: React.FC<PackYearsCalculatorProps> = () => {
 
     // Allow clearing the input
     if (value === '') {
-      resetForm(); // Reset all inputs if age is cleared
+      resetForm(); 
       setAge('');
       return;
     }
@@ -112,7 +112,7 @@ const PackYearsCalculator: React.FC<PackYearsCalculatorProps> = () => {
     if (ageNum > 0 && ageNum <= 100) {
       setAge(value);
     } else {
-      resetForm(); // Reset all inputs if age is invalid
+      resetForm(); 
     }
   };
 
@@ -123,8 +123,8 @@ const PackYearsCalculator: React.FC<PackYearsCalculatorProps> = () => {
     // Check if the value is not a number, negative, or exceeds 10
     if (isNaN(value) || value < 0) {
       value = ''; // Clear if invalid or negative
-    } else if (value > 10) {
-      value = 10; // Limit to max 10
+    } else if (value > 40) {
+      value = 40; // Limit to max 10
     } else {
       // Round to the nearest increment of 0.1 to prevent rounding errors
       value = Math.round(value * 10) / 10;
