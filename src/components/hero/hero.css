@@ -1,10 +1,13 @@
 .hero {
 	height: 100dvh;
-  width: 100dvw;
-  top:24%;
+	width: 100dvw;
+	top: 24%;
 	overflow: hidden;
 	position: relative;
-  /* border: solid black 1px; */
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 .hero .slidingTextContainer {
@@ -15,5 +18,4 @@
 	color: #ffffff09;
 	width: 50%;
 	font-weight: bold;
-
 }
