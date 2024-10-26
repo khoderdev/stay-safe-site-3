@@ -57,10 +57,10 @@ export default function Home() {
       <section className="panel h-screen bg-white dark:bg-black">
         <PackYearsCalculator />
       </section>
-      <section className="panel h-screen bg-[#f0f0fe] dark:bg-black">
+      <section className="panel h-screen bg-[#f0f0fe] dark:bg-[#000]">
         <MediDietScore />
       </section>
-      <section className="panel bg-[#fff] dark:bg-[#000]">
+      <section className="panel bg-[#fff] dark:bg-black">
         <PHQ9 />
       </section>
     </main>
