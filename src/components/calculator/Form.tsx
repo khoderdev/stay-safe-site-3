@@ -20,7 +20,7 @@ const Form: React.FC<FormProps> = ({
   const shouldDisableInputs = (age < 20 && age > 1) || (age > 75 && age < 101) || !isAdult;
 
   return (
-    <div className="flex flex-col md:w-[50%] w-full p-4 rounded drop-shadow-lg bg-[#f0f0fe] dark:bg-black">
+    <div className="flex flex-col md:w-[50%] w-full p-4 rounded  bg-[#f0f0fe] dark:bg-black">
       <div className="grid grid-cols-2 text-left items-center md:grid-cols-1 gap-x-10 gap-y-4 md:pr-28">
         <div className="col-span-1 md:col-span-2 w-full md:flex md:justify-between text-left">
           <label className="text-lg md:text-[1.3rem]">Age</label>
@@ -29,7 +29,7 @@ const Form: React.FC<FormProps> = ({
             value={age}
             onChange={handleAgeChange}
             required
-            className={`${inputStyles()} !py-[3px] !w-full md:!w-[50%] bg-white dark:!bg-[#000]`}
+            className={`${inputStyles()} !py-[6px] !w-full md:!w-[50%] bg-white dark:!bg-[#000]`}
             aria-label="Age"
           />
         </div>
@@ -39,7 +39,7 @@ const Form: React.FC<FormProps> = ({
           <select
             value={gender}
             onChange={handleGenderChange}
-            className={`${selectStyles()} !py-[3px] !w-full md:!w-[50%] bg-white dark:!bg-[#000]`}
+            className={`${selectStyles()} !py-[5px] !w-full md:!w-[50%] bg-white dark:!bg-[#000]`}
             aria-label="Gender"
             disabled={shouldDisableInputs}
           >
@@ -77,7 +77,7 @@ const Form: React.FC<FormProps> = ({
                   value={packsPerDay}
                   onChange={handlePacksPerDayChange}
                   required
-                  className={`${inputStyles()} w-[77%] md:w-[50%] !py-[2px]`}
+                  className={`${inputStyles()} w-[77%] md:w-[50%] !py-[6px]`}
                   aria-label="Packs Per Day"
                   disabled={shouldDisableInputs}
                   step="0.1"
@@ -92,7 +92,7 @@ const Form: React.FC<FormProps> = ({
                   value={yearsSmoked}
                   onChange={handleYearsSmokedChange}
                   required
-                  className={`${inputStyles()} w-full md:w-[50%] !py-[2px]`}
+                  className={`${inputStyles()} w-full md:w-[50%] !py-[6px]`}
                   aria-label="Years Smoked"
                   disabled={shouldDisableInputs}
                 />

@@ -47,14 +47,14 @@ export default function Home() {
   };
 
   return (
-    <main ref={main} className='scroll-container space-y-8'>
+    <main ref={main} className='scroll- space-y-8'>
       <section className="panel bg-[#f0f0fe] dark:bg-black">
         <Hero />
       </section>
       <section className="panel h-screen bg-white dark:bg-[#000]">
         <OnScrollComponent />
       </section>
-      <section className="panel h-screen bg-white dark:bg-[#000]">
+      <section className="panel h-screen bg-white dark:bg-black">
         <PackYearsCalculator />
       </section>
       <section className="panel h-screen bg-[#f0f0fe] dark:bg-black">
