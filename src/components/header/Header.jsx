@@ -112,7 +112,7 @@ export default function Header() {
           </Link>
         </nav>
 
-        <div className="flex items-center space-x-4">
+        <div className="hidden md:flex items-center space-x-4">
           {loading ? (
             <span>Loading...</span> // Show loading state
           ) : (
