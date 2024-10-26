@@ -165,7 +165,7 @@ const PackYearsCalculator: React.FC<PackYearsCalculatorProps> = () => {
   };
 
   return (
-    <div onWheel={handleWheel} className="col-span-2 flex flex-col  items-stretch pb-32 sm:p-6 shadow-md w-full h-screen text-black dark:text-white text-sm overflow-y-auto gap-4">
+    <div onWheel={handleWheel} className="col-span-2 flex flex-col  items-stretch  sm:p-6 shadow-md w-full h-screen text-black dark:text-white text-sm overflow-y-auto gap-4">
       <div className='col-span-1 md:col-span-2'>
         <h1 className='title text-2xl '>Title Here</h1>
       </div>

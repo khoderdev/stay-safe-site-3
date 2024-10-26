@@ -1,17 +1,107 @@
-// import { Routes, Route } from 'react-router-dom';
+import { createBrowserRouter } from "react-router-dom";
 
-// import Scroll from '../views/Scroll.jsx';
-// import Home from '../views/Home.jsx';
-// import About from '../views/About.jsx';
-// import Contact from '../components/contact/Contact.jsx';
+import Layout from '../views/Layout';
+import Home from "../views/Home";
+import Posts from "../components/posts/Posts";
+import Single from "../components/posts/Single";
+import Write from "../components/posts/Write";
+import AboutUs from "../views/AboutUs";
 
-// export default function Router() {
-//   return (
-//     <Routes>
-//       <Route index element={<Home />} />
-//       <Route path="/scroll" element={<Scroll />} />
-//       <Route path="/about" element={<About />} />
-//       <Route path="/contact" element={<Contact />} />
-//     </Routes>
-//   );
-// }
+import Register from "../views/Register";
+import Login from "../views/Login";
+import FloatingGallery from "../views/FloatingGallery";
+
+import MDC from "../views/MDC";
+import OHS from "../views/OHS";
+import EnvirementalHealth from "../views/EnvirementalHealth";
+import PatientGuidanceSupport from "../views/PatientGuidanceSupport";
+import PrivateRoute from '../router/PrivateRoute';
+import CircularText from '../components/dx-prevention/Circle';
+import Users from '../views/Users';
+
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/users",
+        element: <Users />,
+      },
+      {
+        path: "/spin",
+        element: <CircularText />,
+      },
+      {
+        path: "/posts",
+        element: <Posts />,
+      },
+      {
+        path: "/post/:id",
+        element: <Single />,
+      },
+      {
+        path: "/write",
+        element: (
+          <PrivateRoute>
+            <Write />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/mdc",
+        element: (
+          // <PrivateRoute>
+          <MDC />
+          // </PrivateRoute>
+        ),
+      },
+      {
+        path: "/ohs",
+        element: (
+          // <PrivateRoute>
+          <OHS />
+          // </PrivateRoute>
+        ),
+      },
+      {
+        path: "/enviremental-health",
+        element: (
+          // <PrivateRoute>
+          <EnvirementalHealth />
+          // </PrivateRoute>
+        ),
+      },
+      {
+        path: "/patient-guidance-support",
+        element: (
+          // <PrivateRoute>
+          <PatientGuidanceSupport />
+          // </PrivateRoute>
+        ),
+      },
+      {
+        path: "/about-us",
+        element: <AboutUs />,
+      },
+    ],
+  },
+  {
+    path: "/register",
+    element: <Register />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/gallery",
+    element: <FloatingGallery />,
+  },
+]);
+export default router;
