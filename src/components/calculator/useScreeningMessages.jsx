@@ -18,7 +18,7 @@ const useScreeningMessages = ({ age, gender, smoker, packsPerDay, yearsSmoked })
 
       // Early return for age 76 and above
       if (ageNum >= 76) {
-        otherMessages.push(`Recommendations are only applicable to adults aged between 20 to 75`);
+        otherMessages.push(`These recommendations apply to otherwise healthy individuals between the ages of 20 and 75.`);
         setMonthlyScreening(monthlyMessages);
         setYearlyScreening(yearlyMessages);
         setOnceAYear(onceAYearMessages);
@@ -118,7 +118,7 @@ export default useScreeningMessages;
 
 //       // Early return for age 76 and above
 //       if (ageNum >= 76) {
-//         otherMessages.push(`Recommendations are only applicable to adults aged between 20 to 75`);
+//         otherMessages.push(`individuals between the ages of 20 and 75.`);
 //         setMonthlyScreening(monthlyMessages);
 //         setYearlyScreening(yearlyMessages);
 //         setOnceAYear(onceAYearMessages);

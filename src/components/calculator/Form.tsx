@@ -100,7 +100,7 @@ const Form: React.FC<FormProps> = ({
             </div>
 
             <div className="col-span-2 md:col-span-2">
-              {result && <p className="text-pink text-center md:text-left mt- text-lg">{result}</p>}
+              {result && <p className="text-pink text-center md:text-left text-[1rem] md:text-lg">{result}</p>}
             </div>
           </>
         )}

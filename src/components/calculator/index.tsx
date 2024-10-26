@@ -19,6 +19,10 @@ const PackYearsCalculator: React.FC<PackYearsCalculatorProps> = () => {
   const controls = useAnimation();
   const ref = useRef<HTMLDivElement | null>(null);
 
+  const handleWheel = (event) => {
+    event.stopPropagation();
+  };
+
   const wordVariants = {
     hidden: (custom: number) => ({
       opacity: 0,
@@ -161,137 +165,142 @@ const PackYearsCalculator: React.FC<PackYearsCalculatorProps> = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-stretch py-4 pb-32 sm:p-6 shadow-md w-full h-screen text-black dark:text-white text-sm overflow-y-auto gap-4">
-      <Form
-        age={age}
-        handleAgeChange={handleAgeChange}
-        gender={gender}
-        handleGenderChange={handleGenderChange}
-        smoker={smoker}
-        handleSmokerChange={handleSmokerChange}
-        packsPerDay={packsPerDay}
-        handlePacksPerDayChange={handlePacksPerDayChange}
-        yearsSmoked={yearsSmoked}
-        handleYearsSmokedChange={handleYearsSmokedChange}
-        isAdult={isAdult}
-        inputStyles={inputStyles}
-        selectStyles={selectStyles}
-        result={result}
-      />
-      <div className="md:w-[50%] w-full h-full overflow-y-auto grid grid-cols-1 drop-shadow-md">
-        {/* Remove gender message if age warning is displayed */}
-        {(!gender && !smoker && !packsPerDay && !yearsSmoked && (age >= 20 && age <= 75)) && (
-          <div className="flex items-center justify-center h-full">
-            <p className="text-gray-500">Choose your Gender to continue.</p>
-          </div>
-        )}
+    <div onWheel={handleWheel} className="col-span-2 flex flex-col  items-stretch pb-32 sm:p-6 shadow-md w-full h-screen text-black dark:text-white text-sm overflow-y-auto gap-4">
+      <div className='col-span-1 md:col-span-2'>
+        <h1 className='title text-2xl '>Title Here</h1>
+      </div>
+      <div className='col-span-1 flex flex-col md:flex-row w-full h-screen gap-4'>
+        <Form
+          age={age}
+          handleAgeChange={handleAgeChange}
+          gender={gender}
+          handleGenderChange={handleGenderChange}
+          smoker={smoker}
+          handleSmokerChange={handleSmokerChange}
+          packsPerDay={packsPerDay}
+          handlePacksPerDayChange={handlePacksPerDayChange}
+          yearsSmoked={yearsSmoked}
+          handleYearsSmokedChange={handleYearsSmokedChange}
+          isAdult={isAdult}
+          inputStyles={inputStyles}
+          selectStyles={selectStyles}
+          result={result}
+        />
+        <div className="md:w-[50%] w-full h-full overflow-y-auto grid grid-cols-1 drop-shadow-md">
+          {/* Remove gender message if age warning is displayed */}
+          {(!gender && !smoker && !packsPerDay && !yearsSmoked && (age >= 20 && age <= 75)) && (
+            <div className="flex items-center justify-center h-full">
+              <p className="text-gray-500">Choose your Gender to continue.</p>
+            </div>
+          )}
 
-        {/* Display warning if age is out of valid range */}
-        {(age < 20 || age > 75) && (
-          <div className="flex items-start justify-center pt-12 h-full">
-            <p className="text-gray-500 text-md md:text-xl">
-              These recommendations apply to otherwise healthy<br /> individuals between the ages of 20 and 75.
-            </p>
-          </div>
-        )}
+          {/* Display warning if age is out of valid range */}
+          {(age < 20 || age > 75) && (
+            <div className="flex items-start justify-center pt-12 h-full">
+              <p className="text-gray-500 text-md md:text-xl">
+                These recommendations apply to otherwise healthy <br /> individuals between the ages of 20 and 75.
+              </p>
+            </div>
+          )}
 
-        {/* Conditional rendering for screening messages */}
-        {!shouldHideMessages(parseInt(age, 10)) && (
-          <>
-            {/* Monthly Screening Messages */}
-            {monthlyScreening.length > 0 && (
-              <div className="p-4 mb-4 rounded bg-[#f0f0fe] dark:bg-[#111]">
-                <h2 className="text-lg mb-2">Monthly</h2>
-                <div className="grid grid-cols-2 gap-4">
-                  {monthlyScreening.map((message, index) => (
-                    <motion.div
-                      key={index}
-                      className="bg-[#fff] dark:bg-[#000] p-2 rounded text-sm"
-                      transition={{ type: 'spring', stiffness: 100 }}
-                      variants={wordVariants}
-                      initial="hidden"
-                      whileInView="visible"
-                      custom={index + 1}
-                      viewport={{ once: false }}
-                      exit={{ opacity: 0, y: -10 }}
-                    >
-                      {message}
-                    </motion.div>
-                  ))}
+          {/* Conditional rendering for screening messages */}
+          {!shouldHideMessages(parseInt(age, 10)) && (
+            <>
+              {/* Monthly Screening Messages */}
+              {monthlyScreening.length > 0 && (
+                <div className="p-4 mb-4 rounded bg-[#f0f0fe] dark:bg-[#111]">
+                  <h2 className="text-lg mb-2">Monthly</h2>
+                  <div className="grid grid-cols-2 gap-4">
+                    {monthlyScreening.map((message, index) => (
+                      <motion.div
+                        key={index}
+                        className="bg-[#fff] dark:bg-[#000] p-2 rounded text-sm"
+                        transition={{ type: 'spring', stiffness: 100 }}
+                        variants={wordVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        custom={index + 1}
+                        viewport={{ once: false }}
+                        exit={{ opacity: 0, y: -10 }}
+                      >
+                        {message}
+                      </motion.div>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            )}
-            {/* Yearly Screening Messages */}
-            {yearlyScreening.length > 0 && (
-              <div className="p-4 mb-4 rounded bg-[#f0f0fe] dark:bg-[#111]">
-                <h2 className="text-lg mb-2">Yearly</h2>
-                <div className="grid grid-cols-2 gap-4">
-                  {yearlyScreening.map((message, index) => (
-                    <motion.div
-                      key={index}
-                      className="bg-[#fff] dark:bg-[#000] p-2 rounded text-sm"
-                      transition={{ type: 'spring', stiffness: 100 }}
-                      variants={wordVariants}
-                      initial="hidden"
-                      whileInView="visible"
-                      custom={index + 1}
-                      viewport={{ once: false }}
-                      exit={{ opacity: 0, y: -10 }}
-                    >
-                      {message}
-                    </motion.div>
-                  ))}
+              )}
+              {/* Yearly Screening Messages */}
+              {yearlyScreening.length > 0 && (
+                <div className="p-4 mb-4 rounded bg-[#f0f0fe] dark:bg-[#111]">
+                  <h2 className="text-lg mb-2">Yearly</h2>
+                  <div className="grid grid-cols-2 gap-4">
+                    {yearlyScreening.map((message, index) => (
+                      <motion.div
+                        key={index}
+                        className="bg-[#fff] dark:bg-[#000] p-2 rounded text-sm"
+                        transition={{ type: 'spring', stiffness: 100 }}
+                        variants={wordVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        custom={index + 1}
+                        viewport={{ once: false }}
+                        exit={{ opacity: 0, y: -10 }}
+                      >
+                        {message}
+                      </motion.div>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            )}
-            {/* Once A Year Screening Messages */}
-            {onceAYear.length > 0 && (
-              <div className="p-4 mb-4 rounded bg-[#f0f0fe] dark:bg-[#111]">
-                <h2 className="text-lg mb-2">Once A Year</h2>
-                <div className="grid grid-cols-2 gap-4">
-                  {onceAYear.map((message, index) => (
-                    <motion.div
-                      key={index}
-                      className="bg-[#fff] dark:bg-[#000] p-2 rounded text-sm"
-                      transition={{ type: 'spring', stiffness: 100 }}
-                      variants={wordVariants}
-                      initial="hidden"
-                      whileInView="visible"
-                      custom={index + 1}
-                      viewport={{ once: false }}
-                      exit={{ opacity: 0, y: -10 }}
-                    >
-                      {message}
-                    </motion.div>
-                  ))}
+              )}
+              {/* Once A Year Screening Messages */}
+              {onceAYear.length > 0 && (
+                <div className="p-4 mb-4 rounded bg-[#f0f0fe] dark:bg-[#111]">
+                  <h2 className="text-lg mb-2">Once A Year</h2>
+                  <div className="grid grid-cols-2 gap-4">
+                    {onceAYear.map((message, index) => (
+                      <motion.div
+                        key={index}
+                        className="bg-[#fff] dark:bg-[#000] p-2 rounded text-sm"
+                        transition={{ type: 'spring', stiffness: 100 }}
+                        variants={wordVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        custom={index + 1}
+                        viewport={{ once: false }}
+                        exit={{ opacity: 0, y: -10 }}
+                      >
+                        {message}
+                      </motion.div>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            )}
-            {/* Other Screening Messages */}
-            {otherScreening.length > 0 && (
-              <div className="p-4 mb-4 rounded bg-[#f0f0fe] dark:bg-[#111]">
-                <h2 className="text-lg mb-2">Other</h2>
-                <div className="grid grid-cols-2 gap-4">
-                  {otherScreening.map((message, index) => (
-                    <motion.div
-                      key={index}
-                      className="bg-[#fff] dark:bg-[#000] p-2 rounded text-sm"
-                      transition={{ type: 'spring', stiffness: 100 }}
-                      variants={wordVariants}
-                      initial="hidden"
-                      whileInView="visible"
-                      custom={index + 1}
-                      viewport={{ once: false }}
-                      exit={{ opacity: 0, y: -10 }}
-                    >
-                      {message}
-                    </motion.div>
-                  ))}
+              )}
+              {/* Other Screening Messages */}
+              {otherScreening.length > 0 && (
+                <div className="p-4 mb-4 rounded bg-[#f0f0fe] dark:bg-[#111]">
+                  <h2 className="text-lg mb-2">Other</h2>
+                  <div className="grid grid-cols-2 gap-4">
+                    {otherScreening.map((message, index) => (
+                      <motion.div
+                        key={index}
+                        className="bg-[#fff] dark:bg-[#000] p-2 rounded text-sm"
+                        transition={{ type: 'spring', stiffness: 100 }}
+                        variants={wordVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        custom={index + 1}
+                        viewport={{ once: false }}
+                        exit={{ opacity: 0, y: -10 }}
+                      >
+                        {message}
+                      </motion.div>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            )}
-          </>
-        )}
+              )}
+            </>
+          )}
+        </div>
       </div>
     </div>
   );

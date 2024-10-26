@@ -54,9 +54,6 @@ export default function Home() {
       <section className="panel h-screen bg-white dark:bg-[#000]">
         <OnScrollComponent />
       </section>
-      {/* <section className="panel h-screen bg-[#f0f0fe] dark:bg-[#000]">
-        <SearchPharmacies />
-      </section> */}
       <section className="panel h-screen bg-white dark:bg-[#000]">
         <PackYearsCalculator />
       </section>
