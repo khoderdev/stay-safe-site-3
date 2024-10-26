@@ -52,7 +52,7 @@ const useScreeningMessages = ({ age, gender, smoker, packsPerDay, yearsSmoked })
       //   otherMessages.push(`Every 10 Years Colonoscopy`);
       // }
       if (ageNum >= 40 && ageNum <= 75) {
-        onceAYearMessages.push(`FIT Test for Colon Cancer Screening`);
+        yearlyMessages.push(`FIT Test for Colon Cancer Screening`);
         otherMessages.push(`Every 2-5 Years Full Body Skin Exam`, `Every 10 Years Colonoscopy`);
       }
 
@@ -65,8 +65,15 @@ const useScreeningMessages = ({ age, gender, smoker, packsPerDay, yearsSmoked })
         if (smoker && totalPackYears >= 20) {
           onceAYearMessages.push(`Low-Dose Chest CT Scan Lung Cancer Screening`);
         }
+
+      }
+      if (smoker && totalPackYears >= 20 && gender === 'female') {
+        onceAYearMessages.push(`Low-Dose Chest CT Scan Lung Cancer Screening`);
       }
 
+      if (ageNum >= 50 && ageNum <= 75 && gender === 'female') {
+        otherMessages.push(`Every 10 Years Hearing Test`);
+      }
       if (ageNum >= 50 && ageNum <= 75 && gender === 'female') {
         otherMessages.push(`Every 5 Years DEXA Bone Scan (Osteoporosis Screening)`, `Every 5 Years Thyroid Panel`);
       }
