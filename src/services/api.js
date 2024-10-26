@@ -1,6 +1,6 @@
 import axios from "axios";
-export const API_URL = "https://api.staysafeaa.org";
-// export const API_URL = "http://localhost:8800";
+// export const API_URL = "https://api.staysafeaa.org";
+export const API_URL = "http://localhost:8800";
 
 const api = axios.create({
   baseURL: API_URL,

@@ -1,90 +1,144 @@
-// import axios from "axios";
-// import { createContext, useEffect, useState } from "react";
+// // import React, { createContext, useState, useEffect } from 'react';
+// // import axios from 'axios';
+// // import { jwtDecode } from "jwt-decode";
 
-// export const AuthContext = createContext();
+// // const AuthContext = createContext();
 
-// export const AuthContexProvider = ({ children }) => {
-//   const [currentUser, setCurrentUser] = useState(
-//     JSON.parse(localStorage.getItem("user")) || null
-//   );
+// // export const AuthContexProvider = ({ children }) => {
+// //   // State for managing user data, token, loading state, and errors
+// //   const [user, setUser] = useState(() => JSON.parse(localStorage.getItem("user")) || null);
+// //   const [token, setToken] = useState(() => localStorage.getItem('token'));
+// //   const [loading, setLoading] = useState(true);
+// //   const [error, setError] = useState(null);
 
-//   const login = async (inputs) => {
-//     try {
-//       const res = await axios.post("http://api.staysafeaa.org/users/login", inputs, { withCredentials: true });
+// //   useEffect(() => {
+// //     // Load user from localStorage on initial render
+// //     const storedToken = localStorage.getItem('token');
+// //     if (storedToken) {
+// //       try {
+// //         // Decode token to get user data
+// //         const decodedToken = jwtDecode(storedToken);
+// //         setUser(decodedToken); // Set user state from decoded token
+// //       } catch (error) {
+// //         console.error('Failed to decode token:', error);
+// //         setError('Invalid token');
+// //       }
+// //     }
+// //     setLoading(false);
+// //   }, []);
 
-//       setCurrentUser(res.data);
-//       console.log("User logged in:", res.data);
-//     } catch (error) {
-//       console.error("Login failed:", error.response?.data || error.message);
-//       throw new Error("Login failed."); // Optionally propagate the error
-//     }
-//   };
+// //   const register = async (userData) => {
+// //     try {
+// //       const response = await axios.post('https://api.staysafeaa.org/users/register', userData, { withCredentials: true });
+// //       const { token } = response.data;
+// //       localStorage.setItem('token', token);
+// //       setToken(token);
+// //       const decodedUser = jwtDecode(token); // Decode token to get user data
+// //       localStorage.setItem("user", JSON.stringify(decodedUser)); // Save user data to localStorage
+// //       setUser(decodedUser); // Update user state after registration
+// //     } catch (err) {
+// //       setError(err.response?.data.message || 'Registration failed');
+// //     }
+// //   };
 
-//   const logout = async () => {
-//     try {
-//       // Call the logout API to clear the JWT cookie on the server
-//       await axios.post("http://api.staysafeaa.org/users/logout", {}, { withCredentials: true });
-//       setCurrentUser(null); // Clear current user state
-//       localStorage.removeItem("user"); // Optionally remove user from localStorage
-//     } catch (error) {
-//       console.error("Logout failed:", error.response?.data || error.message);
-//     }
-//   };
+// //   const login = async (credentials) => {
+// //     try {
+// //       const response = await axios.post('https://api.staysafeaa.org/users/login', credentials, { withCredentials: true });
+// //       const { token } = response.data;
+// //       localStorage.setItem('token', token);
+// //       setToken(token);
+// //       const decodedUser = jwtDecode(token); // Decode token to get user data
+// //       localStorage.setItem("user", JSON.stringify(decodedUser)); // Save user data to localStorage
+// //       setUser(decodedUser); // Update user state after logging in
+// //     } catch (err) {
+// //       setError(err.response?.data.message || 'Login failed');
+// //     }
+// //   };
 
-//   // Update local storage whenever currentUser changes
-//   useEffect(() => {
-//     if (currentUser) {
-//       localStorage.setItem("user", JSON.stringify(currentUser));
-//     } else {
-//       localStorage.removeItem("user");
-//     }
-//   }, [currentUser]);
+// //   const logout = () => {
+// //     localStorage.removeItem('token');
+// //     localStorage.removeItem("user"); // Clear user from localStorage
+// //     setToken(null);
+// //     setUser(null); // Reset user state on logout
+// //   };
 
-//   return (
-//     <AuthContext.Provider value={{ currentUser, login, logout }}>
-//       {children}
-//     </AuthContext.Provider>
-//   );
-// };
+// //   // Store user in localStorage whenever it changes
+// //   useEffect(() => {
+// //     if (user) {
+// //       localStorage.setItem("user", JSON.stringify(user));
+// //     } else {
+// //       localStorage.removeItem("user");
+// //     }
+// //   }, [user]);
+
+// //   const value = {
+// //     user,
+// //     token,
+// //     loading,
+// //     error,
+// //     register,
+// //     login,
+// //     logout,
+// //   };
+
+// //   return (
+// //     <AuthContext.Provider value={value}>
+// //       {!loading && children} {/* Render children only when not loading */}
+// //     </AuthContext.Provider>
+// //   );
+// // };
+
+// // export default AuthContext;
 
 
-// /////////////////////////////////////////////////////////////////////
-// /////////////////////////////////////////////////////////////////////
-// /////////////////////////////////////////////////////////////////////
-// /////////////////////////////////////////////////////////////////////
-// /////////////////////////////////////////////////////////////////////
+
 
 
 // import React, { createContext, useState, useEffect } from 'react';
 // import axios from 'axios';
+// import { jwtDecode } from "jwt-decode";
 
 // const AuthContext = createContext();
 
 // export const AuthContexProvider = ({ children }) => {
-//   const [user, setUser] = useState(null);
-//   const [token, setToken] = useState(null);
+//   const [user, setUser] = useState(() => JSON.parse(localStorage.getItem("user")) || null);
+//   const [token, setToken] = useState(() => localStorage.getItem('token'));
 //   const [loading, setLoading] = useState(true);
 //   const [error, setError] = useState(null);
-//   const [currentUser, setCurrentUser] = useState(
-//     JSON.parse(localStorage.getItem("user")) || null
-//   );
+
+//   const isTokenExpired = (token) => {
+//     if (!token) return true;
+//     const { exp } = jwtDecode(token);
+//     return Date.now() >= exp * 1000;
+//   };
 
 //   useEffect(() => {
 //     const storedToken = localStorage.getItem('token');
-//     if (storedToken) {
-//       setToken(storedToken);
-//       // Optionally, you can fetch user data here using the token
+//     if (storedToken && !isTokenExpired(storedToken)) {
+//       try {
+//         const decodedToken = jwtDecode(storedToken);
+//         setUser(decodedToken);
+//       } catch (error) {
+//         console.error('Failed to decode token:', error);
+//         setError('Invalid token');
+//         logout();
+//       }
+//     } else {
+//       logout();
 //     }
 //     setLoading(false);
 //   }, []);
 
+
 //   const register = async (userData) => {
 //     try {
-//       const response = await axios.post('http://api.staysafeaa.org/users/register', userData, { withCredentials: true });
+//       const response = await axios.post('https://api.staysafeaa.org/users/register', userData, { withCredentials: true });
 //       const { token } = response.data;
 //       localStorage.setItem('token', token);
 //       setToken(token);
-//       setUser(userData);
+//       const decodedUser = jwtDecode(token); // Decode token to get user data
+//       localStorage.setItem("user", JSON.stringify(decodedUser)); // Save user data to localStorage
+//       setUser(decodedUser); // Update user state after registration
 //     } catch (err) {
 //       setError(err.response?.data.message || 'Registration failed');
 //     }
@@ -92,30 +146,34 @@
 
 //   const login = async (credentials) => {
 //     try {
-//       const response = await axios.post('http://api.staysafeaa.org/users/login', credentials, { withCredentials: true });
+//       const response = await axios.post('https://api.staysafeaa.org/users/login', credentials, { withCredentials: true });
 //       const { token } = response.data;
 //       localStorage.setItem('token', token);
 //       setToken(token);
-//       setUser(credentials);
+//       const decodedUser = jwtDecode(token); // Decode token to get user data
+//       localStorage.setItem("user", JSON.stringify(decodedUser)); // Save user data to localStorage
+//       setUser(decodedUser); // Update user state after logging in
 //     } catch (err) {
 //       setError(err.response?.data.message || 'Login failed');
 //     }
 //   };
 
+
 //   const logout = () => {
 //     localStorage.removeItem('token');
+//     localStorage.removeItem("user");
 //     setToken(null);
-//     setCurrentUser(null);
 //     setUser(null);
+//     setError(null);
 //   };
 
 //   useEffect(() => {
-//     if (currentUser) {
-//       localStorage.setItem("user", JSON.stringify(currentUser));
+//     if (user) {
+//       localStorage.setItem("user", JSON.stringify(user));
 //     } else {
 //       localStorage.removeItem("user");
 //     }
-//   }, [currentUser]);
+//   }, [user]);
 
 //   const value = {
 //     user,
@@ -127,8 +185,6 @@
 //     logout,
 //   };
 
-
-
 //   return (
 //     <AuthContext.Provider value={value}>
 //       {!loading && children}
@@ -138,38 +194,39 @@
 
 // export default AuthContext;
 
-
-// ///////////////////////////////////////////////////////
-// ///////////////////////////////////////////////////////
-// ///////////////////////////////////////////////////////
-// ///////////////////////////////////////////////////////
-// ///////////////////////////////////////////////////////
-
-import React, { createContext, useState, useEffect } from 'react';
+import { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import { jwtDecode } from "jwt-decode";
+import Cookies from 'js-cookie';
 
 const AuthContext = createContext();
 
 export const AuthContexProvider = ({ children }) => {
-  // State for managing user data, token, loading state, and errors
-  const [user, setUser] = useState(() => JSON.parse(localStorage.getItem("user")) || null);
-  const [token, setToken] = useState(() => localStorage.getItem('token'));
+  // State for managing user data, loading state, and errors
+  const [user, setUser] = useState(() => JSON.parse(Cookies.get('user') || null));
+  const [token, setToken] = useState(() => Cookies.get('token'));
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const isTokenExpired = (token) => {
+    if (!token) return true;
+    const { exp } = jwtDecode(token);
+    return Date.now() >= exp * 1000;
+  };
+
   useEffect(() => {
-    // Load user from localStorage on initial render
-    const storedToken = localStorage.getItem('token');
-    if (storedToken) {
+    const storedToken = Cookies.get('token');
+    if (storedToken && !isTokenExpired(storedToken)) {
       try {
-        // Decode token to get user data
         const decodedToken = jwtDecode(storedToken);
-        setUser(decodedToken); // Set user state from decoded token
+        setUser(decodedToken);
       } catch (error) {
         console.error('Failed to decode token:', error);
         setError('Invalid token');
+        logout();
       }
+    } else {
+      logout();
     }
     setLoading(false);
   }, []);
@@ -178,11 +235,11 @@ export const AuthContexProvider = ({ children }) => {
     try {
       const response = await axios.post('https://api.staysafeaa.org/users/register', userData, { withCredentials: true });
       const { token } = response.data;
-      localStorage.setItem('token', token);
+      Cookies.set('token', token, { secure: true, sameSite: 'None' }); // Set Secure and SameSite
       setToken(token);
-      const decodedUser = jwtDecode(token); // Decode token to get user data
-      localStorage.setItem("user", JSON.stringify(decodedUser)); // Save user data to localStorage
-      setUser(decodedUser); // Update user state after registration
+      const decodedUser = jwtDecode(token);
+      Cookies.set('user', JSON.stringify(decodedUser), { secure: true, sameSite: 'None' }); // Same as above
+      setUser(decodedUser);
     } catch (err) {
       setError(err.response?.data.message || 'Registration failed');
     }
@@ -192,31 +249,24 @@ export const AuthContexProvider = ({ children }) => {
     try {
       const response = await axios.post('https://api.staysafeaa.org/users/login', credentials, { withCredentials: true });
       const { token } = response.data;
-      localStorage.setItem('token', token);
+      Cookies.set('token', token, { secure: true, sameSite: 'None' }); // Same as above
       setToken(token);
-      const decodedUser = jwtDecode(token); // Decode token to get user data
-      localStorage.setItem("user", JSON.stringify(decodedUser)); // Save user data to localStorage
-      setUser(decodedUser); // Update user state after logging in
+      const decodedUser = jwtDecode(token);
+      Cookies.set('user', JSON.stringify(decodedUser), { secure: true, sameSite: 'None' }); // Same as above
+      setUser(decodedUser);
     } catch (err) {
       setError(err.response?.data.message || 'Login failed');
     }
   };
 
-  const logout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem("user"); // Clear user from localStorage
-    setToken(null);
-    setUser(null); // Reset user state on logout
-  };
 
-  // Store user in localStorage whenever it changes
-  useEffect(() => {
-    if (user) {
-      localStorage.setItem("user", JSON.stringify(user));
-    } else {
-      localStorage.removeItem("user");
-    }
-  }, [user]);
+  const logout = () => {
+    Cookies.remove('token'); // Remove token from cookies
+    Cookies.remove('user'); // Clear user from cookies
+    setToken(null);
+    setUser(null);
+    setError(null);
+  };
 
   const value = {
     user,
