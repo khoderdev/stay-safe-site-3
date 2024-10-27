@@ -24,6 +24,7 @@ body {
 	height: 100dvh;
 	overflow-x: hidden;
 	overflow-y: scroll;
+	 scroll-behavior: smooth;
 	-webkit-overflow-scrolling: touch;
 	overflow-scrolling: touch;
 	/* background-color: red; */
@@ -41,8 +42,10 @@ body {
 }
 
 .section {
-	width: 100vw;
-	height: 100vh;
+  width: 100vw;
+  min-height: 100vh; 
+  position: relative;
+  overflow: hidden; 
 }
 
 @media screen and (max-width: 1024px) {
@@ -103,19 +106,6 @@ a {
 	color: var(--green-dark);
 }
 
-/* SCROLL DOWN */
-.scroll-down {
-	position: absolute;
-	bottom: 30px;
-	left: 50%;
-	transform: translate(-50%, 0);
-	color: black;
-	font-weight: 400;
-	text-transform: uppercase;
-	font-size: 16px;
-	overflow: visible;
-}
-
 /* Vertical scrollbar */
 ::-webkit-scrollbar {
 	width: 0;
@@ -157,6 +147,9 @@ a {
 		box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
 	}
 }
+
+
+
 
 .btn-1 {
 	display: flex;

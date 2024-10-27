@@ -63,7 +63,7 @@ const BMICalculator = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-5 rounded-lg shadow-md bg-[#f0f0fe] dark:bg-black drop-shadow-lg text-black dark:text-white">
+    <div className="max-w-md  mx-auto mt-10 p-5 rounded-lg shadow-md bg-[#f0f0fe] dark:bg-black drop-shadow-lg text-black dark:text-white">
       <h2 className="text-2xl font-bold text-center mb-4">BMI Calculator</h2>
       <form onSubmit={calculateBMI} className="space-y-6">
         <div>

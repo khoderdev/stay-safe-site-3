@@ -1,139 +1,191 @@
-// import { useNavigate } from 'react-router-dom';
+// // import BMICalculator from '../components/calculator/bmi/BMICalculator';
+// // import QualitativeDiets from '../components/qualitative-diets/QualitativeDiets';
+// // import FoodAndNutrition from '../components/quiz/FoodAndNutrition';
+// // import Consultations from '../components/consultations/Consultations';
+// // import MDCHero from '../components/hero/MDCHero';
+
+// // function MDC() {
+
+// //   return (
+// //     <div className=''>
+// //       <div className=' '>
+// //         <MDCHero />
+// //       </div>
+
+// //       <div className=''>
+// //         <Consultations />
+// //       </div>
+
+// //       <div className=''>
+// //         <BMICalculator />
+// //       </div>
+
+// //       <div className=''>
+// //         <FoodAndNutrition />
+// //       </div>
+
+// //       <div className=''>
+// //         <QualitativeDiets />
+// //       </div>
+// //     </div>
+// //   );
+// // }
+
+// // export default MDC;
+// //////////////////////////////////////////////
+// //////////////////////////////////////////////
+// //////////////////////////////////////////////
+// //////////////////////////////////////////////
+
+
+// import { useEffect, useRef } from 'react';
+// import LocomotiveScroll from 'locomotive-scroll';
 // import BMICalculator from '../components/calculator/bmi/BMICalculator';
-// import ServiceCard from '../components/consultations/ServiceCard';
 // import QualitativeDiets from '../components/qualitative-diets/QualitativeDiets';
 // import FoodAndNutrition from '../components/quiz/FoodAndNutrition';
+// import Consultations from '../components/consultations/Consultations';
+// import MDCHero from '../components/hero/MDCHero';
 
 // function MDC() {
-//   const navigate = useNavigate()
+//   const scrollRef = useRef(null);
+
+//   useEffect(() => {
+//     const scroll = new LocomotiveScroll({
+//       el: scrollRef.current,
+//       smooth: true,
+//       multiplier: window.innerWidth > 768 ? 1.15 : 1.05, // Slightly slower multiplier for more fluidity
+//       class: 'is-inview', // Class added to elements in view
+//       smartphone: { smooth: true },
+//       tablet: { smooth: true },
+//     });
+
+//     // Handle smooth updates on resize with debounce
+//     const debounce = (func, delay) => {
+//       let timeout;
+//       return () => {
+//         clearTimeout(timeout);
+//         timeout = setTimeout(func, delay);
+//       };
+//     };
+//     const handleResize = debounce(() => {
+//       scroll.update();
+//     }, 100);
+
+//     window.addEventListener('resize', handleResize);
+
+//     return () => {
+//       scroll.destroy();
+//       window.removeEventListener('resize', handleResize);
+//     };
+//   }, []);
+
 //   return (
-//     <div>
-//       <div className='flex w-full h-screen '>
-//         <img src='/images/MDC-anim.gif' alt='mdc' className='w-full h-full object-contain mt-[-4rem]' />
-//       </div>
-//       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-center gap-5 p-2 py-4 bg-[#d4eff4] dark:bg-black">
-//         <div className="col-span-1 w-full h-full md:flex md:justify-between text-left">
-//           <ServiceCard
-//             title="Clinic Counseling"
-//             description="Therapeutic Counseling, Medical Dietary Assessment, Customized Meal Plan, Measurements, & Personalized Dietary Education, Blood Lipid Profile (Cholesterol, HDL, LDL, Triglyceride) & Blood Glucose."
-//             buttonText="Get Started"
-//             onButtonClick={() => console.log("Online Counseling booked")}
-//           />
-//         </div>
-
-//         <div className="col-span-1 w-full h-full md:flex md:justify-between text-left">
-//           <ServiceCard
-//             title="In-House Consultation"
-//             description="Therapeutic Counseling, Medical Dietary Assessment, Customized Meal Plan, Measurements, Personalized Dietary Education, & Labs, including Lipid profile (Cholesterol HDL, LDL, & Triglyceride) & Blood Glucose."
-//             buttonText="Learn More"
-//             onButtonClick={() => console.log("Online Counseling booked")}
-//           />
-//         </div>
-
-//         <div className="col-span-1 w-full h-full md:flex md:justify-between text-left">
-//           <ServiceCard
-//             title="Online Counseling"
-//             description="Therapeutic Counseling, Medical Dietary Assessment, Customized Meal Plan, & Personalized Dietary Education."
-//             buttonText="Book Now"
-//             onButtonClick={() => console.log("Online Counseling booked")}
-//           />
-//         </div>
-
-//         <div className="col-span-1 w-full h-full md:flex md:justify-between text-left">
-//           <ServiceCard
-//             title="Corporate Therapeutic Services"
-//             description="Specific to the workplace, Stay Safe notes that healthy eating increases productivity, decreases the number of sick days, increases happiness and improves employees' overall performance."
-//             buttonText="Reach Out"
-//             onButtonClick={() => console.log("Online Counseling booked")}
-//           />
-//         </div>
-
-//         <div className="col-span-1 w-full h-full md:flex md:justify-between text-left">
-//           <ServiceCard
-//             title="Community Therapeutic Services"
-//             description="Nutritional well-being is a prerequisite for full social, mental & physical potential of a population so that all people can lead full, productive lives & contribute to the development of the community with dignity."
-//             buttonText="Contact us"
-//             onButtonClick={() => console.log("Online Counseling booked")}
-//           />
-//         </div>
-
-//         <div className="col-span-1 grid-rows-2"></div>
+//     <div ref={scrollRef} data-scroll-container>
+//       <div data-scroll-section data-scroll data-scroll-speed="1" data-scroll-position="top">
+//         <MDCHero />
 //       </div>
 
-//       <BMICalculator />
-//       <FoodAndNutrition />
-//       <QualitativeDiets />
+//       <div data-scroll-section data-scroll data-scroll-class="fade-in" data-scroll-repeat>
+//         <Consultations />
+//       </div>
+
+//       <div data-scroll-section data-scroll data-scroll-speed="0.8" data-scroll-position="center">
+//         <BMICalculator />
+//       </div>
+
+//       <div data-scroll-section data-scroll data-scroll-speed="1.2" data-scroll-class="fade-in" data-scroll-repeat>
+//         <FoodAndNutrition />
+//       </div>
+
+//       <div data-scroll-section data-scroll data-scroll-speed="0.7" data-scroll-position="bottom">
+//         <QualitativeDiets />
+//       </div>
 //     </div>
 //   );
 // }
 
 // export default MDC;
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import BMICalculator from '../components/calculator/bmi/BMICalculator';
-import ServiceCard from '../components/consultations/ServiceCard';
 import QualitativeDiets from '../components/qualitative-diets/QualitativeDiets';
 import FoodAndNutrition from '../components/quiz/FoodAndNutrition';
+import Consultations from '../components/consultations/Consultations';
+import MDCHero from '../components/hero/MDCHero';
+
+gsap.registerPlugin(ScrollTrigger);
 
 function MDC() {
-  const navigate = useNavigate();
-  
+  const sectionsRef = useRef([]); // To store references to each section
+
+  useEffect(() => {
+    const sections = sectionsRef.current;
+
+    sections.forEach((section, index) => {
+      // Create a GSAP timeline for better control
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: 'top bottom', // Start when the top of the section hits the bottom of the viewport
+          end: 'bottom top', // End when the bottom of the section hits the top of the viewport
+          scrub: 1, // Smooth scrubbing, takes the duration into account
+          markers: false, // Enable this for debugging
+        },
+      });
+
+      // Fade-in and slide-up animation
+      tl.fromTo(
+        section,
+        { opacity: 0, y: 50 }, // Start from transparent and slightly below
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: 'power2.out', // Easing function for a smoother animation
+        }
+      );
+
+      // Add a subtle parallax effect
+      tl.to(section, {
+        y: -30, // Slight upward movement to create parallax
+        ease: 'none', // No easing for this effect
+        scrollTrigger: {
+          trigger: section,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true, // Sync with scrolling
+        },
+      });
+    });
+
+    return () => {
+      // Clean up scroll triggers on unmount
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
+
   return (
-    <div>
-      <div className='flex w-full h-screen '>
-        <img src='/images/MDC-anim.gif' alt='mdc' className='w-full h-full object-contain mt-[-4rem]' />
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-center gap-5 p-2 py-4 bg-[#d4eff4] dark:bg-black">
-        <div className="col-span-1 w-full h-full md:flex md:justify-between text-left">
-          <ServiceCard
-            title="Clinic Counseling"
-            description="Therapeutic Counseling, Medical Dietary Assessment, Customized Meal Plan, Measurements, & Personalized Dietary Education, Blood Lipid Profile (Cholesterol, HDL, LDL, Triglyceride) & Blood Glucose."
-            buttonText="Get Started"
-            onButtonClick={() => console.log("Clinic Counseling booked")}
-          />
-        </div>
-
-        <div className="col-span-1 w-full h-full md:flex md:justify-between text-left">
-          <ServiceCard
-            title="In-House Consultation"
-            description="Therapeutic Counseling, Medical Dietary Assessment, Customized Meal Plan, Measurements, Personalized Dietary Education, & Labs, including Lipid profile (Cholesterol HDL, LDL, & Triglyceride) & Blood Glucose."
-            buttonText="Learn More"
-            onButtonClick={() => console.log("In-House Consultation booked")}
-          />
-        </div>
-
-        <div className="col-span-1 w-full h-full md:flex md:justify-between text-left">
-          <ServiceCard
-            title="Online Counseling"
-            description="Therapeutic Counseling, Medical Dietary Assessment, Customized Meal Plan, & Personalized Dietary Education."
-            buttonText="Book Now"
-            onButtonClick={() => navigate("/book-appointment")} 
-          />
-        </div>
-
-        <div className="col-span-1 w-full h-full md:flex md:justify-between text-left">
-          <ServiceCard
-            title="Corporate Therapeutic Services"
-            description="Specific to the workplace, Stay Safe notes that healthy eating increases productivity, decreases the number of sick days, increases happiness and improves employees' overall performance."
-            buttonText="Reach Out"
-            onButtonClick={() => console.log("Corporate Therapeutic Services booked")}
-          />
-        </div>
-
-        <div className="col-span-1 w-full h-full md:flex md:justify-between text-left">
-          <ServiceCard
-            title="Community Therapeutic Services"
-            description="Nutritional well-being is a prerequisite for full social, mental & physical potential of a population so that all people can lead full, productive lives & contribute to the development of the community with dignity."
-            buttonText="Contact us"
-            onButtonClick={() => console.log("Community Therapeutic Services booked")}
-          />
-        </div>
-
-        <div className="col-span-1 grid-rows-2"></div>
+    <div className="flex flex-col">
+      <div ref={(el) => (sectionsRef.current[0] = el)} className="section">
+        <MDCHero />
       </div>
 
-      <BMICalculator />
-      <FoodAndNutrition />
-      <QualitativeDiets />
+      <div ref={(el) => (sectionsRef.current[1] = el)} className="section">
+        <Consultations />
+      </div>
+
+      <div ref={(el) => (sectionsRef.current[2] = el)} className="section">
+        <BMICalculator />
+      </div>
+
+      <div ref={(el) => (sectionsRef.current[3] = el)} className="section">
+        <FoodAndNutrition />
+      </div>
+
+      <div ref={(el) => (sectionsRef.current[4] = el)} className="section">
+        <QualitativeDiets />
+      </div>
     </div>
   );
 }
