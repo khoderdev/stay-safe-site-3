@@ -70,8 +70,8 @@ const Form: React.FC<FormProps> = ({
               <div className="col-span-1 md:col-span-2 w-[60%] flex flex-col justify-end md:w-full md:flex md:flex-row md:justify-between md:items-center border-green-500">
                 <label className="w-full md:w-[50%] flex flex-col text-[1rem] md:text-[1.1rem]">
                   Smoked Packs per day
-                  <span className="text-[10px] md:text-[12px] font-light">(each pack equals 20 cigarettes)</span>
-                  <span className="text-[10px] md:text-[12px] font-light">(each 1 hooka head is equivalent to 5 packs)</span>
+                  <span className="text-[10px] md:text-[12px] font-light">(1 pack equals 20 cigarettes)</span>
+                  <span className="text-[10px] md:text-[12px] font-light">(1 hooka head equals 5 packs)</span>
                 </label>
                 <input
                   type="number"

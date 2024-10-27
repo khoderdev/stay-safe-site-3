@@ -20,13 +20,22 @@ import CircularText from '../components/dx-prevention/Circle';
 import DynamicDietPage from '../components/qualitative-diets/DynamicDietPage';
 import Users from '../views/Users';
 import QualitativeDiets from "../components/qualitative-diets/QualitativeDiets";
-
+import BookAppointment from "../components/forms/BookAppointment";
+import Rewards from '../components/rewards'
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
     children: [
+      {
+        path: "/rewards",
+        element: <Rewards />,
+      },
+      {
+        path: "/book-appointment",
+        element: <BookAppointment />,
+      },
       {
         path: "/qualitative-diets ",
         element: < QualitativeDiets />,

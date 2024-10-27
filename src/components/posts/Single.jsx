@@ -17,7 +17,7 @@ const Single = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`http://localhost:8800/posts/${postId}`, {
+        const res = await axios.get(`https://api.staysafeaa.org/posts/${postId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -33,7 +33,7 @@ const Single = () => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:8800/posts/${postId}`, {
+      await axios.delete(`https://api.staysafeaa.org/posts/${postId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -103,7 +103,7 @@ const Single = () => {
 
           <div className="flex justify-end border-green-500">
             <img
-              src={`http://localhost:8800/upload/${post.img}`}
+              src={`https://api.staysafeaa.org/upload/${post.img}`}
               alt="Post Image"
               className="max-w-[80%] object-cover"
             />

@@ -12,7 +12,7 @@
 //     const fetchData = async () => {
 //       try {
 
-//         const res = await axios.get(`http://localhost:8800/posts${cat}`, {
+//         const res = await axios.get(`https://api.staysafeaa.org/posts${cat}`, {
 //           withCredentials: true,
 //         });
 //         setPosts(res.data);
@@ -79,7 +79,7 @@ const Posts = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`http://localhost:8800/posts${cat}`, {
+        const res = await axios.get(`https://api.staysafeaa.org/posts${cat}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -109,7 +109,7 @@ const Posts = () => {
           >
             <div className="img">
               <img
-                src={`http://localhost:8800/upload/${post.img}`}
+                src={`https://api.staysafeaa.org/upload/${post.img}`}
                 alt=""
                 className="w-full h-48 object-cover transition-transform duration-200 hover:scale-110"
               />

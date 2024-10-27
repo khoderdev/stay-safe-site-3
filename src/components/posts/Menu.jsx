@@ -7,7 +7,7 @@
 // //   useEffect(() => {
 // //     const fetchData = async () => {
 // //       try {
-// //         const res = await axios.get(`http://localhost:8800/posts/?cat=${cat}`);
+// //         const res = await axios.get(`https://api.staysafeaa.org/posts/?cat=${cat}`);
 // //         setPosts(res.data);
 // //       } catch (err) {
 // //         console.log(err);
@@ -47,7 +47,7 @@
 //   useEffect(() => {
 //     const fetchData = async () => {
 //       try {
-//         const res = await axios.get(`http://localhost:8800/posts/?cat=${cat}`);
+//         const res = await axios.get(`https://api.staysafeaa.org/posts/?cat=${cat}`);
 //         setPosts(res.data);
 //       } catch (err) {
 //         console.log(err);
@@ -86,7 +86,7 @@ const Menu = ({ cat }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`http://localhost:8800/posts/?cat=${cat}`);
+        const res = await axios.get(`https://api.staysafeaa.org/posts/?cat=${cat}`);
         setPosts(res.data);
       } catch (err) {
         console.log(err);

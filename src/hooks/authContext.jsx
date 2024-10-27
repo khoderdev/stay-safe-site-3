@@ -29,7 +29,7 @@
 
 // //   const register = async (userData) => {
 // //     try {
-// //       const response = await axios.post('http://localhost:8800/users/register', userData, { withCredentials: true });
+// //       const response = await axios.post('https://api.staysafeaa.org/users/register', userData, { withCredentials: true });
 // //       const { token } = response.data;
 // //       localStorage.setItem('token', token);
 // //       setToken(token);
@@ -43,7 +43,7 @@
 
 // //   const login = async (credentials) => {
 // //     try {
-// //       const response = await axios.post('http://localhost:8800/users/login', credentials, { withCredentials: true });
+// //       const response = await axios.post('https://api.staysafeaa.org/users/login', credentials, { withCredentials: true });
 // //       const { token } = response.data;
 // //       localStorage.setItem('token', token);
 // //       setToken(token);
@@ -132,7 +132,7 @@
 
 //   const register = async (userData) => {
 //     try {
-//       const response = await axios.post('http://localhost:8800/users/register', userData, { withCredentials: true });
+//       const response = await axios.post('https://api.staysafeaa.org/users/register', userData, { withCredentials: true });
 //       const { token } = response.data;
 //       localStorage.setItem('token', token);
 //       setToken(token);
@@ -146,7 +146,7 @@
 
 //   const login = async (credentials) => {
 //     try {
-//       const response = await axios.post('http://localhost:8800/users/login', credentials, { withCredentials: true });
+//       const response = await axios.post('https://api.staysafeaa.org/users/login', credentials, { withCredentials: true });
 //       const { token } = response.data;
 //       localStorage.setItem('token', token);
 //       setToken(token);
@@ -233,7 +233,7 @@ export const AuthContexProvider = ({ children }) => {
 
   const register = async (userData) => {
     try {
-      const response = await axios.post('http://localhost:8800/users/register', userData, { withCredentials: true });
+      const response = await axios.post('https://api.staysafeaa.org/users/register', userData, { withCredentials: true });
       const { token } = response.data;
       Cookies.set('token', token, { secure: true, sameSite: 'None' }); // Set Secure and SameSite
       setToken(token);
@@ -247,7 +247,7 @@ export const AuthContexProvider = ({ children }) => {
 
   const login = async (credentials) => {
     try {
-      const response = await axios.post('http://localhost:8800/users/login', credentials, { withCredentials: true });
+      const response = await axios.post('https://api.staysafeaa.org/users/login', credentials, { withCredentials: true });
       const { token } = response.data;
       Cookies.set('token', token, { secure: true, sameSite: 'None' }); // Same as above
       setToken(token);
@@ -258,7 +258,6 @@ export const AuthContexProvider = ({ children }) => {
       setError(err.response?.data.message || 'Login failed');
     }
   };
-
 
   const logout = () => {
     Cookies.remove('token'); // Remove token from cookies
