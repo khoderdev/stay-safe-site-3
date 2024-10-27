@@ -9,6 +9,7 @@ import { AuthContexProvider } from "./hooks/authContext";
 
 import App from './App';
 import './index.css';
+import { ScrollProvider } from './hooks/ScrollContext.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -17,7 +18,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <DarkModeProvider>
           <ThemeProvider>
             <VisitProvider>
-              <App />
+              <ScrollProvider>
+                <App />
+              </ScrollProvider>
             </VisitProvider>
           </ThemeProvider>
         </DarkModeProvider>

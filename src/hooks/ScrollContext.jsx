@@ -1,67 +1,63 @@
-// // ScrollContext.jsx
-// import React, { createContext, useContext, useRef, useEffect } from 'react';
-// import gsap from 'gsap';
-// import { ScrollTrigger } from 'gsap/ScrollTrigger';
-// import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+import { createContext, useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-// gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+gsap.registerPlugin(ScrollTrigger);
 
-// const ScrollContext = createContext();
+const ScrollContext = createContext();
 
-// export const useScrollContext = () => useContext(ScrollContext);
+export const ScrollProvider = ({ children }) => {
+  const sectionsRef = useRef([]); // To store references to each section
 
-// export const ScrollProvider = ({ children }) => {
-//   const scrollContainerRef = useRef(null);
-//   const locomotiveScrollRef = useRef(null);
+  useEffect(() => {
+    const sections = sectionsRef.current;
 
-//   useEffect(() => {
-//     const initScroll = async () => {
-//       const LocomotiveScroll = (await import('locomotive-scroll')).default;
-//       locomotiveScrollRef.current = new LocomotiveScroll({
-//         el: scrollContainerRef.current,
-//         smooth: true,
-//         lerp: 0.05,
-//         getDirection: true,
-//         mobile: { smooth: true },
-//         tablet: { smooth: true },
-//       });
+    sections.forEach((section) => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: 'top bottom', // Start when the top of the section hits the bottom of the viewport
+          end: 'bottom top', // End when the bottom of the section hits the top of the viewport
+          scrub: 1, // Smooth scrubbing, takes the duration into account
+          markers: false, // Enable this for debugging
+        },
+      });
 
-//       locomotiveScrollRef.current.on('scroll', ScrollTrigger.update);
+      // Fade-in and slide-up animation
+      tl.fromTo(
+        section,
+        { opacity: 0, y: 50 }, // Start from transparent and slightly below
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: 'power2.out', // Easing function for a smoother animation
+        }
+      );
 
-//       ScrollTrigger.scrollerProxy(scrollContainerRef.current, {
-//         scrollTop(value) {
-//           return arguments.length
-//             ? locomotiveScrollRef.current.scrollTo(value, 0, 0)
-//             : locomotiveScrollRef.current.scroll.instance.scroll.y;
-//         },
-//         getBoundingClientRect() {
-//           return {
-//             top: 0,
-//             left: 0,
-//             width: window.innerWidth,
-//             height: window.innerHeight,
-//           };
-//         },
-//         pinType: scrollContainerRef.current.style.transform ? 'transform' : 'fixed',
-//       });
+      // Add a subtle parallax effect
+      tl.to(section, {
+        y: -30, // Slight upward movement to create parallax
+        ease: 'none', // No easing for this effect
+        scrollTrigger: {
+          trigger: section,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true, // Sync with scrolling
+        },
+      });
+    });
 
-//       ScrollTrigger.addEventListener('refresh', () => locomotiveScrollRef.current.update());
-//       ScrollTrigger.refresh();
-//     };
+    return () => {
+      // Clean up scroll triggers on unmount
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
 
-//     initScroll();
-
-//     return () => {
-//       ScrollTrigger.removeEventListener('refresh');
-//       locomotiveScrollRef.current?.destroy();
-//     };
-//   }, []);
-
-//   return (
-//     <ScrollContext.Provider value={{ scrollContainerRef, locomotiveScrollRef }}>
-//       <div ref={scrollContainerRef} data-scroll-container>
-//         {children}
-//       </div>
-//     </ScrollContext.Provider>
-//   );
-// };
+  return (
+    <ScrollContext.Provider value={sectionsRef}>
+      {children}
+    </ScrollContext.Provider>
+  );
+};
+export default ScrollContext;
