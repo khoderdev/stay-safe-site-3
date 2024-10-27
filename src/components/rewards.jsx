@@ -114,9 +114,9 @@ function JackpotMachine() {
       <h3>User Balance: {userBalance}</h3>
       <div className="purchase-points space-y-2 flex flex-col w-full items-center mt-5">
         <h4>Purchase Points</h4>
-        <button className="btn-bg-green" onClick={() => purchasePoints(5)}>Buy 5 Points for $5</button>
-        <button className="btn-bg-green" onClick={() => purchasePoints(10)}>Buy 10 Points for $10</button>
-        <button className="btn-bg-green" onClick={() => purchasePoints(15)}>Buy 15 Points for $15</button>
+        <button className="hover" onClick={() => purchasePoints(5)}>Buy 5 Points for $5</button>
+        <button className="" onClick={() => purchasePoints(10)}>Buy 10 Points for $10</button>
+        <button className="btn-1 hover hover:bg-white" onClick={() => purchasePoints(15)}>Buy 15 Points for $15</button>
       </div>
       <h3>Last Combination: {lastCombination}</h3>
     </div>

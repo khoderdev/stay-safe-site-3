@@ -7,7 +7,7 @@ function Layout() {
     <div className="flex flex-col min-h-screen !bg-white dark:!bg-[#000]" data-scroll-container>
       <Header />
       <div className="flex-grow">
-0        <Outlet />
+        <Outlet />
       </div>
       {/* <Footer /> */}
     </div>

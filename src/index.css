@@ -136,6 +136,28 @@ a {
 	background-color: #ff9900;
 }
 
+/* .other-icon {
+	display: flex;
+	width: 25%;
+	height: 60px;
+	background-color: transparent;
+	border: solid #dddede 2px;
+	border-radius: 10px;
+	transition-duration: 400ms;
+	&:hover {
+		border: solid #fff 2px;
+		background-color: #fff;
+		box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
+	}
+} */
+
+.hover {
+	transition-duration: 400ms;
+	&:hover {
+		box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
+	}
+}
+
 .btn-1 {
 	display: flex;
 	width: fit-content;
