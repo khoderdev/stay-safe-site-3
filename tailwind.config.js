@@ -42,7 +42,7 @@ export default {
     extend: {
       colors: {
         pink: "#e55e72",
-        blue: '#3c79b4',
+        // blue: '#3c79b4',
         sky: '#B0E1EC',
         // white: 'F0F0FE',
         black: "#0e100f",
