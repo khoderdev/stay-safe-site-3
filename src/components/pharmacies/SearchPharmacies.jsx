@@ -4,8 +4,7 @@ import useAnimatedSplitting from '../../hooks/useAnimatedSplitting';
 import pharmacyData from './searchData.json';
 import { motion } from 'framer-motion';
 import './SearchPharmacies.css';
-import { selectStyles } from '../../utils/styles';
-
+import { selectStyles, localitySelect } from '../../utils/styles';
 
 const useParallax = (multiplier = 0.3) => {
   const [offsetY, setOffsetY] = useState(0);
@@ -22,16 +21,13 @@ const useParallax = (multiplier = 0.3) => {
   return offsetY;
 };
 
-
 const SearchPharmacies = () => {
   const titlesRef = useRef([]);
   const [selectedGovernorate, setSelectedGovernorate] = useState('');
   const [selectedLocality, setSelectedLocality] = useState('');
   const [filteredPharmacies, setFilteredPharmacies] = useState([]);
-  const parallaxY = useParallax(0.3); 
+  const parallaxY = useParallax(0.3);
 
-
-  
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -70,8 +66,11 @@ const SearchPharmacies = () => {
       });
     });
 
+    // Store the current titlesRef value in a variable
+    const currentTitles = titlesRef.current;
+
     // Only observe valid elements
-    titlesRef.current.forEach((title) => {
+    currentTitles.forEach((title) => {
       if (title instanceof Element) {
         observer.observe(title);
       }
@@ -79,7 +78,7 @@ const SearchPharmacies = () => {
 
     return () => {
       // Safeguard when unobserving
-      titlesRef.current.forEach((title) => {
+      currentTitles.forEach((title) => {
         if (title instanceof Element) {
           observer.unobserve(title);
         }
@@ -162,7 +161,7 @@ const SearchPharmacies = () => {
   });
 
   return (
-    <div className='flex flex-col md:flex md:flex-row w-full overflow-y-scroll overflow-x-hidden h-screen pt-8 sm: perspective'>
+    <div className='flex-container flex flex-col md:flex md:flex-row w-full overflow-y-scroll overflow-x-hidden h-screen pt-8 sm: perspective'>
 
       <div className='flex flex-col w-[33%] p-2  items-center'>
         <motion.img
@@ -233,7 +232,7 @@ const SearchPharmacies = () => {
                   id='governorate'
                   value={selectedGovernorate}
                   onChange={handleGovernorateChange}
-                  className={`${selectStyles()} !w-[12em] !ml-0`}
+                  className={`${selectStyles()} !w-[12em] !ml-0 !p-2`}
                 >
                   <option value=''>Select Governorate</option>
                   {governorates.map((governorate) => (
@@ -254,10 +253,11 @@ const SearchPharmacies = () => {
               >
                 <select
                   id='locality'
+                  // id={`${localitySelect} locality`}
                   value={selectedLocality}
                   onChange={handleLocalityChange}
                   disabled={!selectedGovernorate}
-                  className={`${selectStyles()} !w-[12em]`}
+                  className={`!bg-[#212121] !text-white !p-2 ${localitySelect({ disabled: !selectedGovernorate })}`}
                 >
                   <option value=''>Select Locality</option>
                   {localities.map((locality) => (
@@ -316,223 +316,3 @@ const SearchPharmacies = () => {
 };
 
 export default SearchPharmacies;
-
-
-// ////////////////////////////////////
-// ////////////////////////////////////
-// ////////////////////////////////////
-// ////////////////////////////////////
-
-
-// import { useState, useEffect, useRef } from "react";
-// import gsap from "gsap";
-// import pharmacyData from "./searchData.json";
-// import { motion } from "framer-motion";
-// import "./SearchPharmacies.css";
-// import { useAnimate, stagger } from "framer-motion";
-// import { selectStyles } from "../../utils/styles";
-// import  useMenuAnimation  from "../../hooks/useMenuAnimation"; // Import the hook
-
-// const staggerMenuItems = stagger(0.1, { startDelay: 0.15 });
-
-// const SearchPharmacies = () => {
-//   const titlesRef = useRef([]);
-//   const [selectedGovernorate, setSelectedGovernorate] = useState("");
-//   const [selectedLocality, setSelectedLocality] = useState("");
-//   const [filteredPharmacies, setFilteredPharmacies] = useState([]);
-//   const [isMenuOpen, setMenuOpen] = useState(false);
-
-//   const scope = useMenuAnimation(isMenuOpen); // Initialize animation for menu
-
-//   useEffect(() => {
-//     const observer = new IntersectionObserver((entries) => {
-//       entries.forEach((entry) => {
-//         if (entry.isIntersecting) {
-//           const title = entry.target;
-//           const words = [...title.querySelectorAll(".word")];
-
-//           words.forEach((word) =>
-//             gsap.set(word.parentNode, { perspective: 1000 })
-//           );
-
-//           gsap.fromTo(
-//             words,
-//             {
-//               "will-change": "opacity, transform",
-//               z: () => gsap.utils.random(500, 950),
-//               opacity: 0,
-//               xPercent: () => gsap.utils.random(-100, 100),
-//               yPercent: () => gsap.utils.random(-10, 10),
-//               rotationX: () => gsap.utils.random(-90, 90),
-//             },
-//             {
-//               duration: 2,
-//               ease: "expo",
-//               opacity: 1,
-//               rotationX: 0,
-//               rotationY: 0,
-//               xPercent: 0,
-//               yPercent: 0,
-//               z: 0,
-//               stagger: {
-//                 each: 0.2,
-//                 from: "random",
-//               },
-//             }
-//           );
-//         }
-//       });
-//     });
-
-//     titlesRef.current.forEach((title) => {
-//       if (title instanceof Element) {
-//         observer.observe(title);
-//       }
-//     });
-
-//     return () => {
-//       titlesRef.current.forEach((title) => {
-//         if (title instanceof Element) {
-//           observer.unobserve(title);
-//         }
-//       });
-//       observer.disconnect();
-//     };
-//   }, []);
-
-//   const governorates = [
-//     ...new Set(pharmacyData.map((pharmacy) => pharmacy.Governorate)),
-//   ];
-
-//   const localities = selectedGovernorate
-//     ? [
-//       ...new Set(
-//         pharmacyData
-//           .filter((pharmacy) => pharmacy.Governorate === selectedGovernorate)
-//           .map((pharmacy) => pharmacy.Locality)
-//       ),
-//     ]
-//     : [];
-
-//   const handleGovernorateChange = (e) => {
-//     setSelectedGovernorate(e.target.value);
-//     setSelectedLocality("");
-//     setFilteredPharmacies([]);
-//   };
-
-//   const handleLocalityChange = (e) => {
-//     const locality = e.target.value;
-//     setSelectedLocality(locality);
-
-//     const results = pharmacyData.filter(
-//       (pharmacy) =>
-//         pharmacy.Locality === locality &&
-//         pharmacy.Governorate === selectedGovernorate
-//     );
-//     setFilteredPharmacies(results);
-//   };
-
-//   return (
-//     <div className="flex flex-col md:flex-row w-full h-screen pt-8 overflow-hidden bg-[#f0f0fe] dark:bg-black">
-//       <div className="flex flex-col w-[33%] p-2 items-center">
-//         <motion.img
-//           src="/pharma4.gif"
-//           alt="pharma"
-//           initial={{ y: "100vh" }}
-//           animate={{ y: 0 }}
-//           transition={{ type: "spring", stiffness: 50, damping: 15 }}
-//         />
-//       </div>
-
-//       <div className="flex flex-col w-[66%] p-4 bg-[#f0f0fe] dark:bg-black rounded-lg" ref={scope}>
-//         <h2 className="animated__content" ref={(el) => (titlesRef.current[0] = el)}>
-//           <span className="text-3xl sm:text-5xl text-black dark:text-[#f0f0ee]">
-//             Looking for Cancer Medication?
-//           </span>
-//         </h2>
-
-//         <div className="flex flex-col justify-between mt-5 text-black dark:text-[#f0f0ee]">
-//           <div>
-//             <button
-//               className="menu-toggle"
-//               onClick={() => setMenuOpen(!isMenuOpen)}
-//             >
-//               Choose Location <span className="arrow">⯆</span>
-//             </button>
-//             <motion.ul className="menu">
-//               <motion.li>
-//                 <select
-//                   id="governorate"
-//                   value={selectedGovernorate}
-//                   onChange={handleGovernorateChange}
-//                   className={`${selectStyles()} !w-[12em]`}
-//                 >
-//                   <option value="">Select Governorate</option>
-//                   {governorates.map((governorate) => (
-//                     <option key={governorate} value={governorate}>
-//                       {governorate}
-//                     </option>
-//                   ))}
-//                 </select>
-//               </motion.li>
-
-//               <motion.li>
-//                 <select
-//                   id="locality"
-//                   value={selectedLocality}
-//                   onChange={handleLocalityChange}
-//                   disabled={!selectedGovernorate}
-//                   className={`${selectStyles()} !w-[12em]`}
-//                 >
-//                   <option value="">Select Locality</option>
-//                   {localities.map((locality) => (
-//                     <option key={locality} value={locality}>
-//                       {locality}
-//                     </option>
-//                   ))}
-//                 </select>
-//               </motion.li>
-//             </motion.ul>
-//           </div>
-//         </div>
-
-//         <div className="flex w-full mt-2">
-//           {filteredPharmacies.length > 0 && (
-//             <motion.div
-//               className="results custom-scrollbar grid grid-cols-1 sm:grid-cols-2 gap-4 pr-2 overflow-y-auto w-full max-h-72 text-black dark:text-white bg-[#f0f0fe] dark:bg-black"
-//               initial={{ opacity: 0 }}
-//               animate={{ opacity: 1 }}
-//               transition={{ duration: 0.2 }}
-//             >
-//               {filteredPharmacies.map((pharmacy, index) => (
-//                 <motion.li
-//                   key={index}
-//                   className="text-left flex flex-col bg-white dark:bg-[#000] p-4 border border-gray-300 rounded-lg shadow"
-//                   transition={{ type: "spring", stiffness: 100 }}
-//                   initial="hidden"
-//                   animate="visible"
-//                   custom={index}
-//                 >
-//                   <div>
-//                     <strong>Pharmacy:</strong> {pharmacy.Name}
-//                   </div>
-//                   <div>
-//                     <strong>Phone:</strong>
-//                     <a href={`tel:${pharmacy.Number}`} className="ml-1 text-[#3c79b4] underline">
-//                       {pharmacy.Number}
-//                     </a>
-//                   </div>
-//                   <div>
-//                     <strong>Address:</strong> {pharmacy.Locality}
-//                   </div>
-//                 </motion.li>
-//               ))}
-//             </motion.div>
-//           )}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default SearchPharmacies;

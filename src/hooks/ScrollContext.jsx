@@ -18,7 +18,7 @@ export const ScrollProvider = ({ children }) => {
           trigger: section,
           start: 'top bottom', // Start when the top of the section hits the bottom of the viewport
           end: 'bottom top', // End when the bottom of the section hits the top of the viewport
-          scrub: 1, // Smooth scrubbing, takes the duration into account
+          scrub: 1.6, // Smooth scrubbing, takes the duration into account
           markers: false, // Enable this for debugging
         },
       });
@@ -26,7 +26,7 @@ export const ScrollProvider = ({ children }) => {
       // Fade-in and slide-up animation
       tl.fromTo(
         section,
-        { opacity: 0, y: 50 }, // Start from transparent and slightly below
+        { opacity: 0, y: 0 }, // Start from transparent and slightly below
         {
           opacity: 1,
           y: 0,

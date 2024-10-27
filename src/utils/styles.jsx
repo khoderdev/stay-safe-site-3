@@ -25,3 +25,15 @@ export const selectStyles = ({
   focus:outline-none focus:ring-2 focus:ring-blue-500
   transition duration-300 ease-in-out shadow-sm hover:shadow-md
 `;
+
+export const localitySelect = ({
+  disabled = false,
+} = {}) => `
+  cursor-pointer border border-gray-300 dark:border-black
+  rounded-md 
+  ${disabled ? 'bg-blue text-blue cursor-not-allowed'
+  : 'bg-white dark:bg-[#000] text-black dark:text-white'}
+  focus:outline-none focus:ring-2 focus:ring-blue-500
+  transition duration-300 ease-in-out shadow-sm 
+  ${disabled ? 'shadow-none ' : 'hover:shadow-md'}
+`;
