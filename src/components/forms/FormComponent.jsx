@@ -221,20 +221,24 @@ const FormComponent = () => {
         {currentStep === steps.length && (
           <div className="space-y-6 border border-gray-300 rounded-lg p-6 text-center flex flex-col items-center max-w-8xl mx-auto">
             <h2 className="text-2xl font-semibold mb-2">Confirmation</h2>
-            <p className="text-gray-600 mb-4">Review and submit your information.</p>
+            <p className="text-gray-400 mb-4">Review and submit your information.</p>
             <div className="summary grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full border-t pt-4">
               {Object.entries(formData).map(([key, value]) => (
                 <div
                   key={key}
-                  className="flex justify-between items-center text-lg p-2 bg-gray-50 border-b w-full rounded-md shadow-sm"
+                  className="flex flex-col p-4 bg-gray-800 border border-gray-600 rounded-lg shadow-md transition transform hover:scale-105 duration-300"
+                // className="flex justify-between items-center text-lg p-2 bg-[#000] border-b w-full rounded-md shadow-sm"
                 >
-                  <span className="text-gray-700 capitalize">{key}:</span>
-                  <span className="text-gray-800">{value || "Not provided"}</span>
+                  <span className="text-[#f0f0fed3] font-semibold capitalize">
+                    {key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}:
+                  </span>
+                  <span className="text-[#f0f0fed3]">{value || "Not provided"}</span>
                 </div>
               ))}
             </div>
           </div>
         )}
+
       </div>
 
       {/* Navigation buttons */}
