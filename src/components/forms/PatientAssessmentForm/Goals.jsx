@@ -32,7 +32,7 @@
 //     <form onSubmit={handleSubmit} className="space-y-4">
 //       <div className='grid grid-cols-1'>
 //         <div className="flex flex-col items-center">
-//           <label className="font-semibold">
+//           <label className="font-semibold mb-2">
 //             If you want to change 3 things about your health and nutritional habits, what will they be?
 //           </label>
 //           <textarea
@@ -95,10 +95,10 @@ function Goals({ formData, setFormData, nextStep }) {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
-      <h2 className='text-center font-semibold text-2xl mb-6'>Goals</h2>
+      <h2 className='text-center font-semibold mb-2 text-2xl mb-6'>Goals</h2>
       <div className='grid grid-cols-1'>
         <div className="flex flex-col items-center">
-          <label className="font-semibold md:text-xl">
+          <label className="font-semibold mb-2 md:text-xl">
             If you want to change 3 things about your health and nutritional habits, what will they be?
           </label>
 
@@ -142,11 +142,7 @@ function Goals({ formData, setFormData, nextStep }) {
 
 // PropTypes
 Goals.propTypes = {
-  formData: PropTypes.shape({
-    goal1: PropTypes.string.isRequired,
-    goal2: PropTypes.string.isRequired,
-    goal3: PropTypes.string.isRequired,
-  }).isRequired,
+  formData: PropTypes.object.isRequired,
   setFormData: PropTypes.func.isRequired,
   nextStep: PropTypes.func.isRequired,
 };

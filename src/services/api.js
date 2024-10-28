@@ -1,12 +1,25 @@
 import axios from "axios";
-export const API_URL = "https://api.staysafeaa.org";
 // export const API_URL = "https://api.staysafeaa.org";
+export const API_URL = "http://localhost:8800";
 
 const api = axios.create({
   baseURL: API_URL,
 });
 
+
 // User Management
+export const fetchUsers = async (setData) => {
+  try {
+    const res = await api.get('/users', { withCredentials: true });
+    console.log('Fetched users:', res.data); // Log the data
+    setData(Array.isArray(res.data) ? res.data : []); // Ensure you're setting an array
+  } catch (error) {
+    console.error('Error fetching users:', error.response?.data || error.message);
+  }
+};
+
+
+
 export const getUsers = async (token) => {
   return api.get(`/users`, {
     headers: { Authorization: `Bearer ${token}` },
@@ -156,27 +169,58 @@ export const uploadFile = async (file) => {
       withCredentials: true,
     });
 
-    return res.data;
+    // Check if response status is OK
+    if (res.status >= 200 && res.status < 300) {
+      return res.data; // Successfully uploaded
+    } else {
+      // Handle unexpected response statuses
+      throw new Error(`Unexpected response: ${res.status} - ${res.statusText}`);
+    }
   } catch (err) {
-    console.error("File upload error:", err.response ? err.response.data : err.message);
-    throw new Error("File upload failed.");
+    // Handle specific errors
+    if (err.response) {
+      // Server responded with a status outside the 2xx range
+      console.error("Error response data:", err.response.data);
+      console.error("Error response status:", err.response.status);
+      throw new Error(err.response.data.message || "File upload failed.");
+    } else if (err.request) {
+      // Request was made but no response was received
+      console.error("No response received:", err.request);
+      throw new Error("File upload failed: No response from server.");
+    } else {
+      // Something happened while setting up the request
+      console.error("Upload error:", err.message);
+      throw new Error("File upload failed: " + err.message);
+    }
   }
 };
 
 export const createPost = async (postData, token) => {
   return api.post("/posts", postData, {
-    headers: {
-      'Authorization': `Bearer ${token}`
-    },
-    withCredentials: true,
+    headers: { Authorization: `Bearer ${token}` },
   });
 };
 
-export const updatePost = async (id, postData, token) => {
-  return api.put(`/posts/${id}`, postData, {
-    headers: {
-      'Authorization': `Bearer ${token}`
-    },
-    withCredentials: true,
+export const updatePost = async (postId, postData, token) => {
+  return api.put(`/posts/${postId}`, postData, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+};
+
+export const deletePost = async (postId, token) => {
+  return api.delete(`/posts/${postId}`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+};
+
+export const getPostById = async (postId, token) => {
+  return api.get(`/posts/${postId}`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+};
+
+export const createAppointment = async (appointmentData,) => {
+  return api.post("/appointments", appointmentData, {
+    // headers: { Authorization: `Bearer ${token}` },
   });
 };

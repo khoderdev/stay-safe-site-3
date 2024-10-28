@@ -1,13 +1,16 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { inputStyles } from '../../../utils/styles';
+import Countries from '../Countries';
 
 
 
 function PersonalInfo({ formData, setFormData, nextStep }) {
   // State for handling form submission and errors
   const [errors, setErrors] = useState({});
-  const [selectedEducation, setSelectedEducation] = useState(formData.education);
+  const [selectedEducation, setSelectedEducation] = useState(formData.education || "");
+  const [selectedCountry, setSelectedCountry] = useState(formData.country || "");
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -15,6 +18,9 @@ function PersonalInfo({ formData, setFormData, nextStep }) {
     // If the education field is changed, update selectedEducation state
     if (name === 'education') {
       setSelectedEducation(value);
+    }
+    if (name === 'country') {
+      setSelectedCountry(value);
     }
 
     setFormData((prevData) => ({
@@ -50,14 +56,14 @@ function PersonalInfo({ formData, setFormData, nextStep }) {
 
   return (
     <form onSubmit={handleSubmit} className="">
-      <h2 className='text-center font-semibold text-2xl mb-6'>Personal Info</h2>
+      <h2 className='text-center font-semibold mb-2 text-2xl mb-6'>Personal Info</h2>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
         <div className="flex flex-col p-4">
-          <label className="font-semibold">Email</label>
+          <label className="font-semibold mb-2">Email</label>
           <input
             type="email"
             name="email"
-            value={formData.email}
+            value={formData.email || ""}
             onChange={handleChange}
             required
             className={`${inputStyles()} !py-[6px]  bg-white dark:!bg-[#000]`}
@@ -66,11 +72,11 @@ function PersonalInfo({ formData, setFormData, nextStep }) {
         </div>
 
         <div className="flex flex-col p-4">
-          <label className="font-semibold">Full Name</label>
+          <label className="font-semibold mb-2">Full Name</label>
           <input
             type="text"
             name="fullName"
-            value={formData.fullName}
+            value={formData.fullName || ""}
             onChange={handleChange}
             required
             className={`${inputStyles()} !py-[6px]  bg-white dark:!bg-[#000]`}
@@ -79,24 +85,24 @@ function PersonalInfo({ formData, setFormData, nextStep }) {
         </div>
 
         <div className="flex flex-col p-4">
-          <label className="font-semibold">Date of Birth</label>
+          <label className="font-semibold mb-2">Date of Birth</label>
           <input
             type="date"
             name="dateOfBirth"
-            value={formData.dateOfBirth}
+            value={formData.dateOfBirth || ""}
             onChange={handleChange}
             required
-            className={`${inputStyles()} !py-[6px]  bg-white dark:!bg-[#000]`}
+            className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
           />
           {errors.dateOfBirth && <span className="error">{errors.dateOfBirth}</span>}
         </div>
 
         <div className="flex flex-col p-4">
-          <label className="font-semibold">Mobile Phone</label>
+          <label className="font-semibold mb-2">Mobile Phone</label>
           <input
             type="tel"
             name="phone"
-            value={formData.phone}
+            value={formData.phone || ""}
             onChange={handleChange}
             required
             className={`${inputStyles()} !py-[6px]  bg-white dark:!bg-[#000]`}
@@ -105,24 +111,21 @@ function PersonalInfo({ formData, setFormData, nextStep }) {
         </div>
 
         <div className="flex flex-col p-4">
-          <label className="font-semibold">Country</label>
-          <input
-            type="text"
-            name="country"
-            value={formData.country}
+          <label className="font-semibold mb-2">Country</label>
+          <Countries
+            value={selectedCountry || ""}
             onChange={handleChange}
-            required
-            className={`${inputStyles()} !py-[6px]  bg-white dark:!bg-[#000]`}
           />
+
           {errors.country && <span className="error">{errors.country}</span>}
         </div>
 
         <div className="flex flex-col p-4">
-          <label className="font-semibold">Address</label>
+          <label className="font-semibold mb-2">Address</label>
           <input
             type="text"
             name="address"
-            value={formData.address}
+            value={formData.address || ""}
             onChange={handleChange}
             required
             className={`${inputStyles()} !py-[6px]  bg-white dark:!bg-[#000]`}
@@ -131,10 +134,10 @@ function PersonalInfo({ formData, setFormData, nextStep }) {
         </div>
 
         <div className="flex flex-col p-4">
-          <label className="font-semibold">Marital Status</label>
+          <label className="font-semibold mb-2">Marital Status</label>
           <select
             name="maritalStatus"
-            value={formData.maritalStatus}
+            value={formData.maritalStatus || ""}
             onChange={handleChange}
             required
             className={`${inputStyles()} !py-[6px]  bg-white dark:!bg-[#000]`}
@@ -148,21 +151,21 @@ function PersonalInfo({ formData, setFormData, nextStep }) {
         </div>
 
         <div className="flex flex-col p-4">
-          <label className="font-semibold">Number of Kids</label>
+          <label className="font-semibold mb-2">Number of Kids</label>
           <input
             type="number"
             name="numberOfKids"
-            value={formData.numberOfKids}
+            value={formData.numberOfKids || ""}
             onChange={handleChange}
             className={`${inputStyles()} !py-[6px]  bg-white dark:!bg-[#000]`}
           />
         </div>
 
         <div className="flex flex-col p-4">
-          <label className="font-semibold">Work Status</label>
+          <label className="font-semibold mb-2">Work Status</label>
           <select
             name="workStatus"
-            value={formData.workStatus}
+            value={formData.workStatus || ""}
             onChange={handleChange}
             required
             className={`${inputStyles()} !py-[6px]  bg-white dark:!bg-[#000]`}
@@ -176,10 +179,10 @@ function PersonalInfo({ formData, setFormData, nextStep }) {
         </div>
 
         <div className="flex flex-col p-4">
-          <label className="font-semibold">How would you describe your current work status?</label>
+          <label className="font-semibold mb-2">How would you describe your current work status?</label>
           <select
             name="currentWorkDescription"
-            value={formData.currentWorkDescription}
+            value={formData.currentWorkDescription || ""}
             onChange={handleChange}
             required
             className={`${inputStyles()} !py-[6px]  bg-white dark:!bg-[#000]`}
@@ -196,21 +199,21 @@ function PersonalInfo({ formData, setFormData, nextStep }) {
         </div>
 
         <div className="flex flex-col p-4">
-          <label className="font-semibold">Working Schedule per week, if employed</label>
+          <label className="font-semibold mb-2">Working Schedule per week, if employed</label>
           <input
             type="text"
             name="workingSchedule"
-            value={formData.workingSchedule}
+            value={formData.workingSchedule || ""}
             onChange={handleChange}
             className={`${inputStyles()} !py-[6px]  bg-white dark:!bg-[#000]`}
           />
         </div>
 
         <div className="flex flex-col p-4">
-          <label className="font-semibold">Preferred Language</label>
+          <label className="font-semibold mb-2">Preferred Language</label>
           <select
             name="preferredLanguage"
-            value={formData.preferredLanguage}
+            value={formData.preferredLanguage || ""}
             onChange={handleChange}
             required
             className={`${inputStyles()} !py-[6px]  bg-white dark:!bg-[#000]`}
@@ -223,10 +226,10 @@ function PersonalInfo({ formData, setFormData, nextStep }) {
         </div>
 
         <div className="flex flex-col p-4">
-          <label className="font-semibold">Education</label>
+          <label className="font-semibold mb-2">Education</label>
           <select
             name="education"
-            value={formData.education}
+            value={formData.education || ""}
             onChange={handleChange}
             required
             className={`${inputStyles()} !py-[6px]  bg-white dark:!bg-[#000]`}
@@ -248,10 +251,10 @@ function PersonalInfo({ formData, setFormData, nextStep }) {
         </div>
 
         <div className="flex flex-col p-4">
-          <label className="font-semibold">Reason for Visit</label>
+          <label className="font-semibold mb-2">Reason for Visit</label>
           <textarea
             name="reasonForVisit"
-            value={formData.reasonForVisit}
+            value={formData.reasonForVisit || ""}
             onChange={handleChange}
             required
             className={`${inputStyles()}  bg-white dark:!bg-[#000]`}
@@ -260,10 +263,10 @@ function PersonalInfo({ formData, setFormData, nextStep }) {
         </div>
 
         <div className="flex flex-col p-4">
-          <label className="font-semibold">How did you know about us?</label>
+          <label className="font-semibold mb-2">How did you know about us?</label>
           <select
             name="howDidYouKnow"
-            value={formData.howDidYouKnow}
+            value={formData.howDidYouKnow || ""}
             onChange={handleChange}
             required
             className={`${inputStyles()} !py-[6px]  bg-white dark:!bg-[#000]`}
@@ -289,11 +292,11 @@ function PersonalInfo({ formData, setFormData, nextStep }) {
           'Doctorate (PhD or Equivalent)',
         ].includes(selectedEducation) && (
             <div className="flex flex-col px-4">
-              <label className="font-semibold">Field of Study</label>
+              <label className="font-semibold mb-2">Field of Study</label>
               <input
                 type="text"
                 name="fieldOfStudy"
-                value={formData.fieldOfStudy}
+                value={formData.fieldOfStudy || ""}
                 onChange={handleChange}
                 required
                 className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
@@ -305,26 +308,8 @@ function PersonalInfo({ formData, setFormData, nextStep }) {
     </form>
   );
 }
-
-// Add prop types validation
 PersonalInfo.propTypes = {
-  formData: PropTypes.shape({
-    email: PropTypes.string,
-    fullName: PropTypes.string,
-    dateOfBirth: PropTypes.string,
-    phone: PropTypes.string,
-    country: PropTypes.string,
-    address: PropTypes.string,
-    maritalStatus: PropTypes.string,
-    numberOfKids: PropTypes.number,
-    workStatus: PropTypes.string,
-    currentWorkDescription: PropTypes.string,
-    workingSchedule: PropTypes.string,
-    preferredLanguage: PropTypes.string,
-    education: PropTypes.string,
-    reasonForVisit: PropTypes.string,
-    howDidYouKnow: PropTypes.string,
-  }).isRequired,
+  formData: PropTypes.object.isRequired,
   setFormData: PropTypes.func.isRequired,
   nextStep: PropTypes.func.isRequired,
 };

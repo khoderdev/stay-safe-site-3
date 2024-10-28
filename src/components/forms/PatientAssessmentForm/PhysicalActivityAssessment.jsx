@@ -47,10 +47,10 @@ function PhysicalActivityAssessment({ formData, setFormData, nextStep }) {
 
   return (
     <form onSubmit={handleSubmit} className="">
-      <h2 className='text-center font-semibold text-2xl mb-6'>Physical Activity Assessment</h2>
+      <h2 className='text-center font-semibold mb-2 text-2xl mb-6'>Physical Activity Assessment</h2>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
         <div className="flex flex-col p-4">
-          <label className="font-semibold">Access to Sport Facilities *</label>
+          <label className="font-semibold mb-2">Access to Sport Facilities *</label>
           <select
             name="accessToFacilities"
             value={formData.accessToFacilities}
@@ -66,7 +66,7 @@ function PhysicalActivityAssessment({ formData, setFormData, nextStep }) {
         </div>
 
         <div className="flex flex-col p-4">
-          <label className="font-semibold">Physically Active? *</label>
+          <label className="font-semibold mb-2">Physically Active? *</label>
           <select
             name="physicallyActive"
             value={formData.physicallyActive}
@@ -83,7 +83,7 @@ function PhysicalActivityAssessment({ formData, setFormData, nextStep }) {
         </div>
 
         <div className="flex flex-col p-4">
-          <label className="font-semibold">Activity Type *</label>
+          <label className="font-semibold mb-2">Activity Type *</label>
           <input
             type="text"
             name="activityType"
@@ -96,7 +96,7 @@ function PhysicalActivityAssessment({ formData, setFormData, nextStep }) {
         </div>
 
         <div className="flex flex-col p-4">
-          <label className="font-semibold">Exercise Daily? *</label>
+          <label className="font-semibold mb-2">Exercise Daily? *</label>
           <select
             name="exerciseDaily"
             value={formData.exerciseDaily}
@@ -112,7 +112,7 @@ function PhysicalActivityAssessment({ formData, setFormData, nextStep }) {
         </div>
 
         <div className="flex flex-col p-4">
-          <label className="font-semibold">Number of hours/week *</label>
+          <label className="font-semibold mb-2">Number of hours/week *</label>
           <input
             type="number"
             name="hoursPerWeek"
@@ -125,7 +125,7 @@ function PhysicalActivityAssessment({ formData, setFormData, nextStep }) {
         </div>
 
         <div className="flex flex-col p-4">
-          <label className="font-semibold">Duration *</label>
+          <label className="font-semibold mb-2">Duration *</label>
           <input
             type="text"
             name="duration"
@@ -138,7 +138,7 @@ function PhysicalActivityAssessment({ formData, setFormData, nextStep }) {
         </div>
 
         <div className="flex flex-col p-4">
-          <label className="font-semibold">Favorite Sport *</label>
+          <label className="font-semibold mb-2">Favorite Sport *</label>
           <input
             type="text"
             name="favoriteSport"
@@ -151,7 +151,7 @@ function PhysicalActivityAssessment({ formData, setFormData, nextStep }) {
         </div>
 
         <div className="flex flex-col p-4">
-          <label className="font-semibold">Limitations *</label>
+          <label className="font-semibold mb-2">Limitations *</label>
           <textarea
             name="limitations"
             value={formData.limitations}
@@ -163,7 +163,7 @@ function PhysicalActivityAssessment({ formData, setFormData, nextStep }) {
         </div>
 
         <div className="flex flex-col p-4">
-          <label className="font-semibold">Exercise Plan *</label>
+          <label className="font-semibold mb-2">Exercise Plan *</label>
           <textarea
             name="exercisePlan"
             value={formData.exercisePlan}
@@ -180,17 +180,7 @@ function PhysicalActivityAssessment({ formData, setFormData, nextStep }) {
 
 // PropTypes
 PhysicalActivityAssessment.propTypes = {
-  formData: PropTypes.shape({
-    accessToFacilities: PropTypes.string.isRequired,
-    physicallyActive: PropTypes.string.isRequired,
-    activityType: PropTypes.string.isRequired,
-    exerciseDaily: PropTypes.string.isRequired,
-    hoursPerWeek: PropTypes.number.isRequired,
-    duration: PropTypes.string.isRequired,
-    favoriteSport: PropTypes.string.isRequired,
-    limitations: PropTypes.string.isRequired,
-    exercisePlan: PropTypes.string.isRequired,
-  }).isRequired,
+  formData: PropTypes.object.isRequired,
   setFormData: PropTypes.func.isRequired,
   nextStep: PropTypes.func.isRequired,
 };

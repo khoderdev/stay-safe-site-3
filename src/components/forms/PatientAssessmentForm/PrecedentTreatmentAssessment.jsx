@@ -36,10 +36,10 @@ function PrecedentTreatmentAssessment({ formData, setFormData, nextStep }) {
 
   return (
     <form onSubmit={handleSubmit} className="">
-      <h2 className='text-center font-semibold text-2xl mb-6'>Precedent Treatment Assessment</h2>
+      <h2 className='text-center font-semibold mb-2 text-2xl mb-6'>Precedent Treatment Assessment</h2>
       <div className='grid drid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
         <div className="flex flex-col p-4">
-          <label className="font-semibold">Previous dieting? *</label>
+          <label className="font-semibold mb-2">Previous dieting? *</label>
           <select
             name="previousDieting"
             value={formData.previousDieting}
@@ -54,7 +54,7 @@ function PrecedentTreatmentAssessment({ formData, setFormData, nextStep }) {
         </div>
 
         <div className="flex flex-col p-4">
-          <label className="font-semibold">What precisely in the previous diet didn't suit you? *</label>
+          <label className="font-semibold mb-2">What precisely in the previous diet didn't suit you? *</label>
           <input
             type="text"
             name="dietIssue"
@@ -66,7 +66,7 @@ function PrecedentTreatmentAssessment({ formData, setFormData, nextStep }) {
         </div>
 
         <div className="flex flex-col p-4">
-          <label className="font-semibold">Did you try any type of pills that claim losing weight? *</label>
+          <label className="font-semibold mb-2">Did you try any type of pills that claim losing weight? *</label>
           <select
             name="pillsUsed"
             value={formData.pillsUsed}
@@ -86,11 +86,7 @@ function PrecedentTreatmentAssessment({ formData, setFormData, nextStep }) {
 
 // PropTypes
 PrecedentTreatmentAssessment.propTypes = {
-  formData: PropTypes.shape({
-    previousDieting: PropTypes.string.isRequired,
-    dietIssue: PropTypes.string.isRequired,
-    pillsUsed: PropTypes.string.isRequired,
-  }).isRequired,
+  formData: PropTypes.object.isRequired,
   setFormData: PropTypes.func.isRequired,
   nextStep: PropTypes.func.isRequired,
 };

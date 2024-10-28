@@ -45,10 +45,10 @@ function DietaryAssessment({ formData, setFormData, nextStep }) {
 
   return (
     <form onSubmit={handleSubmit} className="">
-      <h2 className='text-center font-semibold text-2xl mb-6'>Dietary Assessment</h2>
+      <h2 className='text-center font-semibold mb-2 text-2xl mb-6'>Dietary Assessment</h2>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
         <div className="flex flex-col p-4">
-          <label className="font-semibold">Do you follow any special diet or have restrictions?</label>
+          <label className="font-semibold mb-2">Do you follow any special diet or have restrictions?</label>
           <select
             name="specialDiet"
             value={formData.specialDiet}
@@ -64,7 +64,7 @@ function DietaryAssessment({ formData, setFormData, nextStep }) {
         </div>
 
         <div className="flex flex-col p-4">
-          <label className="font-semibold">Do you eat 3 meals a day?</label>
+          <label className="font-semibold mb-2">Do you eat 3 meals a day?</label>
           <select
             name="threeMealsADay"
             value={formData.threeMealsADay}
@@ -81,7 +81,7 @@ function DietaryAssessment({ formData, setFormData, nextStep }) {
         </div>
 
         <div className="flex flex-col p-4">
-          <label className="font-semibold">Do you eat at regular time intervals?</label>
+          <label className="font-semibold mb-2">Do you eat at regular time intervals?</label>
           <select
             name="regularIntervals"
             value={formData.regularIntervals}
@@ -98,9 +98,9 @@ function DietaryAssessment({ formData, setFormData, nextStep }) {
         </div>
 
         <div className="flex flex-col p-4">
-          <label className="font-semibold">Average meal duration (time spent on meal)</label>
+          <label className="font-semibold mb-2">Average meal duration (time spent on meal)</label>
           <input
-            type="text"
+            type="number"
             name="averageMealDuration"
             value={formData.averageMealDuration}
             onChange={handleChange}
@@ -111,7 +111,7 @@ function DietaryAssessment({ formData, setFormData, nextStep }) {
         </div>
 
         <div className="flex flex-col p-4">
-          <label className="font-semibold">Where do you usually eat your meals?</label>
+          <label className="font-semibold mb-2">Where do you usually eat your meals?</label>
           <input
             type="text"
             name="mealLocation"
@@ -124,7 +124,7 @@ function DietaryAssessment({ formData, setFormData, nextStep }) {
         </div>
 
         <div className="flex flex-col p-4">
-          <label className="font-semibold">You eat alone or with company?</label>
+          <label className="font-semibold mb-2">You eat alone or with company?</label>
           <select
             name="eatingCompany"
             value={formData.eatingCompany}
@@ -140,7 +140,7 @@ function DietaryAssessment({ formData, setFormData, nextStep }) {
         </div>
 
         <div className="flex flex-col p-4">
-          <label className="font-semibold">How many liters of water do you usually drink a day?</label>
+          <label className="font-semibold mb-2">How many liters of water do you usually drink a day?</label>
           <input
             type="number"
             name="waterIntake"
@@ -158,15 +158,7 @@ function DietaryAssessment({ formData, setFormData, nextStep }) {
 
 // PropTypes
 DietaryAssessment.propTypes = {
-  formData: PropTypes.shape({
-    specialDiet: PropTypes.string.isRequired,
-    threeMealsADay: PropTypes.string.isRequired,
-    regularIntervals: PropTypes.string.isRequired,
-    averageMealDuration: PropTypes.string.isRequired,
-    mealLocation: PropTypes.string.isRequired,
-    eatingCompany: PropTypes.string.isRequired,
-    waterIntake: PropTypes.number.isRequired,
-  }).isRequired,
+  formData: PropTypes.object.isRequired,
   setFormData: PropTypes.func.isRequired,
   nextStep: PropTypes.func.isRequired,
 };

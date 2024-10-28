@@ -21,7 +21,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("https://api.staysafeaa.org/users/register", inputs);
+      await axios.post("http://localhost:8800/users/register", inputs);
       navigate("/login");
     } catch (err) {
       const errorMessage = err.response?.data || "An error occurred. Please try again.";

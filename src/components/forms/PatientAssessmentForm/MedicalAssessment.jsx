@@ -54,7 +54,7 @@ function MedicalAssessment({ formData, setFormData, nextStep }) {
           <label className="font-semibold">Past Medical History (PMH)</label>
           <textarea
             name="pastMedicalHistory"
-            value={formData.pastMedicalHistory}
+            value={formData.pastMedicalHistory || ""}
             onChange={handleChange}
             required
             className={`${inputStyles()}  bg-white dark:!bg-[#000]`}
@@ -66,7 +66,7 @@ function MedicalAssessment({ formData, setFormData, nextStep }) {
           <label className="font-semibold">Past Surgical History (PSH)</label>
           <textarea
             name="pastSurgicalHistory"
-            value={formData.pastSurgicalHistory}
+            value={formData.pastSurgicalHistory || ""}
             onChange={handleChange}
             required
             className={`${inputStyles()}  bg-white dark:!bg-[#000]`}
@@ -75,11 +75,11 @@ function MedicalAssessment({ formData, setFormData, nextStep }) {
         </div>
 
         <div className="flex flex-col p-4">
-          <label className="font-semibold">Food Intolerance *</label>
+          <label className="font-semibold">Food Intolerance</label>
           <input
             type="text"
             name="foodIntolerance"
-            value={formData.foodIntolerance}
+            value={formData.foodIntolerance || ""}
             onChange={handleChange}
             required
             className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
@@ -88,10 +88,10 @@ function MedicalAssessment({ formData, setFormData, nextStep }) {
         </div>
 
         <div className="flex flex-col p-4">
-          <label className="font-semibold">Food Allergies *</label>
+          <label className="font-semibold">Food Allergies</label>
           <select
             name="foodAllergies"
-            value={formData.foodAllergies}
+            value={formData.foodAllergies || ""}
             onChange={handleChange}
             required
             className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
@@ -117,7 +117,7 @@ function MedicalAssessment({ formData, setFormData, nextStep }) {
           <input
             type="text"
             name="medications"
-            value={formData.medications}
+            value={formData.medications || ""}
             onChange={handleChange}
             required
             className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
@@ -126,10 +126,10 @@ function MedicalAssessment({ formData, setFormData, nextStep }) {
         </div>
 
         <div className="flex flex-col p-4">
-          <label className="font-semibold">Do you Smoke? *</label>
+          <label className="font-semibold">Do you Smoke?</label>
           <select
             name="smokingStatus"
-            value={formData.smokingStatus}
+            value={formData.smokingStatus || ""}
             onChange={handleChange}
             required
             className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
@@ -148,7 +148,7 @@ function MedicalAssessment({ formData, setFormData, nextStep }) {
               <input
                 type="number"
                 name="packsPerDay"
-                value={formData.packsPerDay}
+                value={formData.packsPerDay || ""}
                 onChange={handleChange}
                 className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
               />
@@ -159,7 +159,7 @@ function MedicalAssessment({ formData, setFormData, nextStep }) {
               <input
                 type="number"
                 name="smokingYears"
-                value={formData.smokingYears}
+                value={formData.smokingYears || ""}
                 onChange={handleChange}
                 className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
               />
@@ -168,10 +168,10 @@ function MedicalAssessment({ formData, setFormData, nextStep }) {
         )}
 
         <div className="flex flex-col p-4">
-          <label className="font-semibold">Do you drink alcohol? *</label>
+          <label className="font-semibold">Do you drink alcohol?</label>
           <select
             name="drinkingStatus"
-            value={formData.drinkingStatus}
+            value={formData.drinkingStatus || ""}
             onChange={handleChange}
             required
             className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
@@ -189,7 +189,7 @@ function MedicalAssessment({ formData, setFormData, nextStep }) {
               <label className="font-semibold">How often do you drink alcohol?</label>
               <select
                 name="drinkingFrequency"
-                value={formData.drinkingFrequency}
+                value={formData.drinkingFrequency || ""}
                 onChange={handleChange}
                 className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
               >
@@ -203,10 +203,10 @@ function MedicalAssessment({ formData, setFormData, nextStep }) {
             </div>
 
             <div className="flex flex-col p-4">
-              <label className="font-semibold">How many drinks containing alcohol do you have on a typical day when you are drinking?</label>
+              <label className="font-semibold">How many drinks do you take per day?</label>
               <select
                 name="typicalDrinks"
-                value={formData.typicalDrinks}
+                value={formData.typicalDrinks || ""}
                 onChange={handleChange}
                 className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
               >
@@ -223,10 +223,10 @@ function MedicalAssessment({ formData, setFormData, nextStep }) {
         )}
 
         <div className="flex flex-col p-4">
-          <label className="font-semibold">Family History *</label>
+          <label className="font-semibold">Family History</label>
           <textarea
             name="familyHistory"
-            value={formData.familyHistory}
+            value={formData.familyHistory || ""}
             onChange={handleChange}
             required
             className={`${inputStyles()}  bg-white dark:!bg-[#000]`}
@@ -238,23 +238,10 @@ function MedicalAssessment({ formData, setFormData, nextStep }) {
   );
 }
 
-// PropTypes
+
 MedicalAssessment.propTypes = {
-  formData: PropTypes.shape({
-    pastMedicalHistory: PropTypes.string.isRequired,
-    pastSurgicalHistory: PropTypes.string.isRequired,
-    foodAllergies: PropTypes.string.isRequired,
-    medications: PropTypes.string.isRequired,
-    smokingStatus: PropTypes.string.isRequired,
-    packsPerDay: PropTypes.number,
-    smokingYears: PropTypes.number,
-    drinkingStatus: PropTypes.string.isRequired,
-    drinkingFrequency: PropTypes.string,
-    typicalDrinks: PropTypes.string,
-    familyHistory: PropTypes.string.isRequired,
-  }).isRequired,
+  formData: PropTypes.object.isRequired,
   setFormData: PropTypes.func.isRequired,
   nextStep: PropTypes.func.isRequired,
 };
-
 export default MedicalAssessment;

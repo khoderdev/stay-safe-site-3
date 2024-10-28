@@ -35,10 +35,10 @@ function PsychologicalAssessment({ formData, setFormData, nextStep }) {
 
   return (
     <form onSubmit={handleSubmit} className="">
-      <h2 className='text-center font-semibold text-2xl mb-6'>Psychological Assessment</h2>
+      <h2 className='text-center font-semibold mb-2 text-2xl mb-6'>Psychological Assessment</h2>
       <div className='grid drid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
         <div className="flex flex-col p-4">
-          <label className="font-semibold">Stressed/Traumatized? *</label>
+          <label className="font-semibold mb-2">Stressed/Traumatized? *</label>
           <select
             name="stressed"
             value={formData.stressed}
@@ -53,7 +53,7 @@ function PsychologicalAssessment({ formData, setFormData, nextStep }) {
         </div>
 
         <div className="flex flex-col p-4">
-          <label className="font-semibold">Emotional eater? *</label>
+          <label className="font-semibold mb-2">Emotional eater? *</label>
           <select
             name="emotionalEater"
             value={formData.emotionalEater}
@@ -68,7 +68,7 @@ function PsychologicalAssessment({ formData, setFormData, nextStep }) {
         </div>
 
         <div className="flex flex-col p-4">
-          <label className="font-semibold">How many hours of sleep do you get a day? *</label>
+          <label className="font-semibold mb-2">How many hours of sleep do you get a day? *</label>
           <input
             type="number"
             name="sleepHours"
@@ -85,11 +85,7 @@ function PsychologicalAssessment({ formData, setFormData, nextStep }) {
 
 // PropTypes
 PsychologicalAssessment.propTypes = {
-  formData: PropTypes.shape({
-    stressed: PropTypes.string.isRequired,
-    emotionalEater: PropTypes.string.isRequired,
-    sleepHours: PropTypes.number.isRequired,
-  }).isRequired,
+  formData: PropTypes.object.isRequired,
   setFormData: PropTypes.func.isRequired,
   nextStep: PropTypes.func.isRequired,
 };

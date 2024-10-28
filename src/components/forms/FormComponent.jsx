@@ -7,6 +7,8 @@ import PsychologicalAssessment from './PatientAssessmentForm/PsychologicalAssess
 import DietaryAssessment from './PatientAssessmentForm/DietaryAssessment';
 import PrecedentTreatmentAssessment from './PatientAssessmentForm/PrecedentTreatmentAssessment';
 import Goals from './PatientAssessmentForm/Goals';
+import { createAppointment } from '../../services/api';
+
 
 const FormComponent = () => {
   // Only include the steps to be displayed in the stepper
@@ -36,6 +38,7 @@ const FormComponent = () => {
     medications: "",
     smokingStatus: "",
     drinkingStatus: "",
+    typicalDrinks: "",
     familyHistory: "",
     specialDiet: "",
     threeMealsADay: "",
@@ -122,13 +125,27 @@ const FormComponent = () => {
   };
 
   // Submit the form, mark final step as completed, and reset the form
-  const handleSubmit = () => {
-    setIsSubmitted(true);
-    alert("Form Submitted");
+  const handleSubmit = async () => {
+    try {
+      // Make API call to create an appointment
+      const response = await createAppointment(formData);
+      setIsSubmitted(true);
+      alert("Form Submitted Successfully");
 
-    // Reset the form after a delay to allow user to see the submission status
-    setTimeout(resetForm, 400);
+      // Reset the form after a delay to allow user to see the submission status
+      setTimeout(resetForm, 400);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("There was an error submitting the form. Please try again.");
+    }
   };
+  // const handleSubmit = () => {
+  //   setIsSubmitted(true);
+  //   alert("Form Submitted");
+
+  //   // Reset the form after a delay to allow user to see the submission status
+  //   setTimeout(resetForm, 400);
+  // };
 
   // Handle clicking on a step indicator
   const handleStepClick = (index) => {
@@ -209,7 +226,7 @@ const FormComponent = () => {
         {/* Render confirmation step only when the form is submitted */}
         {currentStep === steps.length && (
           <div className="space-y-6 border border-gray-300 rounded-lg p-6 text-center flex flex-col items-center max-w-8xl mx-auto">
-            <h2 className="text-2xl font-semibold">Confirmation</h2>
+            <h2 className="text-2xl font-semibold mb-2">Confirmation</h2>
             <p className="text-gray-600 mb-4">Review and submit your information.</p>
             <div className="summary grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full border-t pt-4">
               {Object.entries(formData).map(([key, value]) => (
