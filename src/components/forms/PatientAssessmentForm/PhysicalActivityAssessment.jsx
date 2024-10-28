@@ -46,16 +46,17 @@ function PhysicalActivityAssessment({ formData, setFormData, nextStep }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <div className='grid drid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
-        <div className="flex flex-col">
+    <form onSubmit={handleSubmit} className="">
+      <h2 className='text-center font-semibold text-2xl mb-6'>Physical Activity Assessment</h2>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+        <div className="flex flex-col p-4">
           <label className="font-semibold">Access to Sport Facilities *</label>
           <select
             name="accessToFacilities"
             value={formData.accessToFacilities}
             onChange={handleChange}
 
-            className={`${inputStyles()} !py-[6px] !w-52 bg-white dark:!bg-[#000]`}
+            className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
           >
             <option value="">Select</option>
             <option value="yes">Yes</option>
@@ -64,14 +65,14 @@ function PhysicalActivityAssessment({ formData, setFormData, nextStep }) {
           {errors.accessToFacilities && <span className="error">{errors.accessToFacilities}</span>}
         </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col p-4">
           <label className="font-semibold">Physically Active? *</label>
           <select
             name="physicallyActive"
             value={formData.physicallyActive}
             onChange={handleChange}
 
-            className={`${inputStyles()} !py-[6px] !w-52 bg-white dark:!bg-[#000]`}
+            className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
           >
             <option value="">Select</option>
             <option value="yes">Yes</option>
@@ -81,7 +82,7 @@ function PhysicalActivityAssessment({ formData, setFormData, nextStep }) {
           {errors.physicallyActive && <span className="error">{errors.physicallyActive}</span>}
         </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col p-4">
           <label className="font-semibold">Activity Type *</label>
           <input
             type="text"
@@ -89,19 +90,19 @@ function PhysicalActivityAssessment({ formData, setFormData, nextStep }) {
             value={formData.activityType}
             onChange={handleChange}
 
-            className={`${inputStyles()} !py-[6px] !w-52 bg-white dark:!bg-[#000]`}
+            className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
           />
           {errors.activityType && <span className="error">{errors.activityType}</span>}
         </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col p-4">
           <label className="font-semibold">Exercise Daily? *</label>
           <select
             name="exerciseDaily"
             value={formData.exerciseDaily}
             onChange={handleChange}
 
-            className={`${inputStyles()} !py-[6px] !w-52 bg-white dark:!bg-[#000]`}
+            className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
           >
             <option value="">Select</option>
             <option value="yes">Yes</option>
@@ -110,7 +111,7 @@ function PhysicalActivityAssessment({ formData, setFormData, nextStep }) {
           {errors.exerciseDaily && <span className="error">{errors.exerciseDaily}</span>}
         </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col p-4">
           <label className="font-semibold">Number of hours/week *</label>
           <input
             type="number"
@@ -118,12 +119,12 @@ function PhysicalActivityAssessment({ formData, setFormData, nextStep }) {
             value={formData.hoursPerWeek}
             onChange={handleChange}
 
-            className={`${inputStyles()} !py-[6px] !w-52 bg-white dark:!bg-[#000]`}
+            className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
           />
           {errors.hoursPerWeek && <span className="error">{errors.hoursPerWeek}</span>}
         </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col p-4">
           <label className="font-semibold">Duration *</label>
           <input
             type="text"
@@ -131,12 +132,12 @@ function PhysicalActivityAssessment({ formData, setFormData, nextStep }) {
             value={formData.duration}
             onChange={handleChange}
 
-            className={`${inputStyles()} !py-[6px] !w-52 bg-white dark:!bg-[#000]`}
+            className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
           />
           {errors.duration && <span className="error">{errors.duration}</span>}
         </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col p-4">
           <label className="font-semibold">Favorite Sport *</label>
           <input
             type="text"
@@ -144,31 +145,31 @@ function PhysicalActivityAssessment({ formData, setFormData, nextStep }) {
             value={formData.favoriteSport}
             onChange={handleChange}
 
-            className={`${inputStyles()} !py-[6px] !w-52 bg-white dark:!bg-[#000]`}
+            className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
           />
           {errors.favoriteSport && <span className="error">{errors.favoriteSport}</span>}
         </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col p-4">
           <label className="font-semibold">Limitations *</label>
           <textarea
             name="limitations"
             value={formData.limitations}
             onChange={handleChange}
 
-            className={`${inputStyles()} !py-[6px] !w-52 bg-white dark:!bg-[#000]`}
+            className={`${inputStyles()} bg-white dark:!bg-[#000]`}
           />
           {errors.limitations && <span className="error">{errors.limitations}</span>}
         </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col p-4">
           <label className="font-semibold">Exercise Plan *</label>
           <textarea
             name="exercisePlan"
             value={formData.exercisePlan}
             onChange={handleChange}
 
-            className={`${inputStyles()} !py-[6px] !w-52 bg-white dark:!bg-[#000]`}
+            className={`${inputStyles()} bg-white dark:!bg-[#000]`}
           />
           {errors.exercisePlan && <span className="error">{errors.exercisePlan}</span>}
         </div>

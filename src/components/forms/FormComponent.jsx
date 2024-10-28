@@ -377,10 +377,10 @@ const FormComponent = () => {
     setTimeout(resetForm, 400);
   };
 
-    // Handle clicking on a step indicator
-    const handleStepClick = (index) => {
-      setCurrentStep(index);
-    };
+  // Handle clicking on a step indicator
+  const handleStepClick = (index) => {
+    setCurrentStep(index);
+  };
 
   return (
     <div className="form-component flex flex-col p-4 bg-white dark:bg-black dark:text-[#f0f0fe]">
@@ -390,7 +390,7 @@ const FormComponent = () => {
       {/* Form content for each step */}
       <div className="form-content flex my-4">
         {currentStep === 0 && (
-          <div className="space-x-4">
+          <div className="w-full space-x-4">
             <PersonalInfo
               formData={formData}
               setFormData={setFormData}
@@ -398,8 +398,9 @@ const FormComponent = () => {
             />
           </div>
         )}
+
         {currentStep === 1 && (
-          <div className="space-x-4 border">
+          <div className="w-full space-x-4">
             <MedicalAssessment
               formData={formData}
               setFormData={setFormData}
@@ -408,8 +409,7 @@ const FormComponent = () => {
           </div>
         )}
         {currentStep === 2 && (
-          <div className="space-x-4">
-            <h2>Physical Activity Assessment</h2>
+          <div className="w-full space-x-4">
             <PhysicalActivityAssessment
               formData={formData}
               setFormData={setFormData}
@@ -418,8 +418,7 @@ const FormComponent = () => {
           </div>
         )}
         {currentStep === 3 && (
-          <div className="space-x-4">
-            <h2>Dietary Assessment</h2>
+          <div className="w-full space-x-4">
             <DietaryAssessment
               formData={formData}
               setFormData={setFormData}
@@ -428,8 +427,7 @@ const FormComponent = () => {
           </div>
         )}
         {currentStep === 4 && (
-          <div className="space-x-4">
-            <h2>Psychological Assessment</h2>
+          <div className="w-full space-x-4">
             <PsychologicalAssessment
               formData={formData}
               setFormData={setFormData}
@@ -438,7 +436,7 @@ const FormComponent = () => {
           </div>
         )}
         {currentStep === 5 && (
-          <div className="space-x-4">
+          <div className="w-full space-x-4">
             <PrecedentTreatmentAssessment
               formData={formData}
               setFormData={setFormData}
@@ -447,7 +445,7 @@ const FormComponent = () => {
           </div>
         )}
         {currentStep === 6 && (
-          <div className="space-x-4">
+          <div className="w-full space-x-4">
             <Goals
               formData={formData}
               setFormData={setFormData}

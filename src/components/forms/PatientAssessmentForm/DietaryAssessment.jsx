@@ -44,16 +44,17 @@ function DietaryAssessment({ formData, setFormData, nextStep }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <div className='grid drid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
-        <div className="flex flex-col">
-          <label className="font-semibold">Do you follow any special diet or have restrictions or limitations for any reason?</label>
+    <form onSubmit={handleSubmit} className="">
+      <h2 className='text-center font-semibold text-2xl mb-6'>Dietary Assessment</h2>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+        <div className="flex flex-col p-4">
+          <label className="font-semibold">Do you follow any special diet or have restrictions?</label>
           <select
             name="specialDiet"
             value={formData.specialDiet}
             onChange={handleChange}
             // required
-            className={`${inputStyles()} !py-[6px] !w-52 bg-white dark:!bg-[#000]`}
+            className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
           >
             <option value="">Select</option>
             <option value="yes">Yes</option>
@@ -62,14 +63,14 @@ function DietaryAssessment({ formData, setFormData, nextStep }) {
           {errors.specialDiet && <span className="error">{errors.specialDiet}</span>}
         </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col p-4">
           <label className="font-semibold">Do you eat 3 meals a day?</label>
           <select
             name="threeMealsADay"
             value={formData.threeMealsADay}
             onChange={handleChange}
             // required
-            className={`${inputStyles()} !py-[6px] !w-52 bg-white dark:!bg-[#000]`}
+            className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
           >
             <option value="">Select</option>
             <option value="yes">Yes</option>
@@ -79,14 +80,14 @@ function DietaryAssessment({ formData, setFormData, nextStep }) {
           {errors.threeMealsADay && <span className="error">{errors.threeMealsADay}</span>}
         </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col p-4">
           <label className="font-semibold">Do you eat at regular time intervals?</label>
           <select
             name="regularIntervals"
             value={formData.regularIntervals}
             onChange={handleChange}
             // required
-            className={`${inputStyles()} !py-[6px] !w-52 bg-white dark:!bg-[#000]`}
+            className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
           >
             <option value="">Select</option>
             <option value="yes">Yes</option>
@@ -96,7 +97,7 @@ function DietaryAssessment({ formData, setFormData, nextStep }) {
           {errors.regularIntervals && <span className="error">{errors.regularIntervals}</span>}
         </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col p-4">
           <label className="font-semibold">Average meal duration (time spent on meal)</label>
           <input
             type="text"
@@ -104,12 +105,12 @@ function DietaryAssessment({ formData, setFormData, nextStep }) {
             value={formData.averageMealDuration}
             onChange={handleChange}
             // required
-            className={`${inputStyles()} !py-[6px] !w-52 bg-white dark:!bg-[#000]`}
+            className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
           />
           {errors.averageMealDuration && <span className="error">{errors.averageMealDuration}</span>}
         </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col p-4">
           <label className="font-semibold">Where do you usually eat your meals?</label>
           <input
             type="text"
@@ -117,19 +118,19 @@ function DietaryAssessment({ formData, setFormData, nextStep }) {
             value={formData.mealLocation}
             onChange={handleChange}
             // required
-            className={`${inputStyles()} !py-[6px] !w-52 bg-white dark:!bg-[#000]`}
+            className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
           />
           {errors.mealLocation && <span className="error">{errors.mealLocation}</span>}
         </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col p-4">
           <label className="font-semibold">You eat alone or with company?</label>
           <select
             name="eatingCompany"
             value={formData.eatingCompany}
             onChange={handleChange}
             // required
-            className={`${inputStyles()} !py-[6px] !w-52 bg-white dark:!bg-[#000]`}
+            className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
           >
             <option value="">Select</option>
             <option value="alone">Alone</option>
@@ -138,7 +139,7 @@ function DietaryAssessment({ formData, setFormData, nextStep }) {
           {errors.eatingCompany && <span className="error">{errors.eatingCompany}</span>}
         </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col p-4">
           <label className="font-semibold">How many liters of water do you usually drink a day?</label>
           <input
             type="number"
@@ -146,7 +147,7 @@ function DietaryAssessment({ formData, setFormData, nextStep }) {
             value={formData.waterIntake}
             onChange={handleChange}
             // required
-            className={`${inputStyles()} !py-[6px] !w-52 bg-white dark:!bg-[#000]`}
+            className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
           />
           {errors.waterIntake && <span className="error">{errors.waterIntake}</span>}
         </div>

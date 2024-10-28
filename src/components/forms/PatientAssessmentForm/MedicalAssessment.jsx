@@ -6,13 +6,6 @@ import { inputStyles } from '../../../utils/styles';
 function MedicalAssessment({ formData, setFormData, nextStep }) {
   const [errors, setErrors] = useState({});
 
-  // const handleChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setFormData((prevData) => ({
-  //     ...prevData,
-  //     [name]: value,
-  //   }));
-  // };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -55,33 +48,33 @@ function MedicalAssessment({ formData, setFormData, nextStep }) {
   return (
     <form onSubmit={handleSubmit} className="">
       <h2 className='text-center font-semibold text-2xl mb-6'>Medical Assessment</h2>
-      <div className='grid drid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
         {/* Form Fields (same as previous implementation) */}
-        <div className="flex flex-col">
+        <div className="flex flex-col p-4">
           <label className="font-semibold">Past Medical History (PMH)</label>
           <textarea
             name="pastMedicalHistory"
             value={formData.pastMedicalHistory}
             onChange={handleChange}
             required
-            className={`${inputStyles()}  !w-52 bg-white dark:!bg-[#000]`}
+            className={`${inputStyles()}  bg-white dark:!bg-[#000]`}
           />
           {errors.pastMedicalHistory && <span className="error">{errors.pastMedicalHistory}</span>}
         </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col p-4">
           <label className="font-semibold">Past Surgical History (PSH)</label>
           <textarea
             name="pastSurgicalHistory"
             value={formData.pastSurgicalHistory}
             onChange={handleChange}
             required
-            className={`${inputStyles()}  !w-52 bg-white dark:!bg-[#000]`}
+            className={`${inputStyles()}  bg-white dark:!bg-[#000]`}
           />
           {errors.pastSurgicalHistory && <span className="error">{errors.pastSurgicalHistory}</span>}
         </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col p-4">
           <label className="font-semibold">Food Intolerance *</label>
           <input
             type="text"
@@ -89,19 +82,19 @@ function MedicalAssessment({ formData, setFormData, nextStep }) {
             value={formData.foodIntolerance}
             onChange={handleChange}
             required
-            className={`${inputStyles()} !py-[6px] !w-52 bg-white dark:!bg-[#000]`}
+            className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
           />
           {errors.foodIntolerance && <span className="error">{errors.foodIntolerance}</span>}
         </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col p-4">
           <label className="font-semibold">Food Allergies *</label>
           <select
             name="foodAllergies"
             value={formData.foodAllergies}
             onChange={handleChange}
             required
-            className={`${inputStyles()} !py-[6px] !w-52 bg-white dark:!bg-[#000]`}
+            className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
           >
             <option value="">Select an option</option>
             <option value="eggs">Eggs</option>
@@ -119,7 +112,7 @@ function MedicalAssessment({ formData, setFormData, nextStep }) {
           {errors.foodAllergies && <span className="error">{errors.foodAllergies}</span>}
         </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col p-4">
           <label className="font-semibold">Medication/Supplements, Specify</label>
           <input
             type="text"
@@ -127,19 +120,19 @@ function MedicalAssessment({ formData, setFormData, nextStep }) {
             value={formData.medications}
             onChange={handleChange}
             required
-            className={`${inputStyles()} !py-[6px] !w-52 bg-white dark:!bg-[#000]`}
+            className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
           />
           {errors.medications && <span className="error">{errors.medications}</span>}
         </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col p-4">
           <label className="font-semibold">Do you Smoke? *</label>
           <select
             name="smokingStatus"
             value={formData.smokingStatus}
             onChange={handleChange}
             required
-            className={`${inputStyles()} !py-[6px] !w-52 bg-white dark:!bg-[#000]`}
+            className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
           >
             <option value="">Select</option>
             <option value="yes">Yes</option>
@@ -150,38 +143,38 @@ function MedicalAssessment({ formData, setFormData, nextStep }) {
 
         {formData.smokingStatus === 'yes' && (
           <>
-            <div className="flex flex-col">
+            <div className="flex flex-col p-4">
               <label className="font-semibold">How many packs a day? (pack 20 cigarettes)</label>
               <input
                 type="number"
                 name="packsPerDay"
                 value={formData.packsPerDay}
                 onChange={handleChange}
-                className={`${inputStyles()} !py-[6px] !w-52 bg-white dark:!bg-[#000]`}
+                className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
               />
             </div>
 
-            <div className="flex flex-col">
+            <div className="flex flex-col p-4">
               <label className="font-semibold">How many smoking years?</label>
               <input
                 type="number"
                 name="smokingYears"
                 value={formData.smokingYears}
                 onChange={handleChange}
-                className={`${inputStyles()} !py-[6px] !w-52 bg-white dark:!bg-[#000]`}
+                className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
               />
             </div>
           </>
         )}
 
-        <div className="flex flex-col">
+        <div className="flex flex-col p-4">
           <label className="font-semibold">Do you drink alcohol? *</label>
           <select
             name="drinkingStatus"
             value={formData.drinkingStatus}
             onChange={handleChange}
             required
-            className={`${inputStyles()} !py-[6px] !w-52 bg-white dark:!bg-[#000]`}
+            className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
           >
             <option value="">Select</option>
             <option value="yes">Yes</option>
@@ -192,13 +185,13 @@ function MedicalAssessment({ formData, setFormData, nextStep }) {
 
         {formData.drinkingStatus === 'yes' && (
           <>
-            <div className="flex flex-col">
+            <div className="flex flex-col p-4">
               <label className="font-semibold">How often do you drink alcohol?</label>
               <select
                 name="drinkingFrequency"
                 value={formData.drinkingFrequency}
                 onChange={handleChange}
-                className={`${inputStyles()} !py-[6px] !w-52 bg-white dark:!bg-[#000]`}
+                className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
               >
                 <option value="">Select</option>
                 <option value="never">Never</option>
@@ -209,13 +202,13 @@ function MedicalAssessment({ formData, setFormData, nextStep }) {
               </select>
             </div>
 
-            <div className="flex flex-col">
+            <div className="flex flex-col p-4">
               <label className="font-semibold">How many drinks containing alcohol do you have on a typical day when you are drinking?</label>
               <select
                 name="typicalDrinks"
                 value={formData.typicalDrinks}
                 onChange={handleChange}
-                className={`${inputStyles()} !py-[6px] !w-52 bg-white dark:!bg-[#000]`}
+                className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
               >
                 <option value="">Select</option>
                 <option value="1 or 2">1 or 2</option>
@@ -229,14 +222,14 @@ function MedicalAssessment({ formData, setFormData, nextStep }) {
           </>
         )}
 
-        <div className="flex flex-col">
+        <div className="flex flex-col p-4">
           <label className="font-semibold">Family History *</label>
           <textarea
             name="familyHistory"
             value={formData.familyHistory}
             onChange={handleChange}
             required
-            className={`${inputStyles()}  !w-52 bg-white dark:!bg-[#000]`}
+            className={`${inputStyles()}  bg-white dark:!bg-[#000]`}
           />
           {errors.familyHistory && <span className="error">{errors.familyHistory}</span>}
         </div>

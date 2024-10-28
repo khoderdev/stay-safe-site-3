@@ -34,15 +34,16 @@ function PsychologicalAssessment({ formData, setFormData, nextStep }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="">
+      <h2 className='text-center font-semibold text-2xl mb-6'>Psychological Assessment</h2>
       <div className='grid drid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
-        <div className="flex flex-col">
+        <div className="flex flex-col p-4">
           <label className="font-semibold">Stressed/Traumatized? *</label>
           <select
             name="stressed"
             value={formData.stressed}
             onChange={handleChange}
-            className={`${inputStyles()} !py-[6px] !w-52 bg-white dark:!bg-[#000]`}
+            className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
           >
             <option value="">Select</option>
             <option value="yes">Yes</option>
@@ -51,13 +52,13 @@ function PsychologicalAssessment({ formData, setFormData, nextStep }) {
           {errors.stressed && <span className="error">{errors.stressed}</span>}
         </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col p-4">
           <label className="font-semibold">Emotional eater? *</label>
           <select
             name="emotionalEater"
             value={formData.emotionalEater}
             onChange={handleChange}
-            className={`${inputStyles()} !py-[6px] !w-52 bg-white dark:!bg-[#000]`}
+            className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
           >
             <option value="">Select</option>
             <option value="yes">Yes</option>
@@ -66,14 +67,14 @@ function PsychologicalAssessment({ formData, setFormData, nextStep }) {
           {errors.emotionalEater && <span className="error">{errors.emotionalEater}</span>}
         </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col p-4">
           <label className="font-semibold">How many hours of sleep do you get a day? *</label>
           <input
             type="number"
             name="sleepHours"
             value={formData.sleepHours}
             onChange={handleChange}
-            className={`${inputStyles()} !py-[6px] !w-52 bg-white dark:!bg-[#000]`}
+            className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
           />
           {errors.sleepHours && <span className="error">{errors.sleepHours}</span>}
         </div>
