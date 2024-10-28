@@ -41,6 +41,10 @@ export default {
   theme: {
     extend: {
       colors: {
+        white: {
+          bg: '#f7f7f7',
+          fg: '#fff'
+        },
         pink: "#e55e72",
         // blue: '#3c79b4',
         sky: '#B0E1EC',

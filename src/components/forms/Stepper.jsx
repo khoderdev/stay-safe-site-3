@@ -2,7 +2,7 @@ import React from 'react';
 
 const Stepper = ({ steps, currentStep, isSubmitted, onStepClick }) => {
   return (
-    <ol className="flex items-center w-full">
+    <ol className="flex justify-center items-center w-full pl-4 md:pl-28">
       {steps.map((step, index) => {
         // Define completed status based on current step and submission status
         const isCompleted = index < currentStep || (isSubmitted && index === steps.length - 1);
@@ -22,7 +22,7 @@ const Stepper = ({ steps, currentStep, isSubmitted, onStepClick }) => {
             }`}
           >
             <span
-              className={`flex items-center justify-center w-10 h-10 rounded-full lg:h-12 lg:w-12 shrink-0 ${
+              className={`flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full lg:h-12 lg:w-12 shrink-0 ${
                 isCompleted
                   ? "bg-blue-100 dark:bg-blue-800"
                   : isActive

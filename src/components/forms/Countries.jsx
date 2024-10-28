@@ -1,4 +1,4 @@
-import { inputStyles } from '../../utils/styles';
+import { selectStyles } from '../../utils/styles';
 
 function Countries({ value, onChange }) {
   return (
@@ -8,7 +8,7 @@ function Countries({ value, onChange }) {
         name="country"
         value={value}
         onChange={onChange} 
-        className={`${inputStyles()} !py-[6px]  bg-white dark:!bg-[#000]`}
+        className={`${selectStyles()}   bg-white dark:!bg-[#000]`}
       >
         <option value="">Select a Country</option>
         <option value="Afghanistan">Afghanistan</option>

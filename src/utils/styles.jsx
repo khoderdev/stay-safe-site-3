@@ -6,7 +6,7 @@ export const inputStyles = ({
   width = 'w-0',
 } = {}) => `
   ${marginTop} ${marginLeft} ${paddingX} ${paddingY} ${width}
-  w-full border border-gray-300 dark:border-black
+  w-full !py-[13px] border border-gray-300 dark:border-black
   rounded-md bg-white dark:bg-[#000] text-black dark:text-white
   focus:outline-none focus:ring-2 focus:ring-blue-500
   transition duration-300 ease-in-out shadow-sm hover:shadow-md
@@ -20,7 +20,7 @@ export const selectStyles = ({
   width = 'w-0',
 } = {}) => `
   ${marginTop} ${marginLeft} ${paddingX} ${paddingY} ${width}
-  cursor-pointer border border-gray-300 dark:border-black
+  cursor-pointer w-full !py-[13px] border border-gray-300 dark:border-black
   rounded-md bg-white dark:bg-[#000] text-black dark:text-white
   focus:outline-none focus:ring-2 focus:ring-blue-500
   transition duration-300 ease-in-out shadow-sm hover:shadow-md

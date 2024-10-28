@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import { inputStyles } from '../../../utils/styles';
+import { inputStyles, selectStyles } from '../../../utils/styles';
 
 function PhysicalActivityAssessment({ formData, setFormData, nextStep }) {
   const [errors, setErrors] = useState({});
@@ -56,7 +56,7 @@ function PhysicalActivityAssessment({ formData, setFormData, nextStep }) {
             value={formData.accessToFacilities}
             onChange={handleChange}
 
-            className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
+            className={`${selectStyles()}  bg-white dark:!bg-[#000]`}
           >
             <option value="">Select</option>
             <option value="yes">Yes</option>
@@ -72,7 +72,7 @@ function PhysicalActivityAssessment({ formData, setFormData, nextStep }) {
             value={formData.physicallyActive}
             onChange={handleChange}
 
-            className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
+            className={`${selectStyles()}  bg-white dark:!bg-[#000]`}
           >
             <option value="">Select</option>
             <option value="yes">Yes</option>
@@ -90,7 +90,7 @@ function PhysicalActivityAssessment({ formData, setFormData, nextStep }) {
             value={formData.activityType}
             onChange={handleChange}
 
-            className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
+            className={`${inputStyles()}  bg-white dark:!bg-[#000]`}
           />
           {errors.activityType && <span className="error">{errors.activityType}</span>}
         </div>
@@ -102,7 +102,7 @@ function PhysicalActivityAssessment({ formData, setFormData, nextStep }) {
             value={formData.exerciseDaily}
             onChange={handleChange}
 
-            className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
+            className={`${selectStyles()}  bg-white dark:!bg-[#000]`}
           >
             <option value="">Select</option>
             <option value="yes">Yes</option>
@@ -119,7 +119,7 @@ function PhysicalActivityAssessment({ formData, setFormData, nextStep }) {
             value={formData.hoursPerWeek}
             onChange={handleChange}
 
-            className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
+            className={`${inputStyles()}  bg-white dark:!bg-[#000]`}
           />
           {errors.hoursPerWeek && <span className="error">{errors.hoursPerWeek}</span>}
         </div>
@@ -132,7 +132,7 @@ function PhysicalActivityAssessment({ formData, setFormData, nextStep }) {
             value={formData.duration}
             onChange={handleChange}
 
-            className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
+            className={`${inputStyles()}  bg-white dark:!bg-[#000]`}
           />
           {errors.duration && <span className="error">{errors.duration}</span>}
         </div>
@@ -145,14 +145,14 @@ function PhysicalActivityAssessment({ formData, setFormData, nextStep }) {
             value={formData.favoriteSport}
             onChange={handleChange}
 
-            className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
+            className={`${inputStyles()}  bg-white dark:!bg-[#000]`}
           />
           {errors.favoriteSport && <span className="error">{errors.favoriteSport}</span>}
         </div>
 
         <div className="flex flex-col p-4">
           <label className="font-semibold mb-2">Limitations *</label>
-          <textarea
+          <input
             name="limitations"
             value={formData.limitations}
             onChange={handleChange}
@@ -164,7 +164,7 @@ function PhysicalActivityAssessment({ formData, setFormData, nextStep }) {
 
         <div className="flex flex-col p-4">
           <label className="font-semibold mb-2">Exercise Plan *</label>
-          <textarea
+          <input
             name="exercisePlan"
             value={formData.exercisePlan}
             onChange={handleChange}

@@ -147,7 +147,7 @@ const FormComponent = () => {
   };
 
   return (
-    <div className="form-component flex flex-col p-4 bg-white dark:bg-black dark:text-[#f0f0fe]">
+    <div className="form-component flex flex-col md:px-14 md:py-4 bg-white-bg dark:bg-black dark:text-[#f0f0fe]">
       {/* Stepper component */}
       <Stepper steps={steps} currentStep={currentStep} isSubmitted={isSubmitted} onStepClick={handleStepClick} />
 
@@ -219,17 +219,17 @@ const FormComponent = () => {
         )}
         {/* Render confirmation step only when the form is submitted */}
         {currentStep === steps.length && (
-          <div className="space-y-6 border border-gray-300 rounded-lg p-6 text-center flex flex-col items-center max-w-8xl mx-auto">
+          <div className="border-2 border-gray-300 rounded-lg p-6 text-center flex flex-col items-center max-w-8xl mx-auto  custom-scrollbar">
             <h2 className="text-2xl font-semibold mb-2">Confirmation</h2>
             <p className="text-gray-400 mb-4">Review and submit your information.</p>
-            <div className="summary grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full border-t pt-4">
+            <div className="summary grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full border-t border-gray-300 pt-4">
               {Object.entries(formData).map(([key, value]) => (
                 <div
                   key={key}
-                  className="flex flex-col p-4 bg-gray-800 border border-gray-600 rounded-lg shadow-md transition transform hover:scale-105 duration-300"
+                  className="flex flex-col p-4 bg-[#000] border border-black rounded-lg shadow-md transition transform hover:scale-105 duration-300 hover"
                 // className="flex justify-between items-center text-lg p-2 bg-[#000] border-b w-full rounded-md shadow-sm"
                 >
-                  <span className="text-[#f0f0fed3] font-semibold capitalize">
+                  <span className="text-[#f0f0fed3] font-semibold">
                     {key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}:
                   </span>
                   <span className="text-[#f0f0fed3]">{value || "Not provided"}</span>
@@ -242,7 +242,7 @@ const FormComponent = () => {
       </div>
 
       {/* Navigation buttons */}
-      <div className="button-group flex justify-center space-x-12">
+      <div className="button-group flex justify-center my-4 space-x-12">
         {currentStep > 0 && (
           <button onClick={previousStep} className="bg-[#71743c] rounded-lg hover hover:bg-transparent border-2  hover:border-2 border-[#71743c] !w-24">Previous</button>
         )}

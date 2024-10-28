@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import { inputStyles } from '../../../utils/styles';
+import {inputStyles, selectStyles } from '../../../utils/styles';
 
 function DietaryAssessment({ formData, setFormData, nextStep }) {
   const [errors, setErrors] = useState({});
@@ -54,7 +54,7 @@ function DietaryAssessment({ formData, setFormData, nextStep }) {
             value={formData.specialDiet}
             onChange={handleChange}
             // required
-            className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
+            className={`${selectStyles()}  bg-white dark:!bg-[#000]`}
           >
             <option value="">Select</option>
             <option value="yes">Yes</option>
@@ -70,7 +70,7 @@ function DietaryAssessment({ formData, setFormData, nextStep }) {
             value={formData.threeMealsADay}
             onChange={handleChange}
             // required
-            className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
+            className={`${inputStyles()}  bg-white dark:!bg-[#000]`}
           >
             <option value="">Select</option>
             <option value="yes">Yes</option>
@@ -87,7 +87,7 @@ function DietaryAssessment({ formData, setFormData, nextStep }) {
             value={formData.regularIntervals}
             onChange={handleChange}
             // required
-            className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
+            className={`${inputStyles()}  bg-white dark:!bg-[#000]`}
           >
             <option value="">Select</option>
             <option value="yes">Yes</option>
@@ -105,7 +105,7 @@ function DietaryAssessment({ formData, setFormData, nextStep }) {
             value={formData.averageMealDuration}
             onChange={handleChange}
             // required
-            className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
+            className={`${inputStyles()}  bg-white dark:!bg-[#000]`}
           />
           {errors.averageMealDuration && <span className="error">{errors.averageMealDuration}</span>}
         </div>
@@ -118,7 +118,7 @@ function DietaryAssessment({ formData, setFormData, nextStep }) {
             value={formData.mealLocation}
             onChange={handleChange}
             // required
-            className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
+            className={`${inputStyles()}  bg-white dark:!bg-[#000]`}
           />
           {errors.mealLocation && <span className="error">{errors.mealLocation}</span>}
         </div>
@@ -130,7 +130,7 @@ function DietaryAssessment({ formData, setFormData, nextStep }) {
             value={formData.eatingCompany}
             onChange={handleChange}
             // required
-            className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
+            className={`${inputStyles()}  bg-white dark:!bg-[#000]`}
           >
             <option value="">Select</option>
             <option value="alone">Alone</option>
@@ -147,7 +147,7 @@ function DietaryAssessment({ formData, setFormData, nextStep }) {
             value={formData.waterIntake}
             onChange={handleChange}
             // required
-            className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
+            className={`${inputStyles()}  bg-white dark:!bg-[#000]`}
           />
           {errors.waterIntake && <span className="error">{errors.waterIntake}</span>}
         </div>

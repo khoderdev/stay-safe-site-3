@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import { inputStyles } from '../../../utils/styles';
+import { inputStyles, selectStyles } from '../../../utils/styles';
 
 function PsychologicalAssessment({ formData, setFormData, nextStep }) {
   const [errors, setErrors] = useState({});
@@ -43,7 +43,7 @@ function PsychologicalAssessment({ formData, setFormData, nextStep }) {
             name="stressed"
             value={formData.stressed}
             onChange={handleChange}
-            className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
+            className={`${selectStyles()}  bg-white dark:!bg-[#000]`}
           >
             <option value="">Select</option>
             <option value="yes">Yes</option>
@@ -58,7 +58,7 @@ function PsychologicalAssessment({ formData, setFormData, nextStep }) {
             name="emotionalEater"
             value={formData.emotionalEater}
             onChange={handleChange}
-            className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
+            className={`${selectStyles()}  bg-white dark:!bg-[#000]`}
           >
             <option value="">Select</option>
             <option value="yes">Yes</option>
@@ -74,7 +74,7 @@ function PsychologicalAssessment({ formData, setFormData, nextStep }) {
             name="sleepHours"
             value={formData.sleepHours}
             onChange={handleChange}
-            className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
+            className={`${inputStyles()}  bg-white dark:!bg-[#000]`}
           />
           {errors.sleepHours && <span className="error">{errors.sleepHours}</span>}
         </div>
