@@ -1,4 +1,3 @@
-// dietsData.js
 export const dietsData = {
   anemia: { title: "Anemia", content: "Information about anemia diet..." },
   constipation: { title: "Constipation", content: "Information about constipation diet..." },

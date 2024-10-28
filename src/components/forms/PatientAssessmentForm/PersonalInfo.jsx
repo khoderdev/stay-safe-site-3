@@ -288,7 +288,7 @@ function PersonalInfo({ formData, setFormData, nextStep }) {
           "Master's Degree",
           'Doctorate (PhD or Equivalent)',
         ].includes(selectedEducation) && (
-            <div className="flex flex-col p-4">
+            <div className="flex flex-col px-4">
               <label className="font-semibold">Field of Study</label>
               <input
                 type="text"
@@ -296,7 +296,7 @@ function PersonalInfo({ formData, setFormData, nextStep }) {
                 value={formData.fieldOfStudy}
                 onChange={handleChange}
                 required
-                className={`${inputStyles()} !py-[6px] !w-52 bg-white dark:!bg-[#000]`}
+                className={`${inputStyles()} !py-[6px] bg-white dark:!bg-[#000]`}
               />
               {errors.fieldOfStudy && <span className="error">{errors.fieldOfStudy}</span>}
             </div>

@@ -185,18 +185,18 @@ function DXPrevention() {
   const circleRef = useRef(null);
 
   const diseases = [
+    "Food Poisoning Mumps",
     "Obesity Type 2 Diabetes",
     "Anthrax Cervical Cancer",
     "Hypertension Lung Cancer",
     "Malaria Metabolic Syndrome",
-    "Food Poisoning Mumps n Syndrome",
     "STI Rabies Chronic Heart Disease",
     "HIV HPV COPD Bladder Cancer Cholera",
     "Work - Related Musculoskeletal Diseases",
-    "High Cholesterol Slips & Lapses COVID - 19 Asthma",
-    "Brucellosis Measles Occupational Coronary Artery Disease MERS Polio",
+    "High Cholesterol Slips & Lapses COVID-19",
+    "Brucellosis Measles Occupational Asthma Coronary Artery Disease MERS Polio",
     "Colon Cancer Skin Cancer Hand - Arm Vibration Syndrome Mesothelioma Mpox",
-    "Tuberculosis Chlamydia Sleep Apnea DiphtherInfluenza Hearing Loss Hepatitis",
+    "Tuberculosis Chlamydia Sleep Apnea Diphtheria Influenza Hearing Loss Hepatitis",
   ];
 
   return (
