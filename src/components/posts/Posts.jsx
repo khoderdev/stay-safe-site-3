@@ -69,6 +69,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
 import moment from "moment";
+import { API_URL } from "../../services/api";
 import { useAuth } from '../../hooks/useAuth';
 
 const Posts = () => {
@@ -79,7 +80,7 @@ const Posts = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`http://localhost:8800/posts${cat}`, {
+        const res = await axios.get(`${API_URL}/posts${cat}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -109,7 +110,7 @@ const Posts = () => {
           >
             <div className="img">
               <img
-                src={`http://localhost:8800/upload/${post.img}`}
+                src={`${API_URL}/upload/${post.img}`}
                 alt=""
                 className="w-full h-48 object-cover transition-transform duration-200 hover:scale-110"
               />

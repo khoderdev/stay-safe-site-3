@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Edit from "./img/edit.png";
 import Delete from "./img/delete.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { API_URL } from "../../services/api";
 import axios from "axios";
 import moment from "moment";
 import { useAuth } from "../../hooks/useAuth";
@@ -17,7 +18,7 @@ const Single = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`http://localhost:8800/posts/${postId}`, {
+        const res = await axios.get(`${API_URL}/posts/${postId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -33,7 +34,7 @@ const Single = () => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:8800/posts/${postId}`, {
+      await axios.delete(`${API_URL}/posts/${postId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -103,7 +104,7 @@ const Single = () => {
 
           <div className="flex justify-end border-green-500">
             <img
-              src={`http://localhost:8800/upload/${post.img}`}
+              src={`${API_URL}/upload/${post.img}`}
               alt="Post Image"
               className="max-w-[80%] object-cover"
             />

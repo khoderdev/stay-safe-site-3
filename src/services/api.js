@@ -165,7 +165,7 @@ export const uploadFile = async (file) => {
     const formData = new FormData();
     formData.append("file", file);
 
-    const res = await api.post("/upload", formData, {
+    const res = await api.post("/posts/upload", formData, {
       withCredentials: true,
     });
 
