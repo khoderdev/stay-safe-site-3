@@ -177,12 +177,12 @@ const SearchPharmacies = () => {
 
       <div className='flex flex-col sm:w-[66%] p-4'>
         <h2 className="animated__content" data-splitting ref={(el) => titlesRef.current[0] = el}>
-          <span className="text-3xl sm:text-5xl text-black dark:text-[#f0f0ee]">
+          <span className="text-3xl sm:text-5xl text-black dark:text-white-bg">
             Looking for Cancer Medication?
           </span>
         </h2>
 
-        <div className='flex mt-5 text-black dark:text-[#f0f0ee]'>
+        <div className='flex mt-5 text-black dark:text-white-bg'>
           {splitTextIntoLetters("Check Pharmacies").map((letter, index) => (
             <motion.span
               key={index}
@@ -232,7 +232,7 @@ const SearchPharmacies = () => {
                   id='governorate'
                   value={selectedGovernorate}
                   onChange={handleGovernorateChange}
-                  className={`${selectStyles()} !w-[12em] !ml-0 !p-2`}
+                  className={`${selectStyles()} !w-[12em] !ml-0 `}
                 >
                   <option value=''>Select Governorate</option>
                   {governorates.map((governorate) => (
@@ -257,7 +257,7 @@ const SearchPharmacies = () => {
                   value={selectedLocality}
                   onChange={handleLocalityChange}
                   disabled={!selectedGovernorate}
-                  className={`!bg-[#212121] !text-white !p-2 ${localitySelect({ disabled: !selectedGovernorate })}`}
+                  className={`!w-[12.5em] ${localitySelect({ disabled: !selectedGovernorate })}`}
                 >
                   <option value=''>Select Locality</option>
                   {localities.map((locality) => (
@@ -283,7 +283,7 @@ const SearchPharmacies = () => {
                   {filteredPharmacies.map((pharmacy, index) => (
                     <motion.li
                       key={index}
-                      className='flex flex-col justify-center bg-[#f0f0ee] dark:bg-[#000] p-4 border border-gray-300 rounded-lg shadow hover:shadow-lg transition-shadow duration-300 text-black dark:text-[#f0f0ee]'
+                      className='flex flex-col justify-center bg-white-bg dark:bg-[#000] p-4 border border-gray-300 rounded-lg shadow hover:shadow-lg transition-shadow duration-300 text-black dark:text-white-bg'
                       transition={{ type: 'spring', stiffness: 100 }}
                       variants={wordVariants}
                       initial="hidden"

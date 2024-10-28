@@ -29,12 +29,12 @@
 //   };
 
 //   return (
-//     <div className="home p-6 dark:bg-black text-black dark:text-[#f0f0fe] transition-all duration-300">
+//     <div className="home p-6 dark:bg-black text-black dark:text-white-bg transition-all duration-300">
 //       <div className="posts grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
 //         {posts.map((post) => (
 //           <Link
 //             to={`/post/${post.id}`}
-//             className="post bg-[#f0f0ee] dark:bg-gray-700 rounded-lg overflow-hidden shadow-lg transition-transform duration-200 hover:scale-105"
+//             className="post bg-white-bg dark:bg-gray-700 rounded-lg overflow-hidden shadow-lg transition-transform duration-200 hover:scale-105"
 //             key={post.id}
 //           >
 //             <div className="img">
@@ -46,7 +46,7 @@
 //             </div>
 //             <div className="content p-4">
 //               <div className="" >
-//                 <h1 className="text-lg font-semibold text-gray-800 dark:text-white hover:text-blue-600 transition-colors duration-200">
+//                 <h1 className="text-lg font-semibold text-gray-800 dark:text-white-bg hover:text-blue-600 transition-colors duration-200">
 //                   {post.title}
 //                 </h1>
 //               </div>
@@ -100,12 +100,12 @@ const Posts = () => {
   };
 
   return (
-    <div className="flex p-6 dark:text-[#f0f0fe] bg-[#fff] dark:bg-[#121212] transition-all duration-300">
+    <div className="flex p-6 dark:text-white-bg bg-white-fg dark:bg-[#121212] transition-all duration-300">
       <div className="posts grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 p-10 overflow-y-scroll">
         {posts.map((post) => (
           <Link
             to={`/post/${post.id}`}
-            className="post bg-[#f0f0ee] dark:bg-gray-700 rounded-lg overflow-hidden shadow-lg transition-transform duration-200 hover:scale-105"
+            className="post bg-white-bg dark:bg-gray-700 rounded-lg overflow-hidden shadow-lg transition-transform duration-200 hover:scale-105"
             key={post.id}
           >
             <div className="img">
@@ -116,7 +116,7 @@ const Posts = () => {
               />
             </div>
             <div className="content p-4">
-              <h1 className="text-lg font-semibold text-gray-800 dark:text-white hover:text-blue-600 transition-colors duration-200">
+              <h1 className="text-lg font-semibold text-gray-800 dark:text-white-bg hover:text-blue-600 transition-colors duration-200">
                 {post.title}
               </h1>
               <p className="mt-2 text-gray-600 dark:text-gray-300">{getText(post.desc)}</p>

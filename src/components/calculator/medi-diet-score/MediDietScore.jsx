@@ -48,7 +48,7 @@ const MediterraneanDietScore = () => {
   const renderQuestion = () => (
     <div className='flex flex-col items-center'>
       <div className="mb-10">
-        <p className="text-xl md:text-2xl mb-2 text-black dark:text-[#f0f0fe]">
+        <p className="text-xl md:text-2xl mb-2 text-black dark:text-white-bg">
           {questions[currentStep].question}
         </p>
       </div>
@@ -58,7 +58,7 @@ const MediterraneanDietScore = () => {
           <label
             key={option}
             className="flex flex-col items-center mb-10"
-          // className="flex items-center space-x-2 text-black dark:text-[#f0f0ee]"
+          // className="flex items-center space-x-2 text-black dark:text-white-bg"
           >
             <input
               type="radio"
@@ -70,7 +70,7 @@ const MediterraneanDietScore = () => {
             // className="form-radio h-5 w-5 text-green-600 cursor-pointer"
             />
             <motion.div
-              className={`cube-radio !bg-[#f0f0fe] dark:!bg-[#000] active:animate- !shadow-md ${answers[questions[currentStep].id] === option ? "selected" : ""
+              className={`cube-radio !bg-white-bg dark:!bg-[#000] active:animate- !shadow-md ${answers[questions[currentStep].id] === option ? "selected" : ""
                 }`}
               initial={{ scale: 1 }}
               animate={
@@ -88,7 +88,7 @@ const MediterraneanDietScore = () => {
       </div>
 
       {answers[questions[currentStep].id] && (
-        <div className="mt-4 text-[1rem] text-[#212121] dark:text-[#f0f0ee]">
+        <div className="mt-4 text-[1rem] text-[#212121] dark:text-white-bg">
           {answers[questions[currentStep].id] === 'yes'
             ? questions[currentStep].yesAnswer
             : questions[currentStep].noAnswer}
@@ -101,7 +101,7 @@ const MediterraneanDietScore = () => {
   // Render the score section after quiz completion
   const renderScore = () => (
     <div className="flex flex-col items-center justify-start text-center">
-      <h2 className="text-2xl text-black dark:text-[#f0f0ee]">Your Score: {score}%</h2>
+      <h2 className="text-2xl text-black dark:text-white-bg">Your Score: {score}%</h2>
       {score === 100 ? (
         <p className="text-lg text-green-500 mt-2">
           Great job! You're making healthy food choices in line with the Mediterranean diet.
@@ -124,7 +124,7 @@ const MediterraneanDietScore = () => {
 
   return (
     <div className="flex flex-col items-center justify-start w-full min-h-screen py-10">
-      <h1 className="text-xl md:text-5xl font-semibold mb-8 text-center text-black dark:text-[#f0f0ee]">
+      <h1 className="text-xl md:text-5xl font-semibold mb-8 text-center text-black dark:text-white-bg">
         Mediterranean Diet Score
       </h1>
       <div className="w-full max-w-2xl p-6 rounded-lg shadow-lg bg-black">

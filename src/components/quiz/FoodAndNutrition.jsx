@@ -45,7 +45,7 @@
 
 // //   return (
 // //     <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center">
-// //       <div className="w-full max-w-2xl bg-white rounded-lg shadow-lg p-6 text-center">
+// //       <div className="w-full max-w-2xl bg-white-fg rounded-lg shadow-lg p-6 text-center">
 // //         <motion.h1
 // //           initial={{ opacity: 0, y: -50 }}
 // //           animate={{ opacity: 1, y: 0 }}
@@ -144,7 +144,7 @@
 
 //   return (
 //     <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center">
-//       <div className="w-full max-w-2xl bg-white rounded-lg shadow-lg p-6 text-center">
+//       <div className="w-full max-w-2xl bg-white-fg rounded-lg shadow-lg p-6 text-center">
 //         <motion.h1
 //           initial={{ opacity: 0, y: -50 }}
 //           animate={{ opacity: 1, y: 0 }}
@@ -260,7 +260,7 @@ const [currentQuestion, setCurrentQuestion] = useState(0);
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center">
-      <div className="w-full max-w-2xl bg-white rounded-lg shadow-lg p-6 text-center">
+      <div className="w-full max-w-2xl bg-white-fg rounded-lg shadow-lg p-6 text-center">
         <motion.h1
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}

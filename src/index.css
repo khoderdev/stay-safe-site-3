@@ -68,7 +68,7 @@ a {
 /* Vertical scrollbar */
 ::-webkit-scrollbar {
 	width: 0;
-	background-color: #1e1e66;
+	background-color: #f7f7f7;
 }
 
 ::-webkit-scrollbar:horizontal {

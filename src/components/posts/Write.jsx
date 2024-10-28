@@ -71,19 +71,19 @@ const Write = () => {
   };
 
   return (
-    <div className="flex w-full justify-between p-6 bg-white dark:bg-[#000] overflow-x-hidden overflow-y-hidden">
-      <div className="content rounded-lg p-4 shadow-md transition-all duration-300 bg-[#f0f0fe] dark:bg-black text-black dark:text-[#f0f0fe]">
+    <div className="flex w-full justify-between p-6 bg-white-fg dark:bg-[#000] overflow-x-hidden overflow-y-hidden">
+      <div className="content rounded-lg p-4 shadow-md transition-all duration-300 bg-white-bg dark:bg-black text-black dark:text-white-bg">
         <input
           type="text"
           placeholder="Post Title"
           required
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="w-full p-2 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-[#000] dark:border-black dark:text-white transition-all duration-200"
+          className="w-full p-2 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-[#000] dark:border-black dark:text-white-bg transition-all duration-200"
         />
         <div className="editorContainer mb-4">
           <ReactQuill
-            className="editor transition-all duration-300 dark:bg-[#000] dark:border-black text-black dark:text-[#f0f0fe]"
+            className="editor transition-all duration-300 dark:bg-[#000] dark:border-black text-black dark:text-white-bg"
             theme="snow"
             placeholder='description'
             value={value}
@@ -94,12 +94,12 @@ const Write = () => {
         {error && <div className="text-red-500">{error}</div>}
       </div>
 
-      <div className="preview border w-96 p-4 rounded-lg bg-white dark:bg-black shadow-md">
-        <h1 className="text-xl font-semibold mb-2 text-black dark:text-[#f0f0fe]">
+      <div className="preview border w-96 p-4 rounded-lg bg-white-fg dark:bg-black shadow-md">
+        <h1 className="text-xl font-semibold mb-2 text-black dark:text-white-bg">
           {title || "Preview Title"}
         </h1>
         <div
-          className="quill-preview-content text-black dark:text-[#f0f0fe]"
+          className="quill-preview-content text-black dark:text-white-bg"
           dangerouslySetInnerHTML={{ __html: value || "<p>Preview Content</p>" }}
         />
         {previewImgUrl && (
@@ -112,8 +112,8 @@ const Write = () => {
       </div>
 
       <div className="menu grid grid-cols-1 gap-6 border-red-500">
-        <div className="flex flex-col w-72 justify-center bg-[#f0f0fe] dark:bg-black text-black dark:text-[#f0f0fe] p-4 pt-2 rounded-md shadow-sm space-y-2">
-          <h1 className="font-bold text-xl mb-6 dark:text-white">Actions</h1>
+        <div className="flex flex-col w-72 justify-center bg-white-bg dark:bg-black text-black dark:text-white-bg p-4 pt-2 rounded-md shadow-sm space-y-2">
+          <h1 className="font-bold text-xl mb-6 dark:text-white-bg">Actions</h1>
           <span className="block">
             <b>Status: </b> Draft
           </span>
@@ -138,14 +138,14 @@ const Write = () => {
               Publish
             </button>
 
-            <button className="px-4 py-2 bg-gray-300 text-black rounded-md hover:bg-gray-400 transition-colors duration-200 dark:bg-gray-600 dark:text-white dark:hover:bg-gray-500">
+            <button className="px-4 py-2 bg-gray-300 text-black rounded-md hover:bg-gray-400 transition-colors duration-200 dark:bg-gray-600 dark:text-white-bg dark:hover:bg-gray-500">
               Save as a draft
             </button>
           </div>
         </div>
 
-        <div className="item bg-[#f0f0fe] dark:bg-black text-black dark:text-[#f0f0fe] p-4 rounded-md shadow-sm">
-          <h1 className="font-semibold text-lg dark:text-white mb-4">Category</h1>
+        <div className="item bg-white-bg dark:bg-black text-black dark:text-white-bg p-4 rounded-md shadow-sm">
+          <h1 className="font-semibold text-lg dark:text-white-bg mb-4">Category</h1>
           <div className="cat">
             {["art", "science", "technology", "cinema", "design", "food"].map(
               (category) => (
@@ -161,7 +161,7 @@ const Write = () => {
                   />
                   <label
                     htmlFor={category}
-                    className="text-black dark:text-[#f0f0fe]"
+                    className="text-black dark:text-white-bg"
                   >
                     {category.charAt(0).toUpperCase() + category.slice(1)}
                   </label>

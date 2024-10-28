@@ -48,7 +48,7 @@
 
 //   return (
 //     <div className="diet-page">
-//       <h1 className='text-2xl text-center dark:text-white p-4'>{diet.title}</h1>
+//       <h1 className='text-2xl text-center dark:text-white-bg p-4'>{diet.title}</h1>
 //       <p>{diet.content}</p>
 //       {/* File Upload Section */}
 //       <input type="file" accept="application/pdf" onChange={handleFileUpload} />

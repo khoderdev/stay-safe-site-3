@@ -91,7 +91,7 @@ const PHQ9Quiz = () => {
                   transition={{ duration: 0.5 }}
                   className="flex flex-col justify-between items-center pt-4"
                 >
-                  <p className="text-black dark:text-[#f0f0fe] text-3xl font-bold text-center mb-10">{questions[currentStep].question}</p>
+                  <p className="text-black dark:text-white-bg text-3xl font-bold text-center mb-10">{questions[currentStep].question}</p>
 
                   {/* Answer Buttons */}
                   <div className="grid grid-cols-2 w-full lg:w-2/3 text-center items-center">
@@ -106,7 +106,7 @@ const PHQ9Quiz = () => {
                           className="hidden"
                         />
                         <motion.div
-                          className={`cube-radio !bg-[#f0f0fe] dark:!bg-[#000] active:animate- !shadow-md ${answers[questions[currentStep].id] === index ? "selected" : ""
+                          className={`cube-radio !bg-white-bg dark:!bg-[#000] active:animate- !shadow-md ${answers[questions[currentStep].id] === index ? "selected" : ""
                             }`}
                           initial={{ scale: 1 }}
                           animate={
@@ -165,10 +165,10 @@ const PHQ9Quiz = () => {
           </div>
         ) : (
           <div className="result-container flex flex-col items-center py-10">
-            <h2 className="text-2xl font-bold mb-4 text-black dark:text-[#f0f0fe]">
+            <h2 className="text-2xl font-bold mb-4 text-black dark:text-white-bg">
               Your Depression Screening Score: <span className="text-green-500">{score}</span>
             </h2>
-            <p className="text-lg mb-4 text-black dark:text-[#f0f0fe]">{getScoreInterpretation(score)}</p>
+            <p className="text-lg mb-4 text-black dark:text-white-bg">{getScoreInterpretation(score)}</p>
             {guidanceMessage && (
               <p className="text-[1.3rem] text-pink mb-10">{guidanceMessage}</p>
             )}
@@ -182,7 +182,7 @@ const PHQ9Quiz = () => {
         )}
       </div>
 
-      <div className="bg-[#f0f0fe] dark:bg-black text-black dark:text-[#f0f0fe] w-full flex justify-center">
+      <div className="bg-white-bg dark:bg-black text-black dark:text-white-bg w-full flex justify-center">
         <span className="text-[10px]">
           PHQ-9 is adapted from PRIME MD TODAY, developed by Drs. Robert L Spitzer, Janet BW Williams, Kurt Kroenke,
           and colleagues, with an educational grant from Pfizer Inc.

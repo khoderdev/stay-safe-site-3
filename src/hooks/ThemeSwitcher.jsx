@@ -18,14 +18,14 @@
 //   };
 
 //   return (
-//     <div className="min-h-screen flex items-center justify-center bg-white dark:bg-black transition-all duration-500">
+//     <div className="min-h-screen flex items-center justify-center bg-white-fg dark:bg-black transition-all duration-500">
 //       <div className="text-center">
-//         <h1 className="text-3xl font-bold text-black dark:text-white mb-6">
+//         <h1 className="text-3xl font-bold text-black dark:text-white-bg mb-6">
 //           {darkMode ? 'Dark Mode' : 'Light Mode'}
 //         </h1>
 //         <button
 //           onClick={toggleTheme}
-//           className="px-6 py-3 text-lg font-semibold rounded-md text-white bg-black dark:bg-white dark:text-black transition-colors duration-300"
+//           className="px-6 py-3 text-lg font-semibold rounded-md text-white bg-black dark:bg-white-fg dark:text-black transition-colors duration-300"
 //         >
 //           {darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
 //         </button>

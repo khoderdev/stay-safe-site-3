@@ -63,7 +63,7 @@ const BMICalculator = () => {
   };
 
   return (
-    <div className="max-w-md  mx-auto mt-10 p-5 rounded-lg shadow-md bg-[#f0f0fe] dark:bg-black drop-shadow-lg text-black dark:text-white">
+    <div className="max-w-md  mx-auto mt-10 p-5 rounded-lg shadow-md bg-white-bg dark:bg-black drop-shadow-lg text-black dark:text-white-bg">
       <h2 className="text-2xl font-bold text-center mb-4">BMI Calculator</h2>
       <form onSubmit={calculateBMI} className="space-y-6">
         <div>
@@ -73,7 +73,7 @@ const BMICalculator = () => {
             id="weight"
             value={weight}
             onChange={handleWeightChange}
-            className="w-full p-2 bg-[#fff] dark:bg-[#000] text-black dark:text-[#f0f0fe] border border-gray-300 rounded focus:outline-none focus:border-blue"
+            className="w-full p-2 bg-white-fg dark:bg-[#000] text-black dark:text-white-bg border border-gray-300 rounded focus:outline-none focus:border-blue"
             required
           />
         </div>
@@ -84,7 +84,7 @@ const BMICalculator = () => {
             id="height"
             value={height}
             onChange={handleHeightChange}
-            className="w-full p-2 bg-[#fff] dark:bg-[#000] text-black dark:text-[#f0f0fe] border border-gray-300 rounded focus:outline-none focus:border-blue"
+            className="w-full p-2 bg-white-fg dark:bg-[#000] text-black dark:text-white-bg border border-gray-300 rounded focus:outline-none focus:border-blue"
             required
           />
         </div>

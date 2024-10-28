@@ -40,7 +40,7 @@ export default function Header() {
   };
 
   return (
-    <header ref={headerRef} className="bg-white dark:bg-black shadow-md shadow-slate-200 dark:shadow-[#00000021] relative z-50 flex items-center justify-between lg:pl-32 lg:pr-6">
+    <header ref={headerRef} className="bg-white-fg dark:bg-black shadow-md shadow-slate-200 dark:shadow-[#00000021] relative z-50 flex items-center justify-between lg:pl-32 lg:pr-6">
       {/* Logo */}
       <motion.div
         className="flex-shrink-0 pl-2"
@@ -64,7 +64,7 @@ export default function Header() {
 
       {/* Sidebar Menu */}
       <motion.nav
-        className={`fixed top-0 left-0 h-full w-full bg-white dark:bg-[#212121] shadow-lg z-50 transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'
+        className={`fixed top-0 left-0 h-full w-full bg-white-fg dark:bg-[#212121] shadow-lg z-50 transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'
           }`}
         initial="closed"
         animate={isOpen ? 'open' : 'closed'}
@@ -89,25 +89,25 @@ export default function Header() {
       {/* Desktop Menu */}
       <div className='flex justify-between items-center space-x-10'>
         <nav className="hidden md:flex space-x-6 text-[1rem] font-semibold">
-          <Link to="/" className="text-black hover:text-blue dark:text-[#f0f0ee] dark:hover:text-blue transition-colors">
+          <Link to="/" className="text-black hover:text-blue dark:text-white-bg dark:hover:text-blue transition-colors">
             Home
           </Link>
-          <Link to="/mdc" className="text-black hover:text-blue dark:text-[#f0f0ee] dark:hover:text-blue transition-colors">
+          <Link to="/mdc" className="text-black hover:text-blue dark:text-white-bg dark:hover:text-blue transition-colors">
             MDC
           </Link>
-          <Link to="/enviremental-health" className="text-black hover:text-blue dark:text-[#f0f0ee] dark:hover:text-blue transition-colors">
-            Enviremental Health
+          <Link to="/environmental-health" className="text-black hover:text-blue dark:text-white-bg dark:hover:text-blue transition-colors">
+            Environmental Health
           </Link>
-          <Link to="/ohs" className="text-black hover:text-blue dark:text-[#f0f0ee] dark:hover:text-blue transition-colors">
+          <Link to="/ohs" className="text-black hover:text-blue dark:text-white-bg dark:hover:text-blue transition-colors">
             OHS
           </Link>
-          <Link to="/patient-guidance-support" className="text-black hover:text-blue dark:text-[#f0f0ee] dark:hover:text-blue transition-colors">
+          <Link to="/patient-guidance-support" className="text-black hover:text-blue dark:text-white-bg dark:hover:text-blue transition-colors">
             Patient Guidance & Support
           </Link>
-          <Link to="/about-us" className="text-black hover:text-blue dark:text-[#f0f0ee] dark:hover:text-blue transition-colors">
+          <Link to="/about-us" className="text-black hover:text-blue dark:text-white-bg dark:hover:text-blue transition-colors">
             About us
           </Link>
-          <Link to="/write" className="text-black hover:text-blue dark:text-[#f0f0ee] dark:hover:text-blue transition-colors">
+          <Link to="/write" className="text-black hover:text-blue dark:text-white-bg dark:hover:text-blue transition-colors">
             Write
           </Link>
         </nav>
@@ -117,17 +117,17 @@ export default function Header() {
             <span>Loading...</span> // Show loading state
           ) : (
             <>
-              <Link to={"/posts"} className="font-semibold dark:text-[#f0f0ee]">{currentUser?.name || 'User'}</Link>
+              <Link to={"/posts"} className="font-semibold dark:text-white-bg">{currentUser?.name || 'User'}</Link>
               <button onClick={logout} className="bg-red-500 text-white rounded px-4 py-2">Logout</button>
             </>
           )}
-      
+
         </div>
         <div className="flex space-x-2 pr-2 items-center">
           <div className='z-50 '>
             <ThemeToggle />
           </div>
-          <button onClick={toggleSidebar} className="md:hidden p-2 text-3xl text-black dark:text-white z-50 relative focus:outline-none border-none bg-transparent">
+          <button onClick={toggleSidebar} className="md:hidden p-2 text-3xl text-black dark:text-white-bg z-50 relative focus:outline-none border-none bg-transparent">
             {isOpen ? <HiX /> : <HiMenuAlt4 />}
           </button>
         </div>
@@ -177,7 +177,7 @@ export default function Header() {
 //   };
 
 //   return (
-//     <header ref={headerRef} className="bg-white dark:bg-black shadow-md shadow-slate-200 dark:shadow-[#00000021] relative z-50 flex items-center justify-between lg:pl-32 lg:pr-6">
+//     <header ref={headerRef} className="bg-white-fg dark:bg-black shadow-md shadow-slate-200 dark:shadow-[#00000021] relative z-50 flex items-center justify-between lg:pl-32 lg:pr-6">
 //       {/* Logo */}
 //       <motion.div
 //         className="flex-shrink-0 pl-2"
@@ -201,7 +201,7 @@ export default function Header() {
 
 //       {/* Sidebar Menu */}
 //       <motion.nav
-//         className={`fixed top-0 left-0 h-full w-full bg-white dark:bg-[#212121] shadow-lg z-50 transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'
+//         className={`fixed top-0 left-0 h-full w-full bg-white-fg dark:bg-[#212121] shadow-lg z-50 transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'
 //           }`}
 //         initial="closed"
 //         animate={isOpen ? 'open' : 'closed'}
@@ -226,35 +226,35 @@ export default function Header() {
 //       {/* Desktop Menu */}
 //       <div className='flex justify-between items-center space-x-10'>
 //         <nav className="hidden md:flex space-x-6 text-[1rem] font-semibold">
-//           <Link to="/" className="text-black hover:text-blue dark:text-[#f0f0ee] dark:hover:text-blue transition-colors">
+//           <Link to="/" className="text-black hover:text-blue dark:text-white-bg dark:hover:text-blue transition-colors">
 //             Home
 //           </Link>
-//           <Link to="/mdc" className="text-black hover:text-blue dark:text-[#f0f0ee] dark:hover:text-blue transition-colors">
+//           <Link to="/mdc" className="text-black hover:text-blue dark:text-white-bg dark:hover:text-blue transition-colors">
 //             MDC
 //           </Link>
-//           <Link to="/enviremental-health" className="text-black hover:text-blue dark:text-[#f0f0ee] dark:hover:text-blue transition-colors">
-//             Enviremental Health
+//           <Link to="/enviremental-health" className="text-black hover:text-blue dark:text-white-bg dark:hover:text-blue transition-colors">
+//             Environmental Health
 //           </Link>
-//           <Link to="/ohs" className="text-black hover:text-blue dark:text-[#f0f0ee] dark:hover:text-blue transition-colors">
+//           <Link to="/ohs" className="text-black hover:text-blue dark:text-white-bg dark:hover:text-blue transition-colors">
 //             OHS
 //           </Link>
-//           <Link to="/patient-guidance-support" className="text-black hover:text-blue dark:text-[#f0f0ee] dark:hover:text-blue transition-colors">
+//           <Link to="/patient-guidance-support" className="text-black hover:text-blue dark:text-white-bg dark:hover:text-blue transition-colors">
 //             Patient Guidance & Support
 //           </Link>
-//           <Link to="/about-us" className="text-black hover:text-blue dark:text-[#f0f0ee] dark:hover:text-blue transition-colors">
+//           <Link to="/about-us" className="text-black hover:text-blue dark:text-white-bg dark:hover:text-blue transition-colors">
 //             About us
 //           </Link>
-//           <Link to="/write" className="text-black hover:text-blue dark:text-[#f0f0ee] dark:hover:text-blue transition-colors">
+//           <Link to="/write" className="text-black hover:text-blue dark:text-white-bg dark:hover:text-blue transition-colors">
 //             Write
 //           </Link>
 //         </nav>
 
 //         <div className='hidden md:flex space-x-4 '>
-//           <Link to='/posts' className="link text-black dark:text-[#f0f0ee]">{currentUser?.username}</Link>
+//           <Link to='/posts' className="link text-black dark:text-white-bg">{currentUser?.username}</Link>
 //           {currentUser ? (
-//             <span className="link text-black dark:text-[#f0f0ee]" onClick={logout}>Logout</span>
+//             <span className="link text-black dark:text-white-bg" onClick={logout}>Logout</span>
 //           ) : (
-//             <Link className="link text-black dark:text-[#f0f0ee]" to="/login">
+//             <Link className="link text-black dark:text-white-bg" to="/login">
 //               Login
 //             </Link>
 //           )}
@@ -268,7 +268,7 @@ export default function Header() {
 //             <ThemeToggle />
 //           </div>
 //           {/* Menu Toggle Button */}
-//           <button onClick={toggleSidebar} className="md:hidden p-2 text-3xl text-black dark:text-white z-50 relative focus:outline-none border-none bg-transparent">
+//           <button onClick={toggleSidebar} className="md:hidden p-2 text-3xl text-black dark:text-white-bg z-50 relative focus:outline-none border-none bg-transparent">
 //             {isOpen ? <HiX /> : <HiMenuAlt4 />}
 //           </button>
 //         </div>

@@ -147,7 +147,7 @@ const FormComponent = () => {
   };
 
   return (
-    <div className="form-component flex flex-col md:px-14 md:py-4 bg-white-bg dark:bg-black dark:text-[#f0f0fe]">
+    <div className="form-component flex flex-col py-4 md:px-14 bg-white-bg dark:bg-black dark:text-white-bg">
       {/* Stepper component */}
       <Stepper steps={steps} currentStep={currentStep} isSubmitted={isSubmitted} onStepClick={handleStepClick} />
 

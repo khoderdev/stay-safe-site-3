@@ -7,7 +7,7 @@ function Drawer() {
       <form
         action="#"
         id="drawer-update-product"
-        className="fixed top-0 left-0 z-40 w-full h-screen max-w-3xl p-4 overflow-y-auto transition-transform -translate-x-full bg-white dark:bg-gray-800"
+        className="fixed top-0 left-0 z-40 w-full h-screen max-w-3xl p-4 overflow-y-auto transition-transform -translate-x-full bg-white-fg dark:bg-gray-800"
         tabIndex={-1}
         aria-labelledby="drawer-update-product-label"
         aria-hidden="true"
@@ -74,7 +74,7 @@ function Drawer() {
       {/* Preview Drawer */}
       <div
         id="drawer-read-product-advanced"
-        className="overflow-y-auto fixed top-0 left-0 z-40 p-4 w-full max-w-lg h-screen bg-white transition-transform -translate-x-full dark:bg-gray-800"
+        className="overflow-y-auto fixed top-0 left-0 z-40 p-4 w-full max-w-lg h-screen bg-white-fg transition-transform -translate-x-full dark:bg-gray-800"
         tabIndex={-1}
         aria-labelledby="drawer-label"
         aria-hidden="true"

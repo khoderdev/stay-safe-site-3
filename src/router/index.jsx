@@ -89,7 +89,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/enviremental-health",
+        path: "/environmental-health",
         element: (
           // <PrivateRoute>
           <EnvirementalHealth />

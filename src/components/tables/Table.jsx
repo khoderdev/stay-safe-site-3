@@ -33,9 +33,9 @@
 //   return (
 //     <section className="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 antialiased">
 //       <div className="mx-auto max-w-screen-2xl px-4 lg:px-12">
-//         <div className="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
+//         <div className="bg-white-fg dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
 //           <div className="flex justify-between items-center p-4">
-//             <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+//             <h2 className="text-lg font-semibold text-gray-900 dark:text-white-bg">
 //               {title || 'Table'}
 //             </h2>
 //             <button
@@ -52,7 +52,7 @@
 //               placeholder="Search..."
 //               value={searchTerm}
 //               onChange={handleSearch}
-//               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+//               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white-bg"
 //             />
 //           </div>
 
@@ -97,14 +97,14 @@
 //               <button
 //                 onClick={() => handlePagination('prev')}
 //                 disabled={currentPage === 1}
-//                 className="text-sm text-gray-500 bg-white border border-gray-300 rounded-lg py-2 px-3 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400"
+//                 className="text-sm text-gray-500 bg-white-fg border border-gray-300 rounded-lg py-2 px-3 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400"
 //               >
 //                 Previous
 //               </button>
 //               <button
 //                 onClick={() => handlePagination('next')}
 //                 disabled={currentPage === totalPages}
-//                 className="text-sm text-gray-500 bg-white border border-gray-300 rounded-lg py-2 px-3 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400"
+//                 className="text-sm text-gray-500 bg-white-fg border border-gray-300 rounded-lg py-2 px-3 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400"
 //               >
 //                 Next
 //               </button>
@@ -170,9 +170,9 @@ const Table = ({ columns, data = [], title, onSearch, onAddItem }) => {
   return (
     <section className="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 antialiased">
       <div className="mx-auto max-w-screen-2xl px-4 lg:px-12">
-        <div className="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
+        <div className="bg-white-fg dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
           <div className="flex justify-between items-center p-4">
-            <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+            <h2 className="text-lg font-semibold text-gray-900 dark:text-white-bg">
               {title || 'Table'}
             </h2>
             <button onClick={onAddItem} className="btn-1">
@@ -186,7 +186,7 @@ const Table = ({ columns, data = [], title, onSearch, onAddItem }) => {
               placeholder="Search..."
               value={searchTerm}
               onChange={handleSearch}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white-bg"
             />
           </div>
 
@@ -236,14 +236,14 @@ const Table = ({ columns, data = [], title, onSearch, onAddItem }) => {
               <button
                 onClick={() => handlePagination('prev')}
                 disabled={currentPage === 1}
-                className="text-sm text-gray-500 bg-white border border-gray-300 rounded-lg py-2 px-3 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400"
+                className="text-sm text-gray-500 bg-white-fg border border-gray-300 rounded-lg py-2 px-3 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400"
               >
                 Previous
               </button>
               <button
                 onClick={() => handlePagination('next')}
                 disabled={currentPage === totalPages}
-                className="text-sm text-gray-500 bg-white border border-gray-300 rounded-lg py-2 px-3 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400"
+                className="text-sm text-gray-500 bg-white-fg border border-gray-300 rounded-lg py-2 px-3 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400"
               >
                 Next
               </button>

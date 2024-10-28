@@ -47,8 +47,8 @@ const Single = () => {
   };
 
   return (
-    <div className="single w-full h-screen flex flex-col p-4 text-gray-800 dark:text-[#f0f0fe]  bg-white dark:bg-gray-800 overflow-y-auto animate-fade-in lg:p-8 lg:pt-2">
-      <h1 className="text-3xl font-extrabold text-center text-gray-900 dark:text-white animate-fade-in mb-8">Post Details</h1>
+    <div className="single w-full h-screen flex flex-col p-4 text-gray-800 dark:text-white-bg  bg-white-fg dark:bg-gray-800 overflow-y-auto animate-fade-in lg:p-8 lg:pt-2">
+      <h1 className="text-3xl font-extrabold text-center text-gray-900 dark:text-white-bg animate-fade-in mb-8">Post Details</h1>
 
 
       <div className="content flex flex-col lg:flex-row space-y-8 w-full h-[100dvh] self-center p-4 border rounded-lg">
@@ -155,8 +155,8 @@ export default Single;
 //   };
 
 //   return (
-//     <div className="single w-full h-screen flex flex-col p-4 text-gray-800 dark:text-[#f0f0fe]  bg-white dark:bg-gray-800 overflow-y-auto animate-fade-in lg:p-8 lg:pt-2">
-//       <h1 className="text-3xl font-extrabold text-center text-gray-900 dark:text-white animate-fade-in mb-8">Post Details</h1>
+//     <div className="single w-full h-screen flex flex-col p-4 text-gray-800 dark:text-white-bg  bg-white-fg dark:bg-gray-800 overflow-y-auto animate-fade-in lg:p-8 lg:pt-2">
+//       <h1 className="text-3xl font-extrabold text-center text-gray-900 dark:text-white-bg animate-fade-in mb-8">Post Details</h1>
 
 
 //       <div className="content flex flex-col lg:flex-row space-y-8 w-full h-[100dvh] self-center p-4 border rounded-lg">

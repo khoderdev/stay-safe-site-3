@@ -30,7 +30,7 @@
 // //   return (
 // //     <div className='flex flex-col sm:w-[60%] p-4 py-2 bg-slate-500'>
 // //       <h2 className="animated__content" data-splitting ref={(el) => titlesRef.current[0] = el}>
-// //         <span className="text-3xl sm:text-3xl text-black dark:text-[#f0f0ee]">
+// //         <span className="text-3xl sm:text-3xl text-black dark:text-white-bg">
 // //           Obesity <br />
 // //           Type 2 Diabetes <br />
 // //           Anthrax Cervical Cancer <br />
@@ -131,7 +131,7 @@
 
 //   return (
 //     <div className='flex flex-col sm:w-[60%] p-4 py-2 bg-slate-500'>
-//       <h2 className="text-black dark:text-[#f0f0ee] text-3xl sm:text-3xl">
+//       <h2 className="text-black dark:text-white-bg text-3xl sm:text-3xl">
 //         {diseases.map((disease, index) => (
 //           <motion.span
 //             key={disease}
@@ -207,7 +207,7 @@ function DXPrevention() {
         />
       </div>
       <div className='flex flex-col  py-2 '>
-        <h2 className="text-black dark:text-[#f0f0ee] text-3xl sm:text-4xl">
+        <h2 className="text-black dark:text-white-bg text-3xl sm:text-4xl">
           {diseases.map((disease, index) => (
             <motion.span
               key={disease}

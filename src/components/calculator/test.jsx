@@ -180,7 +180,7 @@ const PackYearsCalculator = () => {
 
 
   return (
-    <div className="flex flex-col md:flex-row items-stretch p-4 sm:p-6 shadow-md w-full h-full text-black dark:text-white overflow-y-auto gap-4">
+    <div className="flex flex-col md:flex-row items-stretch p-4 sm:p-6 shadow-md w-full h-full text-black dark:text-white-bg overflow-y-auto gap-4">
       {/* Form Section */}
       <div className="flex flex-col md:w-[50%] w-full h-[89%] p-4 sm:p-4 mb-4 sm:mb-0 rounded drop-shadow-md">
         <form className="flex flex-col space-y-4">
@@ -277,13 +277,13 @@ const PackYearsCalculator = () => {
           </div>
         )}
         {monthlyScreening.length > 0 && (
-          <div className="p-4 mb-4 rounded bg-[#f0f0fe] dark:bg-black">
+          <div className="p-4 mb-4 rounded bg-white-bg dark:bg-black">
             <h2 className="text-lg mb-2">Monthly</h2>
             <div className="grid grid-cols-2 gap-4">
               {monthlyScreening.map((message, index) => (
                 <motion.div
                   key={index}
-                  className="bg-[#fff] dark:bg-[#000] p-2 rounded"
+                  className="bg-white-fg dark:bg-[#000] p-2 rounded"
                   transition={{ type: 'spring', stiffness: 100 }}
                   variants={wordVariants}
                   initial="hidden"
@@ -299,13 +299,13 @@ const PackYearsCalculator = () => {
           </div>
         )}
         {yearlyScreening.length > 0 && (
-          <div className="p-4 mb-4 rounded bg-[#f0f0fe] dark:bg-black">
+          <div className="p-4 mb-4 rounded bg-white-bg dark:bg-black">
             <h2 className="text-lg mb-3">At Least Once Yearly</h2>
             <div className="grid grid-cols-3 gap-2">
               {yearlyScreening.map((message, index) => (
                 <motion.div
                   key={index}
-                  className="bg-[#fff] dark:bg-[#000] p-2 rounded text-center"
+                  className="bg-white-fg dark:bg-[#000] p-2 rounded text-center"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
@@ -321,13 +321,13 @@ const PackYearsCalculator = () => {
         )}
 
         {onceAYear.length > 0 && (
-          <div className="p-4 mb-4 rounded bg-[#f0f0fe] dark:bg-black">
+          <div className="p-4 mb-4 rounded bg-white-bg dark:bg-black">
             <h2 className="text-lg mb-3">Once a Year</h2>
             <div className="grid grid-cols-3 gap-2">
               {onceAYear.map((message, index) => (
                 <motion.div
                   key={index}
-                  className="bg-[#fff] dark:bg-[#000] p-2 rounded text-center"
+                  className="bg-white-fg dark:bg-[#000] p-2 rounded text-center"
                   transition={{ type: 'spring', stiffness: 100 }}
                   variants={wordVariants}
                   initial="hidden"
@@ -343,12 +343,12 @@ const PackYearsCalculator = () => {
           </div>
         )}
         {otherScreening.length > 0 && (
-          <div className="p-4 rounded bg-[#f0f0fe] dark:bg-black">
+          <div className="p-4 rounded bg-white-bg dark:bg-black">
             <div className="grid grid-cols-1 gap-2">
               {otherScreening.map((message, index) => (
                 <motion.div
                   key={index}
-                  className="bg-[#fff] dark:bg-[#000] p-2 rounded"
+                  className="bg-white-fg dark:bg-[#000] p-2 rounded"
                   transition={{ type: 'spring', stiffness: 100 }}
                   variants={wordVariants}
                   initial="hidden"
@@ -560,7 +560,7 @@ export default PackYearsCalculator;
 //   const isAdult = parseInt(age, 10) >= 20;
 
 //   return (
-//     <div className="flex flex-col md:flex-row items-stretch p-4 sm:p-6 shadow-md w-full h-full text-black dark:text-white overflow-y-auto gap-4">
+//     <div className="flex flex-col md:flex-row items-stretch p-4 sm:p-6 shadow-md w-full h-full text-black dark:text-white-bg overflow-y-auto gap-4">
 //       <div className="flex flex-col md:w-[50%] w-full h-[89%] p-4 sm:p-4 mb-4 sm:mb-0 rounded drop-shadow-md">
 //         <form className="flex flex-col space-y-4">
 //           <div className="flex flex-row sm:flex-col sm:flex gap-4 justify-center sm:justify-start sm:items-start items-center">
@@ -651,13 +651,13 @@ export default PackYearsCalculator;
 //           </div>
 //         )}
 //         {monthlyScreening.length > 0 && (
-//           <div className="p-4 mb-4 rounded bg-[#f0f0fe] dark:bg-black">
+//           <div className="p-4 mb-4 rounded bg-white-bg dark:bg-black">
 //             <h2 className="text-lg mb-2">Monthly</h2>
 //             <div className="grid grid-cols-2 gap-4">
 //               {monthlyScreening.map((message, index) => (
 //                 <motion.div
 //                   key={index}
-//                   className="bg-[#fff] dark:bg-[#000] p-2 rounded"
+//                   className="bg-white-fg dark:bg-[#000] p-2 rounded"
 //                   transition={{ type: 'spring', stiffness: 100 }}
 //                   variants={wordVariants}
 //                   initial="hidden"
@@ -673,13 +673,13 @@ export default PackYearsCalculator;
 //           </div>
 //         )}
 //         {yearlyScreening.length > 0 && (
-//           <div className="p-4 mb-4 rounded bg-[#f0f0fe] dark:bg-black">
+//           <div className="p-4 mb-4 rounded bg-white-bg dark:bg-black">
 //             <h2 className="text-lg mb-3">At Least Once Yearly</h2>
 //             <div className="grid grid-cols-3 gap-2">
 //               {yearlyScreening.map((message, index) => (
 //                 <motion.div
 //                   key={index}
-//                   className="bg-[#fff] dark:bg-[#000] p-2 rounded text-center"
+//                   className="bg-white-fg dark:bg-[#000] p-2 rounded text-center"
 //                   initial={{ opacity: 0, y: 20 }}
 //                   animate={{ opacity: 1, y: 0 }}
 //                   exit={{ opacity: 0, y: -10 }}
@@ -694,13 +694,13 @@ export default PackYearsCalculator;
 //           </div>
 //         )}
 //         {onceAYear.length > 0 && (
-//           <div className="p-4 mb-4 rounded bg-[#f0f0fe] dark:bg-black">
+//           <div className="p-4 mb-4 rounded bg-white-bg dark:bg-black">
 //             <h2 className="text-lg mb-3">Once a Year</h2>
 //             <div className="grid grid-cols-3 gap-2">
 //               {onceAYear.map((message, index) => (
 //                 <motion.div
 //                   key={index}
-//                   className="bg-[#fff] dark:bg-[#000] p-2 rounded text-center"
+//                   className="bg-white-fg dark:bg-[#000] p-2 rounded text-center"
 //                   transition={{ type: 'spring', stiffness: 100 }}
 //                   variants={wordVariants}
 //                   initial="hidden"
@@ -716,12 +716,12 @@ export default PackYearsCalculator;
 //           </div>
 //         )}
 //         {otherScreening.length > 0 && (
-//           <div className="p-4 rounded bg-[#f0f0fe] dark:bg-black">
+//           <div className="p-4 rounded bg-white-bg dark:bg-black">
 //             <div className="grid grid-cols-1 gap-2">
 //               {otherScreening.map((message, index) => (
 //                 <motion.div
 //                   key={index}
-//                   className="bg-[#fff] dark:bg-[#000] p-2 rounded"
+//                   className="bg-white-fg dark:bg-[#000] p-2 rounded"
 //                   transition={{ type: 'spring', stiffness: 100 }}
 //                   variants={wordVariants}
 //                   initial="hidden"
@@ -855,7 +855,7 @@ export default PackYearsCalculator;
 //   const isAdult = parseInt(age, 10) >= 20;
 
 //   return (
-//     <div className="flex flex-col md:flex-row items-stretch p-4 sm:p-6 shadow-md w-full h-full text-black dark:text-white overflow-y-auto gap-4">
+//     <div className="flex flex-col md:flex-row items-stretch p-4 sm:p-6 shadow-md w-full h-full text-black dark:text-white-bg overflow-y-auto gap-4">
 //       {/* Form Section */}
 //       <div className="flex flex-col md:w-[50%] w-full h-[89%] p-4 sm:p-4 mb-4 sm:mb-0 rounded drop-shadow-md">
 //         <form className="flex flex-col space-y-4">
@@ -953,13 +953,13 @@ export default PackYearsCalculator;
 //           </div>
 //         )}
 //         {monthlyScreening.length > 0 && (
-//           <div className="p-4 mb-4 rounded bg-[#f0f0fe] dark:bg-black">
+//           <div className="p-4 mb-4 rounded bg-white-bg dark:bg-black">
 //             <h2 className="text-lg mb-2">Monthly</h2>
 //             <div className="grid grid-cols-2 gap-4">
 //               {monthlyScreening.map((message, index) => (
 //                 <motion.div
 //                   key={index}
-//                   className="bg-[#fff] dark:bg-[#000] p-2 rounded"
+//                   className="bg-white-fg dark:bg-[#000] p-2 rounded"
 //                   transition={{ type: 'spring', stiffness: 100 }}
 //                   variants={wordVariants}
 //                   initial="hidden"
@@ -975,13 +975,13 @@ export default PackYearsCalculator;
 //           </div>
 //         )}
 //         {yearlyScreening.length > 0 && (
-//           <div className="p-4 mb-4 rounded bg-[#f0f0fe] dark:bg-black">
+//           <div className="p-4 mb-4 rounded bg-white-bg dark:bg-black">
 //             <h2 className="text-lg mb-3">At Least Once Yearly</h2>
 //             <div className="grid grid-cols-3 gap-2">
 //               {yearlyScreening.map((message, index) => (
 //                 <motion.div
 //                   key={index}
-//                   className="bg-[#fff] dark:bg-[#000] p-2 rounded text-center"
+//                   className="bg-white-fg dark:bg-[#000] p-2 rounded text-center"
 //                   initial={{ opacity: 0, y: 20 }}
 //                   animate={{ opacity: 1, y: 0 }}
 //                   exit={{ opacity: 0, y: -10 }}
@@ -997,13 +997,13 @@ export default PackYearsCalculator;
 //         )}
 
 //         {onceAYear.length > 0 && (
-//           <div className="p-4 mb-4 rounded bg-[#f0f0fe] dark:bg-black">
+//           <div className="p-4 mb-4 rounded bg-white-bg dark:bg-black">
 //             <h2 className="text-lg mb-3">Once a Year</h2>
 //             <div className="grid grid-cols-3 gap-2">
 //               {onceAYear.map((message, index) => (
 //                 <motion.div
 //                   key={index}
-//                   className="bg-[#fff] dark:bg-[#000] p-2 rounded text-center"
+//                   className="bg-white-fg dark:bg-[#000] p-2 rounded text-center"
 //                   transition={{ type: 'spring', stiffness: 100 }}
 //                   variants={wordVariants}
 //                   initial="hidden"
@@ -1019,12 +1019,12 @@ export default PackYearsCalculator;
 //           </div>
 //         )}
 //         {otherScreening.length > 0 && (
-//           <div className="p-4 rounded bg-[#f0f0fe] dark:bg-black">
+//           <div className="p-4 rounded bg-white-bg dark:bg-black">
 //             <div className="grid grid-cols-1 gap-2">
 //               {otherScreening.map((message, index) => (
 //                 <motion.div
 //                   key={index}
-//                   className="bg-[#fff] dark:bg-[#000] p-2 rounded"
+//                   className="bg-white-fg dark:bg-[#000] p-2 rounded"
 //                   transition={{ type: 'spring', stiffness: 100 }}
 //                   variants={wordVariants}
 //                   initial="hidden"

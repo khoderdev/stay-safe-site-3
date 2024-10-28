@@ -31,7 +31,7 @@ const Login = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-md p-8 space-y-3 bg-white rounded-lg shadow-lg animate__animated animate__fadeIn">
+      <div className="w-full max-w-md p-8 space-y-3 bg-white-fg rounded-lg shadow-lg animate__animated animate__fadeIn">
         <h1 className="text-2xl font-semibold text-center">Login</h1>
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
@@ -184,7 +184,7 @@ export default Login;
 // //     <div className="flex items-center justify-center min-h-screen relative" style={{ backgroundImage: 'url("/stay2.webp")', backgroundSize: 'cover', backgroundPosition: 'center' }}>
 // //       <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
 
-// //       <div className="w-full max-w-md p-8 space-y-3 bg-white rounded-lg shadow-lg animate__animated animate__fadeIn z-10">
+// //       <div className="w-full max-w-md p-8 space-y-3 bg-white-fg rounded-lg shadow-lg animate__animated animate__fadeIn z-10">
 // //         <h1 className="text-2xl font-semibold text-center">Login</h1>
 // //         <form onSubmit={handleSubmit} className="space-y-4">
 // //           <input
@@ -303,7 +303,7 @@ export default Login;
 //     <div className="flex items-center justify-center min-h-screen relative" style={{ backgroundImage: 'url("/stay2.webp")', backgroundSize: 'cover', backgroundPosition: 'center' }}>
 //       <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
 
-//       <div className="w-full max-w-md p-8 space-y-3 bg-white rounded-lg shadow-lg animate__animated animate__fadeIn z-10">
+//       <div className="w-full max-w-md p-8 space-y-3 bg-white-fg rounded-lg shadow-lg animate__animated animate__fadeIn z-10">
 //         <h1 className="text-2xl font-semibold text-center">Login</h1>
 //         <form onSubmit={handleSubmit} className="space-y-4">
 //           <input

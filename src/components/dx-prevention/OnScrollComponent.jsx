@@ -119,7 +119,7 @@ const OnScrollComponent = () => {
       />
       {!showButton ? (
         <p
-          className="animated__content text-center text-sm text-black dark:text-[#f0f0ee]"
+          className="animated__content text-center text-sm text-black dark:text-white-bg"
           data-splitting
           ref={(el) => (titlesRef.current[0] = el)}
         >

@@ -8,7 +8,7 @@ function Countries({ value, onChange }) {
         name="country"
         value={value}
         onChange={onChange} 
-        className={`${selectStyles()}   bg-white dark:!bg-[#000]`}
+        className={`${selectStyles()}   bg-white-fg dark:!bg-[#000]`}
       >
         <option value="">Select a Country</option>
         <option value="Afghanistan">Afghanistan</option>

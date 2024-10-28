@@ -1,6 +1,6 @@
 function EnvirementalHealth() {
   return (
-    <div>Enviremental Health</div>
+    <div>Environmental Health</div>
   )
 }
 export default EnvirementalHealth

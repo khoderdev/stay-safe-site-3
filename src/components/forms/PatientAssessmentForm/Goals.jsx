@@ -32,8 +32,8 @@ function Goals({ formData, setFormData, nextStep }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <h2 className='text-center font-semibold mb-2 text-2xl mb-6'>Goals</h2>
+    <form onSubmit={handleSubmit} className="p-4 text-center">
+      <h2 className='text-center font-semibold text-2xl mb-6'>Goals</h2>
       <div className='grid grid-cols-1'>
         <div className="flex flex-col items-center">
           <label className="font-semibold mb-2 md:text-xl">
@@ -41,37 +41,50 @@ function Goals({ formData, setFormData, nextStep }) {
           </label>
 
           {/* Goal 1 Input */}
-          <input
-            type="text"
-            name="goal1"
-            value={formData.goal1}
-            onChange={handleChange}
-            className={`${inputStyles()}  md:!w-96 !mt-4 bg-white dark:!bg-[#000]`}
-            placeholder="1"
-          />
-          {errors.goal1 && <span className="error">{errors.goal1}</span>}
+          <label className="flex-col flex font-semibold text-left mb-2">
+            First Thing
+            <input
+              type="text"
+              name="goal1"
+              value={formData.goal1}
+              onChange={handleChange}
+              className={`${inputStyles()} md:!w-96 mt-2 bg-white-fg dark:!bg-[#000]`}
+              placeholder="1"
+            />
+            {errors.goal1 && <span className="error">{errors.goal1}</span>}
+          </label>
 
           {/* Goal 2 Input */}
-          <input
-            type="text"
-            name="goal2"
-            value={formData.goal2}
-            onChange={handleChange}
-            className={`${inputStyles()}  md:!w-96 !mt-4 bg-white dark:!bg-[#000]`}
-            placeholder="2"
-          />
-          {errors.goal2 && <span className="error">{errors.goal2}</span>}
+          <label className="flex-col flex font-semibold text-left mb-2">
+            Second Thing
+
+            <input
+              type="text"
+              name="goal2"
+              value={formData.goal2}
+              onChange={handleChange}
+              className={`${inputStyles()} md:!w-96 mt-2 bg-white-fg dark:!bg-[#000]`}
+              placeholder="2"
+            />
+            {errors.goal2 && <span className="error">{errors.goal2}</span>}
+          </label>
 
           {/* Goal 3 Input */}
-          <input
-            type="text"
-            name="goal3"
-            value={formData.goal3}
-            onChange={handleChange}
-            className={`${inputStyles()}  md:!w-96 !mt-4 bg-white dark:!bg-[#000]`}
-            placeholder="3"
-          />
-          {errors.goal3 && <span className="error">{errors.goal3}</span>}
+          <label className="flex-col flex font-semibold text-left mb-2">
+            Third Thing
+
+            <input
+              type="text"
+              name="goal3"
+              value={formData.goal3}
+              onChange={handleChange}
+              className={`${inputStyles()} md:!w-96 mt-2 bg-white-fg dark:!bg-[#000]`}
+              placeholder="3"
+            />
+            {errors.goal3 && <span className="error">{errors.goal3}</span>}
+          </label>
+
+
         </div>
       </div>
     </form>
