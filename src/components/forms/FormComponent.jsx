@@ -30,6 +30,7 @@ const FormComponent = () => {
     workingSchedule: "",
     preferredLanguage: "",
     education: "",
+    fieldOfStudy: "",
     reasonForVisit: "",
     howDidYouKnow: "",
     pastMedicalHistory: "",
@@ -139,13 +140,6 @@ const FormComponent = () => {
       alert("There was an error submitting the form. Please try again.");
     }
   };
-  // const handleSubmit = () => {
-  //   setIsSubmitted(true);
-  //   alert("Form Submitted");
-
-  //   // Reset the form after a delay to allow user to see the submission status
-  //   setTimeout(resetForm, 400);
-  // };
 
   // Handle clicking on a step indicator
   const handleStepClick = (index) => {
