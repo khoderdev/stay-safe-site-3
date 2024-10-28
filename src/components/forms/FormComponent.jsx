@@ -240,13 +240,13 @@ const FormComponent = () => {
       {/* Navigation buttons */}
       <div className="button-group flex justify-center space-x-12">
         {currentStep > 0 && (
-          <button onClick={previousStep} className="bg-pink rounded-lg hover hover:bg-transparent border-2  hover:border-2 border-pink !w-24">Previous</button>
+          <button onClick={previousStep} className="bg-[#71743c] rounded-lg hover hover:bg-transparent border-2  hover:border-2 border-[#71743c] !w-24">Previous</button>
         )}
         {currentStep < steps.length && (
-          <button onClick={nextStep} className="bg-green-500 p-1.5 rounded-lg hover hover:bg-transparent border-2 hover:border-2 border-pink !w-24">Next</button>
+          <button onClick={nextStep} className="bg-[#71743c] p-1.5 rounded-lg hover hover:bg-transparent border-2 hover:border-2 border-[#71743c] !w-24">Next</button>
         )}
         {currentStep === steps.length && (
-          <button onClick={handleSubmit} className="bg-pink rounded-lg hover border-2 hover:bg-transparent  hover:border-2 border-pink !w-24">Submit</button>
+          <button onClick={handleSubmit} className="bg-[#71743c] rounded-lg hover border-2 hover:bg-transparent  hover:border-2 border-[#71743c] !w-24">Submit</button>
         )}
       </div>
     </div>
