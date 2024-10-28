@@ -6,7 +6,7 @@ export const inputStyles = ({
   width = 'w-0',
 } = {}) => `
   ${marginTop} ${marginLeft} ${paddingX} ${paddingY} ${width}
-  border border-gray-300 dark:border-black
+  w-full border border-gray-300 dark:border-black
   rounded-md bg-white dark:bg-[#000] text-black dark:text-white
   focus:outline-none focus:ring-2 focus:ring-blue-500
   transition duration-300 ease-in-out shadow-sm hover:shadow-md
