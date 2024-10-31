@@ -1,0 +1,334 @@
+.fridge-btn-wrapper {
+	width: 270px;
+	height: 40px;
+	margin: 0px auto 0;
+	border-radius: 10px;
+	padding: 2%;
+}
+
+.fridge-btn {
+	user-select: none;
+	height: 100%;
+	color: #000;
+	background-image: linear-gradient(
+		to bottom,
+		#d6d6d6 0%,
+		#adadad 50%,
+		#888888 100%
+	);
+	border-radius: 7px;
+	float: left;
+	cursor: pointer;
+	position: relative;
+	font: normal 12px Arial, sans-serif;
+	text-transform: uppercase;
+	padding-left: 5%;
+	padding-top: 5%;
+	vertical-align: bottom;
+	transition: color 0.3s ease;
+}
+
+.fridge-btn:active {
+	box-shadow: 0 0 1px 1px rgba(10, 10, 10, 0.815),
+		inset 0 2px 2px 0px rgba(0, 0, 0, 0.726);
+}
+
+.fridge-btn:before {
+	position: absolute;
+	content: '';
+	right: 10px;
+	top: 10px;
+	width: 12px;
+	height: 12px;
+	background: #646464;
+	background-image: radial-gradient(circle, #616161 0%, #535353 60%);
+	border-radius: 50%;
+	box-shadow: 0 0 4px #1c1c17;
+	transition: all 0.3s ease;
+}
+
+.fridge-btn:nth-child(1) {
+	width: 46%;
+	margin-right: 3%;
+}
+
+.fridge-btn:nth-child(2) {
+	width: 51%;
+}
+
+.fridge-btn:before {
+	position: absolute;
+	content: '';
+	right: 10px;
+	top: 10px;
+	width: 12px;
+	height: 12px;
+	background: #ff4f4f;
+	background-image: radial-gradient(circle, #ff4f4f 0%, #a30000 60%);
+	border-radius: 50%;
+	transition: all 0.3s ease;
+}
+
+.fridge-btn.selected:before {
+	background: #4cee52;
+}
+
+/* Responsive Sizes */
+@media (min-width: 320px) {
+	/* X Small screens */
+	.fridge-btn-wrapper {
+		width: 200px;
+		height: 25px;
+		border-radius: 10px;
+	}
+
+	.fridge-btn {
+		user-select: none;
+		height: 100%;
+		color: #000;
+		font-size: 8px;
+	}
+
+	.fridge-btn:nth-child(1) {
+		width: 38%;
+		margin-right: 3%;
+		padding: 2%;
+		border-radius: 3px;
+		/* border: solid black 1px; */
+	}
+	.fridge-btn:nth-child(2) {
+		width: 48%;
+		padding: 2%;
+		border-radius: 3px;
+		/* border: solid red 1px; */
+	}
+
+	.fridge-btn:before {
+		right: 10px;
+		top: 5px;
+		width: 7px;
+		height: 7px;
+	}
+}
+
+@media (min-width: 512px) {
+	/* Small screens */
+	.fridge-btn-wrapper {
+		width: 350px;
+		height: 43px;
+		margin: 0px auto 0;
+		border-radius: 10px;
+		padding: 2%;
+	}
+	.fridge-btn:nth-child(1) {
+		width: 38%;
+		margin-right: 3%;
+		padding: 2%;
+		border-radius: 3px;
+		/* border: solid black 1px; */
+	}
+}
+
+@media (min-width: 640px) {
+	/* Small screens */
+	.fridge-btn-wrapper {
+		width: 350px;
+		height: 43px;
+		margin: 0px auto 0;
+		border-radius: 10px;
+		padding: 2%;
+	}
+
+	.fridge-btn {
+		user-select: none;
+		height: 100%;
+		color: #000;
+		font-size: 12px;
+	}
+
+	.fridge-btn:nth-child(1) {
+		width: 40%;
+		margin-right: 4%;
+		padding: 3.5%;
+		border-radius: 3px;
+		/* border: solid black 1px; */
+	}
+	.fridge-btn:nth-child(2) {
+		width: 50%;
+		margin-right: 3%;
+		padding: 3.5%;
+		border-radius: 3px;
+		/* border: solid red 1px; */
+	}
+
+	.fridge-btn:before {
+		right: 10px;
+		top: 7px;
+		width: 7px;
+		height: 7px;
+	}
+}
+
+@media (min-width: 768px) {
+	/* Medium screens */
+	.fridge-btn-wrapper {
+		width: 270px;
+		height: 43px;
+		margin: 0px auto 0;
+		border-radius: 10px;
+		padding: 2%;
+	}
+
+	.fridge-btn {
+		user-select: none;
+		height: 100%;
+		color: #000;
+		font-size: 12px;
+	}
+
+	.fridge-btn:nth-child(1) {
+		width: 40%;
+		margin-right: 4%;
+		padding: 3.5%;
+		border-radius: 3px;
+		/* border: solid black 1px; */
+	}
+	.fridge-btn:nth-child(2) {
+		width: 50%;
+		margin-right: 3%;
+		padding: 3.5%;
+		border-radius: 3px;
+		/* border: solid red 1px; */
+	}
+
+	.fridge-btn:before {
+		right: 10px;
+		top: 7px;
+		width: 7px;
+		height: 7px;
+	}
+}
+
+@media (min-width: 1024px) {
+	/* Large screens */
+
+	.fridge-btn-wrapper {
+		width: 270px;
+		height: 43px;
+		margin: 0px auto 0;
+		border-radius: 10px;
+		padding: 2%;
+	}
+
+	.fridge-btn {
+		user-select: none;
+		height: 100%;
+		color: #000;
+		font-size: 12px;
+	}
+
+	.fridge-btn:nth-child(1) {
+		width: 40%;
+		margin-right: 4%;
+		padding: 3.5%;
+		border-radius: 3px;
+		/* border: solid black 1px; */
+	}
+	.fridge-btn:nth-child(2) {
+		width: 50%;
+		margin-right: 3%;
+		padding: 3.5%;
+		border-radius: 3px;
+		/* border: solid red 1px; */
+	}
+
+	.fridge-btn:before {
+		right: 10px;
+		top: 7px;
+		width: 7px;
+		height: 7px;
+	}
+	/* .fridge-btn:nth-child(1) {
+		width: 46%;
+		margin-right: 3%;
+	}
+	.fridge-btn:nth-child(2) {
+		width: 51%;
+	} */
+}
+
+/* @media (max-width: 320px) {
+	.fridge-btn-wrapper {
+		width: 200px;
+		height: 20px;
+		margin: 0px auto 0;
+		border-radius: 10px;
+		padding: 0.7%;
+	}
+
+	.fridge-btn {
+		user-select: none;
+		height: 100%;
+		color: #000;
+		background-image: linear-gradient(
+			to bottom,
+			#d6d6d6 0%,
+			#adadad 50%,
+			#888888 100%
+		);
+		border-radius: 7px;
+		float: left;
+		cursor: pointer;
+		position: relative;
+		font: normal 5px Arial, sans-serif;
+		text-transform: uppercase;
+		padding-left: 5%;
+		padding-top: 5%;
+		vertical-align: bottom;
+		transition: color 0.3s ease;
+	}
+	.fridge-btn:active {
+		box-shadow: 0 0 1px 1px rgba(10, 10, 10, 0.815),
+			inset 0 2px 2px 0px rgba(0, 0, 0, 0.726);
+	}
+
+	.fridge-btn:before {
+		position: absolute;
+		content: '';
+		right: 10px;
+		top: 10px;
+		width: 12px;
+		height: 12px;
+		background: #646464;
+		background-image: radial-gradient(circle, #616161 0%, #535353 60%);
+		border-radius: 50%;
+		box-shadow: 0 0 4px #1c1c17;
+		transition: all 0.3s ease;
+	}
+
+	.fridge-btn:nth-child(1) {
+		width: 46%;
+		margin-right: 3%;
+	}
+
+	.fridge-btn:nth-child(2) {
+		width: 51%;
+	}
+
+	.fridge-btn:before {
+		position: absolute;
+		content: '';
+		right: 10px;
+		top: 10px;
+		width: 12px;
+		height: 12px;
+		background: #ff4f4f;
+		background-image: radial-gradient(circle, #ff4f4f 0%, #a30000 60%);
+		border-radius: 50%;
+		transition: all 0.3s ease;
+	}
+
+	.fridge-btn.selected:before {
+		background: #4cee52;
+	}
+} */

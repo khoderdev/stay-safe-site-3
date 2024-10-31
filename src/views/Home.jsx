@@ -14,8 +14,11 @@ export default function Home() {
       <div ref={(el) => (sectionsRef.current[0] = el)} className="section panel bg-white-bg dark:bg-black">
         <Hero />
       </div>
+      {/* <div ref={(el) => (sectionsRef.current[1] = el)} className="section bg-white-fg dark:bg-[#000]">
+        <DX />
+      </div> */}
       <div ref={(el) => (sectionsRef.current[1] = el)} className="section bg-white-fg dark:bg-[#000]">
-        <DXPrevention />
+        <OnScrollComponent />
       </div>
       <div ref={(el) => (sectionsRef.current[2] = el)} className="section bg-white-fg dark:bg-black">
         <SearchPharmacies />

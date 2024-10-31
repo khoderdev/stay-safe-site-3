@@ -40,6 +40,20 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
+      screens: {
+        'xs': '320px',
+        // => @media (min-width: 320px) 
+        'sm': '576px',
+        // => @media (min-width: 576px) 
+        'md': '960px',
+        // => @media (min-width: 960px) 
+        'lg': '1280px',
+        // => @media (min-width: 1280px) 
+        'xl': '1440px',
+        // => @media (min-width: 1440px) 
+        '2xl': '1536px',
+        // => @media (min-width: 1536px) 
+      },
       colors: {
         white: {
           bg: '#f7f7f7',
@@ -268,5 +282,6 @@ export default {
       },
     },
   },
+  variants: {},
   plugins: [],
 };

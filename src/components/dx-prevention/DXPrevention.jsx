@@ -1,232 +1,102 @@
-// // import { useState, useEffect, useRef } from 'react';
-// // import useAnimatedSplitting from '../../hooks/useAnimatedSplitting';
+import React, { useEffect, useState } from 'react';
 
-// // const useParallax = (multiplier = 0.3) => {
-// //   const [offsetY, setOffsetY] = useState(0);
+const LEDNumberDisplay = () => {
+  const [topBoxStyle, setTopBoxStyle] = useState({});
+  const [bottomBoxStyle, setBottomBoxStyle] = useState({});
+  
+  const on = 'Snow';
+  const off = 'transparent';
 
-// //   useEffect(() => {
-// //     const handleScroll = () => {
-// //       setOffsetY(window.scrollY * multiplier);
-// //     };
-
-// //     window.addEventListener('scroll', handleScroll);
-// //     return () => window.removeEventListener('scroll', handleScroll);
-// //   }, [multiplier]);
-
-// //   return offsetY;
-// // };
-
-// // function DXPrevention() {
-// //   const titlesRef = useRef([]);
-// //   const parallaxY = useParallax(0.3);
-
-// //   useAnimatedSplitting('animated__content', {
-// //     duration: 1.7, ease: 'expo',
-// //     stagger: 0.2,
-// //     from: 'random',
-// //   });
-
-
-// //   return (
-// //     <div className='flex flex-col sm:w-[60%] p-4 py-2 bg-slate-500'>
-// //       <h2 className="animated__content" data-splitting ref={(el) => titlesRef.current[0] = el}>
-// //         <span className="text-3xl sm:text-3xl text-black dark:text-white-bg">
-// //           Obesity <br />
-// //           Type 2 Diabetes <br />
-// //           Anthrax Cervical Cancer <br />
-// //           Hypertension Lung Cancer <br />
-// //           Malaria Metabolic Syndrome <br />
-// //           STI Rabies Chronic Heart Disease <br />
-// //           HIV HPV COPD Bladder Cancer Cholera <br />
-// //           Work-Related Musculoskeletal Diseases <br />
-// //           High Cholesterol Slips & Lapses COVID-19 Asthma <br />
-// //           Food Poisoning Mumps n Syndrome <br />
-// //           Tuberculosis Chlamydia Sleep Apnea DiphtherInfluenza Hearing Loss Hepatitis <br />
-// //           Colon Cancer Skin Cancer Hand-Arm Vibratioia Mesothelioma Mpox <br />
-// //           Brucellosis Measles Occupational Coronary Artery Disease MERS Polio
-// //         </span>
-// //       </h2>
-
-
-
-
-// //     </div>
-// //   )
-// // }
-
-// // export default DXPrevention
-
-// import { motion } from 'framer-motion';
-
-// const textVariants = {
-//   hidden: { opacity: 0, y: 20 },
-//   visible: (i) => ({
-//     opacity: 1,
-//     y: 0,
-//     transition: {
-//       delay: i * 0.1, // Delay based on the index
-//       duration: 0.5,
-//       type: 'spring',
-//       stiffness: 50,
-//     },
-//   }),
-// };
-
-// function DXPrevention() {
-//   const diseases = [
-//     // 'Obesity',
-//     // 'Type 2 Diabetes Anthrax',
-//     // 'Cervical Cancer',
-//     // 'Hypertension',
-//     // 'Lung Cancer',
-//     // 'Malaria',
-//     // 'Metabolic Syndrome',
-//     // 'STI',
-//     // 'Rabies',
-//     // 'Chronic Heart Disease',
-//     // 'HIV',
-//     // 'HPV',
-//     // 'COPD',
-//     // 'Bladder Cancer',
-//     // 'Cholera',
-//     // 'Work-Related Musculoskeletal Diseases',
-//     // 'High Cholesterol',
-//     // 'Slips & Lapses',
-//     // 'COVID-19',
-//     // 'Asthma',
-//     // 'Food Poisoning',
-//     // 'Mumps n Syndrome',
-//     // 'Tuberculosis',
-//     // 'Chlamydia',
-//     // 'Sleep Apnea',
-//     // 'Diphtheria',
-//     // 'Influenza',
-//     // 'Hearing Loss',
-//     // 'Hepatitis',
-//     // 'Colon Cancer',
-//     // 'Skin Cancer',
-//     // 'Hand-Arm Vibration Syndrome',
-//     // 'Mesothelioma',
-//     // 'Mpox',
-//     // 'Brucellosis',
-//     // 'Measles',
-//     // 'Occupational Coronary Artery Disease',
-//     // 'MERS',
-//     // 'Polio',
-
-
-//     " Obesity Type 2 Diabetes",
-//     "  Anthrax Cervical Cancer",
-//     "    Hypertension Lung Cancer",
-//     "    Malaria Metabolic Syndrome",
-//     "    STI Rabies Chronic Heart Disease",
-//     "    HIV HPV COPD Bladder Cancer Cholera",
-//     "  Work - Related Musculoskeletal Diseases",
-//     "    High Cholesterol Slips & Lapses COVID - 19 Asthma",
-//     "    Food Poisoning Mumps n Syndrome",
-//     "    Tuberculosis Chlamydia Sleep Apnea DiphtherInfluenza Hearing Loss Hepatitis",
-//     "    Colon Cancer Skin Cancer Hand - Arm Vibratioia Mesothelioma Mpox",
-//     "    Brucellosis Measles Occupational Coronary Artery Disease MERS Polio"
-//   ];
-
-//   return (
-//     <div className='flex flex-col sm:w-[60%] p-4 py-2 bg-slate-500'>
-//       <h2 className="text-black dark:text-white-bg text-3xl sm:text-3xl">
-//         {diseases.map((disease, index) => (
-//           <motion.span
-//             key={disease}
-//             variants={textVariants}
-//             initial="hidden"
-//             animate="visible"
-//             custom={index}
-//             className="block"
-//           >
-//             {disease}
-//           </motion.span>
-//         ))}
-//       </h2>
-//     </div>
-//   );
-// }
-
-// export default DXPrevention;
-
-// /////////////////////////////////////////
-// /////////////////////////////////////////
-// /////////////////////////////////////////
-// /////////////////////////////////////////
-
-import { useRef } from 'react';
-import { motion } from 'framer-motion';
-import CircularText from './Circle';
-
-const textVariants = {
-  hidden: {
-    opacity: 0,
-    scale: 1,
-    rotateY: -45,
-    boxShadow: '0 0 0 rgba(0, 0, 0, 0)',
-  },
-
-  visible: (i) => ({
-    opacity: 1,
-    scale: 1,
-    rotateY: 0,
-    transition: {
-      delay: i * 0.2,
-      duration: 0.5,
-      type: 'spring',
-      stiffness: 10,
+  const styles = {
+    container: {
+      marginTop: '3rem',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: '500px',
+      height: '300px',
+      background: '#555',
+      border: 'ridge 8px BurlyWood',
+      borderRadius: '30px',
+      boxShadow: '0 0.6rem 0.6rem rgba(0, 0, 0, 0.33)',
     },
-  }),
-};
+    box: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: '100px',
+      height: '100px',
+      background: '#555',
+      borderLeft: '10px ridge transparent',
+      borderRight: '10px ridge transparent',
+      borderRadius: '10px',
+    },
+  };
 
-function DXPrevention() {
-  const circleRef = useRef(null);
-
-  const diseases = [
-    "Food Poisoning Mumps",
-    "Obesity Type 2 Diabetes",
-    "Anthrax Cervical Cancer",
-    "Hypertension Lung Cancer",
-    "Malaria Metabolic Syndrome",
-    "STI Rabies Chronic Heart Disease",
-    "HIV HPV COPD Bladder Cancer Cholera",
-    "Work - Related Musculoskeletal Diseases",
-    "High Cholesterol Slips & Lapses COVID-19",
-    "Brucellosis Measles Occupational Asthma Coronary Artery Disease MERS Polio",
-    "Colon Cancer Skin Cancer Hand - Arm Vibration Syndrome Mesothelioma Mpox",
-    "Tuberculosis Chlamydia Sleep Apnea Diphtheria Influenza Hearing Loss Hepatitis",
+  const numbers = [
+    () => {
+      setTopBoxStyle({ borderTopColor: on, borderLeftColor: on, borderRightColor: on, borderBottomColor: off });
+      setBottomBoxStyle({ borderTopColor: off, borderLeftColor: on, borderRightColor: on, borderBottomColor: on });
+    },
+    () => {
+      setTopBoxStyle({ borderTopColor: off, borderLeftColor: off, borderRightColor: on, borderBottomColor: off });
+      setBottomBoxStyle({ borderTopColor: off, borderLeftColor: off, borderRightColor: on, borderBottomColor: off });
+    },
+    () => {
+      setTopBoxStyle({ borderTopColor: on, borderLeftColor: off, borderRightColor: on, borderBottomColor: on });
+      setBottomBoxStyle({ borderTopColor: on, borderLeftColor: on, borderRightColor: off, borderBottomColor: on });
+    },
+    () => {
+      setTopBoxStyle({ borderTopColor: on, borderLeftColor: off, borderRightColor: on, borderBottomColor: on });
+      setBottomBoxStyle({ borderTopColor: on, borderLeftColor: off, borderRightColor: on, borderBottomColor: on });
+    },
+    () => {
+      setTopBoxStyle({ borderTopColor: off, borderLeftColor: on, borderRightColor: on, borderBottomColor: on });
+      setBottomBoxStyle({ borderTopColor: on, borderLeftColor: off, borderRightColor: on, borderBottomColor: off });
+    },
+    () => {
+      setTopBoxStyle({ borderTopColor: on, borderLeftColor: on, borderRightColor: off, borderBottomColor: on });
+      setBottomBoxStyle({ borderTopColor: on, borderLeftColor: off, borderRightColor: on, borderBottomColor: on });
+    },
+    () => {
+      setTopBoxStyle({ borderTopColor: on, borderLeftColor: on, borderRightColor: off, borderBottomColor: on });
+      setBottomBoxStyle({ borderTopColor: on, borderLeftColor: on, borderRightColor: on, borderBottomColor: on });
+    },
+    () => {
+      setTopBoxStyle({ borderTopColor: on, borderLeftColor: on, borderRightColor: on, borderBottomColor: off });
+      setBottomBoxStyle({ borderTopColor: off, borderLeftColor: off, borderRightColor: on, borderBottomColor: off });
+    },
+    () => {
+      setTopBoxStyle({ borderTopColor: on, borderLeftColor: on, borderRightColor: on, borderBottomColor: on });
+      setBottomBoxStyle({ borderTopColor: on, borderLeftColor: on, borderRightColor: on, borderBottomColor: on });
+    },
+    () => {
+      setTopBoxStyle({ borderTopColor: on, borderLeftColor: on, borderRightColor: on, borderBottomColor: on });
+      setBottomBoxStyle({ borderTopColor: on, borderLeftColor: off, borderRightColor: on, borderBottomColor: on });
+    },
   ];
 
+  useEffect(() => {
+    const playNumbers = () => {
+      numbers.forEach((number, index) => {
+        setTimeout(number, index * 1000);
+      });
+    };
+    playNumbers();
+    const interval = setInterval(playNumbers, 10000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className='p-8 py-2 '>
-      <div className='flex md:-mb-[15rem] justify-center md:justify-end md:mr-[15rem]'>
-        <CircularText
-          ref={circleRef}
-        />
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '3rem', background: 'DarkSeaGreen' }}>
+      <h1 style={{ color: 'Navy', textShadow: '1px 1px 2px #000', fontSize: '2rem', fontFamily: 'sans-serif' }}>LED Number Display</h1>
+      <div id="container" style={styles.container}>
+        <div id="top-box" style={{ ...styles.box, borderTopColor: topBoxStyle.borderTopColor, borderLeftColor: topBoxStyle.borderLeftColor, borderRightColor: topBoxStyle.borderRightColor, borderBottomColor: topBoxStyle.borderBottomColor, borderBottom: '5px inset transparent' }}></div>
+        <div id="bottom-box" style={{ ...styles.box, borderTopColor: bottomBoxStyle.borderTopColor, borderLeftColor: bottomBoxStyle.borderLeftColor, borderRightColor: bottomBoxStyle.borderRightColor, borderBottomColor: bottomBoxStyle.borderBottomColor, borderTop: '5px inset transparent' }}></div>
       </div>
-      <div className='flex flex-col  py-2 '>
-        <h2 className="text-black dark:text-white-bg text-3xl sm:text-4xl">
-          {diseases.map((disease, index) => (
-            <motion.span
-              key={disease}
-              variants={textVariants}
-              initial="hidden"
-              animate="visible"
-              custom={index}
-              className="block leading-[2.9rem]"
-            // style={{ display: 'block' }}
-            >
-              {disease}
-            </motion.span>
-          ))}
-        </h2>
-      </div>
-
     </div>
-
   );
-}
+};
 
-export default DXPrevention;
+export default LEDNumberDisplay;

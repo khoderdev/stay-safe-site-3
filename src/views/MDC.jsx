@@ -4,12 +4,16 @@ import FoodAndNutrition from '../components/quiz/FoodAndNutrition';
 import Consultations from '../components/consultations/Consultations';
 import MDCHero from '../components/hero/MDCHero';
 import { useScrollSections } from '../hooks/useScrollSections';
+import Fridge from '../components/fridge/Fridge';
 
 function MDC() {
   const sectionsRef = useScrollSections();
 
   return (
     <div className="flex flex-col">
+      <div ref={(el) => (sectionsRef.current[0] = el)} className="section">
+        <Fridge />
+      </div>
       <div ref={(el) => (sectionsRef.current[0] = el)} className="section">
         <MDCHero />
       </div>
