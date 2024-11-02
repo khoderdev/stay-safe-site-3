@@ -5,6 +5,8 @@ import Consultations from '../components/consultations/Consultations';
 import MDCHero from '../components/hero/MDCHero';
 import { useScrollSections } from '../hooks/useScrollSections';
 import Fridge from '../components/fridge/Fridge';
+import MediterraneanDietScore from '../components/calculator/medi-diet-score/MediDietScore';
+import PrevelenceCircle from '../components/circle/PrevelenceCircle';
 
 function MDC() {
   const sectionsRef = useScrollSections();
@@ -31,7 +33,15 @@ function MDC() {
       </div>
 
       <div ref={(el) => (sectionsRef.current[4] = el)} className="section">
+        <MediterraneanDietScore />
+      </div>
+      <div ref={(el) => (sectionsRef.current[5] = el)} className="section">
         <QualitativeDiets />
+      </div>
+      <div ref={(el) => (sectionsRef.current[6] = el)} className="section bg-[#000]">
+        <PrevelenceCircle />
+      </div>
+      <div ref={(el) => (sectionsRef.current[7] = el)} className="section">
       </div>
     </div>
   );

@@ -40,7 +40,7 @@ export default function Header() {
   };
 
   return (
-    <header ref={headerRef} className="bg-white-fg dark:bg-black shadow-md shadow-slate-200 dark:shadow-[#00000021] relative z-50 flex items-center justify-between lg:pl-32 lg:pr-6">
+    <header ref={headerRef} className="bg-white-fg dark:bg-black shadow-md  dark:shadow-[#00000021] relative z-50 flex items-center justify-between lg:pl-32 lg:pr-6">
       {/* Logo */}
       <motion.div
         className="flex-shrink-0 pl-2"
@@ -118,7 +118,7 @@ export default function Header() {
           ) : (
             <>
               <Link to={"/posts"} className="font-semibold dark:text-white-bg">{currentUser?.name || 'User'}</Link>
-              <button onClick={logout} className="bg-red-500 text-white rounded px-4 py-2">Logout</button>
+              <Link onClick={logout} className="font-semibold dark:text-white-bg">Logout</Link>
             </>
           )}
 

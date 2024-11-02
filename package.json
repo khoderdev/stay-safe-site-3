@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@dan-pugsley/react-scroll-spinner": "^1.0.3",
     "@emailjs/browser": "^4.4.1",
     "@gsap/react": "^2.1.1",
     "@hello-pangea/dnd": "^17.0.0",
@@ -34,8 +35,10 @@
     "react-quill": "^2.0.0",
     "react-router-dom": "^6.14.2",
     "react-scroll": "^1.9.0",
+    "react-scroll-rotate": "^0.0.7",
     "semantic-ui-react": "^2.1.5",
-    "splitting": "^1.1.0"
+    "splitting": "^1.1.0",
+    "styled-components": "^6.1.13"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

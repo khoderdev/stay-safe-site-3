@@ -27,7 +27,7 @@ export default function Home() {
         <PackYearsCalculator />
       </div>
       <div ref={(el) => (sectionsRef.current[4] = el)} className="section bg-white-bg dark:bg-[#000]">
-        <MediDietScore />
+        {/* <MediDietScore /> */}
       </div>
       <div ref={(el) => (sectionsRef.current[5] = el)} className="section bg-white-fg dark:bg-black">
         <PHQ9 />

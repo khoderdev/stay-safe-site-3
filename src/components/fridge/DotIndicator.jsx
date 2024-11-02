@@ -1,7 +1,6 @@
-// DotIndicator.js
 import React from 'react';
 
-const DotIndicator = ({ shelfLife }) => {
+const DotIndicator = ({ shelfLife, className = '' }) => {
   const getDotColor = () => {
     switch (shelfLife) {
       case 'short':
@@ -17,7 +16,7 @@ const DotIndicator = ({ shelfLife }) => {
 
   return (
     <span
-      className={`inline-block w-4 h-4 rounded-full ${getDotColor()}`}
+      className={`inline-block w-4 h-4 md:w-6 md:h-6 rounded-full ${getDotColor()} ${className}`}
       title={`Shelf life: ${shelfLife}`}
     />
   );

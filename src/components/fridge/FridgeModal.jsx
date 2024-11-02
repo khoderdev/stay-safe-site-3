@@ -64,6 +64,10 @@
 // };
 
 // export default FridgeModal;
+
+
+
+
 const FridgeModal = ({ isOpen, section, view, onClose }) => {
   if (!isOpen || !section) return null;
 
@@ -71,7 +75,7 @@ const FridgeModal = ({ isOpen, section, view, onClose }) => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-700 bg-opacity-50">
-      <div className="bg-white-bg p-6 rounded-md shadow-md w-full max-w-md mx-auto">
+      <div className="bg-white-bg p-6 rounded-md shadow-md w-full max-w-md mx-3">
         <h3 className="text-xl font-bold text-center mb-4">{name}</h3>
 
         {/* Display content based on view */}

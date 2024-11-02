@@ -21,7 +21,8 @@ import DynamicDietPage from '../components/qualitative-diets/DynamicDietPage';
 import Users from '../views/Users';
 import QualitativeDiets from "../components/qualitative-diets/QualitativeDiets";
 import BookAppointment from "../components/forms/BookAppointment";
-import Rewards from '../components/rewards'
+import { ScrollAnimations } from "../views/ScrollAnimations";
+import FoodSafetyTable from '../components/tables/Table/Table';
 
 const router = createBrowserRouter([
   {
@@ -29,8 +30,12 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
-        path: "/rewards",
-        element: <Rewards />,
+        path: "/table",
+        element: <FoodSafetyTable />,
+      },
+      {
+        path: "/spin2",
+        element: <ScrollAnimations />,
       },
       {
         path: "/book-appointment",
@@ -53,7 +58,7 @@ const router = createBrowserRouter([
         element: <Users />,
       },
       {
-        path: "/spin",
+        path: "/2",
         element: <CircularText />,
       },
       {

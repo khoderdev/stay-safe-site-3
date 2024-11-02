@@ -1,6 +1,6 @@
 .fridge-btn-wrapper {
-	width: 270px;
-	height: 40px;
+	width: 400px;
+	height: 70px;
 	margin: 0px auto 0;
 	border-radius: 10px;
 	padding: 2%;
@@ -48,12 +48,12 @@
 }
 
 .fridge-btn:nth-child(1) {
-	width: 46%;
-	margin-right: 3%;
+	width: 43%;
+	margin-right: 4%;
 }
 
 .fridge-btn:nth-child(2) {
-	width: 51%;
+	width: 43%;
 }
 
 .fridge-btn:before {
@@ -78,7 +78,7 @@
 	/* X Small screens */
 	.fridge-btn-wrapper {
 		width: 200px;
-		height: 25px;
+		height: 35px;
 		border-radius: 10px;
 	}
 
@@ -172,8 +172,8 @@
 @media (min-width: 768px) {
 	/* Medium screens */
 	.fridge-btn-wrapper {
-		width: 270px;
-		height: 43px;
+		/* width: 300px; */
+		height: 75px;
 		margin: 0px auto 0;
 		border-radius: 10px;
 		padding: 2%;
@@ -183,27 +183,27 @@
 		user-select: none;
 		height: 100%;
 		color: #000;
-		font-size: 12px;
+		font-size: 15px;
 	}
 
 	.fridge-btn:nth-child(1) {
 		width: 40%;
 		margin-right: 4%;
-		padding: 3.5%;
+		padding: 3.8%;
 		border-radius: 3px;
 		/* border: solid black 1px; */
 	}
 	.fridge-btn:nth-child(2) {
 		width: 50%;
 		margin-right: 3%;
-		padding: 3.5%;
+		padding: 3.8%;
 		border-radius: 3px;
 		/* border: solid red 1px; */
 	}
 
 	.fridge-btn:before {
 		right: 10px;
-		top: 7px;
+		top: 17px;
 		width: 7px;
 		height: 7px;
 	}
@@ -213,11 +213,9 @@
 	/* Large screens */
 
 	.fridge-btn-wrapper {
-		width: 270px;
-		height: 43px;
-		margin: 0px auto 0;
-		border-radius: 10px;
-		padding: 2%;
+		width: 350px;
+		/* background-color: red; */
+		height: auto;
 	}
 
 	.fridge-btn {
@@ -225,26 +223,29 @@
 		height: 100%;
 		color: #000;
 		font-size: 12px;
+		font-weight: 600;
 	}
 
 	.fridge-btn:nth-child(1) {
-		width: 40%;
-		margin-right: 4%;
-		padding: 3.5%;
+		width: 48%;
+		margin-right: 1%;
+		padding-left: 2.6rem;
+		/* padding: 4%; */
 		border-radius: 3px;
 		/* border: solid black 1px; */
 	}
 	.fridge-btn:nth-child(2) {
-		width: 50%;
-		margin-right: 3%;
-		padding: 3.5%;
+		width: 48%;
+		margin-right: 1%;
+		padding-left: 1.1rem;
+		/* padding: 3.5%; */
 		border-radius: 3px;
 		/* border: solid red 1px; */
 	}
 
 	.fridge-btn:before {
 		right: 10px;
-		top: 7px;
+		top: 13px;
 		width: 7px;
 		height: 7px;
 	}

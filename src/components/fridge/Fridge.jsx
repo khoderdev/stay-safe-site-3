@@ -137,31 +137,46 @@ function Fridge() {
 
   return (
     <>
-      <h2 className="text-center">Optimal Fridge Storage & Shelf Life of Common Food Items</h2>
+      <h2 className="text-center dark:text-white-bg pt-10 mb-[-3rem]">Optimal Fridge Storage & Shelf Life of Common Food Items</h2>
       <div className="relative flex h-full p-4 md:p-24 justify-center items-center bg-pink-200">
+
+
+        <div className="absolute w-full flex justify-center z-10 xs:top-2 sm:top-1 md:top-[4.8rem] lg:top-[] lg:mr-[12rem] mr-40 xs:mr-16 sm:mr-36 md:mr-32">
+          <FridgeBtns view={view} setView={setView} />
+        </div>
         <div className="w-full flex justify-center">
           <FridgeImage />
         </div>
 
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[55%] pl-28">
-          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 text-center  w-[85%]">
-            <div className="col-span-2 h-28 flex items-center justify-center" onClick={() => handleSectionClick("Top Shelf")}>
-              <DotIndicator shelfLife="medium" /> {/* Add dot for each section */}
-            </div>
-            <div className="col-start-3 h-28 flex items-center justify-center" onClick={() => handleSectionClick("Fridge Door")}>
-              <DotIndicator shelfLife="short" />
-            </div>
-            <div className="col-span-2 h-48 row-start-2 flex items-center justify-center" onClick={() => handleSectionClick("Middle Shelf")}>
+
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2/3 md:w-[55%] md:pl-28">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 text-center w-full md:w-[85%] border">
+            <div className="col-span-2 md:h-28 flex items-end md:justify-evenly md:px-16 border border-red-500" onClick={() => handleSectionClick("Top Shelf")}>
+              <DotIndicator shelfLife="medium" />
+              <DotIndicator shelfLife="medium" />
+              <DotIndicator shelfLife="medium" />
               <DotIndicator shelfLife="medium" />
             </div>
-            <div className="col-start-3 h-28 flex items-center justify-center" onClick={() => handleSectionClick("Fridge Door")}>
+            <div className="col-start-3 md:h-28 flex items-center justify-center" onClick={() => handleSectionClick("Fridge Door")}>
               <DotIndicator shelfLife="short" />
             </div>
-            <div className="col-span-2 h-24 row-start-3 flex items-center justify-center" onClick={() => handleSectionClick("Bottom Shelf")}>
-              <DotIndicator shelfLife="long" />
+            <div className="col-span-2 md:h-48 row-start-2 flex items-center justify-center" onClick={() => handleSectionClick("Middle Shelf")}>
+              <DotIndicator shelfLife="medium" />
             </div>
-            <div className="col-start-3 h-28 row-start-3 flex items-center justify-center" onClick={() => handleSectionClick("Fridge Door")}>
+            <div className="col-start-3 md:h-28 flex items-center justify-center" onClick={() => handleSectionClick("Fridge Door")}>
               <DotIndicator shelfLife="short" />
+            </div>
+            <div className="col-span-2 md:h-24 row-start-3 flex items-end justify-around pr-0 gap-x-1" onClick={() => handleSectionClick("Bottom Shelf")}>
+              <DotIndicator shelfLife="long" className='w- mb-[1.5rem]' />
+              <DotIndicator shelfLife="long" className='mr-[-1rem] mb-[2.5rem]' />
+              <DotIndicator shelfLife="long" className='mr-2' />
+              <DotIndicator shelfLife="long" className='mr-[4rem]' />
+            </div>
+            <div className="col-start-3 h-32 md:h-28 row-start-3 flex items-end justify-end pr-0 gap-x-1" onClick={() => handleSectionClick("Fridge Door")}>
+              <DotIndicator shelfLife="short" className='w-3 h-3' />
+              <DotIndicator shelfLife="short" className='w-3 h-3' />
+              <DotIndicator shelfLife="short" className='w-3 h-3' />
+              <DotIndicator shelfLife="short" className='w-3 h-3 mr-2' />
             </div>
             <div className="col-span-1 h-28 flex items-center justify-center" onClick={() => handleSectionClick("High Humidity Drawer")}>
               <DotIndicator shelfLife="long" />
@@ -175,9 +190,7 @@ function Fridge() {
           </div>
         </div>
 
-        <div className="absolute w-full flex justify-center z-10 xs:bottom-24 sm:bottom-16 md:bottom-24 lg:bottom-[6.1rem] mr-40 xs:mr-16 sm:mr-28 md:mr-40">
-          <FridgeBtns view={view} setView={setView} />
-        </div>
+
       </div>
 
       <FridgeModal isOpen={isModalOpen} section={selectedSection} view={view} onClose={handleCloseModal} />
