@@ -182,7 +182,7 @@ const PHQ9Quiz = () => {
         )}
       </div>
 
-      <div className="bg-white-bg dark:bg-black text-black dark:text-white-bg w-full flex justify-center">
+      <div className=" dark:bg-black text-black dark:text-white-bg w-full flex justify-center">
         <span className="text-[10px]">
           PHQ-9 is adapted from PRIME MD TODAY, developed by Drs. Robert L Spitzer, Janet BW Williams, Kurt Kroenke,
           and colleagues, with an educational grant from Pfizer Inc.

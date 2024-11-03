@@ -1,11 +1,12 @@
 const TableHeader = ({ sortColumn, sortDirection, onSort }) => {
   const headers = [
-    { label: 'Bacterium', column: 'bacterium' },
+    { label: 'Pathogen', column: 'pathogen' },
     { label: 'Illness', column: 'illness' },
-    { label: 'Onset Time', column: 'onsetTime' },
     { label: 'Symptoms', column: 'symptoms' },
-    { label: 'Duration', column: 'duration' },
-    { label: 'Food Sources', column: 'foodSources' },
+    { label: 'Onset & Duration', column: 'onsetTimeDuration' },
+    { label: 'Prevention ', column: 'prevention' },
+    { label: 'Causes', column: 'causes' },
+    { label: 'Comments', column: 'comments' },
   ];
 
   return (
