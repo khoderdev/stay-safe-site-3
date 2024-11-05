@@ -30,7 +30,7 @@ function QualitativeDiets() {
 
 
   return (
-    <div className="p-5 bg-[#d4eff4]">
+    <div className="p-5">
       <div className="qualitative-diets-container">
         <h2 className="title">Select a Qualitative Diet</h2>
         <DynamicDropdown

@@ -91,7 +91,7 @@ function Consultations() {
           title="Corporate Therapeutic Services"
           description="Specific to the workplace, Stay Safe notes that healthy eating increases productivity, decreases the number of sick days, increases happiness and improves employees' overall performance."
         />
-        <div></div>
+        {/* <div></div> */}
         <ServiceAnimatedCrad
           sectionId="comunity"
           image='/public/images/psychological.png'

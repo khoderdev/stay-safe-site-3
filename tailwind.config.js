@@ -57,6 +57,7 @@ export default {
       colors: {
         white: {
           bg: '#f7f7f7',
+          bg2: '#f5f5f7',
           fg: '#fff'
         },
         pink: "#e55e72",
