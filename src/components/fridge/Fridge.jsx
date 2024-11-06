@@ -36,21 +36,42 @@ function Fridge() {
           <img src='/public/fridge/f.png' alt='fridge' className='w-full ' />
         </div>
 
-        <div className={`
-    absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
-    w-full 
-     p-5 sm:p-10 md:p-10 h-full
-  `}>
-          <div className="grid grid-cols-4 grid-rows-4 gap-2 h-full p-2">
-            <div className="col-span-2 row-start-1 border border-black flex items-center justify-center">1</div>
-            <div className="col-span-2 row-start-2 border border-black flex items-center justify-center">2</div>
-            <div className="col-span-2 row-start-3 border border-black flex items-center justify-center">3</div>
-            <div className="col-span-2 row-start-4 border border-black flex items-center justify-center">4</div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full p-5 sm:p-10 md:p-10 h-full">
 
-            <div className="col-span-3 row-start-1 border border-purple-600 flex items-center justify-center">5</div>
-            <div className="col-span-3 row-start-2 border border-purple-600 flex items-center justify-center">6</div>
-            <div className="col-span-3 row-start-3 border border-purple-600 flex items-center justify-center">7</div>
-            <div className="col-span-3 row-start-4 border border-purple-600 flex items-center justify-center">8</div>
+          <div className="grid grid-cols-4 grid-rows-4 gap-2 h-full p-2">
+
+            <div className="col-span-2 row-start-1 border border-black flex items-center justify-center">
+              1
+            </div>
+
+            <div className="col-span-2 row-start-2 border border-black flex items-center justify-center">
+              2
+            </div>
+
+            <div className="col-span-2 row-start-3 border border-black flex items-center justify-center">
+              3
+            </div>
+
+            <div className="col-span-2 row-start-4 border border-black flex items-center justify-center">
+              4
+            </div>
+
+            <div className="col-span-3 row-start-1 border border-purple-600 flex items-center justify-center">
+              5
+            </div>
+
+            <div className="col-span-3 row-start-2 border border-purple-600 flex items-center justify-center">
+              6
+            </div>
+
+            <div className="col-span-3 row-start-3 border border-purple-600 flex items-center justify-center">
+              7
+            </div>
+
+            <div className="col-span-3 row-start-4 border border-purple-600 flex items-center justify-center">
+              8
+            </div>
+
           </div>
         </div>
       </div>
