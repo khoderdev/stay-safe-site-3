@@ -26,18 +26,121 @@ function Fridge() {
 
   return (
     <>
-      <h2 className="text-center dark:text-white-bg pt-10 mb-[-3rem]">
+      <h2 className="text-center dark:text-white-bg pt-10 mb-20">
         Optimal Fridge Storage & Shelf Life of Common Food Items
       </h2>
-      <div className="relative flex h-full p-4 md:p-24 justify-center items-center bg-pink-200">
-        {/* <div className="absolute w-full flex justify-center z-10 xs:top-2 sm:top-1 md:top-[4.8rem] lg:top-[] lg:mr-[12rem] mr-40 xs:mr-16 sm:mr-36 md:mr-32">
-          <FridgeBtns view={view} setView={setView} />
-        </div> */}
-        <div className="w-full flex justify-center">
-          <img src='/public/fridge/FRIDGE.svg' alt='fridge' className='w-[50%]' />
+
+
+      <div className="relative flex w-fit h-full justify-center items-center">
+        <div className="flex justify-center items-center md:max-w-3xl">
+          <img src='/public/fridge/f.png' alt='fridge' className='w-full ' />
         </div>
 
-        {/* <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2/3 md:w-[55%] md:pl-28">
+        <div className={`
+    absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
+    w-full 
+     p-5 sm:p-10 md:p-10 h-full
+  `}>
+          <div className="grid grid-cols-4 grid-rows-4 gap-2 h-full p-2">
+            <div className="col-span-2 row-start-1 border border-black flex items-center justify-center">1</div>
+            <div className="col-span-2 row-start-2 border border-black flex items-center justify-center">2</div>
+            <div className="col-span-2 row-start-3 border border-black flex items-center justify-center">3</div>
+            <div className="col-span-2 row-start-4 border border-black flex items-center justify-center">4</div>
+
+            <div className="col-span-3 row-start-1 border border-purple-600 flex items-center justify-center">5</div>
+            <div className="col-span-3 row-start-2 border border-purple-600 flex items-center justify-center">6</div>
+            <div className="col-span-3 row-start-3 border border-purple-600 flex items-center justify-center">7</div>
+            <div className="col-span-3 row-start-4 border border-purple-600 flex items-center justify-center">8</div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      {/* <div className="relative flex h-full p-4 md:p- justify-center items-center bg-pink-200 border">
+        <div className="flex justify-center border border-green-500">
+          <img src='/public/fridge/f.png' alt='fridge' className='sm:w-[50%]' />
+        </div>
+        <div className=
+        {
+        `
+        absolute  
+        top-[48%]  
+        left-1/2 
+        transform 
+        -translate-x-1/2 
+        -translate-y-1/2 
+        xsm:w-[83%] 
+        sm:w-[42%] 
+        md:w-[40%] 
+        lg:w-[35%] 
+        xl:w-[30%] 
+        2xl:w-[27%] 
+        3xl:w-[18%] 
+       
+        border-2 
+        border-black 
+        xsm:border-green-500  h-[80%]
+        sm:border-yellow-500 
+        md:border-orange-600 
+        lg:border-blue-600 
+        xl:border-purple-600 
+        2xl:border-black 
+        `
+        }
+        >
+          <div className="grid grid-cols-3 grid-rows-4 items-center px-   h-full">
+            <div className="col-span-2  md:h-24 border border-black">1</div>
+            <div className="col-span-2  md:h-24 mt- col-start-1 row-start-2 border border-black">2</div>
+            <div className="col-span-2  md:h-20 mt- col-start-1 row-start-3 border border-black">3</div>
+            <div className="col-span-2  md:h-24 col-start-1 row-start-4 border border-black">4</div>
+            <div className="col-start-3  md:h-16 row-start-1 border border-purple-900">5</div>
+            <div className="col-start-3  md:h-16 row-start-2 border border-purple-900">6</div>
+            <div className="col-start-3  md:h-16 row-start-3 border border-purple-900">7</div>
+            <div className="col-start-3  md:h-16 row-start-4 border border-purple-900">8</div>
+          </div>
+        </div>
+      </div > */}
+
+
+
+      <FridgeModal
+        isOpen={isModalOpen}
+        section={selectedSection}
+        view={view}
+        onClose={handleCloseModal}
+        hideSectionName={view === "ShelfLife"}
+      />
+    </>
+  );
+}
+
+export default Fridge;
+{/* <h2 className="text-center dark:text-white-bg pt-10 mb-[-3rem]">
+        Optimal Fridge Storage & Shelf Life of Common Food Items
+      </h2>
+      <div className="relative flex h-full p-4 md:p-24 justify-center items-center bg-pink-200"> */}
+{/* <div className="absolute w-full flex justify-center z-10 xs:top-2 sm:top-1 md:top-[4.8rem] lg:top-[] lg:mr-[12rem] mr-40 xs:mr-16 sm:mr-36 md:mr-32">
+          <FridgeBtns view={view} setView={setView} />
+        </div> */}
+{/* <div className="w-full flex justify-center border border-green-500">
+          <img src='/public/fridge/FRIDGE.png' alt='fridge' className='w-[60%]' />
+        </div> */}
+
+{/* <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2/3 md:w-[55%] md:pl-28">
+          <div className="grid grid-cols-3 grid-rows-4 items-center  px-4 border border-black">
+            <div className="col-span-2 h-24 border border-red-500">1</div>
+            <div className="col-span-2 h-24 mt- col-start-1 row-start-2 border border-red-500">2</div>
+            <div className="col-span-2 h-20 mt- col-start-1 row-start-3 border border-red-500">3</div>
+            <div className="col-span-2 h-24 col-start-1 row-start-4 border border-red-500">4</div>
+            <div className="col-start-3 h-16 row-start-1 border">5</div>
+            <div className="col-start-3 h-16 row-start-2 border">6</div>
+            <div className="col-start-3 h-16 row-start-3 border">7</div>
+            <div className="col-start-3 h-16 row-start-4 border">8</div>
+          </div>
+        </div> */}
+{/* <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2/3 md:w-[55%] md:pl-28">
           <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 text-center w-full md:w-[85%] ">
             <div className="col-span-2 md:h-28 flex items-end md:justify-evenly mr-6 md:px-16"
               onClick={() => handleSectionClick("Top Shelf")}>
@@ -85,17 +188,3 @@ function Fridge() {
             </div>
           </div>
         </div> */}
-      </div>
-
-      <FridgeModal
-        isOpen={isModalOpen}
-        section={selectedSection}
-        view={view}
-        onClose={handleCloseModal}
-        hideSectionName={view === "ShelfLife"}
-      />
-    </>
-  );
-}
-
-export default Fridge;

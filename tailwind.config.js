@@ -41,7 +41,7 @@ export default {
   theme: {
     extend: {
       screens: {
-        'xs': '320px',
+        'xsm': '320px',
         // => @media (min-width: 320px) 
         'sm': '576px',
         // => @media (min-width: 576px) 
@@ -53,6 +53,8 @@ export default {
         // => @media (min-width: 1440px) 
         '2xl': '1536px',
         // => @media (min-width: 1536px) 
+        '3xl': '2560px',
+        // => @media (min-width: 2560px 4k) 
       },
       colors: {
         white: {
