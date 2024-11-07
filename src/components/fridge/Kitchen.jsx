@@ -248,6 +248,97 @@
 // };
 
 // export default ZoomableImage;
+// import React, { useState, useRef } from 'react';
+
+// const ZoomableImage = () => {
+//   const [zoom, setZoom] = useState(false);
+//   const [zoomPosition, setZoomPosition] = useState({ x: '50%', y: '50%' });
+//   const [dragging, setDragging] = useState(false);
+//   const [translate, setTranslate] = useState({ x: 0, y: 0 });
+//   const initialMousePosition = useRef({ x: 0, y: 0 });
+//   const initialTranslate = useRef({ x: 0, y: 0 });
+
+//   // Handle double-click to toggle zoom
+//   const handleDoubleClick = (event) => {
+//     if (zoom) {
+//       // Zoom out if already zoomed in
+//       setZoom(false);
+//       setTranslate({ x: 0, y: 0 });
+//     } else {
+//       // Zoom in if currently zoomed out
+//       const { offsetX, offsetY, target } = event.nativeEvent;
+//       const { offsetWidth, offsetHeight } = target;
+
+//       const x = `${(offsetX / offsetWidth) * 100}%`;
+//       const y = `${(offsetY / offsetHeight) * 100}%`;
+
+//       setZoomPosition({ x, y });
+//       setZoom(true);
+//     }
+//   };
+
+//   // Start dragging
+//   const handleMouseDown = (event) => {
+//     if (zoom) {
+//       setDragging(true);
+//       initialMousePosition.current = { x: event.clientX, y: event.clientY };
+//       initialTranslate.current = { ...translate };
+//     }
+//   };
+
+//   // Handle drag movement with boundary restrictions
+//   const handleMouseMove = (event) => {
+//     if (dragging && zoom) {
+//       const deltaX = event.clientX - initialMousePosition.current.x;
+//       const deltaY = event.clientY - initialMousePosition.current.y;
+
+//       const newTranslateX = initialTranslate.current.x + deltaX;
+//       const newTranslateY = initialTranslate.current.y + deltaY;
+
+//       const scale = 2.5;
+//       const viewportWidth = window.innerWidth;
+//       const viewportHeight = window.innerHeight;
+
+//       const maxTranslateX = (viewportWidth * (scale - 1)) / 2;
+//       const maxTranslateY = (viewportHeight * (scale - 1)) / 2;
+
+//       setTranslate({
+//         x: Math.min(maxTranslateX, Math.max(-maxTranslateX, newTranslateX)),
+//         y: Math.min(maxTranslateY, Math.max(-maxTranslateY, newTranslateY)),
+//       });
+//     }
+//   };
+
+//   // Stop dragging
+//   const handleMouseUp = () => setDragging(false);
+
+//   return (
+//     <div
+//       className="relative w-full h-screen bg-gray-200 overflow-hidden"
+//       onMouseDown={handleMouseDown}
+//       onMouseMove={handleMouseMove}
+//       onMouseUp={handleMouseUp}
+//       onMouseLeave={handleMouseUp}
+//     >
+//       {/* Image Container */}
+//       <div
+//         onDoubleClick={handleDoubleClick}
+//         className={`w-full h-full bg-cover bg-center ${zoom ? '' : 'transition-transform duration-500'}`}
+//         style={{
+//           backgroundImage: 'url(/public/fridge/kitchen.jpg)',
+//           transformOrigin: `${zoomPosition.x} ${zoomPosition.y}`,
+//           transform: zoom
+//             ? `scale(2.5) translate(${translate.x}px, ${translate.y}px)`
+//             : 'scale(1) translate(0, 0)',
+//           cursor: zoom ? 'grab' : 'auto',
+//         }}
+//         onMouseDown={(e) => zoom && e.preventDefault()}
+//       />
+//     </div>
+//   );
+// };
+
+// export default ZoomableImage;
 import React, { useState, useRef } from 'react';
 
 const ZoomableImage = () => {
@@ -261,11 +352,9 @@ const ZoomableImage = () => {
   // Handle double-click to toggle zoom
   const handleDoubleClick = (event) => {
     if (zoom) {
-      // Zoom out if already zoomed in
       setZoom(false);
       setTranslate({ x: 0, y: 0 });
     } else {
-      // Zoom in if currently zoomed out
       const { offsetX, offsetY, target } = event.nativeEvent;
       const { offsetWidth, offsetHeight } = target;
 
@@ -292,19 +381,24 @@ const ZoomableImage = () => {
       const deltaX = event.clientX - initialMousePosition.current.x;
       const deltaY = event.clientY - initialMousePosition.current.y;
 
-      const newTranslateX = initialTranslate.current.x + deltaX;
-      const newTranslateY = initialTranslate.current.y + deltaY;
-
       const scale = 2.5;
       const viewportWidth = window.innerWidth;
       const viewportHeight = window.innerHeight;
 
-      const maxTranslateX = (viewportWidth * (scale - 1)) / 2;
-      const maxTranslateY = (viewportHeight * (scale - 1)) / 2;
+      // Calculate scaled image dimensions
+      const scaledWidth = viewportWidth * scale;
+      const scaledHeight = viewportHeight * scale;
+
+      // Maximum translation values to keep the edges visible
+      const maxTranslateX = (scaledWidth - viewportWidth) / 2;
+      const maxTranslateY = (scaledHeight - viewportHeight) / 2;
+
+      const newTranslateX = initialTranslate.current.x + deltaX;
+      const newTranslateY = initialTranslate.current.y + deltaY;
 
       setTranslate({
-        x: Math.min(maxTranslateX, Math.max(-maxTranslateX, newTranslateX)),
-        y: Math.min(maxTranslateY, Math.max(-maxTranslateY, newTranslateY)),
+        x: Math.max(-maxTranslateX, Math.min(maxTranslateX, newTranslateX)),
+        y: Math.max(-maxTranslateY, Math.min(maxTranslateY, newTranslateY)),
       });
     }
   };
@@ -314,7 +408,7 @@ const ZoomableImage = () => {
 
   return (
     <div
-      className="relative w-full h-screen bg-gray-200 overflow-hidden"
+      className="relative w-full h-screen bg-blue-200 overflow-hidden"
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}

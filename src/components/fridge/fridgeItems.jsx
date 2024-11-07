@@ -17,6 +17,7 @@ import SoftDrinks from "../../../public/fridge/soft-drinks.svg";
 import Milk from "../../../public/fridge/milk.svg";
 import Meat from "../../../public/fridge/meat.svg";
 import Meat2 from "../../../public/fridge/meat2.svg";
+import ChickenMeat from "../../../public/fridge/chicken-meat.svg";
 
 
 export {
@@ -38,6 +39,7 @@ export {
   SoftDrinks,
   Meat,
   Meat2,
+  ChickenMeat,
   Milk
 };
 // Array containing fridge items with images

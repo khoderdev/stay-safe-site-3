@@ -12,7 +12,6 @@ import {
   Fish,
   Eggs,
   Fruits,
-  Grape,
   Vegetables,
   Pickles,
   Ketchup,
@@ -23,6 +22,7 @@ import {
   SoftDrinks,
   Milk,
   Meat,
+  ChickenMeat,
   Meat2
 }
   from './fridgeItems'
@@ -71,9 +71,9 @@ function Fridge() {
           <div className="grid grid-cols-4 grid-rows-4 gap-2 h-full p- pt-8 border">
 
             {/* Main Fridge */}
-            <div className="col-span-2 row-start-1 flex items-end justify-center border">
-              <img src={PotatoChicken} className='w-28 md:w-36' onClick={() => { alert("Clicked") }} />
-              <img src={Meat2} className='w-28 md:w-36 mt-' onClick={() => { alert("Clicked") }} />
+            <div className="col-span-2 row-start-1 flex items-end justify-around border">
+              <img src={PotatoChicken} className='xsm:w-28 sm:w-32 xsm:mt-[-20px] mb-[-10px] sm:mb-[-10px] md:w-32 md:mb-[-10px] lg:w-36 lg:mb-[-20px]' onClick={() => { alert("Clicked") }} />
+              <img src={ChickenMeat} className='xsm:w-24 sm:w-32 xsm:mt-[-20px] mb-[-10px] sm:mb-[-10px] md:w-28 md:mb-[-10px] lg:w-36 lg:mb-[-20px]' onClick={() => { alert("Clicked") }} />
             </div>
 
             <div className="col-span-2 row-start-2 border flex items-center justify-center">
