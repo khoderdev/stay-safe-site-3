@@ -1,9 +1,13 @@
-import RotateImage from "./EnvirementalHealth";
+import React from 'react'
+import Kitchen from '../components/fridge/Kitchen'
 
-
-function OHS({ primaryImage = '/public/images/group66.svg' }) {
+function OHS() {
   return (
-    <RotateImage src={primaryImage} alt="Rotating Image" />
-  );
+    <div>
+
+      <Kitchen />
+    </div>
+  )
 }
+
 export default OHS
