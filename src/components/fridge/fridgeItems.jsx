@@ -1,10 +1,7 @@
-import FRIDGE2 from "../../../public/fridge/FRIDGE2.svg";
-import FRIDGE5 from "../../../public/fridge/FRIDGE5.svg";
-import FRIDGE9 from "../../../public/fridge/FRIDGE9.svg";
 import Butter from "../../../public/fridge/butter.svg";
 import Cheese from "../../../public/fridge/cheese.svg";
 import Chicken from "../../../public/fridge/chicken.svg";
-import ChickenMeat from "../../../public/fridge/chicken-meat.svg";
+import PotatoChicken from "../../../public/fridge/potato-chicken.svg";
 import Fish from "../../../public/fridge/fish.svg";
 import Eggs from "../../../public/fridge/eggs.svg";
 import Fruits from "../../../public/fridge/fruits.svg";
@@ -18,16 +15,15 @@ import Juice from "../../../public/fridge/juice.svg";
 import Water from "../../../public/fridge/water.svg";
 import SoftDrinks from "../../../public/fridge/soft-drinks.svg";
 import Milk from "../../../public/fridge/milk.svg";
+import Meat from "../../../public/fridge/meat.svg";
+import Meat2 from "../../../public/fridge/meat2.svg";
 
 
 export {
-  FRIDGE2,
-  FRIDGE5,
-  FRIDGE9,
   Butter,
   Cheese,
   Chicken,
-  ChickenMeat,
+  PotatoChicken,
   Fish,
   Eggs,
   Fruits,
@@ -40,6 +36,8 @@ export {
   Juice,
   Water,
   SoftDrinks,
+  Meat,
+  Meat2,
   Milk
 };
 // Array containing fridge items with images
