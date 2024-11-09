@@ -49,24 +49,19 @@ function Fridge() {
 
   return (
     <div className='flex flex-col items-center justify-center'>
-      {/* <h2 className="text-center dark:text-white-bg pt-10 mb-20">
-        Optimal Fridge Storage & Shelf Life of Common Food Items
-      </h2> */}
-
-      <div className={`relative flex w-fit h-full justify-center items-center
-        border-2
-        border-blue-400
-        sm:border-purple-400
-        md:border-cyan-400
-        lg:border-red-300-400
-        xl:border-yellow-300
-        2xl:border-orange-500-400
-        3xl:border-red-700
+      <div className={`relative flex justify-center items-center
+        w-52 h-96
+        bg-blue-400
+        sm:bg-purple-400
+        md:bg-cyan-400
+        lg:bg-red-300-400
+        xl:bg-yellow-300
+        2xl:bg-orange-500-400
+        3xl:bg-red-700
         `}>
-        <div className="flex justify-center items-center max-w-2xl md:max-w-3xl xl:max-w-4xl">
-          <div className='w-96  h-96'></div>
-          <img src='/public/fridge/f2.png' alt='fridge' className='w-full ' />
-        </div>
+        {/* <div className="w-96 h-96 flex justify-center items-center max-w-2xl md:max-w-3xl xl:max-w-4xl border-2 border-black">
+     
+        </div> */}
 
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full p-5 sm:p-10 md:p-10 h-full">
           <div className="grid grid-cols-4 grid-rows-4 gap-2 h-full p- pt-8 border">

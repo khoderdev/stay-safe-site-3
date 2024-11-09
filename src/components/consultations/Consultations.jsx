@@ -65,7 +65,7 @@ function Consultations() {
 
   return (
     <>
-      <div className='gap-4 grid grid-cols-1 md:grid-cols-3 justify-items-center'>
+      <div className='gap-16 grid grid-cols-1 md:grid-cols-3 justify-items-center'>
         <ServiceAnimatedCrad
           sectionId="clinic"
           // image='/public/images/psychological.png'

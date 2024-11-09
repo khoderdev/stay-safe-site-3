@@ -16,43 +16,21 @@
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.icon-wrapper svg {
-	margin-bottom: 16px;
-	color: #007bff;
-}
+
 
 .service-card:hover {
 	transform: scale(1.05);
 	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.15);
 }
 
-h3 {
-	font-size: 1.5rem;
-	margin-bottom: 10px;
-}
 
 p {
 	color: #555;
 	line-height: 1.6;
 }
 
-.box {
-	position: relative;
-	width: 400px;
-	height: 400px;
-	background: repeating-conic-gradient(
-		from var(--a),
-		#ff2770 0%,
-		#ff2770 5%,
-		transparent 5%,
-		transparent 40%,
-		#ff2770 50%
-	);
-	animation: animate 4s linear infinite;
-	border-radius: 15px;
-}
 
-@property --a {
+/* @property --a {
 	syntax: '<angle>';
 	inherits: false;
 	initial-value: 0deg;
@@ -65,9 +43,9 @@ p {
 	100% {
 		--a: 360deg;
 	}
-}
+} */
 
-.box::before {
+/* .box::before {
 	content: '';
 	position: absolute;
 	width: 100%;
@@ -83,44 +61,44 @@ p {
 	animation: animate 4s linear infinite;
 	animation-delay: -1s;
 	border-radius: 15px;
-}
+} */
 
-.box::after {
+/* .box::after {
 	content: '';
 	position: absolute;
 	inset: 8px;
 	background: #2d2d39;
 	border-radius: 15px;
 	border: 8px solid #25252b;
-}
+} */
 
-.card2 {
+/* .card2 {
 	width: 300px;
 	height: 200px;
 	perspective: 1000px;
-}
+} */
 
-.card-inner {
+/* .card-inner {
 	width: 100%;
 	height: 100%;
 	position: relative;
 	transform-style: preserve-3d;
 	transition: transform 0.999s;
-}
+} */
 
 .card:hover .card-inner {
 	transform: rotateY(180deg);
 }
 
-.card-front,
+/* .card-front,
 .card-back {
 	position: absolute;
 	width: 100%;
 	height: 100%;
 	backface-visibility: hidden;
-}
+} */
 
-.card-front {
+/* .card-front {
 	background-color: #6a2c70;
 	color: #fff;
 	display: flex;
@@ -130,9 +108,9 @@ p {
 	justify-content: center;
 	font-size: 24px;
 	transform: rotateY(0deg);
-}
+} */
 
-.card-back {
+/* .card-back {
 	background-color: #f08a5d;
 	color: #fff;
 	display: flex;
@@ -142,11 +120,12 @@ p {
 	justify-content: center;
 	font-size: 24px;
 	transform: rotateY(180deg);
-}
+} */
 
 .advertisers-service-sec {
 	background-color: #f5f5f5;
-	max-width: 300px;
+	max-width: 350px;
+	/* max-height: 400px; */
 }
 
 @property --rotate {
@@ -267,16 +246,17 @@ a {
 	content: '';
 	width: 100%;
 	height: 100%;
-	background: linear-gradient(#0dcaf0, rgb(255, 23, 131));
+	background: linear-gradient(#e55e72, #e55e72);
 	position: absolute;
 	left: 0%;
 	top: -98%;
 	z-index: -2;
 	transition: all 0.4s cubic-bezier(0.77, -0.04, 0, 0.99);
+	
 }
 
 .advertisers-service-sec h3 {
-	font-size: 20px;
+	font-size: 25px;
 	text-align: center;
 	text-transform: capitalize;
 	font-weight: 600;

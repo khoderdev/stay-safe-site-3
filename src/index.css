@@ -29,6 +29,25 @@ body {
 	overflow-scrolling: touch;
 	/* background-color: red; */
 }
+.MyCrossword .Grid__background {
+	fill: #061e24;
+	margin-right: 20px !important ;
+}
+.Crossword__gridAndControls{
+	margin-right: 25px;
+}
+#check-control,
+#reveal-control {
+  display: none;
+}
+
+#clear-control {
+  display: block;
+}
+
+#anagram-control {
+  display: none;
+}
 
 img {
 	user-select: none;

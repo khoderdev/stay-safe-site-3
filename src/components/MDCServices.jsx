@@ -160,9 +160,9 @@ function MDCServices({ targetRef }) {
       style={{
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'start',
+        justifyContent: 'center',
         alignItems: 'center',
-        height: '100vh', // Full viewport height
+        height: '50vh', 
         textAlign: 'center',
         padding: '20px',
         paddingTop: '35px',
@@ -189,7 +189,7 @@ function MDCServices({ targetRef }) {
         ))}
       </motion.p>
       <Button
-        customStyles='bg-pink !p-8 !rounded-full !mt-10 uppercase'
+        customStyles='bg-transparent !border-2 !border-black hover:!border-transparent hover:bg-pink !p-8 !rounded-full !mt-10 uppercase'
         aria-label="Show details"
         onClick={handleScrollToSection} // Link button to scroll function
       >

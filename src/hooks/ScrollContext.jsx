@@ -28,7 +28,7 @@ export const ScrollProvider = ({ children }) => {
         section,
         { opacity: 0, y: 0 }, // Start from transparent and slightly below
         {
-          opacity: 1,
+          opacity: 100,
           y: 0,
           duration: 1,
           ease: 'power2.out', // Easing function for a smoother animation

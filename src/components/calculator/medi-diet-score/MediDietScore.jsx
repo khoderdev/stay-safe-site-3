@@ -127,7 +127,7 @@ const MediterraneanDietScore = () => {
       <h1 className="text-xl md:text-5xl font-semibold mb-8 text-center text-black dark:text-white-bg">
         Mediterranean Diet Score
       </h1>
-      <div className="w-full max-w-2xl p-6 rounded-lg shadow-lg bg-black">
+      <div className="w-full max-w-2xl p-6 rounded-lg shadow-lg bg-white-bg dark:bg-black">
 
         {score === null ? (
           <>

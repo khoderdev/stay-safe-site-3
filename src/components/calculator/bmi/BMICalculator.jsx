@@ -63,7 +63,7 @@ const BMICalculator = () => {
   };
 
   return (
-    <div className="max-w-md  mx-auto mt-10 p-5 rounded-lg shadow-md bg-white-bg dark:bg-black drop-shadow-lg text-black dark:text-white-bg">
+    <div className="w-[40%] mx-auto mt-10 p-5 rounded-lg shadow-md bg-white-bg dark:bg-black drop-shadow-lg text-black dark:text-white-bg">
       <h2 className="text-2xl font-bold text-center mb-4">BMI Calculator</h2>
       <form onSubmit={calculateBMI} className="space-y-6">
         <div>
@@ -88,13 +88,16 @@ const BMICalculator = () => {
             required
           />
         </div>
-        <button type="submit" className="w-full bg-blue text-white p-2 rounded hover:bg-blue transition">
-          Calculate BMI
-        </button>
+
+        <div className='flex w-full justify-center items-center'>
+          <button type="submit" className="bg-[#3c79b4] text-white-bg p-2 rounded hover:bg-blue transition">
+            Calculate BMI
+          </button>
+        </div>
       </form>
       {bmi && (
         <div className="mt-6 text-center">
-          <h3 className="text-xl font-semibold mb-1">Your BMI is: {bmi}</h3>
+          <h3 className="text-xl font-semibold mb-1">Your BMI is: <span className='text-green-500'>{bmi}</span></h3>
           <p className="text-gray-500">{category}</p>
         </div>
       )}

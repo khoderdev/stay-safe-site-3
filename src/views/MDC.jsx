@@ -63,28 +63,32 @@ import Fridge from '../components/fridge/Fridge';
 import MediterraneanDietScore from '../components/calculator/medi-diet-score/MediDietScore';
 import PrevelenceCircle from '../components/circle/PrevelenceCircle';
 import MDCServices from '../components/MDCServices';
-
+import Puzzle from '../components/puzzle/Puzzle';
+import Kitchen from '../components/fridge/Kitchen'
 function MDC() {
   const sectionsRef = useScrollSections();
   const sectionCount = 10; // Adjust if you have more or fewer sections
   sectionsRef.current = Array(sectionCount).fill(null);
   return (
     <div className="flex flex-col">
-      <div ref={(el) => (sectionsRef.current[0] = el)} className="section bg-white-bg2">
+      <div ref={(el) => (sectionsRef.current[0] = el)} className="bg-white-bg2">
         <MDCServices targetRef={sectionsRef.current[3]} />
       </div>
       <div ref={(el) => (sectionsRef.current[1] = el)} className="section bg-white-bg2">
-        <Fridge />
+        <Kitchen />
       </div>
-      <div ref={(el) => (sectionsRef.current[2] = el)} className="section">
+      {/* <div ref={(el) => (sectionsRef.current[2] = el)} className="section">
         <MDCHero />
+      </div> */}
+      <div ref={(el) => (sectionsRef.current[2] = el)} className="section flex">
+        <Puzzle />
       </div>
 
-      <div ref={(el) => (sectionsRef.current[3] = el)} className="section bg-white-bg2">
+      <div ref={(el) => (sectionsRef.current[3] = el)} className="section flex flex-col justify-center bg-white-bg2">
         <Consultations />
       </div>
 
-      <div ref={(el) => (sectionsRef.current[4] = el)} className="section">
+      <div ref={(el) => (sectionsRef.current[4] = el)} className="sm:!h-[45dvh]">
         <BMICalculator />
       </div>
 
@@ -95,7 +99,7 @@ function MDC() {
       <div ref={(el) => (sectionsRef.current[6] = el)} className="section">
         <MediterraneanDietScore />
       </div>
-      <div ref={(el) => (sectionsRef.current[7] = el)} className="section bg-white-bg2">
+      <div ref={(el) => (sectionsRef.current[7] = el)} className="sm:!h-[45dvh] bg-white-bg2">
         <QualitativeDiets />
       </div>
       <div ref={(el) => (sectionsRef.current[8] = el)} className="section bg-black">
