@@ -78,7 +78,7 @@ const ZoomableImage = () => {
         onDoubleClick={handleDoubleClick}
         className={`w-full h-full bg-cover bg-center ${zoom ? '' : 'transition-transform duration-500'}`}
         style={{
-          backgroundImage: 'url(/public/fridge/kitchen2.jpg)',
+          backgroundImage: 'url(/fridge/kitchen2.jpg)',
           transformOrigin: `${zoomPosition.x} ${zoomPosition.y}`,
           transform: zoom
             ? `scale(2.5) translate(${translate.x}px, ${translate.y}px)`

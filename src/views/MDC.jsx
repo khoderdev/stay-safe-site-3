@@ -74,7 +74,7 @@ function MDC() {
       <div ref={(el) => (sectionsRef.current[0] = el)} className="bg-white-bg2">
         <MDCServices targetRef={sectionsRef.current[3]} />
       </div>
-      <div ref={(el) => (sectionsRef.current[1] = el)} className="section bg-white-bg2">
+      <div ref={(el) => (sectionsRef.current[1] = el)} className="section">
         <Kitchen />
       </div>
       {/* <div ref={(el) => (sectionsRef.current[2] = el)} className="section">
