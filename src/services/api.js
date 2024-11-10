@@ -224,3 +224,19 @@ export const createAppointment = async (appointmentData,) => {
     // headers: { Authorization: `Bearer ${token}` },
   });
 };
+
+
+export const getPdfs = (token, dietName) => {
+  return api.get(`/upload/${dietName}`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+};
+
+export const uploadPdf = (formData, token, dietName) => {
+  return api.post(`/upload/${dietName}`, formData, {
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+};

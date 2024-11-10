@@ -53,6 +53,7 @@
 // }
 
 // export default MDC;
+import React, { useRef } from 'react';
 import BMICalculator from '../components/calculator/bmi/BMICalculator';
 import QualitativeDiets from '../components/qualitative-diets/QualitativeDiets';
 import FoodAndNutrition from '../components/quiz/FoodAndNutrition';
@@ -65,28 +66,38 @@ import PrevelenceCircle from '../components/circle/PrevelenceCircle';
 import MDCServices from '../components/MDCServices';
 import Puzzle from '../components/puzzle/Puzzle';
 import Kitchen from '../components/fridge/Kitchen'
+
+
+
 function MDC() {
-  const sectionsRef = useScrollSections();
-  const sectionCount = 10; // Adjust if you have more or fewer sections
+  const sectionRef = useRef(null); // This is the ref for the Consultations section
+
+  const sectionsRef = useRef(Array(9).fill(null)); // This holds refs for other sections
+  const sectionCount = 9;
   sectionsRef.current = Array(sectionCount).fill(null);
+
   return (
     <div className="flex flex-col">
       <div ref={(el) => (sectionsRef.current[0] = el)} className="bg-white-bg2">
-        <MDCServices targetRef={sectionsRef.current[3]} />
+        <MDCServices targetRef={sectionRef} /> {/* Pass sectionRef for the Consultations section */}
       </div>
       <div ref={(el) => (sectionsRef.current[1] = el)} className="section">
         <Kitchen />
       </div>
-      {/* <div ref={(el) => (sectionsRef.current[2] = el)} className="section">
-        <MDCHero />
-      </div> */}
       <div ref={(el) => (sectionsRef.current[2] = el)} className="section flex">
         <Puzzle />
       </div>
 
-      <div ref={(el) => (sectionsRef.current[3] = el)} className="section flex flex-col justify-center bg-white-bg2">
+      <div
+        ref={(el) => {
+          sectionRef.current = el;  // Set sectionRef
+          sectionsRef.current[3] = el;  // Also assign to sectionsRef.current[4]
+        }}
+        className="section flex flex-col justify-center bg-white-bg2"
+      >
         <Consultations />
       </div>
+
 
       <div ref={(el) => (sectionsRef.current[4] = el)} className="sm:!h-[45dvh]">
         <BMICalculator />
@@ -106,11 +117,10 @@ function MDC() {
         <PrevelenceCircle />
       </div>
       <div ref={(el) => (sectionsRef.current[9] = el)} className="section">
-        {/* Additional content can go here */}
+        {/* Additional content */}
       </div>
     </div>
   );
 }
 
 export default MDC;
-

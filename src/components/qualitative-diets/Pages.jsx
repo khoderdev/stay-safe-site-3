@@ -1,4 +1,4 @@
-export const dietsData = {
+export const Pages = {
   anemia: { title: "Anemia", content: "Information about anemia diet..." },
   constipation: { title: "Constipation", content: "Information about constipation diet..." },
   diarrhea: { title: "Diarrhea", content: "Information about diarrhea diet..." },

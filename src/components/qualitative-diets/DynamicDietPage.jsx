@@ -1,63 +1,96 @@
-// import { useEffect, useState } from 'react';
-// import { useParams } from 'react-router-dom';
-// import { dietsData } from './dietsData';
+// import { useEffect, useState } from "react";
+// import { useParams } from "react-router-dom";
+// import { Pages } from "./Pages";
+// import { Accordion, Icon } from "semantic-ui-react";
+// import { uploadPdf, getPdfs } from "../../services/api";
+// import { useAuth } from "../../hooks/useAuth";
 
 // const DynamicDietPage = () => {
 //   const { dietName } = useParams();
 //   const [diet, setDiet] = useState({ title: "Not Found", content: "No data available." });
+//   const [pdfFiles, setPdfFiles] = useState([]);
+//   const [activeIndex, setActiveIndex] = useState(null);
+//   const { token } = useAuth();
 
 //   useEffect(() => {
-//     const newDiet = dietsData[dietName] || { title: "Not Found", content: "No data available." };
+//     const newDiet = Pages[dietName] || { title: "Not Found", content: "No data available." };
 //     setDiet(newDiet);
 //   }, [dietName]);
 
-//   return (
-//     <div className="diet-page">
-//       <h1>{diet.title}</h1>
-//       <p>{diet.content}</p>
-//     </div>
-//   );
-// };
-// export default DynamicDietPage;
-
-// import { useEffect, useState } from 'react';
-// import { useParams } from 'react-router-dom';
-// import { dietsData } from './dietsData';
-// import PDFViewer from 'pdf-viewer-reactjs';
-
-// const DynamicDietPage = () => {
-//   const { dietName } = useParams();
-//   const [diet, setDiet] = useState({ title: "Not Found", content: "No data available." });
-//   const [pdfFile, setPdfFile] = useState(null);
-//   const [pdfUrl, setPdfUrl] = useState(null);
-
 //   useEffect(() => {
-//     const newDiet = dietsData[dietName] || { title: "Not Found", content: "No data available." };
-//     setDiet(newDiet);
-//   }, [dietName]);
+//     const fetchPdfs = async () => {
+//       try {
+//         const response = await getPdfs(token);
+//         setPdfFiles(response.data.data || []);
+//       } catch (error) {
+//         console.error("Failed to fetch PDFs", error);
+//       }
+//     };
+//     fetchPdfs();
+//   }, [token]);
 
-//   const handleFileUpload = (event) => {
+//   const handleFileUpload = async (event) => {
 //     const file = event.target.files[0];
 //     if (file && file.type === "application/pdf") {
-//       setPdfFile(file);
-//       setPdfUrl(URL.createObjectURL(file));
+//       const formData = new FormData();
+//       formData.append("pdf", file);
+//       formData.append("title", file.name);
+
+//       try {
+//         await uploadPdf(formData, token);
+//         alert("File uploaded successfully");
+
+//         // Re-fetch the list of PDFs after upload
+//         const response = await getPdfs(token);
+//         setPdfFiles(response.data.data || []);
+//       } catch (error) {
+//         console.error("File upload failed", error);
+//       }
 //     } else {
 //       alert("Please upload a valid PDF file.");
 //     }
 //   };
 
+//   const handleAccordionClick = (index) => {
+//     setActiveIndex(activeIndex === index ? null : index);
+//   };
+
 //   return (
-//     <div className="diet-page">
-//       <h1 className='text-2xl text-center dark:text-white-bg p-4'>{diet.title}</h1>
-//       <p>{diet.content}</p>
-//       {/* File Upload Section */}
-//       <input type="file" accept="application/pdf" onChange={handleFileUpload} />
-//       {/* PDF Viewer */}
-//       {pdfUrl && (
-//         <div className="pdf-viewer">
-//           <PDFViewer document={{ url: pdfUrl }} scale={1.2} />
-//         </div>
-//       )}
+//     <div className="flex p-8 justify-evenly">
+//       <div className="">
+//         <h1>{diet.title}</h1>
+//         {/* <p>{diet.content}</p> */}
+
+//         {/* File Upload Section */}
+//         <input type="file" accept="application/pdf" onChange={handleFileUpload} />
+//       </div>
+
+//       {/* PDF Files List in Accordion */}
+//       <div className="w-1/2">
+//         <Accordion styled fluid>
+//           {pdfFiles.map((file, index) => (
+//             <div key={file.id || index}>
+//               <Accordion.Title
+//                 active={activeIndex === index}
+//                 onClick={() => handleAccordionClick(index)}
+//                 style={{ cursor: "pointer", fontWeight: "bold" }}
+//               >
+//                 <Icon name="dropdown" />
+//                 {file.title || file.name}
+//               </Accordion.Title>
+//               <Accordion.Content active={activeIndex === index}>
+//                 <p>{file.title || file.name}</p>
+//                 {/* Construct the full URL to access the PDF file using 'filename' */}
+//                 <a href={`http://localhost:8800/files/qualitative-diet/${file.filename}`} target="_blank" rel="noopener noreferrer">
+//                   View PDF
+//                 </a>
+
+//               </Accordion.Content>
+
+//             </div>
+//           ))}
+//         </Accordion>
+//       </div>
 //     </div>
 //   );
 // };
@@ -65,59 +98,103 @@
 // export default DynamicDietPage;
 
 
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { Document, Page, pdfjs } from 'react-pdf';
-import { dietsData } from './dietsData';
 
-// Set the workerSrc to the correct path
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+// ///////////////////////////////////////////////////////
+// ///////////////////////////////////////////////////////
+// ///////////////////////////////////////////////////////
+// ///////////////////////////////////////////////////////
+
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { Pages } from "./Pages";
+import { Accordion, Icon } from "semantic-ui-react";
+import { uploadPdf, getPdfs } from "../../services/api";
+import { useAuth } from "../../hooks/useAuth";
 
 const DynamicDietPage = () => {
   const { dietName } = useParams();
   const [diet, setDiet] = useState({ title: "Not Found", content: "No data available." });
-  const [pdfFile, setPdfFile] = useState(null);
-  const [numPages, setNumPages] = useState(null);
+  const [pdfFiles, setPdfFiles] = useState([]);
+  const [activeIndex, setActiveIndex] = useState(null);
+  const { token } = useAuth();
 
   useEffect(() => {
-    const newDiet = dietsData[dietName] || { title: "Not Found", content: "No data available." };
+    const newDiet = Pages[dietName] || { title: "Not Found", content: "No data available." };
     setDiet(newDiet);
   }, [dietName]);
 
-  const handleFileUpload = (event) => {
+  useEffect(() => {
+    const fetchPdfs = async () => {
+      try {
+        const response = await getPdfs(token, dietName); // Pass dietName to fetch only relevant PDFs
+        setPdfFiles(response.data.data || []);
+      } catch (error) {
+        console.error("Failed to fetch PDFs", error);
+      }
+    };
+    fetchPdfs();
+  }, [token, dietName]);
+
+  const handleFileUpload = async (event) => {
     const file = event.target.files[0];
     if (file && file.type === "application/pdf") {
-      setPdfFile(file);
+      const formData = new FormData();
+      formData.append("pdf", file);
+      formData.append("title", file.name);
+      formData.append("dietName", dietName); // Attach diet name for server to associate the file
+
+      try {
+        await uploadPdf(formData, token, dietName);
+        alert("File uploaded successfully");
+
+        // Re-fetch the list of PDFs after upload
+        const response = await getPdfs(token, dietName);
+        setPdfFiles(response.data.data || []);
+      } catch (error) {
+        console.error("File upload failed", error);
+      }
     } else {
       alert("Please upload a valid PDF file.");
     }
   };
 
-  const onDocumentLoadSuccess = ({ numPages }) => {
-    setNumPages(numPages);
+  const handleAccordionClick = (index) => {
+    setActiveIndex(activeIndex === index ? null : index);
   };
 
   return (
-    <div className="diet-page">
-      <h1>{diet.title}</h1>
-      <p>{diet.content}</p>
+    <div className="flex p-8 justify-evenly">
+      <div>
+        <h1>{diet.title}</h1>
 
-      {/* File Upload Section */}
-      <input type="file" accept="application/pdf" onChange={handleFileUpload} />
+        {/* File Upload Section */}
+        <input type="file" accept="application/pdf" onChange={handleFileUpload} />
+      </div>
 
-      {/* PDF Viewer */}
-      {pdfFile && (
-        <div className="pdf-viewer">
-          <Document
-            file={pdfFile}
-            onLoadSuccess={onDocumentLoadSuccess}
-          >
-            {Array.from(new Array(numPages), (el, index) => (
-              <Page key={`page_${index + 1}`} pageNumber={index + 1} />
-            ))}
-          </Document>
-        </div>
-      )}
+      {/* PDF Files List in Accordion */}
+      <div className="w-1/2">
+        <Accordion styled fluid>
+          {pdfFiles.map((file, index) => (
+            <div key={file.id || index}>
+              <Accordion.Title
+                active={activeIndex === index}
+                onClick={() => handleAccordionClick(index)}
+                style={{ cursor: "pointer", fontWeight: "bold" }}
+              >
+                <Icon name="dropdown" />
+                {file.title || file.name}
+              </Accordion.Title>
+              <Accordion.Content active={activeIndex === index}>
+                <p>{file.title || file.name}</p>
+                {/* Construct the full URL to access the PDF file using 'filename' */}
+                <a href={`http://localhost:8800/files/qualitative-diet/${dietName}/${file.filename}`} target="_blank" rel="noopener noreferrer">
+                  View PDF
+                </a>
+              </Accordion.Content>
+            </div>
+          ))}
+        </Accordion>
+      </div>
     </div>
   );
 };
