@@ -21,7 +21,7 @@ const ServiceAnimatedCard = ({
 					<p>{description}</p>
 					<button
 						onClick={handleClick}
-						className='border-pink border px-5 py-2 relative group overflow-hidden bg-white-bg hover:bg-transparent rounded-md font-semibold text-black hover:text-[#0e100f] dark:hover:text-[#f0f0ee] dark:hover:border-[#f0f0ee] text-white shadow-md '
+						className=' self-center border-pink border px-5 py-2 relati overflow-hidden bg-white-bg hover:bg-transparent rounded-md font-semibold text-black hover:text-[#0e100f] dark:hover:text-[#f0f0ee] dark:hover:border-[#f0f0ee] text-white shadow-md '
 					>
 						<span className='absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-pink group-hover:h-full opacity-90'></span>
 						<span className='relative text-sm group-hover:text-white-bg'>
