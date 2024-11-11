@@ -53,13 +53,11 @@
 // }
 
 // export default MDC;
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import BMICalculator from '../components/calculator/bmi/BMICalculator';
 import QualitativeDiets from '../components/qualitative-diets/QualitativeDiets';
 import FoodAndNutrition from '../components/quiz/FoodAndNutrition';
 import Consultations from '../components/consultations/Consultations';
-import MDCHero from '../components/hero/MDCHero';
-import { useScrollSections } from '../hooks/useScrollSections';
 import Fridge from '../components/fridge/Fridge';
 import MediterraneanDietScore from '../components/calculator/medi-diet-score/MediDietScore';
 import PrevelenceCircle from '../components/circle/PrevelenceCircle';
@@ -72,51 +70,45 @@ import Kitchen from '../components/fridge/Kitchen'
 function MDC() {
   const sectionRef = useRef(null); // This is the ref for the Consultations section
 
-  const sectionsRef = useRef(Array(9).fill(null)); // This holds refs for other sections
-  const sectionCount = 9;
-  sectionsRef.current = Array(sectionCount).fill(null);
-
   return (
     <div className="flex flex-col">
-      <div ref={(el) => (sectionsRef.current[0] = el)} className="bg-white-bg2">
+      <div className="bg-white-bg2">
         <MDCServices targetRef={sectionRef} /> {/* Pass sectionRef for the Consultations section */}
       </div>
-      <div ref={(el) => (sectionsRef.current[1] = el)} className="section">
+      <div className="section">
         <Kitchen />
       </div>
-      <div ref={(el) => (sectionsRef.current[2] = el)} className="section flex">
+      <div className="section flex">
         <Puzzle />
       </div>
 
       <div
         ref={(el) => {
-          sectionRef.current = el;  // Set sectionRef
-          sectionsRef.current[3] = el;  // Also assign to sectionsRef.current[4]
+          sectionRef.current = el;
         }}
         className="section flex flex-col justify-center bg-white-bg2"
       >
         <Consultations />
       </div>
 
-
-      <div ref={(el) => (sectionsRef.current[4] = el)} className="sm:!h-[45dvh]">
+      <div className="sm:!h-[45dvh]">
         <BMICalculator />
       </div>
 
-      <div ref={(el) => (sectionsRef.current[5] = el)} className="section bg-white-bg2">
+      <div className="section bg-white-bg2">
         <FoodAndNutrition />
       </div>
 
-      <div ref={(el) => (sectionsRef.current[6] = el)} className="section">
+      <div className="section">
         <MediterraneanDietScore />
       </div>
-      <div ref={(el) => (sectionsRef.current[7] = el)} className="sm:!h-[45dvh] bg-white-bg2">
+      <div className="sm:!h-[45dvh] bg-white-bg2">
         <QualitativeDiets />
       </div>
-      <div ref={(el) => (sectionsRef.current[8] = el)} className="section bg-black">
+      <div className="section bg-black">
         <PrevelenceCircle />
       </div>
-      <div ref={(el) => (sectionsRef.current[9] = el)} className="section">
+      <div className="section">
         {/* Additional content */}
       </div>
     </div>

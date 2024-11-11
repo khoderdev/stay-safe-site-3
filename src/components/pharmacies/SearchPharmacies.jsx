@@ -1,91 +1,16 @@
-import { useState, useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import useAnimatedSplitting from '../../hooks/useAnimatedSplitting';
+import { useState, useRef } from 'react';
 import pharmacyData from './searchData.json';
 import { motion } from 'framer-motion';
 import './SearchPharmacies.css';
 import { selectStyles, localitySelect } from '../../utils/styles';
 
-const useParallax = (multiplier = 0.3) => {
-  const [offsetY, setOffsetY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setOffsetY(window.scrollY * multiplier);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [multiplier]);
-
-  return offsetY;
-};
 
 const SearchPharmacies = () => {
   const titlesRef = useRef([]);
   const [selectedGovernorate, setSelectedGovernorate] = useState('');
   const [selectedLocality, setSelectedLocality] = useState('');
   const [filteredPharmacies, setFilteredPharmacies] = useState([]);
-  const parallaxY = useParallax(0.3);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const title = entry.target;
-          const words = [...title.querySelectorAll('.word')];
-
-          words.forEach((word) => gsap.set(word.parentNode, { perspective: 1000 }));
-
-          gsap.fromTo(
-            words,
-            {
-              'will-change': 'opacity, transform',
-              z: () => gsap.utils.random(500, 950),
-              opacity: 0,
-              xPercent: () => gsap.utils.random(-100, 100),
-              yPercent: () => gsap.utils.random(-10, 10),
-              rotationX: () => gsap.utils.random(-90, 90),
-            },
-            {
-              duration: 2,
-              ease: 'expo',
-              opacity: 1,
-              rotationX: 0,
-              rotationY: 0,
-              xPercent: 0,
-              yPercent: 0,
-              z: 0,
-              stagger: {
-                each: 0.2,
-                from: 'random',
-              },
-            }
-          );
-        }
-      });
-    });
-
-    // Store the current titlesRef value in a variable
-    const currentTitles = titlesRef.current;
-
-    // Only observe valid elements
-    currentTitles.forEach((title) => {
-      if (title instanceof Element) {
-        observer.observe(title);
-      }
-    });
-
-    return () => {
-      // Safeguard when unobserving
-      currentTitles.forEach((title) => {
-        if (title instanceof Element) {
-          observer.unobserve(title);
-        }
-      });
-      observer.disconnect();
-    };
-  }, []);
 
 
   const governorates = [
@@ -153,12 +78,7 @@ const SearchPharmacies = () => {
     }),
   };
 
-  useAnimatedSplitting('animated__content', {
-    duration: 2,
-    ease: 'expo',
-    stagger: 0.2,
-    from: 'random',
-  });
+
 
   return (
     <div className='flex-container flex flex-col md:flex md:flex-row w-full overflow-y-scroll overflow-x-hidden h-screen pt-8 sm: perspective'>
@@ -168,7 +88,6 @@ const SearchPharmacies = () => {
           src='/pharma4.gif'
           alt='pharma'
           className=''
-          style={{ y: parallaxY }}// Apply the parallax transformation
           initial={{ y: '100vh' }}
           animate={{ y: 0 }}
           transition={{ type: 'spring', stiffness: 50, damping: 15 }}

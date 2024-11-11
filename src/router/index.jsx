@@ -9,7 +9,6 @@ import AboutUs from "../views/AboutUs";
 
 import Register from "../views/Register";
 import Login from "../views/Login";
-import FloatingGallery from "../views/FloatingGallery";
 
 import MDC from "../views/MDC";
 import OHS from "../views/OHS";
@@ -21,8 +20,9 @@ import DynamicDietPage from '../components/qualitative-diets/DynamicDietPage';
 import Users from '../views/Users';
 import QualitativeDiets from "../components/qualitative-diets/QualitativeDiets";
 import BookAppointment from "../components/forms/BookAppointment";
-import { ScrollAnimations } from "../views/ScrollAnimations";
 import FoodSafetyTable from '../components/tables/Table/Table';
+import PageBuilder from '../components/builder/PageBuilder';
+import Cow from '../components/animals/Cow';
 
 const router = createBrowserRouter([
   {
@@ -30,13 +30,18 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
+        path: "/cow",
+        element: <Cow />,
+      },
+      {
+        path: "/builder",
+        element: <PageBuilder />,
+      },
+      {
         path: "/table",
         element: <FoodSafetyTable />,
       },
-      {
-        path: "/spin2",
-        element: <ScrollAnimations />,
-      },
+ 
       {
         path: "/book-appointment",
         element: <BookAppointment />,
@@ -124,9 +129,6 @@ const router = createBrowserRouter([
     path: "/login",
     element: <Login />,
   },
-  {
-    path: "/gallery",
-    element: <FloatingGallery />,
-  },
+
 ]);
 export default router;

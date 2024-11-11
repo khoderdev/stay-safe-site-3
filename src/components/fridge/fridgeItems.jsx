@@ -42,26 +42,3 @@ export {
   ChickenMeat,
   Milk
 };
-// Array containing fridge items with images
-// export const fridgeItems = [
-//   { img: FRIDGE2, name: "Fridge Model 2" },
-//   { img: FRIDGE5, name: "Fridge Model 5" },
-//   { img: FRIDGE9, name: "Fridge Model 9" },
-//   { img: Butter, name: "Butter" },
-//   { img: Cheese, name: "Cheese" },
-//   { img: Chicken, name: "Chicken" },
-//   { img: ChickenMeat, name: "Chicken Meat" },
-//   { img: Fish, name: "Fish" },
-//   { img: Eggs, name: "Eggs" },
-//   { img: Fruits, name: "Fruits" },
-//   { img: Grape, name: "Grape" },
-//   { img: Vegetables, name: "Vegetables" },
-//   { img: Pickles, name: "Pickles" },
-//   { img: Ketchup, name: "Ketchup" },
-//   { img: Sauce, name: "Sauce" },
-//   { img: Soya, name: "Soya Sauce" },
-//   { img: Juice, name: "Juice" },
-//   { img: Water, name: "Water" },
-//   { img: SoftDrinks, name: "Soft Drinks" },
-//   { img: Milk, name: "Milk" },
-// ];

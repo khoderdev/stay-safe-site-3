@@ -65,7 +65,7 @@ function Fridge() {
         `}>
         <div className="flex justify-center items-center max-w-2xl md:max-w-3xl xl:max-w-4xl">
           <div className='w-96  h-96'></div>
-          <img src='/public/fridge/f2.png' alt='fridge' className='w-full ' />
+          <img src='/fridge/f2.png' alt='fridge' className='w-full ' />
         </div>
 
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full p-5 sm:p-10 md:p-10 h-full">
