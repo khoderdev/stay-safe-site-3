@@ -1,11 +1,12 @@
 import MyCrossword from 'mycrossword';
 import 'mycrossword/dist/index.css';
-import data from './data.js'
+import data from './data.js';
+import './styles.css';
 
 export default function Puzzle() {
-  return (
-    <div className='flex items-center justify-center p-6 sm:p-16'>
-      <MyCrossword id="crossword-1" data={data} onCellFocus={MyCrossword} />
-    </div>
-  );
+	return (
+		<div className='p-10'>
+			<MyCrossword id='crossword-1' data={data} onCellFocus={MyCrossword} />
+		</div>
+	);
 }

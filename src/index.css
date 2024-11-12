@@ -27,25 +27,6 @@ body {
 	overflow-scrolling: touch;
 	/* background-color: red; */
 }
-.MyCrossword .Grid__background {
-	fill: #061e24;
-	margin-right: 20px !important ;
-}
-.Crossword__gridAndControls {
-	margin-right: 25px;
-}
-/* #check-control,
-#reveal-control {
-  display: none;
-} */
-
-#clear-control {
-	display: block;
-}
-
-#anagram-control {
-	display: none;
-}
 
 img {
 	user-select: none;
@@ -125,21 +106,6 @@ a {
 		box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
 	}
 }
-
-/* .other-icon {
-	display: flex;
-	width: 25%;
-	height: 60px;
-	background-color: transparent;
-	border: solid #dddede 2px;
-	border-radius: 10px;
-	transition-duration: 400ms;
-	&:hover {
-		border: solid #fff 2px;
-		background-color: #fff;
-		box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
-	}
-} */
 
 .btn-1 {
 	display: flex;

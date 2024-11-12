@@ -78,7 +78,7 @@ function MDC() {
       <div className="section">
         <Kitchen />
       </div>
-      <div className="section flex">
+      <div className="section ">
         <Puzzle />
       </div>
 
