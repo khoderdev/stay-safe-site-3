@@ -22,7 +22,7 @@ const SpringModal = ({ isOpen, setIsOpen, consultationType, buttonText }) => {
 						animate={{ scale: 1, rotate: '0deg' }}
 						exit={{ scale: 0, rotate: '0deg' }}
 						onClick={(e) => e.stopPropagation()}
-						className='relative m-6 rounded-lg w-full max-w-4xl shadow-xl cursor-default overflow-hidden bg-white-bg dark:bg-black dark:text-white-bg'
+						className='relative m-6 rounded-lg w-full max-w-4xl shadow-xl ring-1 ring-[#00000048] cursor-default overflow-hidden bg-white-bg dark:bg-black dark:text-white-bg'
 					>
 						{/* Background overlay with reduced opacity */}
 						<div
@@ -43,7 +43,7 @@ const SpringModal = ({ isOpen, setIsOpen, consultationType, buttonText }) => {
 
 						{/* Modal Content */}
 						<div className='relative z-10 p-2'>
-							<div className='flex dark:text-white-bg space-x-10 h-[70dvh] sm:h-full overflow-y-scroll scrollbar-hide'>
+							<div className='flex dark:text-white-bg space-x-10 h-[70dvh] sm:h-[89dvh] overflow-y-scroll scrollbar-hide'>
 								<PricingCard
 									features={features}
 									buttonText={buttonText}

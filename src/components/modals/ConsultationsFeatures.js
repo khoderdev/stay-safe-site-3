@@ -1,4 +1,3 @@
-// Refactor features to return an array based on consultationType
 const getFeatures = (consultationType) => {
   return [
     ...(consultationType === 'clinic' || consultationType === 'in-house'
