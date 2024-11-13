@@ -70,7 +70,7 @@ const MediterraneanDietScore = () => {
             // className="form-radio h-5 w-5 text-green-600 cursor-pointer"
             />
             <motion.div
-              className={`cube-radio !bg-white-bg dark:!bg-[#000] active:animate- !shadow-md ${answers[questions[currentStep].id] === option ? "selected" : ""
+              className={`cube-radio !w-36 !bg-white-fg dark:!bg-[#000] hover:!transition !shadow-md ${answers[questions[currentStep].id] === option ? "selected" : ""
                 }`}
               initial={{ scale: 1 }}
               animate={
@@ -101,7 +101,7 @@ const MediterraneanDietScore = () => {
   // Render the score section after quiz completion
   const renderScore = () => (
     <div className="flex flex-col items-center justify-start text-center">
-      <h2 className="text-2xl text-black dark:text-white-bg">Your Score: {score}%</h2>
+      <h2 className="text-23xl text-black dark:text-white-bg">Your Score: <span className='text-blue-500'> {score} %</span></h2>
       {score === 100 ? (
         <p className="text-lg text-green-500 mt-2">
           Great job! You're making healthy food choices in line with the Mediterranean diet.
@@ -158,8 +158,8 @@ const MediterraneanDietScore = () => {
                   </button>
                 ) : (
                   <ArrowRight
-                    className="next-btn w-20 !text-blue dark:text-[#212121] py-2 px-4 rounded-lg cursor-pointer transition 
-                   transform hover:scale-110 active:scale-95 hover:text-[#0000ff] duration-300 ease-in-out"
+                    className="next-btn w-20 !text-blue !text-blue-500 py-2 px-4 rounded-lg cursor-pointer transition 
+                   transform hover:scale-110 active:scale-95 dark:!text-blue-500 duration-300 ease-in-out"
                     onClick={nextStep}
                     disabled={answers[questions[currentStep].id] === undefined}
                   >

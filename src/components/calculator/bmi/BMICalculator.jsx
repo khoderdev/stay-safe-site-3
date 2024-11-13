@@ -102,7 +102,7 @@ const BMICalculator = () => {
 				<div className='flex w-full justify-center items-center'>
 					<button
 						type='submit'
-						className={`${inputStyles()} !w-[50%] sm:!w-[25%] !text-black dark:!text-white-bg2 !bg-white-fg hover:!ring-2 focus:!ring-2 se:!ring-blue-500 dark:!bg-[#000]`}
+						className={`${inputStyles()} !w-[50%] sm:!w-[25%] !text-black dark:!text-white-bg2 !bg-white-fg hover:!ring-2 focus:!ring-2 focus:!ring-blue-500 dark:!bg-[#000]`}
 					>
 						Calculate BMI
 					</button>
