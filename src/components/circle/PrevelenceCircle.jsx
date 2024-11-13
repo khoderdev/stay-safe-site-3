@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Circle1, Circle2 } from './images';
+import { Circle1, Final, Circle2 } from './images';
 
 export const ScrollAnimations = () => {
 	return (
@@ -61,7 +61,7 @@ function PrevelenceCircle() {
 				</div>
 				<motion.img
 					ref={ref}
-					src='/public/images/final.svg'
+					src={Final}
 					className='w-[68%] md:w-[33%] absolute transition-transform duration-200 ease-in-out'
 					alt='circle2'
 					animate={{
