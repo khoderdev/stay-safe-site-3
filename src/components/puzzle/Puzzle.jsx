@@ -5,7 +5,7 @@ import './styles.css';
 
 export default function Puzzle() {
 	return (
-		<div className='p-10'>
+		<div className='sm:pb-20 p-4 md:px-16'>
 			<MyCrossword id='crossword-1' data={data} onCellFocus={MyCrossword} />
 		</div>
 	);

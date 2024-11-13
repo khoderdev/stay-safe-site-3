@@ -1,4 +1,5 @@
-#anagram-control {
+#anagram-control,
+#check-control {
 	display: none;
 }
 
@@ -8,52 +9,42 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		padding: 10px;
+		padding: 1rem;
 	}
 
 	.Crossword__gridContainer {
 		width: 100%;
-		margin: 0;
+		margin: 0 auto;
+		max-width: 600px; /* Limits grid width on larger screens */
 	}
-
-	/* .MyCrossword .MyCrossword--xxl .MyCrossword--blueTheme {
-		border: solid rgb(0, 0, 0) 2px;
-	} */
-	/* 
-	.MyCrossword .Grid {
-		border: solid rgb(0, 0, 0) 2px;
-	} */
 
 	.Clues {
 		display: flex;
 		flex-direction: column;
-		justify-content: space-evenly;
-		align-items: end;
-		overflow: scroll;
+		justify-content: space-between;
+		align-items: flex-end;
+		overflow-y: auto;
+		height: 100%;
+		max-height: 600px;
+		padding-right: 1rem;
+		margin-bottom: 1rem;
 	}
 
 	.StickyClue {
-		margin-bottom: 20px;
-	}
-
-	.Clues {
-		margin-bottom: 10px;
+		margin-bottom: 1.25rem;
+		padding-top: 2rem;
 	}
 
 	.Grid__background {
 		fill: none;
 	}
 
-	/* .Controls {
-		border: solid rgb(0, 255, 0) 2px;
-	} */
-
 	.GridCell__rect {
 		stroke: #252525;
 		stroke-width: 2px;
 		fill: #fff;
-		/* rx: 4px;  */
 		transition: all 0.2s ease-in-out;
+		border-radius: 3px; /* Adds subtle rounding for a modern look */
 	}
 
 	.GridCell__rect:hover {
@@ -63,29 +54,75 @@
 		box-shadow: 0px 4px 10px #1976d273;
 	}
 
-	/* .GridCell__rect {
-		stroke: red;
-    stroke-width: 2px;
-	} */
-	/* 
-	.GridCell {
-		stroke: black;
-		fill: cadetblue;
-		stroke-width: 1px;
-	} */
-
+	/* Tablet View */
 	@media screen and (max-width: 1024px) {
+		.Crossword__gridAndControls {
+			padding: 1rem;
+		}
+
+		.Crossword__gridContainer {
+			width: 90%;
+			max-width: 500px;
+		}
+
 		.Clues {
-			display: flex;
 			width: 100%;
 			justify-content: center;
 			align-items: center;
-			padding: 15px;
+			padding: 1rem;
 		}
 	}
-	@media screen and (max-width: 1024px) {
-		.Clue {
-			margin-bottom: 10px;
+
+	/* Mobile View */
+	@media screen and (max-width: 768px) {
+		.Crossword__gridAndControls {
+			padding: 0.75rem;
+		}
+
+		.Crossword__gridContainer {
+			width: 100%;
+			max-width: 400px;
+		}
+
+		.Clues {
+			width: 100%;
+			padding: 0.5rem;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: center;
+			max-height: 400px;
+			margin-bottom: 1rem;
+		}
+
+		.StickyClue {
+			margin-bottom: 1rem;
+			padding-top: 1.5rem;
+		}
+
+		.GridCell__rect {
+			stroke-width: 1.5px;
+		}
+
+		.GridCell__rect:hover {
+			stroke-width: 2.5px;
+		}
+	}
+
+	/* Small Mobile View */
+	@media screen and (max-width: 480px) {
+		.Crossword__gridContainer {
+			max-width: 100%;
+			padding: 0.5rem;
+		}
+
+		.Clues {
+			width: 100%;
+			padding: 0.5rem;
+			max-height: 300px;
+		}
+
+		.StickyClue {
+			padding-top: 1rem;
 		}
 	}
 }

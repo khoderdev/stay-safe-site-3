@@ -86,7 +86,7 @@ function MDC() {
         ref={(el) => {
           sectionRef.current = el;
         }}
-        className="section flex flex-col justify-center bg-white-bg2"
+        className="section flex flex-col justify-center bg-white-bg2 dark:bg-black"
       >
         <Consultations />
       </div>
