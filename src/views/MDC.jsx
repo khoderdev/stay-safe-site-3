@@ -103,7 +103,7 @@ function MDC() {
 			<div className='sm:!h-[65dvh] bg-white-bg2 dark:bg-black'>
 				<QualitativeDiets />
 			</div>
-			<div className='section bg-'>
+			<div className='section bg-[#000]'>
 				<PrevelenceCircle />
 			</div>
 			<div className='section bg-black'></div>
