@@ -8,8 +8,8 @@ export const inputStyles = ({
   ${marginTop} ${marginLeft} ${paddingX} ${paddingY} ${width}
   w-full !py-[13.5px] border border-gray-300 dark:border-black
   rounded-md bg-white-fg dark:bg-[#000] text-black dark:text-white-bg
-  focus:outline-none focus:ring-2 focus:ring-blue-500
-  transition duration-300 ease-in-out shadow-sm hover:shadow-md
+  focus:outline-none focus:ring-2 focus:ring-blue-500 select-none
+  transition duration-300 ease-in-out shadow-sm hover:shadow-md no-spin
 `;
 
 export const selectStyles = ({

@@ -3,7 +3,6 @@ import SearchPharmacies from "../components/pharmacies/SearchPharmacies";
 import PackYearsCalculator from "../components/calculator/index";
 import PHQ9 from '../components/depressing-screening/PHQ9';
 import OnScrollComponent from '../components/dx-prevention/OnScrollComponent';
-import DXPrevention from '../components/dx-prevention/DXPrevention';
 
 export default function Home() {
   return (

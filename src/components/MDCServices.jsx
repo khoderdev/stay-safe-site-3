@@ -225,7 +225,7 @@ function MDCServices({ targetRef }) {
 				initial='hidden'
 				animate={isInView ? 'visible' : 'hidden'}
 				variants={wordAnimation}
-        className='text-3xl leading-relaxed md:text-4xl md:leading-relaxed font-semibold m-0 uppercase'
+        className='text-3xl dark:text-white-bg leading-relaxed md:text-4xl md:leading-relaxed font-semibold m-0 uppercase'
 			>
 				{words.map((word, index) => (
 					<motion.span key={index} variants={wordAnimation}>
@@ -234,7 +234,7 @@ function MDCServices({ targetRef }) {
 				))}
 			</motion.p>
 			<Button
-				customStyles='bg-transparent !border-2 !border-black hover:!border-transparent hover:!bg-pink !p-8 !rounded-full !mt-10 uppercase '
+				customStyles='bg-transparent !border-2 !border-black hover:!border-transparent hover:!bg-pink !p-8 !rounded-full !mt-10 uppercase dark:!border-pink dark:!text-pink dark:hover:!text-white-bg'
 				aria-label='Show details'
 				onClick={handleScrollToSection}
 			>

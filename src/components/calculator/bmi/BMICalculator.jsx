@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { inputStyles } from '../../../utils/styles';
 
 const BMICalculator = () => {
 	const [weight, setWeight] = useState('');
@@ -66,9 +67,9 @@ const BMICalculator = () => {
 	};
 
 	return (
-		<div className='w-full sm:w-[70%] md:w-[50%] mx-auto p-5 py-7 rounded-lg shadow-md bg-white-bg dark:bg-black drop-shadow-lg text-black dark:text-white-bg'>
-			<h2 className='text-2xl font-bold text-center mb-4'>BMI Calculator</h2>
-			<form onSubmit={calculateBMI} className='space-y-6'>
+		<div className='w-full sm:w-[70%] md:w-[50%] mx-auto p-5 py-7 rounded-lg shadow-md border dark:border-[#000] dark:bg-black drop-shadow-sm text-black dark:text-white-bg'>
+			<h2 className='text-3xl font-bold text-center mb-6'>BMI Calculator</h2>
+			<form onSubmit={calculateBMI} className='space-y-6 text-center'>
 				<div>
 					<label htmlFor='weight' className='block mb-1'>
 						Weight (kg)
@@ -79,7 +80,7 @@ const BMICalculator = () => {
 						min={0}
 						value={weight}
 						onChange={handleWeightChange}
-						className='w-full p-2 bg-white-fg dark:bg-[#000] text-black dark:text-white-bg border border-gray-300 rounded focus:outline-none focus:border-blue'
+						className={`${inputStyles()} !w-[50%] !text-black dark:!text-white-fg !bg-white-fg dark:!bg-[#000]`}
 						required
 					/>
 				</div>
@@ -93,7 +94,7 @@ const BMICalculator = () => {
 						min={0}
 						value={height}
 						onChange={handleHeightChange}
-						className='w-full p-2 bg-white-fg dark:bg-[#000] text-black dark:text-white-bg border border-gray-300 rounded focus:outline-none focus:border-blue'
+						className={`${inputStyles()} !w-[50%] !text-black dark:!text-white-fg !bg-white-fg dark:!bg-[#000]`}
 						required
 					/>
 				</div>
@@ -101,20 +102,20 @@ const BMICalculator = () => {
 				<div className='flex w-full justify-center items-center'>
 					<button
 						type='submit'
-						className='btn-3 !border-green-700 hover:bg-green-700 hover:text-white-bg'
+						className={`${inputStyles()} !w-[25%] !text-black dark:!text-white-bg2 !bg-white-fg hover:!ring-2 focus:!ring-2 se:!ring-blue-500 dark:!bg-[#000]`}
 					>
 						Calculate BMI
 					</button>
 				</div>
 			</form>
 			{bmi && (
-				<div className='flex justify-center mt-6'>
-					<div className='p-4 border-2 scale-105 rounded-md border-green-700 w-fit'>
+				<div className='flex justify-center mt-10'>
+					<div className='p-5 border scale-105 rounded-md border-green-700 w-fit shadow-md'>
 						<h3 className='text-xl font-semibold mb-1'>
 							Your BMI is: <span className='text-green-500'>{bmi}</span>
 						</h3>
 
-						<p className='text-gray-500'>{category}</p>
+						<p className='text-center text-gray-500 mt-2'>{category}</p>
 					</div>
 				</div>
 			)}
