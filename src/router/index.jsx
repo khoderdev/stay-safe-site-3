@@ -21,7 +21,7 @@ import Users from '../views/Users';
 import QualitativeDiets from "../components/qualitative-diets/QualitativeDiets";
 import BookAppointment from "../components/forms/BookAppointment";
 import FoodSafetyTable from '../components/tables/Table/Table';
-import PageBuilder from '../components/builder/PageBuilder';
+// import PageBuilder from '../components/builder/PageBuilder';
 import Cow from '../components/animals/Cow';
 
 const router = createBrowserRouter([
@@ -32,10 +32,6 @@ const router = createBrowserRouter([
       {
         path: "/cow",
         element: <Cow />,
-      },
-      {
-        path: "/builder",
-        element: <PageBuilder />,
       },
       {
         path: "/table",
