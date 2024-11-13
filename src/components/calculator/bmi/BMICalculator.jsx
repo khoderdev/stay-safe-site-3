@@ -80,7 +80,7 @@ const BMICalculator = () => {
 						min={0}
 						value={weight}
 						onChange={handleWeightChange}
-						className={`${inputStyles()} !w-[50%] !text-black dark:!text-white-fg !bg-white-fg dark:!bg-[#000]`}
+						className={`${inputStyles()} sm:!w-[50%] !text-black dark:!text-white-fg !bg-white-fg dark:!bg-[#000]`}
 						required
 					/>
 				</div>
@@ -94,7 +94,7 @@ const BMICalculator = () => {
 						min={0}
 						value={height}
 						onChange={handleHeightChange}
-						className={`${inputStyles()} !w-[50%] !text-black dark:!text-white-fg !bg-white-fg dark:!bg-[#000]`}
+						className={`${inputStyles()} sm:!w-[50%] !text-black dark:!text-white-fg !bg-white-fg dark:!bg-[#000]`}
 						required
 					/>
 				</div>
@@ -102,7 +102,7 @@ const BMICalculator = () => {
 				<div className='flex w-full justify-center items-center'>
 					<button
 						type='submit'
-						className={`${inputStyles()} !w-[25%] !text-black dark:!text-white-bg2 !bg-white-fg hover:!ring-2 focus:!ring-2 se:!ring-blue-500 dark:!bg-[#000]`}
+						className={`${inputStyles()} !w-[50%] sm:!w-[25%] !text-black dark:!text-white-bg2 !bg-white-fg hover:!ring-2 focus:!ring-2 se:!ring-blue-500 dark:!bg-[#000]`}
 					>
 						Calculate BMI
 					</button>

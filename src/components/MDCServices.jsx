@@ -234,7 +234,7 @@ function MDCServices({ targetRef }) {
 				))}
 			</motion.p>
 			<Button
-				customStyles='bg-transparent !border-2 !border-black hover:!border-transparent hover:!bg-pink !p-8 !rounded-full !mt-10 uppercase dark:!border-pink dark:!text-pink dark:hover:!text-white-bg'
+				customStyles='bg-transparent !border-2 !border-black hover:!border-transparent hover:!bg-pink !p-6 !rounded-full !mt-10 uppercase dark:!border-pink dark:!text-pink dark:hover:!text-white-bg'
 				aria-label='Show details'
 				onClick={handleScrollToSection}
 			>

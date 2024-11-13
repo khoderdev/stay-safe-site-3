@@ -42,7 +42,7 @@ function MDC() {
 				<FoodAndNutrition />
 			</div>
 
-			<div className='section p-4'>
+			<div className='section p-6'>
 				<MediterraneanDietScore />
 			</div>
 			<div className='sm:!h-[65dvh] bg-white-bg2 dark:bg-black'>

@@ -14,10 +14,10 @@ const Community = ({
 	return (
 		<section
 			id={sectionId}
-			className='relative w-96 h-96 overflow-hidden transition-transform duration-200 transform hover:scale- bg-white-fg dark:bg-transparent dark:drop-shadow-3xl dark:shadow-[#000] rounded-lg shadow-lg border border-pink group'
+			className='relative w-96 h-[300px] overflow-hidden transition-transform duration-200 transform hover:scale- bg-white-fg dark:bg-transparent dark:drop-shadow-3xl dark:shadow-[#000] rounded-lg shadow-lg border border-pink group'
 		>
 			{/* Title (moves to the top on hover) */}
-			<h3 className='absolute bottom-10 group-hover:absolute group-hover:top-[95px] group-hover:mb-0 group-hover:opacity-100 text-left text-3xl px-6 font-bold text-black dark:text-white-bg z-50 transition-transform duration-300 transform group-hover:translate-y-[-20%] mb-4'>
+			<h3 className='absolute bottom-10 group-hover:absolute group-hover:top-[60px] group-hover:mb-0 group-hover:opacity-100 text-left text-3xl px-6 font-bold text-black dark:text-white-bg z-50 transition-transform duration-300 transform group-hover:translate-y-[-20%] mb-4'>
 				Community Therapeutic Services
 			</h3>
 
