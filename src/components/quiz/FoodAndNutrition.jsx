@@ -72,7 +72,7 @@ const FoodAndNutrition = () => {
 			>
 				How Much Do You Know About Food and Nutrition?
 			</motion.h1>
-			<div className='flex w-full justify-center items-center text-center mt-20 sm:mt-10'>
+			<div className='flex w-full justify-center items-center text-center mt-20 sm:mt-6'>
 				{showResults ? (
 					<motion.div
 						initial={{ opacity: 0 }}
