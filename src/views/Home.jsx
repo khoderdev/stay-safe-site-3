@@ -10,19 +10,17 @@ export default function Home() {
       <div className=" panel bg-white-bg dark:bg-black">
         <Hero />
       </div>
-      <div className=" bg-white-fg dark:bg-[#000]">
+      <div className="section flex bg-white-fg dark:bg-[#000]">
         <OnScrollComponent />
       </div>
-      <div className=" bg-white-fg dark:bg-[#000]">
-        
-      </div>
-      <div className=" bg-white-fg dark:bg-black">
+
+      <div className="section bg-white-bg2 dark:bg-black">
         <SearchPharmacies />
       </div>
-      <div className=" bg-white-fg dark:bg-black">
+      <div className="section p-4 bg-white-fg dark:bg-[#000]">
         <PackYearsCalculator />
       </div>
-      <div className=" bg-white-fg dark:bg-black">
+      <div className="section bg-white-fg dark:bg-black">
         <PHQ9 />
       </div>
     </div>

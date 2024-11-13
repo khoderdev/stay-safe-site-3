@@ -36,6 +36,7 @@ const Community = ({
 					Start your journey
 				</button>
 			</div>
+			<div className='absolute bottom-0 left-0 w-full h-[8px] bg-pink group-hover:bg-transparent transition-all duration-300'></div>
 		</section>
 	);
 };

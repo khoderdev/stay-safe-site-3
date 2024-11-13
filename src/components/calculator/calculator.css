@@ -85,7 +85,7 @@
 .custom-scrollbar {
 	scrollbar-width: thin; /* For Firefox */
 	scrollbar-color: #e55e72 transparent; /* Default colors for Firefox */
-	border-radius: 10px;
+	/* border-radius: 10px; */
 	overflow-y: auto; /* Ensure overflow is scrollable */
 }
 
@@ -93,26 +93,26 @@
 	width: 0px; /* Hidden scrollbar by default */
 	background-color: transparent;
 	transition: width 0.3s ease; /* Smooth transition for scrollbar visibility */
-	border-radius: 10px;
+	/* border-radius: 10px; */
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
 	background-color: #1e1e66;
-	border-radius: 10px;
+	/* border-radius: 10px; */
 }
 
 .custom-scrollbar:hover::-webkit-scrollbar {
 	width: 0.3em; /* Show scrollbar on hover */
-	border-radius: 10px;
+	/* border-radius: 10px; */
 }
 
 .custom-scrollbar:hover::-webkit-scrollbar-track {
-	border-radius: 10px;
+	/* border-radius: 10px; */
 	background-color: transparent; /* Customize scrollbar track */
 }
 
 .custom-scrollbar:hover::-webkit-scrollbar-thumb {
-	border-radius: 10px;
+	/* border-radius: 10px; */
 	background-color: #1e1e66; /* Customize scrollbar thumb */
 }
 

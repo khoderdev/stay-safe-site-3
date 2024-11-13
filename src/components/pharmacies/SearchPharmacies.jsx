@@ -202,7 +202,7 @@ const SearchPharmacies = () => {
                   {filteredPharmacies.map((pharmacy, index) => (
                     <motion.li
                       key={index}
-                      className='flex flex-col justify-center bg-white-bg dark:bg-[#000] p-4 border border-gray-300 rounded-lg shadow hover:shadow-lg transition-shadow duration-300 text-black dark:text-white-bg'
+                      className='flex flex-col justify-center bg-white-fg dark:bg-[#000] p-4 border border-gray-300 rounded-lg shadow hover:shadow-lg transition-shadow duration-300 text-black dark:text-white-bg'
                       transition={{ type: 'spring', stiffness: 100 }}
                       variants={wordVariants}
                       initial="hidden"

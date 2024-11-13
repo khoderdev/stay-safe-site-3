@@ -12,7 +12,7 @@
 
 .hero .slidingTextContainer {
 	position: absolute;
-	bottom: -20px;
+	bottom: -2.5rem;
 	font-size: 60vh;
 	white-space: nowrap;
 	color: #ffffff09;

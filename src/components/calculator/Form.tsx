@@ -1,5 +1,5 @@
 import React from "react";
-import { FormProps } from "../../utils/types"; 
+import { FormProps } from "../../utils/types";
 
 const Form: React.FC<FormProps> = ({
   age,
@@ -29,7 +29,7 @@ const Form: React.FC<FormProps> = ({
             value={age}
             onChange={handleAgeChange}
             required
-            className={`${inputStyles()} !w-full md:!w-[50%] bg-white-fg dark:!bg-[#000]`}
+            className={`${inputStyles()} !w-full md:!w-[50%] !text-black dark:!text-white-bg !bg-white-fg dark:!bg-[#000]`}
             aria-label="Age"
           />
         </div>
@@ -39,7 +39,7 @@ const Form: React.FC<FormProps> = ({
           <select
             value={gender}
             onChange={handleGenderChange}
-            className={`${selectStyles()} !w-full md:!w-[50%] bg-white-fg dark:!bg-[#000]`}
+            className={`${selectStyles()} !w-full md:!w-[50%] !text-black dark:!text-white-bg !bg-white-fg dark:!bg-[#000]`}
             aria-label="Gender"
             disabled={shouldDisableInputs}
           >
@@ -78,7 +78,7 @@ const Form: React.FC<FormProps> = ({
                   value={packsPerDay}
                   onChange={handlePacksPerDayChange}
                   required
-                  className={`${inputStyles()}  md:w-[50%] `}
+                  className={`${inputStyles()}  md:w-[50%] !text-black dark:!text-white-bg !bg-white-fg dark:!bg-[#000]`}
                   aria-label="Packs Per Day"
                   disabled={shouldDisableInputs}
                   step="0.1"
@@ -93,7 +93,7 @@ const Form: React.FC<FormProps> = ({
                   value={yearsSmoked}
                   onChange={handleYearsSmokedChange}
                   required
-                  className={`${inputStyles()} w-full md:w-[50%] `}
+                  className={`${inputStyles()} w-full md:w-[50%] !text-black dark:!text-white-bg !bg-white-fg dark:!bg-[#000]`}
                   aria-label="Years Smoked"
                   disabled={shouldDisableInputs}
                 />
