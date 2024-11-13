@@ -63,56 +63,52 @@ import MediterraneanDietScore from '../components/calculator/medi-diet-score/Med
 import PrevelenceCircle from '../components/circle/PrevelenceCircle';
 import MDCServices from '../components/MDCServices';
 import Puzzle from '../components/puzzle/Puzzle';
-import Kitchen from '../components/fridge/Kitchen'
-
-
+import Kitchen from '../components/fridge/Kitchen';
 
 function MDC() {
-  const sectionRef = useRef(null); // This is the ref for the Consultations section
+	const sectionRef = useRef(null);
 
-  return (
-    <div className="flex flex-col">
-      <div className="bg-white-bg2">
-        <MDCServices targetRef={sectionRef} /> {/* Pass sectionRef for the Consultations section */}
-      </div>
-      <div className="section">
-        <Kitchen />
-      </div>
-      <div className="section ">
-        <Puzzle />
-      </div>
+	return (
+		<div className='flex flex-col'>
+			<div className='bg-white-bg2'>
+				<MDCServices targetRef={sectionRef} />
+			</div>
+			<div className='section'>
+				<Kitchen />
+			</div>
+			<div className='section '>
+				<Puzzle />
+			</div>
 
-      <div
-        ref={(el) => {
-          sectionRef.current = el;
-        }}
-        className="section flex flex-col justify-center bg-white-bg2 dark:bg-black"
-      >
-        <Consultations />
-      </div>
+			<div
+				ref={(el) => {
+					sectionRef.current = el;
+				}}
+				className='section flex flex-col justify-center bg-white-bg2 dark:bg-black'
+			>
+				<Consultations />
+			</div>
 
-      <div className="sm:!h-[45dvh]">
-        <BMICalculator />
-      </div>
+			<div className='flex p-8'>
+				<BMICalculator />
+			</div>
 
-      <div className="section bg-white-bg2">
-        <FoodAndNutrition />
-      </div>
+			<div className='section bg-white-bg2 dark:bg-black'>
+				<FoodAndNutrition />
+			</div>
 
-      <div className="section">
-        <MediterraneanDietScore />
-      </div>
-      <div className="sm:!h-[45dvh] bg-white-bg2">
-        <QualitativeDiets />
-      </div>
-      <div className="section bg-black">
-        <PrevelenceCircle />
-      </div>
-      <div className="section">
-        {/* Additional content */}
-      </div>
-    </div>
-  );
+			<div className='section p-4'>
+				<MediterraneanDietScore />
+			</div>
+			<div className='sm:!h-[65dvh] bg-white-bg2 dark:bg-black'>
+				<QualitativeDiets />
+			</div>
+			<div className='section bg-'>
+				<PrevelenceCircle />
+			</div>
+			<div className='section bg-black'></div>
+		</div>
+	);
 }
 
 export default MDC;

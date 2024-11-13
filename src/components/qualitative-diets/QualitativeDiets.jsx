@@ -32,7 +32,7 @@ function QualitativeDiets() {
   return (
     <div className="p-5">
       <div className="qualitative-diets-container">
-        <h2 className="title">Select a Qualitative Diet</h2>
+        <h2 className="title dark:text-white-bg">Select a Qualitative Diet</h2>
         <DynamicDropdown
           options={qualitativeDietsOptions}
           placeholder="Search diets..."

@@ -47,7 +47,7 @@ const [currentQuestion, setCurrentQuestion] = useState(0);
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center">
-      <div className="flex flex-col items-center justify-center w-full max-w-3xl sm:h-[60dvh] bg-white-fg rounded-lg shadow-lg p-6 text-center">
+      <div className="flex flex-col items-center justify-center w-full max-w-3xl sm:h-[60dvh] rounded-lg shadow-lg p-6 text-center">
         <motion.h1
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}

@@ -16,7 +16,7 @@
 // //       transition: {
 // //         duration: 0.5,
 // //         ease: 'easeOut',
-// //         staggerChildren: 0.1, 
+// //         staggerChildren: 0.1,
 // //       },
 // //     },
 // //   };
@@ -30,7 +30,7 @@
 // //       >
 // //         {words.map((word, index) => (
 // //           <motion.span key={index} variants={wordAnimation} className='text-4xl'>
-// //             {word}&nbsp; 
+// //             {word}&nbsp;
 // //           </motion.span>
 // //         ))}
 // //       </motion.p>
@@ -43,7 +43,6 @@
 // import { motion, useInView } from 'framer-motion';
 // import { useRef } from 'react';
 // import Button from './buttons/Button';
-
 
 // function MDCServices({ targetRef }) {
 //   const sectionRef = useRef(null);
@@ -151,7 +150,6 @@
 //     }
 //   };
 
-
 //   return (
 //     <div className='flex flex-col items-center justify-center text-center py-14'
 //       ref={sectionRef}
@@ -186,67 +184,64 @@
 // }
 
 // export default MDCServices;
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import Button from './buttons/Button';
 
 function MDCServices({ targetRef }) {
-  const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: false });
+	const sectionRef = useRef(null);
+	const isInView = useInView(sectionRef, { once: false });
 
-  const text = "MDC Services From personalized consultations at our clinics, at home or online to large-scale community initiatives, we are dedicated to making nutrition accessible, understandable, and enjoyable for everyone.";
-  const words = text.split(' ');
+	const text =
+		'MDC Services From personalized consultations at our clinics, at home or online to large-scale community initiatives, we are dedicated to making nutrition accessible, understandable, and enjoyable for everyone.';
+	const words = text.split(' ');
 
-  // Animation settings
-  const wordAnimation = {
-    hidden: { opacity: 0, y: 10 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: 'easeOut',
-        staggerChildren: 0.1, // Stagger effect for each word
-      },
-    },
-  };
+	// Animation settings
+	const wordAnimation = {
+		hidden: { opacity: 0, y: 10 },
+		visible: {
+			opacity: 1,
+			y: 0,
+			transition: {
+				duration: 0.5,
+				ease: 'easeOut',
+				staggerChildren: 0.1, 
+			},
+		},
+	};
 
-  const handleScrollToSection = () => {
-    if (targetRef && targetRef.current) {
-      targetRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+	const handleScrollToSection = () => {
+		if (targetRef && targetRef.current) {
+			targetRef.current.scrollIntoView({ behavior: 'smooth' });
+		}
+	};
 
-  return (
-    <div className='flex flex-col items-center justify-center text-center py-14' ref={sectionRef}>
-      <motion.p
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        variants={wordAnimation}
-        style={{
-          fontSize: '3rem', // Adjust font size
-          lineHeight: '1.5',
-          fontWeight: '700',
-          margin: 0,
-          textTransform: 'uppercase',
-        }}
-      >
-        {words.map((word, index) => (
-          <motion.span key={index} variants={wordAnimation}>
-            {word}&nbsp; {/* Add space between words */}
-          </motion.span>
-        ))}
-      </motion.p>
-      <Button
-        customStyles='bg-transparent !border-2 !border-black hover:!border-transparent hover:!bg-pink !p-8 !rounded-full !mt-10 uppercase '
-        aria-label="Show details"
-        onClick={handleScrollToSection}
-      >
-        Let's Show You How
-      </Button>
-
-    </div>
-  );
+	return (
+		<div
+			className='flex flex-col items-center justify-center text-center py-14 p-4 md:p-10'
+			ref={sectionRef}
+		>
+			<motion.p
+				initial='hidden'
+				animate={isInView ? 'visible' : 'hidden'}
+				variants={wordAnimation}
+        className='text-3xl leading-relaxed md:text-4xl md:leading-relaxed font-semibold m-0 uppercase'
+			>
+				{words.map((word, index) => (
+					<motion.span key={index} variants={wordAnimation}>
+						{word}&nbsp; {/* Add space between words */}
+					</motion.span>
+				))}
+			</motion.p>
+			<Button
+				customStyles='bg-transparent !border-2 !border-black hover:!border-transparent hover:!bg-pink !p-8 !rounded-full !mt-10 uppercase '
+				aria-label='Show details'
+				onClick={handleScrollToSection}
+			>
+				Let's Show You How
+			</Button>
+		</div>
+	);
 }
 
 export default MDCServices;
