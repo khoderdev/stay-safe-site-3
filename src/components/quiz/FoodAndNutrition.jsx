@@ -126,8 +126,7 @@ const FoodAndNutrition = () => {
 	const [answers, setAnswers] = useState([]);
 	const [showResults, setShowResults] = useState(false);
 	const [score, setScore] = useState(0);
-	const [hoveredOption, setHoveredOption] = useState(null); // Track which option is hovered
-
+	const [hoveredOption, setHoveredOption] = useState(null);
 	// Refs for True and False containers to get their positions
 	const trueRef = useRef(null);
 	const falseRef = useRef(null);
@@ -275,7 +274,9 @@ const FoodAndNutrition = () => {
 						<motion.div
 							ref={falseRef}
 							className={`w-44 h-40 sm:w-72 sm:h-64 flex justify-center items-center rounded-lg font-semibold select-none text-4xl text-pink shadow-lg transition-all ${
-								hoveredOption === 'False' ? 'bg-pink text-white-bg' : 'bg-transparent'
+								hoveredOption === 'False'
+									? 'bg-pink text-white-bg'
+									: 'bg-transparent'
 							} ring-pink ring-inset ring-4`}
 						>
 							False

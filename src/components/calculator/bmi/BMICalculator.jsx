@@ -67,7 +67,7 @@ const BMICalculator = () => {
 	};
 
 	return (
-		<div className='w-full sm:w-[70%] md:w-[50%] mx-auto p-5 py-7 rounded-lg shadow-md border dark:border-[#000] dark:bg-black drop-shadow-sm text-black dark:text-white-bg'>
+		<div className='w-full sm:w-[70%] md:w-[40%] sm:h-[50dvh] mx-auto p-5 py-7 rounded-lg shadow-md border dark:border-[#000] dark:bg-black drop-shadow-sm text-black dark:text-white-bg'>
 			<h2 className='text-3xl font-bold text-center mb-6'>BMI Calculator</h2>
 			<form onSubmit={calculateBMI} className='space-y-6 text-center'>
 				<div>
@@ -80,7 +80,7 @@ const BMICalculator = () => {
 						min={0}
 						value={weight}
 						onChange={handleWeightChange}
-						autocomplete="off"
+						autocomplete='off'
 						className={`${inputStyles()} sm:!w-[50%] !text-black dark:!text-white-fg !bg-white-fg dark:!bg-[#000]`}
 						required
 					/>
@@ -95,7 +95,7 @@ const BMICalculator = () => {
 						min={0}
 						value={height}
 						onChange={handleHeightChange}
-						autocomplete="off"
+						autocomplete='off'
 						className={`${inputStyles()} sm:!w-[50%] !text-black dark:!text-white-fg !bg-white-fg dark:!bg-[#000]`}
 						required
 					/>

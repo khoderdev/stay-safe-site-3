@@ -30,11 +30,11 @@ function MDC() {
 				<Consultations />
 			</div>
 
-			<div className='flex p-8 bg-white-fg dark:bg-[#000]'>
+			<div className='flex sm:!h-[65dvh] p-8 bg-white-fg dark:bg-[#000]'>
 				<BMICalculator />
 			</div>
 
-			<div className='section bg-white-fg'>
+			<div className='section bg-white-bg2'>
 				<Puzzle />
 			</div>
 
