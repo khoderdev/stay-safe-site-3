@@ -135,7 +135,7 @@ function MDCServices({ targetRef }) {
 			>
 				{words.map((word, index) => (
 					<motion.span key={index} variants={wordAnimation}>
-						{word}&nbsp; {/* Add space between words */}
+						{word}&nbsp;
 					</motion.span>
 				))}
 

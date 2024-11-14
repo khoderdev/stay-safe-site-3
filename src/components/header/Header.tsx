@@ -6,6 +6,7 @@ import { useAuth } from "../../hooks/useAuth";
 import ThemeToggle from './ThemeToggle';
 import { HiMenuAlt4, HiX } from 'react-icons/hi';
 import MenuLinks from './links/Links';
+import React from 'react';
 
 
 export default function Header() {
@@ -93,26 +94,27 @@ export default function Header() {
             Home
           </Link>
           <Link to="/mdc" className="text-black hover:text-blue dark:text-white-bg dark:hover:text-blue transition-colors">
-            MDC
+            Medical Dietry Clinic
           </Link>
-          <Link to="/environmental-health" className="text-black hover:text-blue dark:text-white-bg dark:hover:text-blue transition-colors">
-            Environmental Health
+          <Link to="/preventive-health-patient-services" className="text-black hover:text-blue dark:text-white-bg dark:hover:text-blue transition-colors">
+            Preventive Health & Patient Services
           </Link>
-          <Link to="/ohs" className="text-black hover:text-blue dark:text-white-bg dark:hover:text-blue transition-colors">
-            OHS
+          <Link to="/public-health-interventions" className="text-black hover:text-blue dark:text-white-bg dark:hover:text-blue transition-colors">
+            Public Health Interventions
           </Link>
-          <Link to="/patient-guidance-support" className="text-black hover:text-blue dark:text-white-bg dark:hover:text-blue transition-colors">
-            Patient Guidance & Support
+          <Link to="/public-health-academy" className="text-black hover:text-blue dark:text-white-bg dark:hover:text-blue transition-colors">
+
+            Public Health Academy
           </Link>
           <Link to="/about-us" className="text-black hover:text-blue dark:text-white-bg dark:hover:text-blue transition-colors">
             About us
           </Link>
           <Link to="/write" className="text-black hover:text-blue dark:text-white-bg dark:hover:text-blue transition-colors">
-            Write
+
           </Link>
         </nav>
 
-        <div className="hidden md:flex items-center space-x-4">
+        {/* <div className="hidden md:flex items-center space-x-4">
           {loading ? (
             <span>Loading...</span> // Show loading state
           ) : (
@@ -122,7 +124,7 @@ export default function Header() {
             </>
           )}
 
-        </div>
+        </div> */}
         <div className="flex space-x-2 pr-2 items-center">
           <div className='z-50 '>
             <ThemeToggle />

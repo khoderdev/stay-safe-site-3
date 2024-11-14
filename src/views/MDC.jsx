@@ -38,7 +38,7 @@ function MDC() {
 				<Puzzle />
 			</div>
 
-			<div className='section bg-white-bg2 dark:bg-black'>
+			<div className='section !p-0 bg-white-bg2 dark:bg-black'>
 				<FoodAndNutrition />
 			</div>
 

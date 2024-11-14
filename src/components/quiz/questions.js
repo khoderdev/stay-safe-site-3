@@ -55,7 +55,7 @@ const questions = [
 		id: 9,
 		question: 'The Mediterranean Diet is the best diet in the world.',
 		options: ['True', 'False'],
-		answer: 'False',
+		answer: 'True',
 	},
 	{
 		id: 10,
