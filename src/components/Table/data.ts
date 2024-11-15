@@ -169,7 +169,9 @@ export const data = [
 		signsSymptoms: ['Watery diarrhea, abdominal cramping, vomiting'],
 		onsetTimeDuration:
 			'6-15 hours after consumption of contaminated food; duration 24 hours',
-		causes: `Meats, milk, vegetables, and fish have been associated with the diarrheal type. Rice products, potato, pasta, and cheese products have been associated with the vomiting type. Food mixtures: sauces, puddings, casseroles, soups, pastries and salads may also be a source`,
+		causes: [
+			`Meats, milk, vegetables, and fish have been associated with the diarrheal type. Rice products, potato, pasta, and cheese products have been associated with the vomiting type. Food mixtures: sauces, puddings, casseroles, soups, pastries and salads may also be a source`,
+		],
 		prevention: [
 			`You can lower your risk of intestinal Bacillus cereus by storing your food safely. Steps you can take include:
 Cooling cooked foods that you won’t eat immediately to below 5 degrees Celsius (5°C) within six hours.
@@ -186,8 +188,9 @@ Throwing out any food you think may contain bacteria.
 		id: '11',
 		pathogen: 'Listeria monocytogenes',
 		illness: 'Listeriosis',
-		signsSymptoms:
-			['Mild fever, headache, vomiting, severe illness in pregnancy; sepsis in immunocompromised, meningoencephalitis in infants, febrile gastroenteritis in adults'],
+		signsSymptoms: [
+			'Mild fever, headache, vomiting, severe illness in pregnancy; sepsis in immunocompromised, meningoencephalitis in infants, febrile gastroenteritis in adults',
+		],
 		onsetTimeDuration: 'Onset 2-30 days, variable duration',
 		causes: [
 			`Processed, ready-to-eat products such as undercooked hot dogs, deli or lunchmeat, and unpasteurized dairy products; post pasteurization contamination of soft cheeses such as feta or Brie, milk, and commercial coleslaw; cross-contamination between food surfaces has also been a problem.
@@ -206,8 +209,9 @@ Caution must be used by pregnant women, who may pass the infection on to their u
 		id: '12',
 		pathogen: 'Norovirus',
 		illness: 'Norovirus “stomach flu" or the "stomach bug”.',
-		signsSymptoms:
-			['Gastroenteritis with nausea, vomiting, diarrhea, abdominal cramps; may also include headache, fever, chills, muscle aches'],
+		signsSymptoms: [
+			'Gastroenteritis with nausea, vomiting, diarrhea, abdominal cramps; may also include headache, fever, chills, muscle aches',
+		],
 		onsetTimeDuration:
 			'24-48 hours after ingestion, but can appear as early as 12 hours after exposure',
 		causes: [
@@ -235,7 +239,7 @@ Stay home when sick for 2 days (48 hours) after symptoms stop.`,
 		id: '13',
 		pathogen: 'Salmonella',
 		illness: 'Salmonellosis',
-		signsSymptoms:[ 'Diarrhea, fever, abdominal cramps'],
+		signsSymptoms: ['Diarrhea, fever, abdominal cramps'],
 		onsetTimeDuration: '12-72 hours after infection; duration usually 4-7 days',
 		causes: [
 			`Ingestion of raw or undercooked meat, poultry, fish, eggs, unpasteurized dairy products; unwashed fruits and raw vegetables (melons and sprouts)
@@ -271,8 +275,9 @@ Most people recover without treatment, but some have diarrhea that is so severe 
 		id: '15',
 		pathogen: 'Staphylococcus aureus',
 		illness: 'S. aureus',
-		signsSymptoms:
-			['Nausea, vomiting, retching, abdominal cramping, and prostration'],
+		signsSymptoms: [
+			'Nausea, vomiting, retching, abdominal cramping, and prostration',
+		],
 		onsetTimeDuration: 'Within 1-6 hours, rarely fatal, duration 1-2 days',
 		causes: [
 			`Meat, pork, eggs, poultry, tuna salad, prepared salads, gravy, stuffing, cream-filed pastries
@@ -290,8 +295,9 @@ Most people recover without treatment, but some have diarrhea that is so severe 
 		id: '16',
 		pathogen: 'Streptococcus pyogenes',
 		illness: 'S. pyogenes',
-		signsSymptoms:
-			['Sore/red throat, pain on swallowing, tonsillitis, high fever, headache, nausea, vomiting, malaise, rhinorrhea, occasional rash'],
+		signsSymptoms: [
+			'Sore/red throat, pain on swallowing, tonsillitis, high fever, headache, nausea, vomiting, malaise, rhinorrhea, occasional rash',
+		],
 		onsetTimeDuration: 'Onset 1-3 days',
 		causes: [
 			`Entrance into the food is the result of poor hygiene, ill food handlers, or
