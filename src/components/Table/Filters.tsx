@@ -1,70 +1,3 @@
-// import React, { useState, useMemo } from "react";
-// import { debounce } from "lodash";
-
-// export const AlphabetFilter = ({
-//   onFilter,
-//   onSearch,
-//   onAddNew, // New prop to handle adding new items
-// }: {
-//   onFilter: (letterOrSearch: string) => void;
-//   onSearch: (searchTerm: string) => void;
-//   onAddNew: () => void; // New prop for add new functionality
-// }) => {
-//   const [searchTerm, setSearchTerm] = useState<string>("");
-//   const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-
-//   const debouncedSearch = useMemo(() => {
-//     return debounce((term: string) => {
-//       onSearch(term);
-//     }, 300);
-//   }, [onSearch]);
-
-//   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-//     const term = event.target.value;
-//     setSearchTerm(term);
-//     debouncedSearch(term);
-//   };
-
-//   const handleLetterClick = (letter: string) => {
-//     onFilter(letter);
-//   };
-
-//   return (
-//     <div className="mb-4">
-//       <div className='flex justify-between mb-3'>
-//         <input
-//           type="search"
-//           value={searchTerm}
-//           onChange={handleSearchChange}
-//           placeholder="Search..."
-//           className='!w-40 md:!w-64 !p-2 border border-gray-300 dark:border-black
-//             rounded-md !bg-white-fg dark:!bg-black text-black dark:text-white-bg
-//             focus:outline-none focus:ring-2 focus:ring-blue-500 select-none
-//             transition duration-300 ease-in-out shadow-sm hover:shadow-md'
-//         />
-//         <button
-//           onClick={onAddNew} 
-//           className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-//         >
-//           Add New
-//         </button>
-//       </div>
-//       <div className="w-full flex flex-wrap justify-center lg:justify-start">
-//         {letters.map((letter) => (
-//           <button
-//             key={letter}
-//             onClick={() => handleLetterClick(letter)}
-//             className="m-1 p-1 px-3 border rounded-full border-gray-300 dark:border-black !bg-white-fg dark:!bg-black text-black dark:text-white-bg
-//   focus:outline-none focus:ring-2 focus:ring-blue-500 select-none
-//   transition duration-300 ease-in-out shadow-sm hover:shadow-md"
-//           >
-//             {letter}
-//           </button>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
 import React, { useState, useMemo } from "react";
 import { debounce } from "lodash";
 
@@ -78,6 +11,7 @@ export const AlphabetFilter = ({
   onAddNew: () => void;
 }) => {
   const [searchTerm, setSearchTerm] = useState<string>("");
+  const [selectedLetter, setSelectedLetter] = useState<string | null>(null);
   const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
   const debouncedSearch = useMemo(() => debounce(onSearch, 300), [onSearch]);
@@ -88,6 +22,11 @@ export const AlphabetFilter = ({
     debouncedSearch(term);
   };
 
+  const handleLetterClick = (letter: string) => {
+    setSelectedLetter((prev) => (prev === letter ? null : letter));
+    onFilter(letter); 
+  };
+
   return (
     <div className="mb-4">
       <div className="flex justify-between mb-3">
@@ -96,7 +35,10 @@ export const AlphabetFilter = ({
           value={searchTerm}
           onChange={handleSearchChange}
           placeholder="Search..."
-          className="w-40 md:w-64 p-2 border border-gray-300 dark:border-black rounded-md bg-white dark:bg-black text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className='!w-40 md:!w-64 !p-2 border border-gray-300 dark:border-black
+          rounded-md !bg-white-fg dark:!bg-black text-black dark:text-white-bg
+          focus:outline-none focus:ring-2 focus:ring-blue-500 select-none
+          transition duration-300 ease-in-out shadow-sm hover:shadow-md'
         />
         <button onClick={onAddNew} className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
           Add New
@@ -106,8 +48,10 @@ export const AlphabetFilter = ({
         {letters.map((letter) => (
           <button
             key={letter}
-            onClick={() => onFilter(letter)}
-            className="m-1 p-1 px-3 border rounded-full border-gray-300 dark:border-black bg-white dark:bg-black text-black dark:text-white hover:ring-2 ring-blue-500 transition duration-300"
+            onClick={() => handleLetterClick(letter)}
+            className={`m-1 p-1 px-3 border rounded-full 
+              ${selectedLetter === letter ? 'bg-blue-500 text-white-bg2' : 'bg-white-bg dark:bg-black text-black dark:text-white-bg2'} 
+              hover:ring-2 ring-blue-500 transition duration-300`}
           >
             {letter}
           </button>
