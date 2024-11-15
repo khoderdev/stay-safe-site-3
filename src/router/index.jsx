@@ -22,7 +22,7 @@ import QualitativeDiets from '../components/qualitative-diets/QualitativeDiets';
 import BookAppointment from '../components/forms/BookAppointment';
 import FoodSafetyTable from '../components/tables/Table/Table';
 // import PageBuilder from '../components/builder/PageBuilder';
-import Cow from '../components/animals/Cow';
+
 import PreventiveHealthPatientServices from '../views/PreventiveHealthPatientServices';
 import PublicHealthInterventions from '../views/PublicHealthInterventions';
 import PublicHealthAcademy from '../views/PublicHealthAcademy';
@@ -32,10 +32,7 @@ const router = createBrowserRouter([
 		path: '/',
 		element: <Layout />,
 		children: [
-			{
-				path: '/cow',
-				element: <Cow />,
-			},
+
 			{
 				path: '/table',
 				element: <FoodSafetyTable />,

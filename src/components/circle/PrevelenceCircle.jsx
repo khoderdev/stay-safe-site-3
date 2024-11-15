@@ -30,12 +30,12 @@ function PrevelenceCircle() {
 
 	return (
 		<>
-			<div className='relative flex items-center justify-center h-screen overflow-hidden z-50 '>
+			<div className='relative flex items-center justify-center h-[120dvh] overflow-hidden z-50 '>
 				<motion.img
 					ref={ref}
 					src={Circle1}
 					alt='circle1'
-					className='w-[90%] md:w-[43%] absolute transition-transform duration-200 ease-in-out'
+					className='w-[90%] md:w-[55%] absolute transition-transform duration-200 ease-in-out z-50'
 					animate={{
 						rotate: isInView ? [0, 180] : 0,
 					}}
@@ -44,16 +44,16 @@ function PrevelenceCircle() {
 						ease: 'easeInOut',
 					}}
 				/>
-				<div className='flex items-center md:pl-6 '>
+				<div className='flex items-center md:pl-6 z-50'>
 					<div className=' mr-4'>
-						<img className='w-10 md:w-20 xl:w-32' src={Circle2} alt='1in6' />
+						<img className='w-10 md:w-20 xl:w-32 z-50' src={Circle2} alt='1in6' />
 					</div>
 
-					<div className='w-28 md:w-72 md:pl-8'>
-						<p className='text-[0.5rem] md:text-sm xl:text-xl font-semibold  text-white-bg'>
-							One in Six children and adolescents <br /> (ages 2-19) are
-							overweight. Globally, <br />
-							over one billion people live with <br />
+					<div className='w-28 md:w-80 md:pl-2'>
+						<p className='text-[0.5rem] md:text-lg xl:text-2xl font-semibold text-white-bg text-justify'>
+							One in Six children and adolescents  (ages 2-19) are
+							overweight. Globally,
+							over one billion people live with 
 							obesity, including nearly 880 million adults and 159 million
 							youths.
 						</p>
@@ -62,7 +62,7 @@ function PrevelenceCircle() {
 				<motion.img
 					ref={ref}
 					src={Final}
-					className='w-[68%] md:w-[33%] absolute transition-transform duration-200 ease-in-out'
+					className='w-[68%] md:w-[40%] absolute transition-transform duration-200 ease-in-out'
 					alt='circle2'
 					animate={{
 						rotate: isInView ? [180, 0] : 180,

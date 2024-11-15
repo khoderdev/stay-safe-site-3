@@ -8,12 +8,18 @@ import PrevelenceCircle from '../components/circle/PrevelenceCircle';
 import MDCServices from '../components/MDCServices';
 import Puzzle from '../components/puzzle/Puzzle';
 import Kitchen from '../components/fridge/Kitchen';
+import  Cow  from '../components/animals/Cow';
+import CowChickenPage from '../components/animals/CowChicken';
 
 function MDC() {
 	const sectionRef = useRef(null);
 
 	return (
 		<div className='flex flex-col'>
+			<div className='section bg-white-bg'>
+				<CowChickenPage />
+			</div>
+
 			<div className='bg-white-bg2 dark:bg-[#000]'>
 				<MDCServices targetRef={sectionRef} />
 			</div>
@@ -38,17 +44,17 @@ function MDC() {
 				<Puzzle />
 			</div>
 
-			<div className='section !p-0 bg-white-bg2 dark:bg-black'>
+			<div className='section !p-0 bg-white-fg dark:bg-black'>
 				<FoodAndNutrition />
 			</div>
 
-			<div className='section p-6'>
+			<div className='section p-6 bg-white-bg2'>
 				<MediterraneanDietScore />
 			</div>
-			<div className='sm:!h-[65dvh] bg-white-bg2 dark:bg-black'>
+			<div className='sm:!h-[65dvh] bg-white-bg dark:bg-black'>
 				<QualitativeDiets />
 			</div>
-			<div className='section bg-[#000]'>
+			<div className='h-[120dvh] bg-[#000]'>
 				<PrevelenceCircle />
 			</div>
 			<div className='section bg-black'></div>
