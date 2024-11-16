@@ -14,7 +14,7 @@ export const AlphabetFilter = ({
   const [selectedLetter, setSelectedLetter] = useState<string | null>(null);
   const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
-  const debouncedSearch = useMemo(() => debounce(onSearch, 300), [onSearch]);
+  const debouncedSearch = useMemo(() => debounce(onSearch, 0), [onSearch]);
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const term = event.target.value;
@@ -24,12 +24,12 @@ export const AlphabetFilter = ({
 
   const handleLetterClick = (letter: string) => {
     setSelectedLetter((prev) => (prev === letter ? null : letter));
-    onFilter(letter); 
+    onFilter(letter);
   };
 
   return (
-    <div className="mb-4">
-      <div className="flex justify-between mb-3">
+    <div className="mb-2 sm:mb-4 mt-2 sm:mt-0 px-2">
+      <div className="flex justify-between mb-2 sm:mb-3">
         <input
           type="search"
           value={searchTerm}
@@ -44,19 +44,38 @@ export const AlphabetFilter = ({
           Add New
         </button>
       </div>
+      {/* <div className="flex flex-wrap justify-center lg:justify-start">
+        {letters.map((letter) => (
+          <button
+            key={letter}
+            onClick={() => handleLetterClick(letter)}
+            className={`m-1 md:m-1 md:p-1 md:px-3 md:border rounded-lg 
+              ${selectedLetter === letter
+                ? 'md:bg-blue-500 text-white-bg2'
+                : 'md:bg-white-bg md:dark:bg-black text-black dark:text-white-bg2'} 
+                  md:hover:ring-2 sm:ring-blue-500 dark:text-blue-500  sm:dark:text-white-bg md:hover:dark:text-white-bg transition duration-300`}
+          >
+            {letter}
+          </button>
+        ))}
+      </div> */}
       <div className="flex flex-wrap justify-center lg:justify-start">
         {letters.map((letter) => (
           <button
             key={letter}
             onClick={() => handleLetterClick(letter)}
-            className={`m-1 p-1 px-3 border rounded-full 
-              ${selectedLetter === letter ? 'bg-blue-500 text-white-bg2' : 'bg-white-bg dark:bg-black text-black dark:text-white-bg2'} 
-              hover:ring-2 ring-blue-500 transition duration-300`}
+            className={`m-1 sm:m-1 sm:p-1 sm:px-3 sm:w-8 sm:h-8 flex items-center justify-center text-lg font-semibold 
+        sm:border rounded-full 
+         ${selectedLetter === letter
+                ? 'sm:bg-blue-500 text-white-bg2 sm:ring-2 sm:border-blue-500 sm:dark:border-blue-500'
+                : 'sm:dark:bg-black text-black dark:text-white-bg2 sm:hover:border-blue-500 sm:dark:hover:border-blue-500'} 
+                  sm:hover:ring-2 sm:ring-blue-500  dark:text-blue-500 sm:dark:text-white-bg sm:hover:dark:text-white-bg transition duration-300`}
           >
             {letter}
           </button>
         ))}
       </div>
+
     </div>
   );
 };

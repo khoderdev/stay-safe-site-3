@@ -41,7 +41,7 @@ export default function Header() {
   };
 
   return (
-    <header ref={headerRef} className="bg-white-fg dark:bg-black shadow-md  dark:shadow-[#00000021] relative z-50 flex items-center justify-between lg:pl-32 lg:pr-6">
+    <header ref={headerRef} className="bg-white-fg dark:bg-black shadow-md dark:shadow-[#00000021] relative z-50 flex items-center justify-between xl:pl-20 lg:pr-6">
       {/* Logo */}
       <motion.div
         className="flex-shrink-0 pl-2"
@@ -88,7 +88,7 @@ export default function Header() {
       )}
 
       {/* Desktop Menu */}
-      <div className='flex justify-between items-center space-x-10'>
+      <div className='flex justify-between items-center space-x-'>
         <nav className="hidden md:flex space-x-6 text-[1rem] font-semibold">
           <Link to="/" className="text-black hover:text-blue dark:text-white-bg dark:hover:text-blue transition-colors">
             Home
@@ -110,21 +110,9 @@ export default function Header() {
             About us
           </Link>
           <Link to="/write" className="text-black hover:text-blue dark:text-white-bg dark:hover:text-blue transition-colors">
-
           </Link>
         </nav>
 
-        {/* <div className="hidden md:flex items-center space-x-4">
-          {loading ? (
-            <span>Loading...</span> // Show loading state
-          ) : (
-            <>
-              <Link to={"/posts"} className="font-semibold dark:text-white-bg">{currentUser?.name || 'User'}</Link>
-              <Link onClick={logout} className="font-semibold dark:text-white-bg">Logout</Link>
-            </>
-          )}
-
-        </div> */}
         <div className="flex space-x-2 pr-2 items-center">
           <div className='z-50 '>
             <ThemeToggle />

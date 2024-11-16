@@ -20,12 +20,11 @@ import DynamicDietPage from '../components/qualitative-diets/DynamicDietPage';
 import Users from '../views/Users';
 import QualitativeDiets from '../components/qualitative-diets/QualitativeDiets';
 import BookAppointment from '../components/forms/BookAppointment';
-import { FoodSafetyTable } from '../components/Table/FoodSafetyTable';
 
 import PreventiveHealthPatientServices from '../views/PreventiveHealthPatientServices';
 import PublicHealthInterventions from '../views/PublicHealthInterventions';
 import PublicHealthAcademy from '../views/PublicHealthAcademy';
-import { columns } from '../components/Table/columns';
+import FoodSafetyPage from '../views/FoodSafetyPage';
 
 
 const router = createBrowserRouter([
@@ -35,7 +34,7 @@ const router = createBrowserRouter([
 		children: [
 			{
 				path: '/table',
-				element: <FoodSafetyTable columns={columns} data={FoodSafetyTable} />,
+				element: <FoodSafetyPage />,
 			},
 
 			{

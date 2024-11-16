@@ -84,7 +84,7 @@ const Modal = ({
         role="dialog"
         aria-modal="true"
       >
-        <div className="relative w-full h-full max-h-screen sm:max-h-[90vh] lg:max-h-[85vh] md:max-h-[90vh] max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-3xl bg-white-bg dark:bg-[#111] p-6 rounded-lg shadow-lg overflow-y-auto">
+        <div className="relative w-full h-full max-h-screen sm:max-h-[90vh] lg:max-h-[85vh] md:max-h-[90vh] max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-3xl bg-white-bg dark:bg-[#1a1a1a] p-6 rounded-lg shadow-lg overflow-y-auto">
           {/* Close button */}
           <button
             onClick={onClose}

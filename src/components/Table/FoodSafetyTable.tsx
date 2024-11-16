@@ -21,6 +21,10 @@ import { truncateText } from "../../utils/utils";
 import { data as initialData } from "./data";
 import { AlphabetFilter } from './Filters';
 import { fetchAllData, createData, updateData } from '../../indexedDbService';
+import { FoodSafetyBG, FoodSafetyBG2 } from '../images';
+
+
+
 
 export const FoodSafetyTable = <TValue,>({
   columns = [],
@@ -104,14 +108,26 @@ export const FoodSafetyTable = <TValue,>({
   });
 
   return (
-    <div className="flex flex-col rounded-md bg-white dark:bg-grayish p-8 w-full">
+    <div
+      className="flex flex-col rounded-md p-1 sm:p-8 w-full h-screen"
+    >
       <AlphabetFilter
         onFilter={handleToggleFilter}
         onSearch={handleSearchFilter}
-        onAddNew={handleAddNew} // Pass the handleAddNew function
+        onAddNew={handleAddNew}
       />
 
-      <Table style={{ width: '100%' }}>
+      <Table className=''
+        // style={{
+        //   width: '100%',
+        //   backgroundImage: `url(${FoodSafetyBG})`,
+        //   backgroundSize: "cover",
+        //   backgroundPosition: "50% 10dvh",
+        //   backgroundAttachment: "fixed",
+        //   backgroundRepeat: "no-repeat",
+
+        // }}
+        >
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id}>
@@ -139,7 +155,7 @@ export const FoodSafetyTable = <TValue,>({
           {table.getRowModel().rows.length ? (
             table.getRowModel().rows.map((row) => (
               <TableRow
-                className="border-dark border-b cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+                className="border-dark border-b cursor-pointer hover:bg-white-bg dark:hover:bg-black transition"
                 key={row.id}
                 onClick={() => handleEdit(row.original)}
               >
@@ -181,7 +197,7 @@ export const FoodSafetyTable = <TValue,>({
             </TableRow>
           )}
         </TableBody>
-      </Table>
+      </Table >
 
       <Modal
         isOpen={isModalOpen}
@@ -190,6 +206,7 @@ export const FoodSafetyTable = <TValue,>({
         isAddingNew={isAddingNew}
         onSave={saveDataToDB}
       />
-    </div>
+    </div >
+
   );
 };
