@@ -16,7 +16,7 @@ export const ScrollAnimations = () => {
 
 const WhileInView = () => {
 	return (
-		<div className='relative mx-auto grid h-32 w-96 place-content-center'>
+		<div className='relative z-10 mx-auto grid h-32 w-96 place-content-center'>
 			<PrevelenceCircle />
 		</div>
 	);

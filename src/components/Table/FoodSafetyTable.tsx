@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import {
   ColumnDef,
   ColumnSizingState,
@@ -21,9 +22,13 @@ import { truncateText } from "../../utils/utils";
 import { data as initialData } from "./data";
 import { AlphabetFilter } from './Filters';
 import { fetchAllData, createData, updateData } from '../../indexedDbService';
-import { FoodSafetyBG, FoodSafetyBG2 } from '../images';
-
-
+import {
+  petri1,
+  petri2,
+  petri3,
+  petri4,
+  petri5,
+} from '../images';
 
 
 export const FoodSafetyTable = <TValue,>({
@@ -38,6 +43,35 @@ export const FoodSafetyTable = <TValue,>({
   const [colSizing, setColSizing] = useState<ColumnSizingState>({});
   const [filterLetter, setFilterLetter] = useState<string>('');
   const [filterSearch, setFilterSearch] = useState<string>('');
+
+  const floatingAnimation = {
+    y: [0, -10, 0], // Move up and down by 10px
+    transition: {
+      duration: 3, // Duration of the floating animation
+      repeat: Infinity, // Infinite repetition
+      repeatType: 'mirror', // Smooth back-and-forth animation
+      ease: 'easeInOut',
+    },
+  };
+
+  const generateRandomAnimation = () => {
+    const yMovement = Math.floor(Math.random() * 20) - 10; // Random movement between -10px and 10px
+    const xMovement = Math.floor(Math.random() * 20) - 10; // Random movement between -10px and 10px
+    const duration = Math.random() * 2 + 4; // Random duration between 2 and 4 seconds
+
+    return {
+      x: [0, xMovement, 0], // Horizontal random float
+      y: [0, yMovement, 0], // Vertical random float
+      transition: {
+        duration: duration,
+        repeat: Infinity,
+        repeatType: 'mirror',
+        ease: 'easeInOut',
+        delay: Math.random() * 2, // Random delay between 0 and 2 seconds
+      },
+    };
+  };
+
 
   useEffect(() => {
     const loadData = async () => {
@@ -108,105 +142,124 @@ export const FoodSafetyTable = <TValue,>({
   });
 
   return (
-    <div
-      className="flex flex-col rounded-md p-1 sm:p-8 w-full h-screen"
-    >
-      <AlphabetFilter
-        onFilter={handleToggleFilter}
-        onSearch={handleSearchFilter}
-        onAddNew={handleAddNew}
-      />
 
-      <Table className=''
-        // style={{
-        //   width: '100%',
-        //   backgroundImage: `url(${FoodSafetyBG})`,
-        //   backgroundSize: "cover",
-        //   backgroundPosition: "50% 10dvh",
-        //   backgroundAttachment: "fixed",
-        //   backgroundRepeat: "no-repeat",
+    <div className="relative z-50 w-full h-screen overflow-">
+      <motion.div
+        className="absolute z- top-[-5px] left-[53dvw] sm:w-[370px] sm:h-[370px] bg-cover bg-center opacity-1"
+        style={{ backgroundImage: "url('/images/petri3.png')" }}
+        animate={generateRandomAnimation()}
+      ></motion.div>
 
-        // }}
-        >
-        <TableHeader>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <TableRow key={headerGroup.id}>
-              {headerGroup.headers.map((header) => (
-                <TableHead
-                  key={header.id}
-                  className="relative border-dark border-b"
-                  style={{
-                    width: header.getSize(),
-                  }}
-                >
-                  {header.isPlaceholder
-                    ? null
-                    : flexRender(
-                      header.column.columnDef.header,
-                      header.getContext()
-                    )}
-                  <ColumnResizer header={header} />
-                </TableHead>
-              ))}
-            </TableRow>
-          ))}
-        </TableHeader>
-        <TableBody>
-          {table.getRowModel().rows.length ? (
-            table.getRowModel().rows.map((row) => (
-              <TableRow
-                className="border-dark border-b cursor-pointer hover:bg-white-bg dark:hover:bg-black transition"
-                key={row.id}
-                onClick={() => handleEdit(row.original)}
-              >
-                {row.getVisibleCells().map((cell) => {
-                  const columnId = cell.column.id;
-                  let cellValue = cell.getValue() as string;
+      <motion.div
+        className="absolute z- top-[390px] right-64 w-[370px] h-[370px] bg-cover bg-center opacity-1"
+        style={{ backgroundImage: "url('/images/petri2.png')" }}
+        animate={generateRandomAnimation()}
+      ></motion.div>
 
-                  if (
-                    columnId === "signsSymptoms" ||
-                    columnId === "causes" ||
-                    columnId === "prevention" ||
-                    columnId === "comments"
-                  ) {
-                    if (typeof cellValue !== "string") {
-                      cellValue = String(cellValue);
-                    }
-                    cellValue = truncateText(cellValue);
-                  }
+      <motion.div
+        className="absolute z- bottom-[-16dvh] left-[50dvw] w-[370px] h-[370px] bg-cover bg-center opacity-1"
+        style={{ backgroundImage: "url('/images/petri1.png')" }}
+        animate={generateRandomAnimation()}
+      ></motion.div>
 
-                  return (
-                    <TableCell
-                      key={cell.id}
-                      style={{
-                        width: cell.column.getSize(),
-                        minWidth: cell.column.columnDef.minSize,
-                      }}
-                    >
-                      <span>{cellValue}</span>
-                    </TableCell>
-                  );
-                })}
+      <motion.div
+        className="absolute !z-50  sm:top-[-22dvh] sm:right-28 sm:w-[370px] h-[370px] bg-cover bg-center opacity-1"
+        style={{ backgroundImage: "url('/images/petri4.png')" }}
+        animate={generateRandomAnimation()}
+      ></motion.div>
+      {/* Page Content */}
+      <div className='relative flex flex-col sm:mt-24 rounded-md p-1 sm:px-8 w-full h-screen'>
+        <div className='flex flex-col pt-4 mb-3 items-start pl-0 w-fit'>
+          <h1 className='sm:text-6xl font-semibold text-black mb-2'>Foodborne Illness Checker</h1>
+          <p className='text-2xl mb-4 text-black'>Identify Symptoms, Uncover Causes, and Learn Prevention Strategies</p>
+        </div>
+        <AlphabetFilter
+          onFilter={handleToggleFilter}
+          onSearch={handleSearchFilter}
+          onAddNew={handleAddNew}
+        />
+
+        <Table className=''>
+          <TableHeader>
+            {table.getHeaderGroups().map((headerGroup) => (
+              <TableRow key={headerGroup.id}>
+                {headerGroup.headers.map((header) => (
+                  <TableHead
+                    key={header.id}
+                    className="relative border-dark border-b"
+                    style={{
+                      width: header.getSize(),
+                    }}
+                  >
+                    {header.isPlaceholder
+                      ? null
+                      : flexRender(
+                        header.column.columnDef.header,
+                        header.getContext()
+                      )}
+                    <ColumnResizer header={header} />
+                  </TableHead>
+                ))}
               </TableRow>
-            ))
-          ) : (
-            <TableRow>
-              <TableCell colSpan={columns.length} className="h-24 text-center">
-                No data.
-              </TableCell>
-            </TableRow>
-          )}
-        </TableBody>
-      </Table >
+            ))}
+          </TableHeader>
+          <TableBody>
+            {table.getRowModel().rows.length ? (
+              table.getRowModel().rows.map((row) => (
+                <TableRow
+                  className="border-dark border-b cursor-pointer hover:bg-[#e8f5f2] dark:hover:bg-black transition"
+                  key={row.id}
+                  onClick={() => handleEdit(row.original)}
+                >
+                  {row.getVisibleCells().map((cell) => {
+                    const columnId = cell.column.id;
+                    let cellValue = cell.getValue() as string;
 
-      <Modal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        initialData={isAddingNew ? {} : editingData || {}}
-        isAddingNew={isAddingNew}
-        onSave={saveDataToDB}
-      />
-    </div >
+                    if (
+                      columnId === "signsSymptoms" ||
+                      columnId === "causes" ||
+                      columnId === "prevention" ||
+                      columnId === "comments"
+                    ) {
+                      if (typeof cellValue !== "string") {
+                        cellValue = String(cellValue);
+                      }
+                      cellValue = truncateText(cellValue);
+                    }
+
+                    return (
+                      <TableCell
+                        key={cell.id}
+                        style={{
+                          width: cell.column.getSize(),
+                          minWidth: cell.column.columnDef.minSize,
+                        }}
+                      >
+                        <span>{cellValue}</span>
+                      </TableCell>
+                    );
+                  })}
+                </TableRow>
+              ))
+            ) : (
+              <TableRow>
+                <TableCell colSpan={columns.length} className="h-96 text-center text-2xl">
+                  No data.
+                </TableCell>
+              </TableRow>
+            )}
+          </TableBody>
+        </Table>
+
+        <Modal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          initialData={isAddingNew ? {} : editingData || {}}
+          isAddingNew={isAddingNew}
+          onSave={saveDataToDB}
+        />
+      </div>
+    </div>
 
   );
 };

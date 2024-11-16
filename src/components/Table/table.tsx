@@ -6,7 +6,7 @@ const Table = React.forwardRef<
   HTMLTableElement,
   React.HTMLAttributes<HTMLTableElement>
 >(({ className, ...props }, ref) => (
-  <div className="relative w-full mx-auto overflow-x-auto rounded-md shadow-lg">
+  <div className="relative w-full h-[71%] mx-auto overflow-x-auto rounded-md shadow-lg">
     <table
       ref={ref}
       className={cn("w-full table-auto", className)}
@@ -20,7 +20,7 @@ const TableHeader = React.forwardRef<
   HTMLTableSectionElement,
   React.HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...props }, ref) => (
-  <thead ref={ref} className={cn("bg-gray-100 dark:bg-gray-800 text-sm text-gray-800 dark:text-white-bg sticky top-0 z-10", className)} {...props} />
+  <thead ref={ref} className={cn("bg-[#b0e1ec] dark:bg-gray-800 text-sm text-white-bg dark:text-white-bg sticky top-0 z-10", className)} {...props} />
 ));
 TableHeader.displayName = "TableHeader";
 
@@ -31,7 +31,7 @@ const TableBody = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <tbody
     ref={ref}
-    className={cn("bg-", className)}
+    className={cn("", className)}
     // className={cn("bg-[rgba(255,255,255,0.1)] dark:bg-[rgba(0,0,0,0.0)]", className)}
     {...props}
   />
@@ -46,7 +46,7 @@ const TableFooter = React.forwardRef<
   <tfoot
     ref={ref}
     className={cn(
-      "bg-gray-100 dark:bg-gray-800 font-medium text-sm text-gray-600 dark:text-gray-300 border-t",
+      "dark:bg-gray-800 font-medium text-sm text-gray-600 dark:text-gray-300 border-t",
       className
     )}
     {...props}

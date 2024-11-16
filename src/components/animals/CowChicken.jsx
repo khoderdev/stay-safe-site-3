@@ -195,8 +195,6 @@
 
 // export default CowChickenPage;
 
-
-
 // // //////////////////////////////////////
 // // //////////////////////////////////////
 // // //////////////////////////////////////
@@ -209,7 +207,7 @@ import Chicken from './Chicken';
 function CowChickenPage() {
 	// Get the scroll progress
 	const { scrollY } = useScroll();
-	
+
 	// Use the scrollY to create a parallax effect for each component
 	const cowY = useTransform(scrollY, [0, 500], [0, 200]); // Parallax range for Cow
 	const chickenY = useTransform(scrollY, [0, 500], [0, 200]); // Parallax range for Chicken (same direction)
@@ -227,7 +225,6 @@ function CowChickenPage() {
 
 	return (
 		<div className='flex flex-col items-end justify-between  w-full px-4'>
-			
 			{/* <div className='border border-red-500 w-96 h-9'></div> */}
 			{/* Animate Cow component */}
 			<motion.div
@@ -240,16 +237,16 @@ function CowChickenPage() {
 					scale: 1.05,
 					transition: { type: 'spring', stiffness: 150 },
 				}}
-				animate={floatingAnimation} // Apply the floating animation
+				animate={floatingAnimation}
 				transition={{ type: 'spring', stiffness: 80 }}
 				style={{
 					perspective: 800,
-					y: cowY, // Apply parallax effect
+					y: cowY,
 				}}
 			>
 				<Cow />
 			</motion.div>
-			
+
 			{/* Animate Chicken component */}
 			<motion.div
 				className=''

@@ -8,9 +8,11 @@ import PrevelenceCircle from '../components/circle/PrevelenceCircle';
 import MDCServices from '../components/MDCServices';
 import Puzzle from '../components/puzzle/Puzzle';
 import Kitchen from '../components/fridge/Kitchen';
-import  Cow  from '../components/animals/Cow';
+import Cow from '../components/animals/Cow';
 import CowChickenPage from '../components/animals/CowChicken';
-
+import { FoodSafetyTable } from '../components/Table/FoodSafetyTable';
+import { columns } from '../components/Table/columns';
+import CTA from '../components/circle/CTA';
 function MDC() {
 	const sectionRef = useRef(null);
 
@@ -57,7 +59,12 @@ function MDC() {
 			<div className='h-[120dvh] bg-[#000]'>
 				<PrevelenceCircle />
 			</div>
-			<div className='section bg-black'></div>
+			<div className='h-96 p-10 bg-[#000]'>
+				<CTA targetRef={sectionRef} />
+			</div>
+			<div className='h-screen'>
+				<FoodSafetyTable columns={columns} data={FoodSafetyTable} />
+			</div>
 		</div>
 	);
 }
