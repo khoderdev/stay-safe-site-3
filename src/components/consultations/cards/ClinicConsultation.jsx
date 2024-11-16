@@ -17,7 +17,7 @@ const Clinic = ({
 			className='relative w-96 h-[300px] overflow-hidden transition-transform duration-200 transform hover:scale-[1.03] hover:translate-y-[-5px] select-none bg-white-fg dark:bg-[#000] dark:drop-shadow-[0px_10px_30px_rgba(0,0,0,0.1)] rounded-lg shadow-lg shadow-gray-300 dark:shadow-[#111]  border-transparent hover:border-gradient-to-r from-pink-500 to-purple-500 group'
 		>
 			{/* Title (moves to the top on hover) */}
-			<h3 className='absolute bottom-10 group-hover:absolute group-hover:top-[125px] group-hover:mb-0 group-hover:opacity-100 text-left text-3xl px-6 font-bold text-black dark:text-white-bg z-50 dark:text-white transition-transform duration-300 transform group-hover:translate-y-[-20%] mb-4 select-none '>
+			<h3 className='absolute bottom-10 group-hover:absolute group-hover:top-[125px] group-hover:mb-0 group-hover:opacity-100 text-left text-3xl px-6 font-bold text-black dark:text-white-bg z-30 dark:text-white transition-transform duration-300 transform group-hover:translate-y-[-20%] mb-4 select-none '>
 				Clinic Consultation
 			</h3>
 

@@ -1,7 +1,9 @@
 function PatientGuidanceSupport() {
-  return (
-    <div>Patient Guidance Support</div>
-  )
+	return (
+		<div className='flex justify-center pt-10'>
+			<h1>Patient Guidance Support Page</h1>
+		</div>
+	);
 }
 
-export default PatientGuidanceSupport
+export default PatientGuidanceSupport;

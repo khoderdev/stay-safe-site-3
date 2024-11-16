@@ -4,7 +4,7 @@
 //   const { name, foodStorage, shelfLife } = section;
 
 //   return (
-//     <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-700 bg-opacity-50">
+//     <div className="fixed inset-0 z-30 flex items-center justify-center bg-gray-700 bg-opacity-50">
 //       <div className="bg-white-bg p-6 rounded-md shadow-md w-full max-w-md mx-auto">
 //         <h3 className="text-xl font-bold text-center mb-4">{name}</h3>
 //         {view === "Food Storage" && <p> {foodStorage}</p>}
@@ -35,7 +35,7 @@ const FridgeModal = ({ isOpen, section, view, onClose }) => {
   const { name, foodStorage, shelfLife } = section;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-700 bg-opacity-50">
+    <div className="fixed inset-0 z-30 flex items-center justify-center bg-gray-700 bg-opacity-50">
       <div className="bg-white-bg p-6 rounded-md shadow-md w-full max-w-md mx-auto">
         <h3 className="text-xl font-bold text-center mb-4">{name}</h3>
         

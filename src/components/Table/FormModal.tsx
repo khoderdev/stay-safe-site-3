@@ -80,7 +80,7 @@ const Modal = ({
   return (
     isOpen && (
       <div
-        className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75 p-4 transition-opacity duration-300"
+        className="fixed inset-0 z-30 flex items-center justify-center bg-black bg-opacity-75 p-4 transition-opacity duration-300"
         role="dialog"
         aria-modal="true"
       >
@@ -133,7 +133,7 @@ const Modal = ({
                 const fieldData = formFields[field];
                 return (
                   <div key={field} className="mb-4">
-                    <label className="block text-sm font-medium">{fieldData.label}</label>
+                    <label className="block font-semibold text-lg dark:text-gray-50">{fieldData.label}</label>
                     {fieldData.type === "textarea" ? (
                       <textarea
                         name={field}
@@ -141,7 +141,10 @@ const Modal = ({
 
                         onChange={handleInputChange}
                         placeholder={fieldData.placeholder}
-                        className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+                        className="border border-gray-300 dark:border-black
+                              rounded-md !bg-white-whites dark:bg-[#000] text-black dark:text-white-bg
+                              focus:outline-none focus:ring-2 focus:ring-blue-500 select-none
+                              transition duration-300 ease-in-out shadow-sm hover:shadow-md no-spin"
                       />
                     ) : (
                       <input
@@ -150,7 +153,10 @@ const Modal = ({
                         value={formData[field] || ''}
                         onChange={handleInputChange}
                         placeholder={fieldData.placeholder}
-                        className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+                        className="border border-gray-300 dark:border-black
+                              rounded-md !bg-white-whites dark:bg-[#000] text-black dark:text-white-bg
+                              focus:outline-none focus:ring-2 focus:ring-blue-500 select-none
+                              transition duration-300 ease-in-out shadow-sm hover:shadow-md no-spin"
                       />
                     )}
                   </div>
@@ -160,14 +166,14 @@ const Modal = ({
                 <button
                   type="button"
                   onClick={onClose}
-                  className="px-4 py-2 bg-gray-300 text-black rounded"
+                  className="flex justify-between border-transparent border-2 rounded-md px-5 py-2 text-[1.3rem] transition-all duration-300 ease-in-out bg-gray-300 hover:bg-transparent hover:border-[#0e100f] hover:text-[#0e100f] dark:hover:text-[#f0f0ee] dark:hover:border-[#f0f0ee] text-white-bg shadow-lg dark:hover:shadow-none hover:scale-110"
                 >
                   Cancel
                 </button>
                 <button
                   type="button"
                   onClick={handleSave}
-                  className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                  className="flex justify-between border-transparent border-2 rounded-md px-8 py-2 text-[1.3rem] transition-all duration-300 ease-in-out bg-[#0e100f] hover:bg-transparent hover:border-[#0e100f] hover:text-[#0e100f] dark:hover:text-[#f0f0ee] dark:hover:border-[#f0f0ee] text-white-bg shadow-lg dark:hover:shadow-none hover:scale-110"
                 >
                   Save
                 </button>

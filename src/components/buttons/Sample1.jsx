@@ -2,7 +2,8 @@ import React from 'react';
 
 function Sample1() {
 	return (
-		<div>
+		<div className='mx-auto flex flex-col w-96 space-y-8'>
+			
 			<a
 				href='#_'
 				className='relative inline-flex items-center justify-center px-10 py-4 overflow-hidden font-mono font-medium tracking-tighter text-white bg-gray-800 rounded-lg group'

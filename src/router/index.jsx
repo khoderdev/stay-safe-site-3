@@ -25,7 +25,7 @@ import PreventiveHealthPatientServices from '../views/PreventiveHealthPatientSer
 import PublicHealthInterventions from '../views/PublicHealthInterventions';
 import PublicHealthAcademy from '../views/PublicHealthAcademy';
 import FoodSafetyPage from '../views/FoodSafetyPage';
-
+import Sample1 from '../components/buttons/Sample1';
 
 const router = createBrowserRouter([
 	{
@@ -37,6 +37,10 @@ const router = createBrowserRouter([
 				element: <FoodSafetyPage />,
 			},
 
+			{
+				path: '/buttons',
+				element: <Sample1 />,
+			},
 			{
 				path: '/book-appointment',
 				element: <BookAppointment />,

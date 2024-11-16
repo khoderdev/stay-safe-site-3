@@ -55,7 +55,7 @@ const ServicesAnimatedCard = ({
 			className='relative w-96 h-96 overflow-hidden transition-transform duration-200 transform hover:scale- bg-white-bg dark:bg-transparent dark:drop-shadow-2xl dark:shadow-[#000] rounded-lg shadow-lg border border-pink group'
 		>
 			{/* Title (moves to the top on hover) */}
-			<h3 className='absolute bottom-10 group-hover:absolute group-hover:top-[100px] group-hover:mb-0 group-hover:opacity-100 text-left text-3xl px-6 font-bold text-black dark:text-white-bg z-50 dark:text-white transition-transform duration-300 transform group-hover:translate-y-[-20%] mb-4'>
+			<h3 className='absolute bottom-10 group-hover:absolute group-hover:top-[100px] group-hover:mb-0 group-hover:opacity-100 text-left text-3xl px-6 font-bold text-black dark:text-white-bg z-30 dark:text-white transition-transform duration-300 transform group-hover:translate-y-[-20%] mb-4'>
 				{title}
 			</h3>
 
@@ -95,7 +95,7 @@ export default ServicesAnimatedCard;
 // 		>
 // 			{/* Title */}
 // 			<h3
-// 				className="absolute bottom-10 group-hover:absolute group-hover:top-[100px] group-hover:mb-0 group-hover:opacity-100 text-left text-2xl px-6 font-bold text-black dark:text-white-bg z-50 transition-transform duration-300 transform group-hover:translate-y-[-20%] mb-4"
+// 				className="absolute bottom-10 group-hover:absolute group-hover:top-[100px] group-hover:mb-0 group-hover:opacity-100 text-left text-2xl px-6 font-bold text-black dark:text-white-bg z-30 transition-transform duration-300 transform group-hover:translate-y-[-20%] mb-4"
 // 			>
 // 				{title}
 // 			</h3>

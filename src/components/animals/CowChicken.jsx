@@ -226,7 +226,7 @@ function CowChickenPage() {
 	};
 
 	return (
-		<div className='flex flex-col items-end justify-between border w-full px-4'>
+		<div className='flex flex-col items-end justify-between  w-full px-4'>
 			
 			{/* <div className='border border-red-500 w-96 h-9'></div> */}
 			{/* Animate Cow component */}

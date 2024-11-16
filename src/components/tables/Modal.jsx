@@ -7,7 +7,7 @@ function Modal({ isOpen, onClose, onConfirm }) {
     <div
       id="delete-modal"
       tabIndex={-1}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60"
+      className="fixed inset-0 z-30 flex items-center justify-center bg-black bg-opacity-60"
     >
       <div className="relative w-full h-auto max-w-md max-h-full">
         <div className="relative bg-white-fg rounded-lg shadow dark:bg-gray-700">

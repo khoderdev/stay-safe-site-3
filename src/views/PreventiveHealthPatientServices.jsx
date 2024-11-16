@@ -1,11 +1,9 @@
 import React from 'react';
-import PreventiveHealthPatientServices from '../views/PreventiveHealthPatientServices';
 
 function PreventiveHealthPatientServicesPage() {
 	return (
-		<div>
-			PreventiveHealthPatientServices
-			<PreventiveHealthPatientServices />
+		<div className='flex justify-center pt-10'>
+			<h1>Preventive Health Patient Services Page</h1>
 		</div>
 	);
 }

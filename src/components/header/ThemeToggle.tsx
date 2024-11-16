@@ -22,7 +22,7 @@ export default function ThemeToggle() {
         onChange={handleToggle} 
       />
       <label
-        className="flex h-12 w-12 cursor-pointer items-center justify-center"
+        className="flex cursor-pointer items-center justify-center"
         htmlFor="light-switch"
       >
         <svg
