@@ -14,9 +14,9 @@ const questions = [
 	},
 	{
 		id: 3,
-		question: 'Which of the following is NOT a gas-forming food?',
-		options: ['Cauliflower', 'Cabbage', 'Garlic', 'Onion', 'Fish', 'Legumes'],
-		answer: 'Fish',
+		question: 'Cauliflower, cabbage, garlic, onion, and legumes are NOT gas-forming food.',
+		options: ['True', 'False'],
+		answer: 'False',
 	},
 	{
 		id: 4,
@@ -68,5 +68,5 @@ const questions = [
 
 export default questions;
 export const ItemTypes = {
-  QUESTION: 'question',
+	QUESTION: 'question',
 };

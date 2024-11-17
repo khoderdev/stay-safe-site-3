@@ -8,6 +8,8 @@ import petri3 from '../../public/images/petri3.png';
 import petri4 from '../../public/images/petri3.png';
 import petri5 from '../../public/images/petri5.png';
 
+import child from '../../public/images/child.png';
+
 export {
 	HandMonster,
 	FoodSafetyBG,
@@ -17,4 +19,5 @@ export {
 	petri3,
 	petri4,
 	petri5,
+	child,
 };

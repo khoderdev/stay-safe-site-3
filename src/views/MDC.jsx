@@ -13,6 +13,7 @@ import CowChickenPage from '../components/animals/CowChicken';
 import { FoodSafetyTable } from '../components/Table/FoodSafetyTable';
 import { columns } from '../components/Table/columns';
 import CTA from '../components/circle/CTA';
+import Child from '../components/child/Child';
 function MDC() {
 	const sectionRef = useRef(null);
 
@@ -56,12 +57,13 @@ function MDC() {
 			<div className='sm:!h-[65dvh] bg-white-bg dark:bg-black'>
 				<QualitativeDiets />
 			</div>
-			<div className='h-[120dvh] bg-[#000]'>
+			{/* <div className='h-[120dvh] bg-[#000]'>
 				<PrevelenceCircle />
+			</div> */}
+			<div className='section bg-[#000]'>
+				<Child />
 			</div>
-			<div className='h-96 p-10 bg-[#000]'>
-				<CTA targetRef={sectionRef} />
-			</div>
+
 			<div className='h-screen'>
 				<FoodSafetyTable columns={columns} data={FoodSafetyTable} />
 			</div>

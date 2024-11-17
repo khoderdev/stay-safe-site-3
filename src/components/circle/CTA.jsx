@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 
-function CTA({ targetRef }) {
+function CTA({ targetRef, className }) {
 	const sectionRef = useRef(null);
 	const handleScrollToSection = () => {
 		if (targetRef && targetRef.current) {
@@ -12,28 +12,25 @@ function CTA({ targetRef }) {
 	return (
 		<div className='flex flex-col items-center space-y-6'>
 			<motion.h1
-				className='text-6xl font-semibold text-white-bg'
+				className='text-6xl font-semibold text-white-bg mb-10 flex flex-col'
 				initial={{ opacity: 0, y: 20 }}
 				animate={{ opacity: 1, y: 0 }}
-				transition={{ duration: 0.8, ease: 'easeOut' }}
+				transition={{ duration: 0.3, ease: 'easeOut' }}
 			>
-				Worried about your little one's health?
+				Support your Child's Health
 				<br />
-				<span className='text-4xl text-center font-semibold text-white-bg'>
-					Let us help you give them the best care.
-				</span>
+				<motion.button
+					onClick={handleScrollToSection}
+					className='px-8 py-4 my-10 bg-pink text-white-bg text-4xl font-semibold rounded-lg shadow-md hover:bg-pink focus:outline-none focus:ring-2 focus:ring-pink focus:drop-shadow focus:shadow-md focus:shadow-pink focus:bg-transparent focus:text-pink focus:font-semibold place-self-center'
+					whileHover={{ scale: 1.05 }}
+					whileTap={{ scale: 0.95 }}
+					initial={{ opacity: 0, y: 20 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{ duration: 0.8, ease: 'easeOut', delay: 0.3 }}
+				>
+					Take Action for Peace of Mind
+				</motion.button>
 			</motion.h1>
-			<motion.button
-				onClick={handleScrollToSection}
-				className='px-10 py-4 bg-pink text-white rounded-lg shadow-md hover:bg-pink focus:outline-none focus:ring-2 focus:ring-pink focus:drop-shadow focus:shadow-md focus:shadow-pink focus:bg-transparent focus:text-pink focus:font-semibold'
-				whileHover={{ scale: 1.05 }}
-				whileTap={{ scale: 0.95 }}
-				initial={{ opacity: 0, y: 20 }}
-				animate={{ opacity: 1, y: 0 }}
-				transition={{ duration: 0.8, ease: 'easeOut', delay: 0.3 }}
-			>
-				Book an Appointment
-			</motion.button>
 		</div>
 	);
 }

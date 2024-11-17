@@ -151,7 +151,11 @@ const OnScrollComponent = () => {
 					Brucellosis Measles Occupational Coronary Artery Disease MERS Polio
 				</p>
 			) : (
-				<Button customStyles='!mt-16 hover:!border-pink hover:!bg-transparent hover:!text-pink dark:hover:!text-pink !bg-pink !text-white-bg dark:!text-white-bg' ref={buttonRef} aria-label='Show details'>
+				<Button
+					customStyles='!mt-16 hover:!border-pink hover:!bg-transparent hover:!text-pink dark:hover:!text-pink !bg-pink !text-white-bg dark:!text-white-bg'
+					ref={buttonRef}
+					aria-label='Show details'
+				>
 					Let's Show You How
 				</Button>
 			)}
