@@ -14,6 +14,8 @@ import { FoodSafetyTable } from '../components/Table/FoodSafetyTable';
 import { columns } from '../components/Table/columns';
 import CTA from '../components/circle/CTA';
 import Child from '../components/child/Child';
+import Breast, { BreastColored } from '../components/breast/Breast';
+
 function MDC() {
 	const sectionRef = useRef(null);
 
@@ -47,7 +49,7 @@ function MDC() {
 				<Puzzle />
 			</div>
 
-			<div className='section !p-0 bg-white-fg dark:bg-black'>
+			<div className='section !py-52 bg-white-fg dark:bg-black'>
 				<FoodAndNutrition />
 			</div>
 
@@ -57,14 +59,16 @@ function MDC() {
 			<div className='sm:!h-[65dvh] bg-white-bg dark:bg-black'>
 				<QualitativeDiets />
 			</div>
-			{/* <div className='h-[120dvh] bg-[#000]'>
-				<PrevelenceCircle />
-			</div> */}
-			<div className='section bg-[#000]'>
+
+			<div className='section py-52 bg-[#000]'>
 				<Child />
 			</div>
+			<div className=' h-[150dvh] pt-52 items-center flex justify-center bg-white-bg dark:bg-black'>
+				<BreastColored/>
+				{/* <Breast /> */}
+			</div>
 
-			<div className='h-screen bg-white-bg dark:bg-[#000]'>
+			<div className='h-[150dvh] bg-white-bg dark:bg-[#000]'>
 				<FoodSafetyTable columns={columns} data={FoodSafetyTable} />
 			</div>
 		</div>
