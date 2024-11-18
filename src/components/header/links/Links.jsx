@@ -47,12 +47,12 @@ const MenuLinks = () => {
   ];
 
   return (
-    <motion.div className='links' variants={variants}>
+    <motion.div className='flex flex-col bg-dark w-full' variants={variants}>
       {items.map(({ text, route }) => (
         <motion.a
           href={route}
           key={text}
-          className="menu-link !text-[#212121] dark:!text-white-bg"
+          className=" h- w-full bg-dark z-50 !text-[#212121] dark:!text-white-bg"
           variants={itemVariants}
           whileHover={{ scale: 1.1, color: '#e63946' }}
           whileTap={{ scale: 0.95 }}

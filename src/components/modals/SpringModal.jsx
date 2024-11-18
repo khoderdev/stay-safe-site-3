@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { AiOutlineClose } from 'react-icons/ai';
 import PricingCard from '../cards/PricingCard';
-import backgroundImage from '../../../public/pomme.png';
+import PommeImage from '/pomme.png';
 import getFeatures from './ConsultationsFeatures';
 
 const SpringModal = ({ isOpen, setIsOpen, consultationType, buttonText }) => {
@@ -42,7 +42,7 @@ const SpringModal = ({ isOpen, setIsOpen, consultationType, buttonText }) => {
 						<div
 							className='absolute inset-0 bg-cover bg-bottom opacity-10'
 							style={{
-								backgroundImage: `url(${backgroundImage})`,
+								PommeImage: `url(${PommeImage})`,
 							}}
 						/>
 						{/* Modal Header with Close Icon */}

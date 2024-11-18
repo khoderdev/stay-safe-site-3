@@ -1,14 +1,14 @@
-import HandMonster from '../../public/images/monster.png';
-import FoodSafetyBG from '../../public/images/FoodSafetyBGImage.png';
-import FoodSafetyBG2 from '../../public/images/FoodSafetyBGImage2.png';
+const HandMonster = '/images/monster.png';
+const FoodSafetyBG = '/images/FoodSafetyBGImage.png';
+const FoodSafetyBG2 = '/images/FoodSafetyBGImage2.png';
 
-import petri1 from '../../public/images/petri1.png';
-import petri2 from '../../public/images/petri2.png';
-import petri3 from '../../public/images/petri3.png';
-import petri4 from '../../public/images/petri3.png';
-import petri5 from '../../public/images/petri5.png';
+const petri1 = '/images/petri1.png';
+const petri2 = '/images/petri2.png';
+const petri3 = '/images/petri3.png';
+const petri4 = '/images/petri3.png';
+const petri5 = '/images/petri5.png';
 
-import child from '../../public/images/child.png';
+const child = '/images/child.png';
 
 export {
 	HandMonster,

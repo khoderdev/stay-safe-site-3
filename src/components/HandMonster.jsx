@@ -1,5 +1,5 @@
 import React from 'react';
-import HandMonster from '../../public/images/monster.png';
+import { HandMonster } from '../components/images';
 
 function HandMonsterPage() {
 	return (

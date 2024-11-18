@@ -34,6 +34,7 @@ export default {
 				sky: '#B0E1EC',
 				// white: 'F0F0FE',
 				black: '#0e100f',
+				dark: '#212121',
 				gray: {
 					DEFAULT: '#86868b',
 					100: '#94928d',

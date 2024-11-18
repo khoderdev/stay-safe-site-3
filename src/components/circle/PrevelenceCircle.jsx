@@ -46,7 +46,7 @@ function PrevelenceCircle() {
 				/>
 				<div className='flex items-center md:pl-6 z-30'>
 					<div className=' mr-4'>
-						<img className='w-10 md:w-20 xl:w-32 z-30' src={Circle2} alt='1in6' />
+						<img className='w-10 md:w-20 xl:w-32 z-30' src={Circle2} alt='small-circle' />
 					</div>
 
 					<div className='w-28 md:w-80 md:pl-2'>
