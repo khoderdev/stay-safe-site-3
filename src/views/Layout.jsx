@@ -21,12 +21,12 @@ function Layout() {
 	return (
 		<div className="flex flex-col min-h-screen !bg-white-fg dark:!bg-[#000]">
 			{/* Header Section */}
-			<header className="h-[70px]">
+			<header className="h-[62px]">
 				<Header />
 			</header>
 
 			{/* Main Content Area */}
-			<main className="flex-1">
+			<main className="flex-1 ">
 				<Outlet />
 			</main>
 		</div>

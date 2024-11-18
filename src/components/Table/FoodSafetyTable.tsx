@@ -143,7 +143,7 @@ export const FoodSafetyTable = <TValue,>({
 
   return (
 
-    <div className="relative z-50 w-full h-screen overflow-">
+    <div className="relative z-30 w-full h-screen overflow-">
       <motion.div
         className="absolute z- top-[-5px] left-[53dvw] w-[160px] h-[160px] lg:top-[-5px] lg:left-[53dvw] lg:w-[240px] lg:h-[240px] xl:top-[-5px] xl:left-[53dvw] xl:w-[370px] xl:h-[370px] bg-cover bg-center opacity-1"
         style={{ backgroundImage: "url('/images/petri3.png')" }}
@@ -170,8 +170,8 @@ export const FoodSafetyTable = <TValue,>({
       {/* Page Content */}
       <div className='relative flex flex-col sm:mt-24 rounded-md p-1 sm:px-8 w-full h-screen'>
         <div className='flex flex-col pt-4 mb-3 items-start pl-0 w-fit'>
-          <h1 className='sm:text-6xl font-semibold text-black mb-2'>Foodborne Illness Checker</h1>
-          <p className='text-2xl mb-4 text-black'>Identify Symptoms, Uncover Causes, and Learn Prevention Strategies</p>
+          <h1 className='sm:text-6xl font-semibold dark:text-white-bg2 mb-2'>Foodborne Illness Checker</h1>
+          <p className='text-2xl mb-4 dark:text-white-bg2'>Identify Symptoms, Uncover Causes, and Learn Prevention Strategies</p>
         </div>
         <AlphabetFilter
           onFilter={handleToggleFilter}
