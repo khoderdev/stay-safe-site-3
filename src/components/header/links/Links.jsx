@@ -37,22 +37,23 @@ const itemVariants = {
 const MenuLinks = () => {
   const items = [
     { text: 'Home', route: '/' },
-    { text: 'MDC', route: '/mdc' },
-    { text: 'OHS', route: '/ohs' },
-    { text: 'Contact', route: '/contact' },
-    { text: 'About us', route: '/about-us' },
-    { text: 'Environmental Health', route: '/environmental-health' },
+    { text: 'Medical Dietry Clinic', route: '/mdc' },
+    { text: 'Preventive Health & Patient Services', route: '/preventive-health-patient-services' },
+    { text: 'Health & Safety', route: '/health-and-safety' },
+    { text: 'Public Health Interventions', route: '/public-health-interventions' },
+    { text: 'Public Health Academy', route: '/public-health-academy' },
     { text: 'Patient Guidance & Support', route: '/patient-guidance-support' },
+    { text: 'About us', route: '/about-us' },
   
   ];
 
   return (
-    <motion.div className='flex flex-col bg-dark w-full' variants={variants}>
+    <motion.div className='flex flex-col dark:bg-dark w-full ' variants={variants}>
       {items.map(({ text, route }) => (
         <motion.a
           href={route}
           key={text}
-          className=" h- w-full bg-dark z-50 !text-[#212121] dark:!text-white-bg"
+          className="w-full dark:bg-dark hover:bg-pink dark:hover:bg-pink p-4 hover:border hover:border-pink z-50 text-[24px] leading-snug text-left !text-[#212121] font-semibold  dark:!text-white-bg"
           variants={itemVariants}
           whileHover={{ scale: 1.1, color: '#e63946' }}
           whileTap={{ scale: 0.95 }}
