@@ -13,7 +13,6 @@ import Login from '../views/Login';
 import MDC from '../views/MDC';
 import OHS from '../views/OHS';
 import EnvirementalHealth from '../views/EnvirementalHealth';
-import PatientGuidanceSupport from '../views/PatientGuidanceSupport';
 import PrivateRoute from '../router/PrivateRoute';
 import CircularText from '../components/dx-prevention/Circle';
 import DynamicDietPage from '../components/qualitative-diets/DynamicDietPage';
@@ -117,14 +116,7 @@ const router = createBrowserRouter([
 					// </PrivateRoute>
 				),
 			},
-			{
-				path: '/patient-guidance-support',
-				element: (
-					// <PrivateRoute>
-					<PatientGuidanceSupport />
-					// </PrivateRoute>
-				),
-			},
+			
 			{
 				path: '/about-us',
 				element: <AboutUs />,

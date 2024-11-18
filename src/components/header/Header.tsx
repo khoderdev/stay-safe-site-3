@@ -245,7 +245,7 @@ const NavigationSection = () => {
   return (
     <section>
       <div
-        className={` z-50 w-full px-8 py-3 transition-all duration-1000 rounded-full mt-1 ${atTop ? 'max-w-7xl' : 'bg-black/95 bg-opacity-90 max-w-6xl'
+        className={` z-50 w-full px-8 py-3 transition-all duration-1000 rounded-full mt-1 ${atTop ? 'max-w-[85rem]' : 'bg-black/95 bg-opacity-90 max-w-6xl'
           } inset-x-0 mx-auto ease-in-out transform`}
       >
         <div className="flex flex-col w-full mx-auto md:items-center md:justify-between md:flex-row">

@@ -6,6 +6,7 @@ import OnScrollComponent from '../components/dx-prevention/OnScrollComponent';
 import HandMonster from '../components/HandMonster';
 import PrevelenceCircle from '../components/circle/PrevelenceCircle';
 import CTA from '../components/circle/CTA';
+import CirclesImages from '../components/grid/CirclesImages';
 
 export default function Home() {
 	return (
@@ -28,7 +29,9 @@ export default function Home() {
 			<div className='section bg-white-fg dark:bg-[#000]'>
 				<HandMonster />
 			</div>
-			<div className='section bg-white-fg dark:bg-black'>{/* <PHQ9 /> */}</div>
+			<div className='section bg-white-fg dark:bg-black'>
+				<CirclesImages/>
+			</div>
 		</div>
 	);
 }
