@@ -145,25 +145,25 @@ export const FoodSafetyTable = <TValue,>({
 
     <div className="relative z-50 w-full h-screen overflow-">
       <motion.div
-        className="absolute z- top-[-5px] left-[53dvw] sm:w-[370px] sm:h-[370px] bg-cover bg-center opacity-1"
+        className="absolute z- top-[-5px] left-[53dvw] w-[160px] h-[160px] lg:top-[-5px] lg:left-[53dvw] lg:w-[240px] lg:h-[240px] xl:top-[-5px] xl:left-[53dvw] xl:w-[370px] xl:h-[370px] bg-cover bg-center opacity-1"
         style={{ backgroundImage: "url('/images/petri3.png')" }}
         animate={generateRandomAnimation()}
       ></motion.div>
 
       <motion.div
-        className="absolute z- top-[390px] right-64 w-[370px] h-[370px] bg-cover bg-center opacity-1"
+        className="absolute z- top-[390px] right-64 w-[160px] h-[160px] lg:w-[240px] lg:h-[240px] xl:top-[390px] xl:right-64 xl:w-[370px] xl:h-[370px] bg-cover bg-center opacity-1"
         style={{ backgroundImage: "url('/images/petri2.png')" }}
         animate={generateRandomAnimation()}
       ></motion.div>
 
       <motion.div
-        className="absolute z- bottom-[-16dvh] left-[50dvw] w-[370px] h-[370px] bg-cover bg-center opacity-1"
+        className="absolute bottom-[-5dvh] left-[50dvw] w-[160px] h-[160px] lg:left-[42dvw] lg:bottom-[-20dvh] lg:w-[240px]  lg:h-[240px] xl:bottom-[-16dvh] xl:left-[50dvw] xl:w-[370px] xl:h-[370px] bg-cover bg-center opacity-1"
         style={{ backgroundImage: "url('/images/petri1.png')" }}
         animate={generateRandomAnimation()}
       ></motion.div>
 
       <motion.div
-        className="absolute !z-50  sm:top-[-22dvh] sm:right-28 sm:w-[370px] h-[370px] bg-cover bg-center opacity-1"
+        className="absolute !z-50 top-[-22dvh] right-28 w-[160px] h-[160px] lg:w-[240px] lg:h-[240px] xl:top-[-22dvh] xl:right-28 xl:w-[370px] xl:h-[370px] bg-cover bg-center opacity-1"
         style={{ backgroundImage: "url('/images/petri4.png')" }}
         animate={generateRandomAnimation()}
       ></motion.div>

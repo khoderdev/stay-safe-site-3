@@ -80,7 +80,7 @@ const Modal = ({
   return (
     isOpen && (
       <div
-        className="fixed inset-0 z-30 flex items-center justify-center bg-black bg-opacity-75 p-4 transition-opacity duration-300"
+        className="fixed inset-0 z-40 flex items-center justify-center bg-black bg-opacity-75 p-4 transition-opacity duration-300"
         role="dialog"
         aria-modal="true"
       >
