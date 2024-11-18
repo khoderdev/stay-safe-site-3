@@ -29,9 +29,7 @@ export default function Home() {
 			<div className='section bg-white-fg dark:bg-[#000]'>
 				<HandMonster />
 			</div>
-			<div className='section bg-white-fg dark:bg-black'>
-				<CirclesImages/>
-			</div>
+			<div className='section bg-white-fg dark:bg-black'></div>
 		</div>
 	);
 }
