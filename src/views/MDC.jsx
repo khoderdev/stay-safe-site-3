@@ -18,7 +18,7 @@ function MDC() {
 	const sectionRef = useRef(null);
 
 	return (
-		<div className='flex flex-col'>
+		<div className='flex flex-col bg-white-bg2 dark:bg-[#000]'>
 			<div className='section bg-white-bg'>
 				<CowChickenPage />
 			</div>
@@ -64,7 +64,7 @@ function MDC() {
 				<Child />
 			</div>
 
-			<div className='h-screen'>
+			<div className='h-screen bg-white-bg dark:bg-[#000]'>
 				<FoodSafetyTable columns={columns} data={FoodSafetyTable} />
 			</div>
 		</div>
