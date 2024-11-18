@@ -1,6 +1,12 @@
-function EnvirementalHealth() {
+import CarbonFootprintCalculator from '../components/calculator/carbon-footprint/CarbonFootprint'
+
+export default function EnvirementalHealth() {
   return (
-    <div>Enviremental Health</div>
-  )
+    <div className="flex flex-col">
+      <div className="section pt-16 bg-white-bg dark:bg-black">
+        <CarbonFootprintCalculator />
+      </div>
+
+    </div>
+  );
 }
-export default EnvirementalHealth

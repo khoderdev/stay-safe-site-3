@@ -17,18 +17,17 @@
 /* Custom Scrollbar Styles for Specific Component */
 .custom-scrollbar {
 	scrollbar-width: thin; /* For Firefox */
-	scrollbar-color: #e55e72 !important; /* Thumb and Track color for Firefox */
+	scrollbar-color: #e55e72 transparent; /* Thumb and Track color for Firefox */
 }
 
 .custom-scrollbar::-webkit-scrollbar {
-	width: 0px; /* Hidden scrollbar by default */
+	width: 0.2em; /* Reduced width of the scrollbar */
 	background-color: transparent;
-	transition: width 0.3s ease; /* Smooth transition for scrollbar visibility */
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
 	background-color: #e55e72 !important;
-	border-radius: 10px;
+	border-radius: 15px; /* Increased radius for the thumb */
 }
 
 .custom-scrollbar:hover::-webkit-scrollbar {
@@ -41,6 +40,7 @@
 
 .custom-scrollbar:hover::-webkit-scrollbar-thumb {
 	background-color: #e55e72 !important; /* Customize scrollbar thumb */
+	border-radius: 15px; /* Ensure the radius is also applied on hover */
 }
 
 .search-component h2 {
@@ -48,7 +48,6 @@
 	margin-bottom: 20px;
 	text-align: center;
 }
-
 
 .search-component select:disabled {
 	background-color: #e9ecef;
@@ -83,3 +82,21 @@
 .search-component .results ul li:hover {
 	background-color: #f0f0f0;
 }
+
+/* #locality {
+	background-color: #ffffff;
+}
+.locality-select {
+	padding: 3px;
+	border: 1px solid #aaa;
+	border-radius: 4px;
+	background-color: #f0f0f0;
+	transition: background-color 0.3s, color 0.3s;
+}
+
+.locality-select:disabled {
+	background-color: #bbb;
+	color: #000;
+	cursor: not-allowed;
+	border: 1px solid #bbb;
+} */

@@ -57,14 +57,14 @@ const SexualInfectionsQuiz = () => {
               <button
                 type="button"
                 onClick={() => handleAnswer(q.question, true)}
-                className={`py-1 px-4 border rounded ${userAnswers[q.question] === true ? "bg-green-500 text-white" : "bg-white"}`}
+                className={`py-1 px-4 border rounded ${userAnswers[q.question] === true ? "bg-green-500 text-white" : "bg-white-fg"}`}
               >
                 True
               </button>
               <button
                 type="button"
                 onClick={() => handleAnswer(q.question, false)}
-                className={`py-1 px-4 border rounded ${userAnswers[q.question] === false ? "bg-red-500 text-white" : "bg-white"}`}
+                className={`py-1 px-4 border rounded ${userAnswers[q.question] === false ? "bg-red-500 text-white" : "bg-white-fg"}`}
               >
                 False
               </button>
@@ -86,7 +86,7 @@ const SexualInfectionsQuiz = () => {
                   key={idx}
                   type="button"
                   onClick={() => handleAnswer(mcq.question, option)}
-                  className={`py-1 px-4 border rounded ${userAnswers[mcq.question] === option ? "bg-blue-500 text-white" : "bg-white"}`}
+                  className={`py-1 px-4 border rounded ${userAnswers[mcq.question] === option ? "bg-blue-500 text-white" : "bg-white-fg"}`}
                 >
                   {option}
                 </button>

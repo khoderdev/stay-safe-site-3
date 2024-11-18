@@ -7,7 +7,7 @@
 // //   useEffect(() => {
 // //     const fetchData = async () => {
 // //       try {
-// //         const res = await axios.get(`http://localhost:8800/posts/?cat=${cat}`);
+// //         const res = await axios.get(`https://api.staysafeaa.org/posts/?cat=${cat}`);
 // //         setPosts(res.data);
 // //       } catch (err) {
 // //         console.log(err);
@@ -47,7 +47,7 @@
 //   useEffect(() => {
 //     const fetchData = async () => {
 //       try {
-//         const res = await axios.get(`http://localhost:8800/posts/?cat=${cat}`);
+//         const res = await axios.get(`https://api.staysafeaa.org/posts/?cat=${cat}`);
 //         setPosts(res.data);
 //       } catch (err) {
 //         console.log(err);
@@ -86,7 +86,7 @@ const Menu = ({ cat }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`http://localhost:8800/posts/?cat=${cat}`);
+        const res = await axios.get(`https://api.staysafeaa.org/posts/?cat=${cat}`);
         setPosts(res.data);
       } catch (err) {
         console.log(err);
@@ -97,12 +97,12 @@ const Menu = ({ cat }) => {
 
   return (
     <div className="menu my-6">
-      <h1 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">Your Posts</h1>
+      <h1 className="text-xl font-semibold text-gray-800 dark:text-white-bg mb-4">Your Posts</h1>
       
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {posts.map((post) => (
           <div
-            className="post bg-white dark:bg-gray-800 p-4 rounded-lg shadow-xl hover:shadow-none transform transition duration-200 cursor-pointer border border-[#afafafa6] "
+            className="post bg-white-fg dark:bg-gray-800 p-4 rounded-lg shadow-xl hover:shadow-none transform transition duration-200 cursor-pointer border border-[#afafafa6] "
             key={post.id}
           >
             <img
@@ -110,7 +110,7 @@ const Menu = ({ cat }) => {
               src={`../upload/${post?.img}`}
               alt={post.title}
             />
-            <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-2">
+            <h2 className="text-xl font-bold text-gray-800 dark:text-white-bg mb-2">
               {post.title}
             </h2>
             <p className="text-gray-600 dark:text-gray-400 truncate">{post.desc}</p>

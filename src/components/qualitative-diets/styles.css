@@ -1,0 +1,41 @@
+/* Styles for QualitativeDiets component */
+.qualitative-diets-container {
+  /* background-color: #d4eff4; */
+  max-width: 600px;
+  height: 100dvh;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.qualitative-diets-container .title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .qualitative-diets-container {
+    padding: 0.5rem;
+  }
+
+  .qualitative-diets-container .title {
+    font-size: 1.25rem;
+  }
+}
+
+/* Dropdown Custom Styling */
+.ui.selection.dropdown {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 10px!important;
+}
+
+.ui.selection.dropdown .menu > .item {
+  padding: 1rem;
+  font-size: 1rem;
+}

@@ -1,7 +1,6 @@
+
 function OHS() {
-  return (
-    <div>OHS</div>
-  )
+	return <div>OHS</div>;
 }
 
 export default OHS;

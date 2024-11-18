@@ -7,14 +7,14 @@ function CreateModal() {
         id="createProductModal"
         tabIndex={-1}
         aria-hidden="true"
-        className="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] md:h-full"
+        className="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-30 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] md:h-full"
       >
         <div className="relative p-4 w-full max-w-3xl h-full md:h-auto">
           {/* Modal content */}
-          <div className="relative p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
+          <div className="relative p-4 bg-white-fg rounded-lg shadow dark:bg-gray-800 sm:p-5">
             {/* Modal header */}
             <div className="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white-bg">
                 Add Product
               </h3>
               <button
@@ -44,7 +44,7 @@ function CreateModal() {
                 <div>
                   <label
                     htmlFor="name"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white-bg"
                   >
                     Product Name
                   </label>
@@ -52,7 +52,7 @@ function CreateModal() {
                     type="text"
                     name="name"
                     id="name"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white-bg dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     placeholder="Type product name"
                     required=""
                   />
@@ -60,13 +60,13 @@ function CreateModal() {
                 <div>
                   <label
                     htmlFor="category"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white-bg"
                   >
                     Category
                   </label>
                   <select
                     id="category"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white-bg dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   >
                     <option selected="">Select category</option>
                     <option value="TV">TV/Monitors</option>
@@ -78,7 +78,7 @@ function CreateModal() {
                 <div>
                   <label
                     htmlFor="brand"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white-bg"
                   >
                     Brand
                   </label>
@@ -86,7 +86,7 @@ function CreateModal() {
                     type="text"
                     name="brand"
                     id="brand"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white-bg dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     placeholder="Product brand"
                     required=""
                   />
@@ -94,7 +94,7 @@ function CreateModal() {
                 <div>
                   <label
                     htmlFor="price"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white-bg"
                   >
                     Price
                   </label>
@@ -102,7 +102,7 @@ function CreateModal() {
                     type="number"
                     name="price"
                     id="price"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white-bg dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     placeholder="$2999"
                     required=""
                   />
@@ -111,7 +111,7 @@ function CreateModal() {
                   <div>
                     <label
                       htmlFor="weight"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white-bg"
                     >
                       Item weight (kg)
                     </label>
@@ -119,7 +119,7 @@ function CreateModal() {
                       type="number"
                       name="weight"
                       id="weight"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white-bg dark:focus:ring-primary-500 dark:focus:border-primary-500"
                       placeholder={12}
                       required=""
                     />
@@ -127,7 +127,7 @@ function CreateModal() {
                   <div>
                     <label
                       htmlFor="length"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white-bg"
                     >
                       Lenght (cm)
                     </label>
@@ -135,7 +135,7 @@ function CreateModal() {
                       type="number"
                       name="length"
                       id="length"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white-bg dark:focus:ring-primary-500 dark:focus:border-primary-500"
                       placeholder={105}
                       required=""
                     />
@@ -143,7 +143,7 @@ function CreateModal() {
                   <div>
                     <label
                       htmlFor="breadth"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white-bg"
                     >
                       Breadth (cm)
                     </label>
@@ -151,7 +151,7 @@ function CreateModal() {
                       type="number"
                       name="breadth"
                       id="breadth"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white-bg dark:focus:ring-primary-500 dark:focus:border-primary-500"
                       placeholder={15}
                       required=""
                     />
@@ -159,7 +159,7 @@ function CreateModal() {
                   <div>
                     <label
                       htmlFor="width"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white-bg"
                     >
                       Width (cm)
                     </label>
@@ -167,7 +167,7 @@ function CreateModal() {
                       type="number"
                       name="width"
                       id="width"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white-bg dark:focus:ring-primary-500 dark:focus:border-primary-500"
                       placeholder={23}
                       required=""
                     />
@@ -176,14 +176,14 @@ function CreateModal() {
                 <div className="sm:col-span-2">
                   <label
                     htmlFor="description"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white-bg"
                   >
                     Description
                   </label>
                   <textarea
                     id="description"
                     rows={4}
-                    className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                    className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white-bg dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     placeholder="Write product description here"
                     defaultValue={""}
                   />
@@ -238,7 +238,7 @@ function CreateModal() {
                 </div>
               </div>
               <div className="mb-4">
-                <span className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                <span className="block mb-2 text-sm font-medium text-gray-900 dark:text-white-bg">
                   Product Images
                 </span>
                 <div className="flex justify-center items-center w-full">
@@ -299,7 +299,7 @@ function CreateModal() {
                 <button
                   data-modal-toggle="createProductModal"
                   type="button"
-                  className="w-full justify-center sm:w-auto text-gray-500 inline-flex items-center bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-primary-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
+                  className="w-full justify-center sm:w-auto text-gray-500 inline-flex items-center bg-white-fg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-primary-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
                 >
                   <svg
                     className="mr-1 -ml-1 w-5 h-5"

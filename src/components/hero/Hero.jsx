@@ -91,7 +91,7 @@ const sliderVariants = {
 const Hero = () => {
 
   return (
-    <div className='hero sm:p-6 -mt-[18rem] text-black dark:text-[#f0f0ee]'>
+    <div className='hero sm:p-6 -mt-[18rem] text-black dark:text-white-bg'>
       <div className="wrapper">
         <motion.div
           className="textContainer"
@@ -157,7 +157,7 @@ const Hero = () => {
 export default Hero;
 
 // return (
-//   <div className="h-[calc(100vh-100px)] overflow-hidden relative sm:p-6 -mt-44 md:!-mt-96 text-black dark:text-[#f0f0ee]">
+//   <div className="h-[calc(100vh-100px)] overflow-hidden relative sm:p-6 -mt-44 md:!-mt-96 text-black dark:text-white-bg">
 //     <div className="max-w-[1000px] h-full mx-auto">
 //       <motion.div
 //         className="w-full h-full flex flex-col justify-center gap-[40px] sm:gap-[20px] items-center text-center"

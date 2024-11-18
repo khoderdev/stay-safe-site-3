@@ -8,7 +8,7 @@
 //   useEffect(() => {
 //     const fetchData = async () => {
 //       try {
-//         const res = await axios.get(`http://localhost:8800/posts/?cat=${cat}`, {
+//         const res = await axios.get(`https://api.staysafeaa.org/posts/?cat=${cat}`, {
 //           headers: {
 //             Authorization: `Bearer ${token}`, // Use the token for the request
 //           },

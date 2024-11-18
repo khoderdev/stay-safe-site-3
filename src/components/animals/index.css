@@ -1,0 +1,116 @@
+/* .rib {
+	fill: #174354 !important;
+	transition: fill 0.3s ease;
+}
+.rib:hover {
+	fill: #4fa2b8 !important;
+}
+
+.plate {
+	fill: #174354 !important;
+	transition: fill 0.3s ease;
+}
+.plate:hover {
+	fill: #4fa2b8 !important;
+}
+
+.short-loin {
+	fill: #174354 !important;
+	transition: fill 0.3s ease;
+}
+.short-loin:hover {
+	fill: #4fa2b8 !important;
+}
+
+.flank-2legs {
+	fill: #174354 !important;
+	transition: fill 0.3s ease;
+}
+.flank-2legs:hover {
+	fill: #4fa2b8 !important;
+}
+
+.bottom-sirloin {
+	fill: #174354 !important;
+	transition: fill 0.3s ease;
+}
+.bottom-sirloin:hover {
+	fill: #4fa2b8 !important;
+}
+
+.top-sirloin {
+	fill: #174354 !important;
+	transition: fill 0.3s ease;
+}
+.top-sirloin:hover {
+	fill: #4fa2b8 !important;
+}
+
+.tenderloin {
+	fill: #174354 !important;
+	transition: fill 0.3s ease;
+}
+.tenderloin:hover {
+	fill: #4fa2b8 !important;
+}
+
+.sirloin {
+	fill: #174354 !important;
+	transition: fill 0.3s ease;
+}
+.sirloin:hover {
+	fill: #4fa2b8 !important;
+}
+
+.round {
+	fill: #174354 !important;
+	transition: fill 0.3s ease;
+}
+.round:hover {
+	fill: #4fa2b8 !important;
+}
+
+.head {
+	fill: #174354;
+} */
+/* .others,
+.leg1,
+.leg4 {
+	fill: #174354;
+}
+.others,
+.leg1,
+.leg4:hover {
+	fill: #174354 !important;
+} */
+
+/* Default state */
+/* .chuckbrisket,
+.leg4,
+.others {
+	fill: var(--sync-fill-color, #174354);
+	transition: fill 0.3s ease; 
+} */
+/* .chuckbrisket,
+.leg4,
+.group, */
+/* .others:hover {
+	fill: #4fa2b8;
+} */
+
+/* Hover state when hover-active class is applied to body */
+/* .hover-active .chuckbrisket,
+.hover-active .others {
+	fill: #4fa2b8 !important;
+} */
+
+
+.chuckbrisket:hover,
+.group1:hover {
+    fill: #4fa2b8;
+}
+
+.chuckbrisket:hover ~ .group1,
+.group1:hover ~ .chuckbrisket {
+    fill: #4fa2b8;
+}

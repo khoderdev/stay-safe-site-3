@@ -17,7 +17,7 @@ const Button = ({
         ${customStyles} 
         ${disabled
           ? 'opacity-50 cursor-not-allowed'
-          : 'flex justify-between border-transparent border-2 rounded-md px-5 py-2 text-[1.3rem] transition-all duration-300 ease-in-out bg-[#0e100f] hover:bg-transparent hover:border-[#0e100f] hover:text-[#0e100f] dark:hover:text-[#f0f0ee] dark:hover:border-[#f0f0ee] text-white shadow-md'
+          : 'flex justify-between border-transparent border-2 rounded-md px-5 py-2 text-[1.3rem] transition-all duration-300 ease-in-out bg-[#0e100f] hover:bg-transparent hover:border-[#0e100f] hover:text-[#0e100f] dark:hover:text-[#f0f0ee] dark:hover:border-[#f0f0ee] text-white shadow-md hover:scale-110'
         }
       `}
     >
