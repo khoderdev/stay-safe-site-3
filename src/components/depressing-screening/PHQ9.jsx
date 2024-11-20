@@ -95,12 +95,12 @@ const PHQ9Quiz = () => {
 	};
 
 	return (
-		<div className='flex flex-col justify-between py-6  place-self-center rounded-xl drop-shadow-lg'>
+		<div className='flex flex-col justify-between place-self-center '>
 			<div className='quiz-container mb-4 flex justify-center'>
 				{score === null ? (
 					<div className='w-full'>
-						<div className='relative px-4'>
-							<h1 className='text-black dark:text-white-bg text-2xl font-bold flex - mb-2'>
+						{/* <div className='relative'> */}
+							<h1 className='text-black dark:text-white-bg md:text-xl font-bold  mb-2'>
 								Over the last two weeks, how often have you <br/> been bothered by any
 								of the following problems?
 							</h1>
@@ -135,7 +135,7 @@ const PHQ9Quiz = () => {
 													className='hidden'
 												/>
 												<motion.div
-													className={`cube-radio !bg-white-bg dark:!bg-[#000] active:animate- !shadow-md ${
+													className={`cube-radio !bg-white-bg3 dark:!bg-[#000] active:animate- !shadow-md ${
 														answers[questions[currentStep].id] === index
 															? 'selected'
 															: ''
@@ -157,10 +157,10 @@ const PHQ9Quiz = () => {
 									</div>
 								</motion.div>
 							</AnimatePresence>
-						</div>
+						{/* </div> */}
 
 						{/* Button Container */}
-						<div className='flex justify-evenly items-center w-full bottom-0 left-0 mt-6'>
+						<div className='flex justify-evenly items-center w-full bottom-0 left-0'>
 							{/* Hide ArrowLeft when on the last step */}
 							{currentStep < questions.length - 1 && (
 								<ArrowLeft
@@ -197,7 +197,7 @@ const PHQ9Quiz = () => {
 						</div>
 					</div>
 				) : (
-					<div className='result-container flex flex-col items-center py-10'>
+					<div className='result-container flex flex-col min-h-[70dvh] items-center py-10'>
 						<h2 className='text-2xl font-bold mb-4 text-black dark:text-white-bg'>
 							Your Depression Screening Score:{' '}
 							<span className='text-green-500'>{score}</span>
