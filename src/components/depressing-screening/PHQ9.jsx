@@ -110,7 +110,7 @@ const PHQ9Quiz = () => {
 									initial={{ opacity: 0, y: 20 }}
 									animate={{ opacity: 1, y: 0 }}
 									exit={{ opacity: 0, y: -20 }}
-									transition={{ duration: 0.5 }}
+									transition={{ duration: 0.2 }}
 									className='flex flex-col justify-between items-center pt-4'
 								>
 									<p className='text-black dark:text-white-bg text-2xl font-bold text-center mb-10'>
