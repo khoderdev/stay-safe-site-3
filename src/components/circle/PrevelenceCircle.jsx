@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import SmallCircle from './SmallCircle';
-import TextImage from './TextImage';
+import { Text } from './images';
 
 function PrevelenceCircle({ scrollContainerRef }) {
 	const [rotation, setRotation] = useState(0); // Accumulated rotation value
@@ -50,11 +50,23 @@ function PrevelenceCircle({ scrollContainerRef }) {
 				style={{
 					perspective: 800,
 				}}
-				className='absolute w-full sm:w-[60%] xl:w-full flex items-center justify-center'
+				className='absolute w-full sm:w-[60%] md:w-[80%] xl:w-full flex items-center justify-center'
 			>
 				<SmallCircle />
 			</motion.div>
 
+			<div className='w-[50%] sm:w-[30%] md:w-[40%] xl:w-[37%] flex items-center justify-center md:pl-6 xl:pl-10 z-50 '>
+				<div className=' mr-4'>
+					<img className='w-10 md:w-20 xl:w-44 z-50' src={Text} alt='1in6' />
+				</div>
+				<div className='w-28 md:w-80 xl:w-[60%] md:pl-2'>
+					<p className='text-[0.5rem] md:text-lg xl:text-2xl font-semibold text-white-bg text-justify'>
+						One in Six children and adolescents (ages 2-19) are overweight.
+						Globally, over one billion people live with obesity, including
+						nearly 880 million adults and 159 million youths.
+					</p>
+				</div>
+			</div>
 			{/* Second Circle (Opposite Spin) */}
 			<motion.div
 				initial={{ rotateX: 0, rotateY: 0, z: 0 }}
@@ -69,11 +81,10 @@ function PrevelenceCircle({ scrollContainerRef }) {
 				style={{
 					perspective: 800,
 				}}
-				className='absolute w-[80%] sm:w-[43%] xl:w-[55%] h-auto rounded-full flex items-center justify-center'
+				className='absolute w-[80%] sm:w-[43%] md:w-[60%] xl:w-[55%] h-auto rounded-full flex items-center justify-center'
 			>
 				<SmallCircle />
 			</motion.div>
-			<img src={TextImage} alt='' />
 		</div>
 	);
 }
