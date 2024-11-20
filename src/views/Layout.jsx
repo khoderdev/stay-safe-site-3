@@ -23,7 +23,8 @@ function Layout() {
 			<header className='h-[10dvh]'>
 				<Header />
 			</header>
-			<main className='h-[90dvh]'>
+
+			<main className='h-[90dvh] xl:min-h-screen'>
 				<Outlet />
 			</main>
 		</div>

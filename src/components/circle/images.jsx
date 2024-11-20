@@ -9,9 +9,9 @@
 
 // No need to import from public directory, just reference the images using URL paths
 const Circle1 = '/images/Group66.svg';
-const Final = '/images/final.svg';
-const Circle2 = '/images/1.svg';
+const Circle2 = '/images/final.svg';
+const Text = '/images/1.svg';
 const mind = '/images/mind.svg';
 const mouth = '/images/mouth.png';
 
-export { Circle1, Final, Circle2, mind, mouth };
+export { Circle1, Circle2, Text, mind, mouth };
