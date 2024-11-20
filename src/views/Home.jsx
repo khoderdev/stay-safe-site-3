@@ -4,7 +4,6 @@ import OnScrollComponent from '../components/dx-prevention/OnScrollComponent';
 import HandMonster from '../components/HandMonster';
 import PrevelenceCircle from '../components/circle/PrevelenceCircle';
 import CTA from '../components/circle/CTA';
-import { useScroll } from 'framer-motion';
 import { useRef } from 'react';
 
 export default function Home() {
