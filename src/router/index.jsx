@@ -25,6 +25,7 @@ import PublicHealthInterventions from '../views/PublicHealthInterventions';
 import PublicHealthAcademy from '../views/PublicHealthAcademy';
 import FoodSafetyPage from '../views/FoodSafetyPage';
 import Sample1 from '../components/buttons/Sample1';
+import HealthAndSafety from '../views/HealthAndSafety';
 
 const router = createBrowserRouter([
 	{
@@ -67,6 +68,10 @@ const router = createBrowserRouter([
 			{
 				path: '/public-health-academy',
 				element: <PublicHealthAcademy />,
+			},
+			{
+				path: '/health-and-safety',
+				element: <HealthAndSafety />,
 			},
 			{
 				path: '/users',

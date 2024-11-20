@@ -95,13 +95,13 @@ const PHQ9Quiz = () => {
 	};
 
 	return (
-		<div className='flex flex-col justify-between py-6 lg:w-[60%] place-self-center rounded-xl drop-shadow-lg'>
+		<div className='flex flex-col justify-between place-self-center '>
 			<div className='quiz-container mb-4 flex justify-center'>
 				{score === null ? (
 					<div className='w-full'>
-						<div className='relative'>
-							<h1 className='text-black dark:text-white-bg text-3xl font-bold text-center mb-10'>
-								Over the last two weeks, how often have you been bothered by any
+						{/* <div className='relative'> */}
+							<h1 className='text-black dark:text-white-bg md:text-xl font-bold  mb-2'>
+								Over the last two weeks, how often have you <br/> been bothered by any
 								of the following problems?
 							</h1>
 							<AnimatePresence mode='wait'>
@@ -110,10 +110,10 @@ const PHQ9Quiz = () => {
 									initial={{ opacity: 0, y: 20 }}
 									animate={{ opacity: 1, y: 0 }}
 									exit={{ opacity: 0, y: -20 }}
-									transition={{ duration: 0.5 }}
+									transition={{ duration: 0.2 }}
 									className='flex flex-col justify-between items-center pt-4'
 								>
-									<p className='text-black dark:text-white-bg text-3xl font-bold text-center mb-10'>
+									<p className='text-black dark:text-white-bg text-2xl font-bold text-center mb-10'>
 										{questions[currentStep].question}
 									</p>
 
@@ -135,7 +135,7 @@ const PHQ9Quiz = () => {
 													className='hidden'
 												/>
 												<motion.div
-													className={`cube-radio !bg-white-bg dark:!bg-[#000] active:animate- !shadow-md ${
+													className={`cube-radio !bg-white-bg3 dark:!bg-[#000] active:animate- !shadow-md ${
 														answers[questions[currentStep].id] === index
 															? 'selected'
 															: ''
@@ -157,10 +157,10 @@ const PHQ9Quiz = () => {
 									</div>
 								</motion.div>
 							</AnimatePresence>
-						</div>
+						{/* </div> */}
 
 						{/* Button Container */}
-						<div className='flex justify-evenly items-center w-full bottom-0 left-0 mt-6'>
+						<div className='flex justify-evenly items-center w-full bottom-0 left-0'>
 							{/* Hide ArrowLeft when on the last step */}
 							{currentStep < questions.length - 1 && (
 								<ArrowLeft
@@ -185,8 +185,8 @@ const PHQ9Quiz = () => {
 									</button>
 								) : (
 									<ArrowRight
-										className='next-btn w-20 !text-blue dark:text-[#212121] py-2 px-4 rounded-lg cursor-pointer transition 
-                   transform hover:scale-110 active:scale-95 hover:text-[#0000ff] duration-300 ease-in-out'
+										className='next-btn w-20 !text-[#3b78b4] dark:text-[#212121] py-2 px-4 rounded-lg cursor-pointer transition 
+                   transform hover:scale-110 active:scale-95 hover:text-[#3c79b4] duration-300 ease-in-out'
 										onClick={nextStep}
 										disabled={answers[questions[currentStep].id] === undefined}
 									>
@@ -197,7 +197,7 @@ const PHQ9Quiz = () => {
 						</div>
 					</div>
 				) : (
-					<div className='result-container flex flex-col items-center py-10'>
+					<div className='result-container flex flex-col min-h-[70dvh] items-center py-10'>
 						<h2 className='text-2xl font-bold mb-4 text-black dark:text-white-bg'>
 							Your Depression Screening Score:{' '}
 							<span className='text-green-500'>{score}</span>
@@ -208,6 +208,7 @@ const PHQ9Quiz = () => {
 						{guidanceMessage && (
 							<p className='text-[1.3rem] text-pink mb-10'>{guidanceMessage}</p>
 						)}
+						
 						<button
 							className='btn-1 mx-auto w-full text-center'
 							onClick={retakeQuiz}
@@ -218,7 +219,11 @@ const PHQ9Quiz = () => {
 				)}
 			</div>
 
-			<div className=' dark:bg-black text-black dark:text-white-bg w-full flex justify-center'>
+			<div className=' dark:bg-black text-black dark:text-white-bg w-full flex flex-col justify-center'>
+				<span className='text-[10px]'>
+					This information is not intended to replace clinical judgment or guide
+					individual patient care in any manner.
+				</span>
 				<span className='text-[10px]'>
 					PHQ-9 is adapted from PRIME MD TODAY, developed by Drs. Robert L
 					Spitzer, Janet BW Williams, Kurt Kroenke, and colleagues, with an

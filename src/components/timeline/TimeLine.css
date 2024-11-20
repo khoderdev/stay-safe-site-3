@@ -1,0 +1,33 @@
+/* TimeLine.css */
+.vertical-timeline-element-content {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+}
+
+.vertical-timeline-element-content:hover {
+    transform: scale(1.03);
+    box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.2);
+}
+
+.vertical-timeline-element-date {
+    font-weight: bold;
+    font-size: 0.85rem;
+    color: #555;
+}
+
+.vertical-timeline-element-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.vertical-timeline-element-subtitle {
+    font-size: 1rem;
+    color: #bbb;
+    margin-bottom: 10px;
+}
+
+.vertical-timeline-element p {
+    font-size: 0.9rem;
+    color: #666;
+}

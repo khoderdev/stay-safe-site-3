@@ -14,7 +14,7 @@ import { FoodSafetyTable } from '../components/Table/FoodSafetyTable';
 import { columns } from '../components/Table/columns';
 import CTA from '../components/circle/CTA';
 import Child from '../components/child/Child';
-import Breast, { BreastColored } from '../components/breast/Breast';
+import { BreastColored } from '../components/breast/Breast';
 
 function MDC() {
 	const sectionRef = useRef(null);
@@ -64,7 +64,7 @@ function MDC() {
 				<Child />
 			</div>
 			<div className=' h-[150dvh] pt-52 items-center flex justify-center bg-white-bg dark:bg-black'>
-				<BreastColored/>
+				<BreastColored />
 				{/* <Breast /> */}
 			</div>
 
