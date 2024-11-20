@@ -21,7 +21,7 @@ export const questions = [
   },
   {
     id: 'neckSize',
-    question: `Neck size large (measured around Adam's apple)? Is your shirt collar 16 inches (40 cm) or larger?`,
+    question: `Is Neck size large (measured around Adam's apple)? Is your shirt collar 16 inches (40 cm) or larger?`,
     answers: ['Yes', 'No'],
   },
   {
