@@ -24,6 +24,36 @@ img {
 	user-select: none;
 }
 
+.tracker-container {
+	position: relative; /* Make sure the container is positioned */
+	border: 1px solid #ccc; /* Optional: add border to visualize the container */
+}
+
+.mouse-tracker {
+  position: relative; /* Changed from fixed to absolute */
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  /* background-color: white; */
+  padding: 2px 7px;
+  border-radius: 3px;
+  white-space: nowrap;
+  visibility: hidden;
+}
+
+/* 
+.mouse-tracker {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-color: white;
+  padding: 2px 7px;
+  border-radius: 3px;
+  white-space: nowrap;
+  visibility: hidden;
+} */
+
 .panel {
 	width: 100%;
 	height: 100vh;

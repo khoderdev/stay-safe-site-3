@@ -39,6 +39,7 @@
     "react-quill": "^2.0.0",
     "react-router-dom": "^6.28.0",
     "react-use-measure": "^2.1.1",
+    "react-use-mouse-position": "^1.0.4",
     "react-vertical-timeline-component": "^3.6.0",
     "semantic-ui-react": "^2.1.5",
     "splitting": "^1.1.0",

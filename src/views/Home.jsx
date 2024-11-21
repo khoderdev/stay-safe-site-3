@@ -6,6 +6,7 @@ import PrevelenceCircle from '../components/circle/PrevelenceCircle';
 import CTA from '../components/circle/CTA';
 import { useRef } from 'react';
 import CursorTrackingImage from '../components/bacteria/Bacteria';
+import { MouseTracker } from '../components/bacteria/MouseTracker';
 
 export default function Home() {
 	const scrollContainerRef = useRef(null);
@@ -38,6 +39,7 @@ export default function Home() {
 				<HandMonster />
 			</div>
 			<div className='section bg-white-fg dark:bg-black'>
+				{/* <MouseTracker offset={{ x: 0, y: 0 }}><img src='/images/bacteria.png' className='w-1/2'/></MouseTracker> */}
 				<CursorTrackingImage />
 			</div>
 		</div>
