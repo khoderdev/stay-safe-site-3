@@ -257,9 +257,6 @@
 // // // //////////////////////////////////////////
 // // // //////////////////////////////////////////
 
-
-
-
 // import React, { useState } from 'react';
 // import { motion, AnimatePresence } from 'framer-motion';
 // import { ArrowLeft, ArrowRight } from '../../icons/Icons';
@@ -509,6 +506,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight } from '../../icons/Icons';
 import { questions } from './questions';
 import { inputStyles } from '../../../utils/styles';
+import Titles from './Titles';
 
 // Helper to calculate BMI
 const calculateBMI = (weight, height) => {
@@ -601,12 +599,13 @@ const STOPBang = () => {
 	};
 
 	return (
-		<div className='quiz-container mb-4 flex justify-center'>
+		<div className='quiz-container mb-4 flex flex-col justify-center'>
+			<div className=''>
+						<Titles />
+					</div>
 			{results === null ? (
 				<div className='w-full'>
-					<h1 className='text-black dark:text-white-bg md:text-xl font-bold mb-2 text-center'>
-						STOP-Bang Screening for OSA
-					</h1>
+					
 					<AnimatePresence mode='wait'>
 						<motion.div
 							key={currentStep}
