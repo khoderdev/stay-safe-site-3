@@ -103,7 +103,7 @@ function Titles() {
 					</ul>
 					<br />
 				</motion.div>
-				<p className='mt-6'>
+				<p className='mt-2 text-center'>
 					Take this screening tool to assess your risk. A better night's sleep
 					could change your life!
 				</p>

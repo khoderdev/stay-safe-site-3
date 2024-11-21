@@ -5,6 +5,7 @@ import HandMonster from '../components/HandMonster';
 import PrevelenceCircle from '../components/circle/PrevelenceCircle';
 import CTA from '../components/circle/CTA';
 import { useRef } from 'react';
+import CursorTrackingImage from '../components/bacteria/Bacteria';
 
 export default function Home() {
 	const scrollContainerRef = useRef(null);
@@ -29,14 +30,16 @@ export default function Home() {
 			<div className='pt-10 sm:pt-64 xl:pt-80 z-30 bg-black'>
 				<PrevelenceCircle scrollContainerRef={scrollContainerRef} />
 			</div>
-			<div className='section pt-72 sm:pt-[30rem] sm:pb-96 xl:pt-[50rem] bg-white-fg dark:bg-black'>
+			<div className='section pt-72 sm:pt-[40rem] sm:pb-96 xl:pt-[50rem] bg-white-fg dark:bg-black'>
 				<CTA />
 			</div>
 
 			<div className='section bg-white-fg dark:bg-[#000]'>
 				<HandMonster />
 			</div>
-			{/* <div className='section bg-white-fg dark:bg-black'></div> */}
+			<div className='section bg-white-fg dark:bg-black'>
+				<CursorTrackingImage />
+			</div>
 		</div>
 	);
 }
