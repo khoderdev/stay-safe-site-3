@@ -1,4 +1,4 @@
-button {
+/* button {
   padding: 12px 20px;
   font-family: sofia-pro, sans-serif;
   font-weight: 400;
@@ -34,4 +34,35 @@ li {
   font-style: normal;
   font-size: 17px;
   color: #fff;
+}
+ */
+.App {
+	padding: 20px;
+}
+
+ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+.title-button {
+	background-color: #4caf50;
+	color: white;
+	padding: 10px;
+	border: none;
+	cursor: pointer;
+	margin-bottom: 10px;
+	width: 100%;
+	text-align: left;
+}
+
+.title-button:hover {
+	background-color: #45a049;
+}
+
+.content {
+	padding: 10px;
+	margin: 10px 0;
+	background-color: #f0f0f0;
+	border-radius: 5px;
 }

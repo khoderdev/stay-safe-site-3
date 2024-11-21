@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useAnimate, stagger, motion } from "framer-motion";
 import React from "react";
 
-export default function App() {
+export default function Stagger() {
   const [open, setOpen] = useState(false);
   const [scope, animate] = useAnimate();
   const items = ["Item 1", "Item 2", "Item 3", "Item 4"];
