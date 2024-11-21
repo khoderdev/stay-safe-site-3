@@ -17,7 +17,7 @@ function PrevelenceCircle({ scrollContainerRef }) {
 				lastScrollTop.current = currentScrollTop; // Update the last scroll position
 
 				// Adjust rotation based on scroll delta
-				const spinMultiplier = 1; // Reduced for slower spinning
+				const spinMultiplier = 0.3; // Reduced for slower spinning
 				setRotation((prev) => prev + deltaY * spinMultiplier);
 			}
 		};

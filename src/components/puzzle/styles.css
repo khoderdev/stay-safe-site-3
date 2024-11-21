@@ -10,12 +10,13 @@
 		justify-content: center;
 		align-items: center;
 		padding: 1rem;
+		/* border: solid black 2px; */
 	}
 
 	.Crossword__gridContainer {
 		width: 100%;
-		margin: 0 auto;
-		max-width: 600px; /* Limits grid width on larger screens */
+		/* margin: 0 0 0 200px; */
+		max-width: 600px;
 	}
 
 	.Clues {
@@ -24,7 +25,8 @@
 		justify-content: space-between;
 		align-items: flex-end;
 		overflow-y: auto;
-		height: 100%;
+		width: 50%!important;
+		height: 50%;
 		max-height: 600px;
 		padding-right: 1rem;
 		margin-bottom: 1rem;
@@ -63,6 +65,7 @@
 		.Crossword__gridContainer {
 			width: 90%;
 			max-width: 500px;
+			margin: 0;
 		}
 
 		.Clues {

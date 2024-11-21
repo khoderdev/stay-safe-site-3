@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight } from '../../icons/Icons';
 import { questions } from './questions';
 import { inputStyles } from '../../../utils/styles';
+import Titles from './Titles';
 
 // Helper to calculate BMI
 const calculateBMI = (weight, height) => {
@@ -17,7 +18,6 @@ const STOPBang = () => {
 	const [bmi, setBmi] = useState(null);
 	const [results, setResults] = useState(null);
 
-	// Helper functions to handle step navigation
 	const handleAnswerChange = (questionId, answerIndex) => {
 		setAnswers((prevAnswers) => ({
 			...prevAnswers,
@@ -26,12 +26,14 @@ const STOPBang = () => {
 	};
 
 	const nextStep = () => {
-		// Ensure an answer has been selected before allowing navigation to the next step
-		if (
-			currentStep < questions.length &&
-			answers[questions[currentStep].id] !== undefined
-		) {
-			setCurrentStep(currentStep + 1);
+		if (currentStep < questions.length) {
+			if (currentStep === 3 && form.weight && form.height) {
+				// If we are on the BMI step and the form is valid, move to the next step
+				setCurrentStep(currentStep + 1);
+			} else if (answers[questions[currentStep].id] !== undefined) {
+				// If it's not the BMI step, check if the answer is selected
+				setCurrentStep(currentStep + 1);
+			}
 		}
 	};
 
@@ -41,20 +43,17 @@ const STOPBang = () => {
 		}
 	};
 
+	// Calculate risk only after all questions are completed
 	const calculateRisk = () => {
-		// Calculate BMI
 		const calculatedBMI = calculateBMI(form.weight, form.height);
 		setBmi(calculatedBMI);
 
-		// Count 'Yes' responses for STOP questions
 		const stopYesCount = ['snoring', 'tired', 'observed', 'pressure'].filter(
 			(question) => answers[question]
 		).length;
 
-		// Count 'Yes' responses for all questions
 		const totalYesCount = Object.values(answers).filter(Boolean).length;
 
-		// Determine risk
 		let riskLevel = 'Low risk';
 		if (totalYesCount >= 5) riskLevel = 'High risk';
 		else if (totalYesCount >= 3) riskLevel = 'Intermediate risk';
@@ -74,14 +73,19 @@ const STOPBang = () => {
 		setForm((prevForm) => ({ ...prevForm, [name]: value }));
 	};
 
-	// Validate if the BMI form is completed
 	const isBMIFormValid = form.weight && form.height;
 
-	// Check if the current question has been answered
 	const isCurrentStepAnswered =
 		currentStep < questions.length
 			? answers[questions[currentStep].id] !== undefined
 			: true;
+
+	// Trigger BMI calculation and risk only when the user reaches the final step (after answering all questions)
+	useEffect(() => {
+		if (currentStep === questions.length) {
+			calculateRisk();
+		}
+	}, [currentStep]);
 
 	const retakeQuiz = () => {
 		setCurrentStep(0);
@@ -92,12 +96,9 @@ const STOPBang = () => {
 	};
 
 	return (
-		<div className='quiz-container mb-4 flex justify-center'>
+		<div className='quiz-container mb-4 flex flex-col justify-center'>
 			{results === null ? (
 				<div className='w-full'>
-					<h1 className='text-black dark:text-white-bg md:text-xl font-bold mb-2 text-center'>
-						STOP-Bang Screening for OSA
-					</h1>
 					<AnimatePresence mode='wait'>
 						<motion.div
 							key={currentStep}
@@ -108,7 +109,7 @@ const STOPBang = () => {
 							className='flex flex-col justify-between items-center pt-4'
 						>
 							{/* Display either question or BMI input based on the step */}
-							{currentStep < questions.length ? (
+							{currentStep < questions.length && currentStep !== 3 ? (
 								<>
 									{/* Render Questions */}
 									<p className='text-black dark:text-white-bg text-2xl font-semibold text-center lg:px-36 mb-10'>
@@ -154,7 +155,7 @@ const STOPBang = () => {
 										))}
 									</div>
 								</>
-							) : (
+							) : currentStep === 3 ? (
 								<>
 									<h3 className='text-lg font-semibold text-black dark:text-white-bg text-center mb-8'>
 										Please enter your weight and height to calculate BMI:
@@ -186,18 +187,8 @@ const STOPBang = () => {
 											/>
 										</div>
 									</div>
-									{/* Calculate Risk Button */}
-									<button
-										className={`btn-1 mx-auto w-full text-center mt-6 mb-8 ${
-											!isBMIFormValid ? 'opacity-50 cursor-not-allowed' : ''
-										}`}
-										onClick={calculateRisk}
-										disabled={!isBMIFormValid}
-									>
-										Calculate Risk
-									</button>
 								</>
-							)}
+							) : null}
 						</motion.div>
 					</AnimatePresence>
 
