@@ -53,7 +53,7 @@ function PreventiveHealthPatientServicesPage() {
 						Start Screening
 					</button>
 				</div>
-				{/* <div class='sticky top-0 h-screen flex flex-col items-center justify-center bg-white-fg dark:bg-[#000]'></div> */}
+				<div class='sticky top-0 h-screen flex flex-col items-center justify-center bg-white-fg dark:bg-[#000]'></div>
 			</div>
 		</>
 	);
