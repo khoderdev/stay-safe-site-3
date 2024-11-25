@@ -1,9 +1,16 @@
-import React, { useEffect } from 'react';
-import { RouterProvider } from "react-router-dom";
-import router from './router';
+import Header from "./components/Header/Header";
+import Layout from "./views/Layout";
+import AppRoutes from "./router/index";
+import React from "react";
+
 function App() {
   return (
-      <RouterProvider router={router} />
+    <div className="scrollbar-hide overflow-hidden">
+      <Header />
+      <Layout>
+        <AppRoutes />
+      </Layout>
+    </div>
   );
 }
 export default App;

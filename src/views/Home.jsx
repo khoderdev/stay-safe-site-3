@@ -16,7 +16,7 @@ export default function Home() {
 	return (
 		<div
 			ref={scrollContainerRef}
-			className='flex flex-col overflow-y-scroll h-full'
+			className='flex flex-col overflow-y-scroll scrollbar-hide h-full'
 		>
 			<div className='section panel bg-white-bg dark:bg-black'>
 				<Hero />
@@ -50,8 +50,7 @@ export default function Home() {
 			<div className='section bg-white-fg dark:bg-black'>
 				<FiftyPercent />
 			</div>
-			<div className='section bg-white-fg dark:bg-black'>
-			</div>
+			<div className='section bg-white-fg dark:bg-black'></div>
 		</div>
 	);
 }
