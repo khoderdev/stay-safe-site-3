@@ -2,6 +2,7 @@ import React, { useState, useReducer } from 'react';
 import Stepper from './Stepper';
 import { inputStyles } from '../../utils/styles';
 import { symptomsList, diseasesOptions } from './data';
+import Dropdown from './Dropdown';
 
 const initialState = {
 	fullName: '',
@@ -182,7 +183,7 @@ const MonitoringForm = () => {
 								value={formData.caza}
 								onChange={handleChange}
 							/>
-							<SelectField
+							<Dropdown
 								label='Health Condition'
 								name='healthCondition'
 								value={formData.healthCondition}
