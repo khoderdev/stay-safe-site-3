@@ -62,7 +62,9 @@ const Dropdown = ({ label, name, value, onChange, options }) => {
 
 	return (
 		<div ref={dropdownRef} className='relative'>
-			<label className='block text-sm'>{label}</label>
+			<label className='block text-sm !text-black dark:!text-white-bg'>
+				{label}
+			</label>
 			<input
 				type='text'
 				name={name}
@@ -70,14 +72,14 @@ const Dropdown = ({ label, name, value, onChange, options }) => {
 				onChange={handleInputChange}
 				onKeyDown={handleKeyDown}
 				placeholder={`Select ${label}`}
-				className={inputStyles()}
+				className={`${inputStyles()} !text-black dark:!text-white-bg !bg-white-bg dark:!bg-black`}
 				autoComplete='off'
 				onFocus={() => setShowDropdown(true)}
 			/>
 
 			{/* Dropdown Menu */}
 			{showDropdown && filteredOptions.length > 0 && (
-				<ul className='absolute z-10 bg-white-bg dark:bg-black border border-gray-300 w-full max-h-52 overflow-y-auto shadow-md cursor'>
+				<ul className='absolute z-10 dark:!text-white-bg bg-white-bg dark:bg-black border border-gray-300 w-full max-h-52 overflow-y-auto shadow-md cursor'>
 					{filteredOptions.map((option, index) => (
 						<li
 							key={option}

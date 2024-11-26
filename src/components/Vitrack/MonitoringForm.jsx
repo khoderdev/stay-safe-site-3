@@ -1,19 +1,27 @@
 import React, { useState, useReducer } from 'react';
 import Stepper from './Stepper';
 import { inputStyles } from '../../utils/styles';
-import { symptomsList, diseasesOptions } from './data';
+import {
+	symptomsList,
+	diseasesOptions,
+	countriesOptions,
+	nationalitiesOptions,
+} from './data';
 import Dropdown from './Dropdown';
 import DateInput from './DateInput';
+import Validations from './Validations';
 
 const initialState = {
-	fullName: '',
+	firstName: '',
+	lastName: '',
 	dateOfBirth: '',
 	gender: '',
+	nationality: '',
 	country: '',
-	residency: '',
-	caza: '',
+	address: '',
 	healthCondition: '',
 	otherHealthCondition: '',
+	hasNutritionAllergie: '',
 	allergiesMed: '',
 	nutritionAllergie: '',
 	vitrackKit: '',
@@ -37,7 +45,6 @@ function formReducer(state, { name, value, subKey }) {
 	}
 	return { ...state, [name]: value };
 }
-
 const InputField = ({
 	label,
 	name,
@@ -45,20 +52,45 @@ const InputField = ({
 	onChange,
 	type = 'text',
 	placeholder,
-}) => (
-	<div>
-		<label className='block text-sm'>{label}</label>
-		<input
-			type={type}
-			name={name}
-			value={value}
-			onChange={onChange}
-			placeholder={placeholder}
-			className={inputStyles()}
-			autoComplete='off'
-		/>
-	</div>
-);
+	min = 0,
+	max, // Add max prop
+}) => {
+	// Custom onChange handler to ensure only numbers are allowed
+	const handleChange = (e) => {
+		const newValue = e.target.value;
+		// Only allow non-negative integers (no symbols, dashes, or e)
+		if (/^\d*$/.test(newValue)) {
+			// Check if the new value is less than the minimum allowed (if any)
+			if (newValue === '' || Number(newValue) >= min) {
+				// If max is provided, ensure it doesn't exceed max value
+				if (max && Number(newValue) <= max) {
+					onChange(e); // Call the parent onChange function if the value is valid
+				} else if (!max) {
+					onChange(e); // If no max, just update
+				}
+			}
+		}
+	};
+
+	return (
+		<div>
+			<label className='block text-sm !text-black dark:!text-white-bg'>
+				{label}
+			</label>
+			<input
+				type={type}
+				name={name}
+				value={value}
+				onChange={handleChange}
+				placeholder={placeholder}
+				className={`${inputStyles()} !text-black dark:!text-white-bg !bg-white-bg dark:!bg-black`}
+				autoComplete='off'
+				min={min}
+				max={max}
+			/>
+		</div>
+	);
+};
 
 const BloodPressureInput = ({ hand, systolic, diastolic, onChange }) => (
 	<div>
@@ -69,16 +101,18 @@ const BloodPressureInput = ({ hand, systolic, diastolic, onChange }) => (
 				name={`${hand.toLowerCase()}HandBloodPressure.systolic`}
 				value={systolic}
 				onChange={onChange}
-				type='number'
+				type='text' // Using text instead of number to prevent unwanted input behavior
 				placeholder='e.g., 120'
+				min={0}
 			/>
 			<InputField
 				label='Diastolic'
 				name={`${hand.toLowerCase()}HandBloodPressure.diastolic`}
 				value={diastolic}
 				onChange={onChange}
-				type='number'
+				type='text' // Using text instead of number to prevent unwanted input behavior
 				placeholder='e.g., 80'
+				min={0}
 			/>
 		</div>
 	</div>
@@ -87,16 +121,6 @@ const BloodPressureInput = ({ hand, systolic, diastolic, onChange }) => (
 const MonitoringForm = () => {
 	const [formData, dispatch] = useReducer(formReducer, initialState);
 	const [currentStep, setCurrentStep] = useState(0);
-
-	// const handleChange = (e) => {
-	// 	const { name, value } = e.target;
-	// 	if (name.includes('.')) {
-	// 		const [key, subKey] = name.split('.');
-	// 		dispatch({ name: key, value, subKey });
-	// 	} else {
-	// 		dispatch({ name, value });
-	// 	}
-	// };
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
@@ -125,22 +149,30 @@ const MonitoringForm = () => {
 	};
 
 	return (
-		<div className='w-2/3 mx-auto bg-white-bg3 dark:bg-dark shadow-md rounded-lg space-y-6'>
+		<div className='md:w-2/3 md:mx-auto space-y-6'>
 			<Stepper
 				steps={['Patient Info', 'Health Metrics', 'Review & Submit']}
 				currentStep={currentStep}
 				setCurrentStep={setCurrentStep}
+				handleSubmit={handleSubmit}
 			>
 				{currentStep === 0 && (
 					<>
-						<h1 className='text-center text-2xl font-semibold mb-5'>
+						<h1 className='text-center text-2xl text-black dark:text-white-whites font-semibold mb-5'>
 							Patient Info
 						</h1>
-						<div className='grid grid-cols-2 gap-x-14 gap-y-8'>
+						<div className='grid grid-cols-1 sm:grid-cols-2 p-7 rounded-lg gap-x-14 gap-y-8 !bg-white-bg2 dark:!bg-[#000]'>
+							{/* Existing Fields */}
 							<InputField
-								label='Full Name'
-								name='fullName'
-								value={formData.fullName}
+								label='First Name'
+								name='firstName'
+								value={formData.firstName}
+								onChange={handleChange}
+							/>
+							<InputField
+								label='Last Name'
+								name='lastName'
+								value={formData.lastName}
 								onChange={handleChange}
 							/>
 							<DateInput
@@ -157,22 +189,24 @@ const MonitoringForm = () => {
 								options={['Male', 'Female', 'Other']}
 							/>
 							<Dropdown
+								label='Nationality'
+								name='nationality'
+								value={formData.nationality}
+								onChange={handleChange}
+								options={nationalitiesOptions}
+							/>
+							<Dropdown
 								label='Country'
 								name='country'
 								value={formData.country}
 								onChange={handleChange}
-								options={['USA', 'Canada', 'UK']}
+								options={countriesOptions}
 							/>
+
 							<InputField
-								label='Residency'
-								name='residency'
-								value={formData.residency}
-								onChange={handleChange}
-							/>
-							<InputField
-								label='Caza | Locality'
-								name='caza'
-								value={formData.caza}
+								label='Address'
+								name='address'
+								value={formData.address}
 								onChange={handleChange}
 							/>
 							<Dropdown
@@ -182,6 +216,8 @@ const MonitoringForm = () => {
 								onChange={handleChange}
 								options={[...diseasesOptions, 'Others']}
 							/>
+
+							{/* Conditional Field for Other Health Condition */}
 							{formData.healthCondition === 'Others' && (
 								<InputField
 									label='Specify Your Health Condition'
@@ -191,154 +227,231 @@ const MonitoringForm = () => {
 									placeholder='Specify your health condition'
 								/>
 							)}
-							<InputField
-								label='Allergies Medication'
-								name='allergiesMed'
-								value={formData.allergiesMed}
-								onChange={handleChange}
-							/>
-							<Dropdown
-								label='Nutrition Allergie'
-								name='nutritionAllergie'
-								value={formData.nutritionAllergie}
-								onChange={handleChange}
-								options={[
-									'Milk',
-									'Eggs',
-									'Fish',
-									'Shellfish',
-									'Tree Nuts',
-									'Peanuts',
-									'Wheat',
-									'Soybeans',
-									'Sesame',
-								]}
-							/>
+
+							<div className=''>
+								<label className='block text-sm text-black dark:text-white-bg mb-1'>
+									Do you have any Known Allergies to medications?
+								</label>
+								<div className='flex items-center space-x-4 mb-4'>
+									<label className='text-black dark:text-white-bg'>
+										<input
+											type='radio'
+											name='allergiesMed'
+											value='Yes'
+											onChange={handleChange}
+											checked={formData.allergiesMed === 'Yes'}
+											className='mr-2 dark:text-white-whites'
+										/>
+										Yes
+									</label>
+									<label className='text-black dark:text-white-bg'>
+										<input
+											type='radio'
+											name='allergiesMed'
+											value='No'
+											checked={formData.allergiesMed === 'No'}
+											onChange={handleChange}
+											className='mr-2 dark:text-white-whites'
+										/>
+										No
+									</label>
+								</div>
+								{formData.allergiesMed === 'Yes' && (
+									<InputField
+										label='Please specify your medication allergies'
+										name='specificAllergiesMed'
+										value={formData.specificAllergiesMed}
+										onChange={handleChange}
+									/>
+								)}
+							</div>
+
+							<div>
+								<label className='block text-sm text-black dark:text-white-bg mb-1'>
+									Do you have any Known Food Allergies?
+								</label>
+								<div className='flex items-center space-x-4 mb-4'>
+									<label className='text-black dark:text-white-bg'>
+										<input
+											type='radio'
+											name='hasNutritionAllergie'
+											value='Yes'
+											checked={formData.hasNutritionAllergie === 'Yes'}
+											onChange={handleChange}
+											className='mr-2'
+										/>
+										Yes
+									</label>
+									<label className='text-black dark:text-white-bg'>
+										<input
+											type='radio'
+											name='hasNutritionAllergie'
+											value='No'
+											checked={formData.hasNutritionAllergie === 'No'}
+											onChange={handleChange}
+											className='mr-2'
+										/>
+										No
+									</label>
+								</div>
+								{formData.hasNutritionAllergie === 'Yes' && (
+									<Dropdown
+										label='Please specify your food allergies'
+										name='specificNutritionAllergie'
+										value={formData.specificNutritionAllergie}
+										onChange={handleChange}
+										options={[
+											'Milk',
+											'Eggs',
+											'Fish',
+											'Shellfish',
+											'Tree Nuts',
+											'Peanuts',
+											'Wheat',
+											'Soybeans',
+											'Sesame',
+										]}
+									/>
+								)}
+							</div>
+
 							<Dropdown
 								label='Vitrack Kit'
 								name='vitrackKit'
 								value={formData.vitrackKit}
 								onChange={handleChange}
-								options={['Yes', 'No']}
+								options={['Granted', 'I have my Own Tools']}
 							/>
 						</div>
 					</>
 				)}
 				{currentStep === 1 && (
-					<form onSubmit={handleSubmit} className='space-y-4'>
-						<h1 className='text-2xl font-semibold'>Health Metrics</h1>
-						<div className='grid grid-cols-2 gap-x-14 gap-y-8'>
-							<div className='col-span-full'>
-								{/* Temperature */}
-								<InputField
-									label='Temperature (°C)'
-									name='temperature'
-									value={formData.temperature}
+					<>
+						<h1 className='text-center text-2xl text-black dark:text-white-whites font-semibold mb-5'>
+							Health Metrics
+						</h1>
+
+						<form
+							onSubmit={handleSubmit}
+							className='space-y-4 !bg-white-bg2 dark:!bg-[#000] p-7 rounded-lg text-black dark:text-white-bg'
+						>
+							<div className='grid grid-cols-2 gap-x-14 gap-y-8'>
+								<div className='col-span-full'>
+									{/* Temperature */}
+									<InputField
+										label='Oral Temperature (°C)'
+										name='temperature'
+										value={formData.temperature}
+										onChange={handleChange}
+										type='text'
+									/>
+								</div>
+
+								<BloodPressureInput
+									hand='Left'
+									systolic={formData.leftHandBloodPressure.systolic}
+									diastolic={formData.leftHandBloodPressure.diastolic}
 									onChange={handleChange}
-									type='number'
+								/>
+
+								<BloodPressureInput
+									hand='Right'
+									systolic={formData.rightHandBloodPressure.systolic}
+									diastolic={formData.rightHandBloodPressure.diastolic}
+									onChange={handleChange}
 								/>
 							</div>
 
-							<BloodPressureInput
-								hand='Left'
-								systolic={formData.leftHandBloodPressure.systolic}
-								diastolic={formData.leftHandBloodPressure.diastolic}
-								onChange={handleChange}
-							/>
-
-							<BloodPressureInput
-								hand='Right'
-								systolic={formData.rightHandBloodPressure.systolic}
-								diastolic={formData.rightHandBloodPressure.diastolic}
-								onChange={handleChange}
-							/>
-						</div>
-
-						{/* Heart Rate */}
-						<InputField
-							label='Heart Rate (bpm)'
-							name='heartRate'
-							value={formData.heartRate}
-							onChange={handleChange}
-							type='number'
-						/>
-
-						{/* Respiratory Rate */}
-						<InputField
-							label='Respiratory Rate (breaths/min)'
-							name='respiratoryRate'
-							value={formData.respiratoryRate}
-							onChange={handleChange}
-							type='number'
-						/>
-						<div className='grid grid-cols-2 gap-x-14'>
-							{/* Left Hand Oxygen */}
+							{/* Heart Rate */}
 							<InputField
-								label='Left Hand Oxygen Saturation (%)'
-								name='leftHandOxygen'
-								value={formData.leftHandOxygen}
+								label='Heart Rate (bpm)'
+								name='heartRate'
+								value={formData.heartRate}
 								onChange={handleChange}
-								type='number'
+								type='text'
 							/>
 
-							{/* Right Hand Oxygen */}
+							{/* Respiratory Rate */}
 							<InputField
-								label='Right Hand Oxygen Saturation (%)'
-								name='rightHandOxygen'
-								value={formData.rightHandOxygen}
+								label='Respiratory Rate (breaths/min)'
+								name='respiratoryRate'
+								value={formData.respiratoryRate}
 								onChange={handleChange}
-								type='number'
+								type='text'
 							/>
+							<div className='grid grid-cols-2 gap-x-14'>
+								{/* Left Hand Oxygen */}
+								<InputField
+									label='Left Hand Oxygen Saturation (%)'
+									name='leftHandOxygen'
+									value={formData.leftHandOxygen}
+									onChange={handleChange}
+									type='text'
+									max={100}
+								/>
 
-							{/* Symptoms */}
-							<div className='col-span-full mt-6'>
-								<h2 className='text-lg font-semibold dark:text-white-bg2'>
-									Symptoms
-								</h2>
-								<div className='grid grid-cols-1 sm:grid-cols-2 gap-2'>
-									{symptomsList.map((symptom, index) => (
-										<label key={index} className='flex items-center space-x-2'>
-											<input
-												type='checkbox'
-												value={symptom}
-												onChange={handleSymptomsChange}
-												checked={formData.symptoms.includes(symptom)}
-												className='form-checkbox'
-											/>
-											<span className='dark:text-white-bg2'>{symptom}</span>
-										</label>
-									))}
+								{/* Right Hand Oxygen */}
+								<InputField
+									label='Right Hand Oxygen Saturation (%)'
+									name='rightHandOxygen'
+									value={formData.rightHandOxygen}
+									onChange={handleChange}
+									type='text'
+									max={100}
+								/>
+
+								{/* Symptoms */}
+								<div className='col-span-full mt-6'>
+									<h2 className='text-lg font-semibold dark:text-white-bg2'>
+										Symptoms
+									</h2>
+									<div className='grid grid-cols-1 sm:grid-cols-2 gap-2'>
+										{symptomsList.map((symptom, index) => (
+											<label
+												key={index}
+												className='flex items-center space-x-2'
+											>
+												<input
+													type='checkbox'
+													value={symptom}
+													onChange={handleSymptomsChange}
+													checked={formData.symptoms.includes(symptom)}
+													className='form-checkbox'
+												/>
+												<span className='dark:text-white-bg2'>{symptom}</span>
+											</label>
+										))}
+									</div>
+								</div>
+
+								{/* Pain Scale */}
+								<div className='col-span-full mt-6'>
+									<label className='block text-sm dark:text-white-bg2'>
+										Pain Scale
+									</label>
+									<input
+										type='range'
+										name='painScale'
+										min='0'
+										max='10'
+										value={formData.painScale}
+										onChange={handleChange}
+										className='mt-1 w-full cursor-pointer'
+									/>
+									<span className='block text-center dark:text-white-bg2'>
+										{formData.painScale}/10
+									</span>
 								</div>
 							</div>
-
-							{/* Pain Scale */}
-							<div className='col-span-full mt-6'>
-								<label className='block text-sm dark:text-white-bg2'>
-									Pain Scale
-								</label>
-								<input
-									type='range'
-									name='painScale'
-									min='0'
-									max='10'
-									value={formData.painScale}
-									onChange={handleChange}
-									className='mt-1 w-full cursor-pointer'
-								/>
-								<span className='block text-center dark:text-white-bg2'>
-									{formData.painScale}/10
-								</span>
-							</div>
-						</div>
-					</form>
+						</form>
+					</>
 				)}
 				{currentStep === 2 && (
 					<div>
-						<h1 className='text-2xl font-semibold'>Review & Submit</h1>
+						<h2 className='text-center text-2xl text-black dark:text-white-whites font-semibold mb-5'>
+							Results
+						</h2>
 						<div className='flex-1 h-[50%] sticky p-6 bg-[#000] shadow-md rounded-lg space-y-4'>
-							<h2 className='text-xl font-semibold text-center text-white-bg2'>
-								Input Values
-							</h2>
 							<ul className='space-y-2'>
 								{Object.entries(formData).map(([key, value]) => {
 									if (typeof value === 'object' && value !== null) {
@@ -377,14 +490,6 @@ const MonitoringForm = () => {
 								})}
 							</ul>
 						</div>
-
-						<button
-							type='button'
-							onClick={handleSubmit}
-							className='w-full bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600'
-						>
-							Submit
-						</button>
 					</div>
 				)}
 			</Stepper>

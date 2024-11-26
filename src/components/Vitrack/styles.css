@@ -31,7 +31,7 @@ h2.react-datepicker__current-month {
 }
 
 .custom-calendar .react-datepicker__header {
-	@apply  dark:bg-black mt-4;
+	@apply dark:bg-black mt-4;
 }
 
 .custom-calendar .react-datepicker__month-select,

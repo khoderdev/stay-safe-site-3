@@ -3,7 +3,7 @@ import MonitoringForm from './MonitoringForm'
 
 function Vitrack() {
   return (
-    <div className='h-screen flex flex-col pt-10'>
+    <div className='h-screen flex flex-col'>
       <MonitoringForm/>
     </div>
   )
