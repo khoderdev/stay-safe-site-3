@@ -4,6 +4,7 @@ import PHQ9Quiz from '../components/depressing-screening/PHQ9';
 import SearchPharmacies from '../components/pharmacies/SearchPharmacies';
 import STOPBang from '../components/calculator/stop-bang/StopBang';
 import Titles from '../components/calculator/stop-bang/Titles';
+import STIQuiz from '../components/calculator/STI/STIQuiz';
 
 function PreventiveHealthPatientServicesPage() {
 	const [isModalOpen, setIsModalOpen] = useState(false);
@@ -53,7 +54,9 @@ function PreventiveHealthPatientServicesPage() {
 						Start Screening
 					</button>
 				</div>
-				<div class='sticky top-0 h-screen flex flex-col items-center justify-center bg-white-fg dark:bg-[#000]'></div>
+				<div class='sticky top-0 h-screen flex flex-col items-center justify-center bg-white-fg dark:bg-black'>
+					<STIQuiz />
+				</div>
 			</div>
 		</>
 	);

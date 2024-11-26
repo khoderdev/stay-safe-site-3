@@ -3,7 +3,7 @@ import { HandMonster } from '../components/images';
 
 function HandMonsterPage() {
 	return (
-		<div className=' md:flex items-center '>
+		<div className=' md:flex items-center h-full'>
 			<img src={HandMonster} alt='Hand Monster' className='w-1/2' />
 			<div className=' w-[40%] dark:text-white-bg'>
 				<p className=''>Your</p>

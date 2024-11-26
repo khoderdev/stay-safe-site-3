@@ -269,5 +269,5 @@ export default {
 		},
 	},
 	variants: {},
-	plugins: [require('tailwind-scrollbar')],
+	plugins: [],
 };
