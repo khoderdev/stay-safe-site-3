@@ -3,10 +3,11 @@ import Stepper from './Stepper';
 import { inputStyles } from '../../utils/styles';
 import { symptomsList, diseasesOptions } from './data';
 import Dropdown from './Dropdown';
+import DateInput from './DateInput';
 
 const initialState = {
 	fullName: '',
-	age: '',
+	dateOfBirth: '',
 	gender: '',
 	country: '',
 	residency: '',
@@ -87,13 +88,26 @@ const MonitoringForm = () => {
 	const [formData, dispatch] = useReducer(formReducer, initialState);
 	const [currentStep, setCurrentStep] = useState(0);
 
+	// const handleChange = (e) => {
+	// 	const { name, value } = e.target;
+	// 	if (name.includes('.')) {
+	// 		const [key, subKey] = name.split('.');
+	// 		dispatch({ name: key, value, subKey });
+	// 	} else {
+	// 		dispatch({ name, value });
+	// 	}
+	// };
+
 	const handleChange = (e) => {
 		const { name, value } = e.target;
+		// If the value is a Date object, convert it to a string for storage
+		const formattedValue = value instanceof Date ? value.toISOString() : value;
+
 		if (name.includes('.')) {
 			const [key, subKey] = name.split('.');
-			dispatch({ name: key, value, subKey });
+			dispatch({ name: key, value: formattedValue, subKey });
 		} else {
-			dispatch({ name, value });
+			dispatch({ name, value: formattedValue });
 		}
 	};
 
@@ -129,12 +143,11 @@ const MonitoringForm = () => {
 								value={formData.fullName}
 								onChange={handleChange}
 							/>
-							<InputField
-								label='Age'
-								name='age'
-								value={formData.age}
+							<DateInput
+								label='Date of Birth'
+								name='dateOfBirth'
+								value={formData.dateOfBirth}
 								onChange={handleChange}
-								type='number'
 							/>
 							<Dropdown
 								label='Gender'

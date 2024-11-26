@@ -1,0 +1,40 @@
+.custom-popper {
+	@apply dark:text-white-whites bg-white-whites dark:bg-black border border-gray-300 shadow-lg rounded-lg;
+}
+
+.custom-calendar {
+	@apply p-4 bg-white-whites dark:bg-black rounded-md shadow-md border-gray-200;
+}
+
+h2.react-datepicker__current-month {
+	@apply dark:text-white-whites dark:bg-black rounded-full mb-2;
+}
+
+.custom-calendar .react-datepicker__day {
+	@apply dark:text-white-whites dark:bg-black rounded-full;
+}
+
+.custom-calendar .react-datepicker__day-name {
+	@apply dark:text-white-whites dark:bg-black rounded-full mt-2;
+}
+
+.custom-calendar .react-datepicker__day--selected {
+	@apply bg-blue-500 text-white-whites dark:bg-black rounded-full;
+}
+
+.custom-calendar .react-datepicker__day:hover {
+	@apply bg-blue-200 rounded-full;
+}
+
+.custom-calendar .react-datepicker__navigation {
+	@apply text-gray-500 hover:text-blue-500;
+}
+
+.custom-calendar .react-datepicker__header {
+	@apply  dark:bg-black mt-4;
+}
+
+.custom-calendar .react-datepicker__month-select,
+.react-datepicker__year-select {
+	@apply dark:bg-black border rounded p-1 dark:text-white-whites;
+}
