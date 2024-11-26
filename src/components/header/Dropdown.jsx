@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
-export default function Dropdown({ title, items }) {
+export default function Dropdown({ title, items, mainLink }) {
 	const [isOpen, setIsOpen] = useState(false);
 
-	// Animation variants
 	const menuVariants = {
 		open: {
 			opacity: 1,
@@ -30,9 +30,20 @@ export default function Dropdown({ title, items }) {
 			onMouseEnter={() => setIsOpen(true)}
 			onMouseLeave={() => setIsOpen(false)}
 		>
-			<button className='text-black dark:text-white-bg hover:text-blue dark:hover:text-blue transition-colors'>
-				{title}
-			</button>
+			{/* Main title, optionally clickable */}
+			{mainLink ? (
+				<Link
+					to={mainLink}
+					className='text-black dark:text-white-bg hover:text-blue dark:hover:text-blue transition-colors'
+				>
+					{title}
+				</Link>
+			) : (
+				<button className='text-black dark:text-white-bg hover:text-blue dark:hover:text-blue transition-colors'>
+					{title}
+				</button>
+			)}
+
 			<AnimatePresence>
 				{isOpen && (
 					<motion.div
@@ -45,12 +56,12 @@ export default function Dropdown({ title, items }) {
 						<ul className='flex flex-col p-2'>
 							{items.map((item, index) => (
 								<li key={index}>
-									<a
-										href={item.href}
-										className='block px-4 py-2 text-white-bg2 hover:bg-gray-100 dark:hover:bg-pink dark:hover:text-white-bg2 rounded-md transition-colors'
+									<Link
+										to={item.to} // Use Link with the `to` prop
+										className='block px-4 py-2 text-black dark:text-white-bg2 hover:bg-gray-100 dark:hover:bg-pink dark:hover:text-white-bg2 rounded-md transition-colors'
 									>
 										{item.label}
-									</a>
+									</Link>
 								</li>
 							))}
 						</ul>
