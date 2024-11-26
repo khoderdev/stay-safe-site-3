@@ -59,27 +59,6 @@ const InputField = ({
 	</div>
 );
 
-const SelectField = ({ label, name, value, onChange, options }) => (
-	<div>
-		<label className='block text-'>{label}</label>
-		<select
-			name={name}
-			value={value}
-			onChange={onChange}
-			className={inputStyles()}
-		>
-			<option value='' disabled>
-				Select {label}
-			</option>
-			{options.map((opt) => (
-				<option key={opt} value={opt}>
-					{opt}
-				</option>
-			))}
-		</select>
-	</div>
-);
-
 const BloodPressureInput = ({ hand, systolic, diastolic, onChange }) => (
 	<div>
 		<div className='font-semibold mb-2'>{hand} Hand Blood Pressure</div>
@@ -157,14 +136,14 @@ const MonitoringForm = () => {
 								onChange={handleChange}
 								type='number'
 							/>
-							<SelectField
+							<Dropdown
 								label='Gender'
 								name='gender'
 								value={formData.gender}
 								onChange={handleChange}
 								options={['Male', 'Female', 'Other']}
 							/>
-							<SelectField
+							<Dropdown
 								label='Country'
 								name='country'
 								value={formData.country}
@@ -188,9 +167,8 @@ const MonitoringForm = () => {
 								name='healthCondition'
 								value={formData.healthCondition}
 								onChange={handleChange}
-								options={[...diseasesOptions, 'Others']} // Add "Others"
+								options={[...diseasesOptions, 'Others']}
 							/>
-							{/* Conditionally render the "Other Health Condition" input */}
 							{formData.healthCondition === 'Others' && (
 								<InputField
 									label='Specify Your Health Condition'
@@ -206,7 +184,7 @@ const MonitoringForm = () => {
 								value={formData.allergiesMed}
 								onChange={handleChange}
 							/>
-							<SelectField
+							<Dropdown
 								label='Nutrition Allergie'
 								name='nutritionAllergie'
 								value={formData.nutritionAllergie}
@@ -223,7 +201,7 @@ const MonitoringForm = () => {
 									'Sesame',
 								]}
 							/>
-							<SelectField
+							<Dropdown
 								label='Vitrack Kit'
 								name='vitrackKit'
 								value={formData.vitrackKit}

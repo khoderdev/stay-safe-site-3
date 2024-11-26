@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { inputStyles } from '../../utils/styles'; // Assuming you have a utility for input styles
+import { inputStyles } from '../../utils/styles';
 
 const Dropdown = ({ label, name, value, onChange, options }) => {
 	const [filteredOptions, setFilteredOptions] = useState(options);
