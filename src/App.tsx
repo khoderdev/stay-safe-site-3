@@ -1,4 +1,4 @@
-import Header from "./components/Header/Header";
+import Header from "./components/header/Header";
 import Layout from "./views/Layout";
 import AppRoutes from "./router/index";
 import React from "react";
