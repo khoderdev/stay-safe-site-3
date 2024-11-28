@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useAtom } from 'jotai';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { CiCalendar } from 'react-icons/ci';
-import '../styles.css';
+import { dateOfBirthAtom } from '../../../atoms/store';
 import { inputStyles } from '../../../utils/styles';
 
 const formatDate = (date) => {
@@ -33,10 +34,12 @@ const CustomDateInput = React.forwardRef(({ value, onClick }, ref) => (
 	</div>
 ));
 
-const DateInput = ({ label, value, onChange }) => {
+const DateInput = ({ label }) => {
+	const [dateOfBirth, setDateOfBirth] = useAtom(dateOfBirthAtom);
+
 	// Convert the value (which is a string) back to a Date object for DatePicker
-	const dateValue = value
-		? new Date(value.split('/').reverse().join('-'))
+	const dateValue = dateOfBirth
+		? new Date(dateOfBirth.split('/').reverse().join('-'))
 		: null;
 
 	return (
@@ -47,9 +50,9 @@ const DateInput = ({ label, value, onChange }) => {
 			<DatePicker
 				selected={dateValue}
 				onChange={(date) => {
-					// Format the date as DD/MM/YYYY and pass it to the parent
+					// Format the date as DD/MM/YYYY and update the atom
 					const formattedDate = formatDate(date);
-					onChange({ target: { name: 'dateOfBirth', value: formattedDate } });
+					setDateOfBirth(formattedDate); // Update the Jotai atom state
 				}}
 				dateFormat='dd/MM/yyyy'
 				className='w-full px-4 py-2 border rounded-md shadow-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent'

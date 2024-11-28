@@ -20,7 +20,7 @@ export const initialState = {
 	address: '',
 	healthCondition: '',
 	otherHealthCondition: '',
-	hasNutritionAllergie: '',
+	hasFoodAllergieAtom: '',
 	allergiesMed: '',
 	nutritionAllergie: '',
 	vitrackKit: '',
