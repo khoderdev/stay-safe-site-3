@@ -14,6 +14,10 @@
     "@emailjs/browser": "^4.4.1",
     "@gsap/react": "^2.1.1",
     "@motionone/utils": "^10.18.0",
+    "@react-spring/core": "^9.7.5",
+    "@react-spring/three": "^9.7.5",
+    "@react-three/drei": "^9.0.0",
+    "@react-three/fiber": "^8.0.0",
     "@tanstack/react-table": "^8.20.5",
     "apexcharts": "^4.0.0",
     "axios": "^1.7.7",
@@ -52,6 +56,7 @@
     "splitting": "^1.1.0",
     "styled-components": "^6.1.13",
     "tailwind-merge": "^2.5.4",
+    "three": "^0.170.0",
     "uuid-by-string": "^4.0.0"
   },
   "devDependencies": {

@@ -94,7 +94,7 @@ const InputField = ({
 
 const BloodPressureInput = ({ hand, systolic, diastolic, onChange }) => (
 	<div>
-		<div className='font-semibold mb-2'>{hand} Hand Blood Pressure</div>
+		<div className=' mb-2'>{hand} Hand </div>
 		<div className='flex space-x-8'>
 			<InputField
 				label='Systolic'
@@ -335,7 +335,7 @@ const MonitoringForm = () => {
 							onSubmit={handleSubmit}
 							className='space-y-4 !bg-white-bg2 dark:!bg-[#000] p-7 rounded-lg text-black dark:text-white-bg'
 						>
-							<div className='grid grid-cols-2 gap-x-14 gap-y-8'>
+							<div className='grid grid-cols-1 sm:grid-cols-2 gap-x-14 gap-y-8 text-sm'>
 								<div className='col-span-full'>
 									{/* Temperature */}
 									<InputField
@@ -346,14 +346,25 @@ const MonitoringForm = () => {
 										type='text'
 									/>
 								</div>
-
+								<div className='col-span-full'>Blood Pressure</div>
 								<BloodPressureInput
 									hand='Left'
 									systolic={formData.leftHandBloodPressure.systolic}
 									diastolic={formData.leftHandBloodPressure.diastolic}
 									onChange={handleChange}
 								/>
-
+								<BloodPressureInput
+									hand='Right'
+									systolic={formData.rightHandBloodPressure.systolic}
+									diastolic={formData.rightHandBloodPressure.diastolic}
+									onChange={handleChange}
+								/>
+								<BloodPressureInput
+									hand='Left'
+									systolic={formData.leftHandBloodPressure.systolic}
+									diastolic={formData.leftHandBloodPressure.diastolic}
+									onChange={handleChange}
+								/>
 								<BloodPressureInput
 									hand='Right'
 									systolic={formData.rightHandBloodPressure.systolic}
@@ -361,7 +372,6 @@ const MonitoringForm = () => {
 									onChange={handleChange}
 								/>
 							</div>
-
 							{/* Heart Rate */}
 							<InputField
 								label='Heart Rate (bpm)'
