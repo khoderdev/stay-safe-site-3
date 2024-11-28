@@ -95,16 +95,17 @@ export default function Header() {
             className="text-black hover:text-blue dark:text-white-bg dark:hover:text-blue transition-colors">
             Home
           </Link>
-          <Link
+          {/* <Link
             to="/mdc"
             className="text-black hover:text-blue dark:text-white-bg dark:hover:text-blue transition-colors">
 
             Medical Dietry Clinic
-          </Link>
+          </Link> */}
           <Dropdown
             title="Preventive Health & Patient Services"
             mainLink="/preventive-health-patient-services"
             items={[
+              { label: 'Medical Dietary Clinic', to: '/mdc' },
               { label: 'Vitrack', to: '/vitrack' },
             ]}
           />
