@@ -296,7 +296,7 @@ const HealthMetricsForm = ({
 	};
 
 	return (
-		<div className='p-7 rounded-lg !bg-white-bg2 dark:!bg-[#000] space-y-6'>
+		<div className='xsm:p-3 sm:p-7 rounded-lg !bg-white-bg2 dark:!bg-[#000] space-y-6'>
 			<InputField
 				label='Oral Temperature (°C)'
 				name='temperature'
@@ -323,7 +323,7 @@ const HealthMetricsForm = ({
 							</button>
 						)}
 
-						<div className='sm:flex-col sm:flex sm:space-x-0 sm:space-y-3 sm:items-center md:flex md:flex-row md:space-x-8 md:space-y-0 md:items-center md:justify-center'>
+						<div className='xsm:grid xsm:grid-cols-1 sm:flex-col sm:flex sm:space-x-0 sm:space-y-3 sm:items-center md:flex md:flex-row md:space-x-8 md:space-y-0 md:items-center md:justify-center'>
 							<BloodPressureInput
 								hand='Left'
 								systolic={set.leftHand.systolic}
@@ -355,7 +355,7 @@ const HealthMetricsForm = ({
 				))}
 
 				{/* Buttons to add sets */}
-				<div className='flex space-x-4'>
+				<div className='flex space-x-4 '>
 					<button
 						type='button'
 						onClick={addBloodPressureSet}
@@ -365,6 +365,7 @@ const HealthMetricsForm = ({
 					</button>
 				</div>
 			</div>
+			
 			<InputField
 				label='Heart Rate (bpm)'
 				name='heartRate'

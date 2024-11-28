@@ -86,7 +86,7 @@ const Dropdown = ({ label, name, value, onChange, options }) => {
 
 			{/* Dropdown Menu */}
 			{showDropdown && filteredOptions.length > 0 && (
-				<ul className='absolute z-10 dark:!text-white-bg bg-white-bg dark:bg-black border border-gray-300 w-full max-h-52 overflow-y-auto shadow-md cursor'>
+				<ul className='absolute z-10 dark:!text-white-bg bg-white-bg dark:bg-black w-full max-h-52 overflow-y-auto shadow-md mt-[1px] rounded'>
 					{filteredOptions.map((option, index) => (
 						<li
 							key={option}
