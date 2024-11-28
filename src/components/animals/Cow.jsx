@@ -6,7 +6,6 @@ import HoverHandler from './HoverHandler';
 function Cow() {
 	const [isPopupVisible, setPopupVisible] = useState(false);
 	const [popupContent, setPopupContent] = useState('');
-	// const [isHovered, setHovered] = useState(false);
 	const [hoveredIds, setHoveredIds] = useState({});
 
 	const handleHoverStart = (id) => {
@@ -26,14 +25,6 @@ function Cow() {
 		setPopupVisible(false);
 		setPopupContent('');
 	};
-
-	// const handleMouseEnter = () => {
-	// 	setHovered(true); // Hovering starts
-	// };
-
-	// const handleMouseLeave = () => {
-	// 	setHovered(false); // Hovering ends
-	// };
 
 	return (
 		<>
