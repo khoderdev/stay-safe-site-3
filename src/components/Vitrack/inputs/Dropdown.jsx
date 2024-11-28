@@ -67,7 +67,7 @@ const Dropdown = ({ label, name, value, onChange, options }) => {
 
 	return (
 		<div ref={dropdownRef} className='relative'>
-			<label className='block text-sm !text-black dark:!text-white-bg'>
+			<label className='block mb-2 text-sm !text-black dark:!text-white-bg'>
 				{label}
 			</label>
 			<input

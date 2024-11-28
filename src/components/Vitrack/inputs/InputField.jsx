@@ -34,7 +34,7 @@ const InputField = ({
 			{label && (
 				<label
 					htmlFor={name}
-					className='block text-sm !text-black dark:!text-white-bg'
+					className='block mb-2 text-sm !text-black dark:!text-white-bg'
 				>
 					{label}
 				</label>
