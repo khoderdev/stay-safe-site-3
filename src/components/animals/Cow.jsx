@@ -135,10 +135,16 @@ m66 -31 c0 -6 -5 -13 -10 -16 -8 -5 -8 -11 -1 -19 12 -14 5 -26 -16 -26 -16 0
 						d='M952 5378 c8 -22 36 -34 50 -20 10 10 10 15 -2 22 -21 14 -52 12 -48
 -2z'
 					/>
-					<path
-						fill='green'
-						className='chuck'
-						d='M2850 6829 c-1 -46 -2 -127 -1 -179 0 -52 -5 -113 -12 -135 -6 -22
+					<HoverHandler
+						id='chuck'
+						isHovered={!!hoveredIds['chuck']}
+						onHoverStart={handleHoverStart}
+						onHoverEnd={handleHoverEnd}
+					>
+						<path
+							onClick={() => handlePathClick('chuck')}
+							fill={hoveredIds['chuck'] ? '#e55e72' : '#174354'}
+							d='M2850 6829 c-1 -46 -2 -127 -1 -179 0 -52 -5 -113 -12 -135 -6 -22
 -12 -69 -13 -105 -2 -78 -13 -151 -26 -167 -5 -7 -7 -21 -3 -32 3 -10 1 -22
 -5 -26 -5 -3 -10 -22 -10 -41 0 -20 -5 -44 -10 -55 -8 -15 -7 -19 5 -19 20 0
 19 -12 -4 -42 -11 -14 -25 -47 -32 -74 -6 -27 -16 -58 -22 -69 -13 -24 -26
@@ -182,7 +188,8 @@ c21 -41 21 -46 7 -80 -8 -20 -27 -49 -42 -64 -79 -82 -159 -100 -417 -91 -104
 -39 -40 -107 -27 -128 -64 -62 -107 53 -35 108 -41 347 -39 217 3 370 15 417
 34 39 16 50 57 32 119 -13 43 -21 53 -57 71 -53 27 -54 28 -37 39 24 15 43 12
 84 -16z'
-					/>
+						/>
+					</HoverHandler>
 
 					<HoverHandler
 						id='round'
@@ -320,15 +327,19 @@ m-77 -37 c-18 -123 -72 -153 -87 -49 -4 24 -2 62 4 84 9 33 16 42 43 49 47 13
 c0 -76 -11 -151 -21 -151 -10 0 -12 117 -3 173 10 57 24 44 24 -22z'
 						/>
 					</HoverHandler>
-					<path
-						onClick={() => handlePathClick('sirloin')}
-						onMouseEnter={handleMouseEnter}
-						onMouseLeave={handleMouseLeave}
-						fill={isHovered ? '#e55e72' : ''}
+					<HoverHandler
 						id='sirloin'
-						d='M7972 6678 c-14 -14 -17 -138 -3 -138 13 0 29 48 34 103 5 48 -6 60
+						isHovered={!!hoveredIds['sirloin']}
+						onHoverStart={handleHoverStart}
+						onHoverEnd={handleHoverEnd}
+					>
+						<path
+							onClick={() => handlePathClick('sirloin')}
+							fill={hoveredIds['sirloin'] ? '#e55e72' : '#174354'}
+							d='M7972 6678 c-14 -14 -17 -138 -3 -138 13 0 29 48 34 103 5 48 -6 60
 -31 35z'
-					/>
+						/>
+					</HoverHandler>
 					<path
 						id='sirloin'
 						fill='#F9C0AB'
@@ -336,11 +347,16 @@ c0 -76 -11 -151 -21 -151 -10 0 -12 117 -3 173 10 57 24 44 24 -22z'
 						d='M7751 6676 c-7 -8 -11 -25 -9 -38 3 -22 3 -22 21 6 21 31 10 58 -12
 32z'
 					/>
-					<path
+					<HoverHandler
 						id='short-loin'
-						className='short-loin'
-						fill='#4C4B16'
-						d='M6774 6696 c-15 -11 -75 -18 -229 -26 -196 -11 -210 -11 -222 6 -14
+						isHovered={!!hoveredIds['short-loin']}
+						onHoverStart={handleHoverStart}
+						onHoverEnd={handleHoverEnd}
+					>
+						<path
+							onClick={() => handlePathClick('short-loin')}
+							fill={hoveredIds['short-loin'] ? '#e55e72' : '#174354'}
+							d='M6774 6696 c-15 -11 -75 -18 -229 -26 -196 -11 -210 -11 -222 6 -14
 19 -7 19 -300 8 -157 -6 -163 -7 -163 -28 0 -11 7 -34 15 -50 14 -27 21 -56
 29 -131 2 -16 11 -46 19 -66 11 -25 14 -46 8 -65 -10 -36 -4 -115 9 -128 5 -5
 10 -20 10 -33 0 -13 5 -23 11 -23 7 0 9 -10 5 -26 -4 -15 -2 -32 5 -40 9 -11
@@ -391,33 +407,57 @@ c123 -11 212 -32 236 -56 8 -9 15 -30 15 -49 0 -25 -8 -40 -35 -64 -40 -35
 -35 42 -40 85 -16 120 18 25 41 21 51 -9z m929 -61 c4 -13 5 -43 3 -68 l-3
 -44 -60 -3 c-33 -2 -120 4 -193 14 -109 15 -132 21 -130 33 4 18 14 18 198 1
 173 -15 163 -17 155 30 -7 40 -2 60 15 60 5 0 12 -10 15 -23z'
-					/>
-					<path
+						/>
+					</HoverHandler>
+					<HoverHandler
 						id='short-loin'
-						className='short-loin'
-						fill='#4C4B16'
-						d='M6244 5634 c-4 -15 -3 -43 2 -63 9 -36 10 -36 67 -39 31 -2 57 1 57
+						isHovered={!!hoveredIds['short-loin']}
+						onHoverStart={handleHoverStart}
+						onHoverEnd={handleHoverEnd}
+					>
+						<path
+							onClick={() => handlePathClick('short-loin')}
+							fill={hoveredIds['short-loin'] ? '#e55e72' : '#174354'}
+							d='M6244 5634 c-4 -15 -3 -43 2 -63 9 -36 10 -36 67 -39 31 -2 57 1 57
 6 0 15 -69 101 -90 112 -27 14 -29 13 -36 -16z'
-					/>
-					<path
+						/>
+					</HoverHandler>
+					<HoverHandler
 						id='short-loin'
-						className='short-loin'
-						fill='#4C4B16'
-						d='M6287 5344 c-21 -20 -27 -33 -25 -57 4 -40 24 -45 182 -49 103 -3
+						isHovered={!!hoveredIds['short-loin']}
+						onHoverStart={handleHoverStart}
+						onHoverEnd={handleHoverEnd}
+					>
+						<path
+							onClick={() => handlePathClick('short-loin')}
+							fill={hoveredIds['short-loin'] ? '#e55e72' : '#174354'}
+							d='M6287 5344 c-21 -20 -27 -33 -25 -57 4 -40 24 -45 182 -49 103 -3
 126 0 149 15 35 23 38 73 5 86 -36 14 -162 31 -226 31 -48 0 -62 -4 -85 -26z'
-					/>
-					<path
+						/>
+					</HoverHandler>
+					<HoverHandler
 						id='short-loin'
-						className='short-loin'
-						fill='#4C4B16'
-						d='M6970 4883 c-81 -12 -84 -17 -42 -61 40 -42 82 -56 155 -50 122 11
+						isHovered={!!hoveredIds['short-loin']}
+						onHoverStart={handleHoverStart}
+						onHoverEnd={handleHoverEnd}
+					>
+						<path
+							onClick={() => handlePathClick('short-loin')}
+							fill={hoveredIds['short-loin'] ? '#e55e72' : '#174354'}
+							d='M6970 4883 c-81 -12 -84 -17 -42 -61 40 -42 82 -56 155 -50 122 11
 151 51 68 95 -43 22 -106 28 -181 16z'
-					/>
-					<path
+						/>
+					</HoverHandler>
+					<HoverHandler
 						id='rib'
-						fill='red'
-						className='rib'
-						d='M4320 6679 c1 -8 7 -25 15 -39 8 -14 14 -49 15 -77 0 -29 4 -72 10
+						isHovered={!!hoveredIds['rib']}
+						onHoverStart={handleHoverStart}
+						onHoverEnd={handleHoverEnd}
+					>
+						<path
+							onClick={() => handlePathClick('rib')}
+							fill={hoveredIds['rib'] ? '#e55e72' : '#174354'}
+							d='M4320 6679 c1 -8 7 -25 15 -39 8 -14 14 -49 15 -77 0 -29 4 -72 10
 -95 5 -24 17 -90 26 -148 8 -58 17 -112 18 -120 9 -50 19 -138 20 -183 1 -29
 5 -58 10 -65 4 -7 3 -18 -2 -25 -11 -14 -7 -160 4 -179 5 -7 9 -44 9 -83 1
 -53 4 -69 14 -67 10 2 11 -2 5 -15 -7 -16 -9 -59 -5 -133 0 -14 -1 -50 -4 -82
@@ -447,34 +487,59 @@ c123 -11 212 -32 236 -56 8 -9 15 -30 15 -49 0 -25 -8 -40 -35 -64 -40 -35
 l-214 12 -23 34 c-62 93 11 196 124 175 56 -11 130 -51 173 -95 37 -38 60 -49
 60 -29 0 12 99 80 222 153 25 15 76 36 112 47 36 10 75 26 88 34 29 21 38 20
 38 -3z'
-					/>
-					<path
+						/>
+					</HoverHandler>
+					<HoverHandler
 						id='rib'
-						fill='red'
-						className='rib'
-						d='M5280 5591 c-8 -5 -23 -12 -33 -15 -41 -13 -60 -121 -32 -177 l16
+						isHovered={!!hoveredIds['rib']}
+						onHoverStart={handleHoverStart}
+						onHoverEnd={handleHoverEnd}
+					>
+						<path
+							onClick={() => handlePathClick('rib')}
+							fill={hoveredIds['rib'] ? '#e55e72' : '#174354'}
+							d='M5280 5591 c-8 -5 -23 -12 -33 -15 -41 -13 -60 -121 -32 -177 l16
 -29 192 2 c212 3 218 6 175 63 -54 71 -124 133 -163 144 -57 17 -137 23 -155
 12z'
-					/>
-					<path
+						/>
+					</HoverHandler>
+					<HoverHandler
 						id='rib'
-						fill='red'
-						className='rib'
-						d='M4849 5471 c-31 -31 -37 -66 -16 -94 11 -16 30 -17 172 -15 183 3
+						isHovered={!!hoveredIds['rib']}
+						onHoverStart={handleHoverStart}
+						onHoverEnd={handleHoverEnd}
+					>
+						<path
+							onClick={() => handlePathClick('rib')}
+							fill={hoveredIds['rib'] ? '#e55e72' : '#174354'}
+							d='M4849 5471 c-31 -31 -37 -66 -16 -94 11 -16 30 -17 172 -15 183 3
 192 9 111 66 -58 41 -144 72 -198 72 -30 0 -46 -7 -69 -29z'
-					/>
-					<path
+						/>
+					</HoverHandler>
+					<HoverHandler
 						id='rib'
-						fill='red'
-						className='rib'
-						d='M4847 4808 c-31 -11 -44 -48 -31 -87 13 -35 66 -49 192 -50 77 -1
+						isHovered={!!hoveredIds['rib']}
+						onHoverStart={handleHoverStart}
+						onHoverEnd={handleHoverEnd}
+					>
+						<path
+							onClick={() => handlePathClick('rib')}
+							fill={hoveredIds['rib'] ? '#e55e72' : '#174354'}
+							d='M4847 4808 c-31 -11 -44 -48 -31 -87 13 -35 66 -49 192 -50 77 -1
 102 2 102 12 0 25 -76 86 -139 111 -70 28 -82 30 -124 14z'
-					/>
-					<path
+						/>
+					</HoverHandler>
+
+					<HoverHandler
 						id='tenderloin'
-						fill='#E38E49'
-						className='tenderloin'
-						d='M8625 6318 c-22 -5 -152 -10 -288 -13 -137 -3 -252 -7 -257 -10 -4
+						isHovered={!!hoveredIds['tenderloin']}
+						onHoverStart={handleHoverStart}
+						onHoverEnd={handleHoverEnd}
+					>
+						<path
+							onClick={() => handlePathClick('tenderloin')}
+							fill={hoveredIds['tenderloin'] ? '#e55e72' : '#174354'}
+							d='M8625 6318 c-22 -5 -152 -10 -288 -13 -137 -3 -252 -7 -257 -10 -4
 -3 -45 -7 -91 -10 -46 -3 -102 -8 -124 -11 -22 -2 -121 -7 -220 -10 -99 -2
 -247 -9 -330 -15 -82 -5 -221 -14 -307 -19 -87 -5 -166 -11 -175 -14 -33 -10
 -47 -48 -51 -137 -4 -84 -4 -87 25 -119 31 -34 28 -34 213 -60 36 -5 107 -9
@@ -506,33 +571,59 @@ c10 -13 16 -44 16 -74 0 -47 -4 -56 -35 -86 -20 -18 -41 -33 -48 -33 -8 0 -14
 -7 18 5 42 21 42 10 0 14 -15 14 -57 0 -108 -45 -143 -85 -67 -12 23 -25 52
 -29 65 l-8 24 -8 -25 c-4 -14 -8 -44 -9 -67 -1 -31 -5 -43 -16 -43 -17 0 -20
 54 -9 148 6 44 10 52 28 52 16 0 29 -16 55 -73z'
-					/>
-					<path
+						/>
+					</HoverHandler>
+
+					<HoverHandler
 						id='tenderloin'
-						fill='#E38E49'
-						className='tenderloin'
-						d='M7997 6162 c-20 -22 -22 -52 -3 -52 7 0 25 9 40 21 21 17 24 24 15
+						isHovered={!!hoveredIds['tenderloin']}
+						onHoverStart={handleHoverStart}
+						onHoverEnd={handleHoverEnd}
+					>
+						<path
+							onClick={() => handlePathClick('tenderloin')}
+							fill={hoveredIds['tenderloin'] ? '#e55e72' : '#174354'}
+							d='M7997 6162 c-20 -22 -22 -52 -3 -52 7 0 25 9 40 21 21 17 24 24 15
 35 -16 19 -33 18 -52 -4z'
-					/>
-					<path
+						/>
+					</HoverHandler>
+					<HoverHandler
 						id='tenderloin'
-						fill='#E38E49'
-						className='tenderloin'
-						d='M8245 6117 c-10 -50 -3 -92 15 -92 11 0 16 15 18 63 2 50 0 62 -12
+						isHovered={!!hoveredIds['tenderloin']}
+						onHoverStart={handleHoverStart}
+						onHoverEnd={handleHoverEnd}
+					>
+						<path
+							onClick={() => handlePathClick('tenderloin')}
+							fill={hoveredIds['tenderloin'] ? '#e55e72' : '#174354'}
+							d='M8245 6117 c-10 -50 -3 -92 15 -92 11 0 16 15 18 63 2 50 0 62 -12
 62 -9 0 -18 -13 -21 -33z'
-					/>
-					<path
+						/>
+					</HoverHandler>
+					<HoverHandler
 						id='tenderloin'
-						fill='#E38E49'
-						className='tenderloin'
-						d='M7706 6153 c-3 -4 -6 -40 -6 -81 0 -64 2 -73 14 -62 22 17 38 76 31
+						isHovered={!!hoveredIds['tenderloin']}
+						onHoverStart={handleHoverStart}
+						onHoverEnd={handleHoverEnd}
+					>
+						<path
+							onClick={() => handlePathClick('tenderloin')}
+							fill={hoveredIds['tenderloin'] ? '#e55e72' : '#174354'}
+							d='M7706 6153 c-3 -4 -6 -40 -6 -81 0 -64 2 -73 14 -62 22 17 38 76 31
 109 -6 28 -27 46 -39 34z'
-					/>
-					<path
+						/>
+					</HoverHandler>
+
+					<HoverHandler
 						id='top-sirloin'
-						fill='#EB5B00'
-						className='top-sirloin'
-						d='M7441 5719 c1 -41 6 -92 12 -114 5 -22 11 -67 12 -100 4 -81 16 -154
+						isHovered={!!hoveredIds['top-sirloin']}
+						onHoverStart={handleHoverStart}
+						onHoverEnd={handleHoverEnd}
+					>
+						<path
+							onClick={() => handlePathClick('top-sirloin')}
+							fill={hoveredIds['top-sirloin'] ? '#e55e72' : '#174354'}
+							d='M7441 5719 c1 -41 6 -92 12 -114 5 -22 11 -67 12 -100 4 -81 16 -154
 26 -161 5 -3 9 -32 9 -64 0 -73 -10 -69 207 -73 101 -2 166 -7 175 -15 9 -7
 26 -8 53 -2 53 12 132 12 140 0 3 -6 15 -6 29 0 13 5 26 6 29 4 3 -3 99 -5
 213 -6 115 0 228 -4 251 -8 25 -4 46 -3 52 3 7 7 15 7 24 -1 7 -6 18 -8 23 -3
@@ -561,40 +652,71 @@ l-12 30 -12 -47 c-7 -26 -12 -58 -12 -72 0 -14 -4 -26 -10 -26 -13 0 -11 80 3
 -24 3 -24 58 0 105 23 151 76 152 17 0 23 -8 28 -41z m56 -26 c-11 -32 -24
 -77 -30 -100 -6 -26 -17 -43 -25 -43 -8 0 -15 1 -15 3 0 8 53 165 61 180 21
 38 26 13 9 -40z'
-					/>
-					<path
+						/>
+					</HoverHandler>
+
+					<HoverHandler
 						id='top-sirloin'
-						fill='#EB5B00'
-						className='top-sirloin'
-						d='M7709 5574 c-7 -9 -15 -42 -17 -74 -5 -70 10 -86 45 -46 18 21 23 39
+						isHovered={!!hoveredIds['top-sirloin']}
+						onHoverStart={handleHoverStart}
+						onHoverEnd={handleHoverEnd}
+					>
+						<path
+							onClick={() => handlePathClick('top-sirloin')}
+							fill={hoveredIds['top-sirloin'] ? '#e55e72' : '#174354'}
+							d='M7709 5574 c-7 -9 -15 -42 -17 -74 -5 -70 10 -86 45 -46 18 21 23 39
 23 82 0 46 -3 54 -19 54 -10 0 -24 -7 -32 -16z'
-					/>
-					<path
+						/>
+					</HoverHandler>
+					<HoverHandler
 						id='top-sirloin'
-						fill='#EB5B00'
-						className='top-sirloin'
-						d='M7836 5581 c-23 -25 -21 -71 2 -71 22 0 52 30 52 51 0 8 -9 20 -19
+						isHovered={!!hoveredIds['top-sirloin']}
+						onHoverStart={handleHoverStart}
+						onHoverEnd={handleHoverEnd}
+					>
+						<path
+							onClick={() => handlePathClick('top-sirloin')}
+							fill={hoveredIds['top-sirloin'] ? '#e55e72' : '#174354'}
+							d='M7836 5581 c-23 -25 -21 -71 2 -71 22 0 52 30 52 51 0 8 -9 20 -19
 26 -15 10 -22 9 -35 -6z'
-					/>
-					<path
+						/>
+					</HoverHandler>
+					<HoverHandler
 						id='top-sirloin'
-						fill='#EB5B00'
-						className='top-sirloin'
-						d='M8272 5562 c-14 -10 -35 -72 -23 -72 14 0 51 46 51 63 0 19 -8 21
+						isHovered={!!hoveredIds['top-sirloin']}
+						onHoverStart={handleHoverStart}
+						onHoverEnd={handleHoverEnd}
+					>
+						<path
+							onClick={() => handlePathClick('top-sirloin')}
+							fill={hoveredIds['top-sirloin'] ? '#e55e72' : '#174354'}
+							d='M8272 5562 c-14 -10 -35 -72 -23 -72 14 0 51 46 51 63 0 19 -8 21
 -28 9z'
-					/>
-					<path
+						/>
+					</HoverHandler>
+					<HoverHandler
 						id='top-sirloin'
-						fill='#EB5B00'
-						className='top-sirloin'
-						d='M8512 5552 c-25 -17 -45 -142 -22 -142 20 0 50 65 50 108 0 42 -5 48
+						isHovered={!!hoveredIds['top-sirloin']}
+						onHoverStart={handleHoverStart}
+						onHoverEnd={handleHoverEnd}
+					>
+						<path
+							onClick={() => handlePathClick('top-sirloin')}
+							fill={hoveredIds['top-sirloin'] ? '#e55e72' : '#174354'}
+							d='M8512 5552 c-25 -17 -45 -142 -22 -142 20 0 50 65 50 108 0 42 -5 48
 -28 34z'
-					/>
-					<path
+						/>
+					</HoverHandler>
+					<HoverHandler
 						id='bottom-sirloin'
-						fill='#640D5F'
-						className='bottom-sirloin'
-						d='M7518 5063 c-4 -104 -3 -125 4 -129 4 -3 5 -18 1 -34 -3 -17 -1 -36
+						isHovered={!!hoveredIds['bottom-sirloin']}
+						onHoverStart={handleHoverStart}
+						onHoverEnd={handleHoverEnd}
+					>
+						<path
+							onClick={() => handlePathClick('bottom-sirloin')}
+							fill={hoveredIds['bottom-sirloin'] ? '#e55e72' : '#174354'}
+							d='M7518 5063 c-4 -104 -3 -125 4 -129 4 -3 5 -18 1 -34 -3 -17 -1 -36
 5 -42 6 -7 10 -58 11 -113 0 -98 8 -273 12 -291 2 -5 0 -22 -4 -39 -4 -16 -3
 -44 2 -61 5 -20 5 -36 0 -41 -6 -6 -6 -19 0 -35 5 -14 7 -35 4 -46 -8 -31 30
 -63 66 -56 16 3 31 2 34 -3 3 -5 21 -8 39 -7 18 2 67 -2 108 -8 41 -5 93 -12
@@ -638,54 +760,101 @@ m277 58 c9 -6 12 -32 10 -97 l-3 -89 33 3 c28 3 33 1 30 -14 -3 -19 -70 -39
 19 35 12 -30 -219 -69 -243 -11 -7 -52 56 -69 107 -7 21 -16 40 -21 43 -8 5
 -30 -54 -30 -82 0 -19 -22 -63 -32 -63 -13 0 -10 33 13 127 28 116 27 113 37
 113 5 0 26 -43 47 -95z'
-					/>
-					<path
+						/>
+					</HoverHandler>
+
+					<HoverHandler
 						id='bottom-sirloin'
-						fill='#640D5F'
-						className='bottom-sirloin'
-						d='M7802 4855 c-24 -52 -10 -59 37 -19 34 28 33 44 -3 44 -15 0 -27 -9
+						isHovered={!!hoveredIds['bottom-sirloin']}
+						onHoverStart={handleHoverStart}
+						onHoverEnd={handleHoverEnd}
+					>
+						<path
+							onClick={() => handlePathClick('bottom-sirloin')}
+							fill={hoveredIds['bottom-sirloin'] ? '#e55e72' : '#174354'}
+							d='M7802 4855 c-24 -52 -10 -59 37 -19 34 28 33 44 -3 44 -15 0 -27 -9
 -34 -25z'
-					/>
-					<path
+						/>
+					</HoverHandler>
+
+					<HoverHandler
 						id='bottom-sirloin'
-						fill='#640D5F'
-						className='bottom-sirloin'
-						d='M7825 4787 c-55 -18 -99 -72 -74 -88 24 -15 55 -10 89 14 65 44 54
+						isHovered={!!hoveredIds['bottom-sirloin']}
+						onHoverStart={handleHoverStart}
+						onHoverEnd={handleHoverEnd}
+					>
+						<path
+							onClick={() => handlePathClick('bottom-sirloin')}
+							fill={hoveredIds['bottom-sirloin'] ? '#e55e72' : '#174354'}
+							d='M7825 4787 c-55 -18 -99 -72 -74 -88 24 -15 55 -10 89 14 65 44 54
 97 -15 74z'
-					/>
-					<path
+						/>
+					</HoverHandler>
+
+					<HoverHandler
 						id='bottom-sirloin'
-						fill='#640D5F'
-						className='bottom-sirloin'
-						d='M7979 4800 c-17 -52 -20 -73 -12 -81 23 -23 79 100 62 133 -16 30
+						isHovered={!!hoveredIds['bottom-sirloin']}
+						onHoverStart={handleHoverStart}
+						onHoverEnd={handleHoverEnd}
+					>
+						<path
+							onClick={() => handlePathClick('bottom-sirloin')}
+							fill={hoveredIds['bottom-sirloin'] ? '#e55e72' : '#174354'}
+							d='M7979 4800 c-17 -52 -20 -73 -12 -81 23 -23 79 100 62 133 -16 30
 -25 21 -50 -52z'
-					/>
-					<path
+						/>
+					</HoverHandler>
+					<HoverHandler
 						id='bottom-sirloin'
-						fill='#640D5F'
-						className='bottom-sirloin'
-						d='M8355 4826 c-20 -47 -19 -86 1 -86 16 0 39 47 46 90 5 41 -29 39 -47
+						isHovered={!!hoveredIds['bottom-sirloin']}
+						onHoverStart={handleHoverStart}
+						onHoverEnd={handleHoverEnd}
+					>
+						<path
+							onClick={() => handlePathClick('bottom-sirloin')}
+							fill={hoveredIds['bottom-sirloin'] ? '#e55e72' : '#174354'}
+							d='M8355 4826 c-20 -47 -19 -86 1 -86 16 0 39 47 46 90 5 41 -29 39 -47
 -4z'
-					/>
-					<path
+						/>
+					</HoverHandler>
+
+					<HoverHandler
 						id='bottom-sirloin'
-						fill='#640D5F'
-						className='bottom-sirloin'
-						d='M8014 4557 c-35 -42 -12 -50 28 -10 24 24 27 31 14 36 -9 4 -25 -6
+						isHovered={!!hoveredIds['bottom-sirloin']}
+						onHoverStart={handleHoverStart}
+						onHoverEnd={handleHoverEnd}
+					>
+						<path
+							onClick={() => handlePathClick('bottom-sirloin')}
+							fill={hoveredIds['bottom-sirloin'] ? '#e55e72' : '#174354'}
+							d='M8014 4557 c-35 -42 -12 -50 28 -10 24 24 27 31 14 36 -9 4 -25 -6
 -42 -26z'
-					/>
-					<path
+						/>
+					</HoverHandler>
+					<HoverHandler
 						id='bottom-sirloin'
-						fill='#640D5F'
-						className='bottom-sirloin'
-						d='M8348 4573 c-21 -5 -28 -25 -35 -97 -6 -64 5 -71 40 -25 41 55 38
+						isHovered={!!hoveredIds['bottom-sirloin']}
+						onHoverStart={handleHoverStart}
+						onHoverEnd={handleHoverEnd}
+					>
+						<path
+							onClick={() => handlePathClick('bottom-sirloin')}
+							fill={hoveredIds['bottom-sirloin'] ? '#e55e72' : '#174354'}
+							d='M8348 4573 c-21 -5 -28 -25 -35 -97 -6 -64 5 -71 40 -25 41 55 38
 132 -5 122z'
-					/>
-					<path
+						/>
+					</HoverHandler>
+
+					<HoverHandler
 						id='flank'
-						fill='#D91656'
-						className='flank'
-						d='M6152 4081 c-26 -46 -28 -69 -6 -78 8 -3 13 -12 10 -20 -4 -8 -3 -20
+						isHovered={!!hoveredIds['flank']}
+						onHoverStart={handleHoverStart}
+						onHoverEnd={handleHoverEnd}
+					>
+						<path
+							onClick={() => handlePathClick('flank')}
+							fill={hoveredIds['flank'] ? '#e55e72' : '#174354'}
+							d='M6152 4081 c-26 -46 -28 -69 -6 -78 8 -3 13 -12 10 -20 -4 -8 -3 -20
 1 -26 10 -17 12 -93 2 -108 -5 -8 -2 -21 9 -32 14 -15 14 -20 2 -27 -11 -7
 -11 -11 -1 -23 9 -12 9 -25 0 -62 -7 -27 -9 -77 -6 -120 4 -60 3 -75 -10 -79
 -14 -6 -14 -9 0 -30 11 -17 13 -26 5 -34 -6 -6 -12 -49 -12 -95 -1 -48 -7 -91
@@ -722,19 +891,33 @@ l-50 34 -7 -45 c-8 -54 -11 -59 -34 -50 -15 6 -16 22 -11 160 5 143 15 196 36
 -14 10 -88 10 -165 0 -89 4 -139 10 -139 6 0 28 9 49 20 32 16 41 17 50 6 8
 -10 6 -17 -7 -29 -21 -19 -128 -44 -140 -33 -7 8 -20 355 -13 362 12 12 33 1
 41 -22z'
-					/>
-					<path
+						/>
+					</HoverHandler>
+
+					<HoverHandler
 						id='flank'
-						fill='#D91656'
-						className='flank'
-						d='M6930 3811 c0 -44 2 -49 20 -44 23 6 23 5 8 54 -15 53 -28 49 -28
+						isHovered={!!hoveredIds['flank']}
+						onHoverStart={handleHoverStart}
+						onHoverEnd={handleHoverEnd}
+					>
+						<path
+							onClick={() => handlePathClick('flank')}
+							fill={hoveredIds['flank'] ? '#e55e72' : '#174354'}
+							d='M6930 3811 c0 -44 2 -49 20 -44 23 6 23 5 8 54 -15 53 -28 49 -28
 -10z'
-					/>
-					<path
+						/>
+					</HoverHandler>
+
+					<HoverHandler
 						id='plate'
-						fill='yellow'
-						className='plate'
-						d='M5855 4102 c-4 -4 -163 -10 -353 -13 -431 -8 -725 -25 -837 -49 -27
+						isHovered={!!hoveredIds['plate']}
+						onHoverStart={handleHoverStart}
+						onHoverEnd={handleHoverEnd}
+					>
+						<path
+							onClick={() => handlePathClick('plate')}
+							fill={hoveredIds['plate'] ? '#e55e72' : '#174354'}
+							d='M5855 4102 c-4 -4 -163 -10 -353 -13 -431 -8 -725 -25 -837 -49 -27
 -5 -75 -13 -106 -16 l-56 -7 -6 -81 c-3 -44 -4 -98 -2 -118 2 -21 0 -40 -5
 -43 -6 -3 -5 -16 1 -33 14 -37 19 -244 6 -260 -7 -9 -7 -20 0 -35 7 -16 8 -41
 2 -74 -6 -32 -6 -67 0 -93 6 -26 6 -52 0 -67 -5 -13 -9 -39 -9 -57 0 -32 3
@@ -756,26 +939,46 @@ m-237 -24 c3 -15 -1 -18 -22 -14 -25 5 -26 3 -28 -46 -1 -28 -1 -62 0 -76 3
 235 23 235 5 0 12 -10 16 -22z m223 -1 c46 -49 97 -287 59 -275 -7 3 -17 21
 -23 40 -13 46 -19 52 -48 44 -17 -4 -26 -16 -33 -42 -13 -52 -34 -56 -34 -7 1
 69 18 241 24 252 11 17 31 13 55 -12z'
-					/>
-					<path
+						/>
+					</HoverHandler>
+					<HoverHandler
 						id='plate'
-						fill='yellow'
-						className='plate'
-						d='M4797 3823 c-11 -10 -8 -93 3 -93 6 0 27 15 47 33 44 41 41 67 -10
+						isHovered={!!hoveredIds['plate']}
+						onHoverStart={handleHoverStart}
+						onHoverEnd={handleHoverEnd}
+					>
+						<path
+							onClick={() => handlePathClick('plate')}
+							fill={hoveredIds['plate'] ? '#e55e72' : '#174354'}
+							d='M4797 3823 c-11 -10 -8 -93 3 -93 6 0 27 15 47 33 44 41 41 67 -10
 67 -19 0 -37 -3 -40 -7z'
-					/>
-					<path
+						/>
+					</HoverHandler>
+
+					<HoverHandler
 						id='plate'
-						fill='yellow'
-						className='plate'
-						d='M5165 3736 c-4 -25 -4 -49 -1 -54 9 -14 46 -2 46 14 0 18 -27 84 -34
+						isHovered={!!hoveredIds['plate']}
+						onHoverStart={handleHoverStart}
+						onHoverEnd={handleHoverEnd}
+					>
+						<path
+							onClick={() => handlePathClick('plate')}
+							fill={hoveredIds['plate'] ? '#e55e72' : '#174354'}
+							d='M5165 3736 c-4 -25 -4 -49 -1 -54 9 -14 46 -2 46 14 0 18 -27 84 -34
 84 -3 0 -8 -20 -11 -44z'
-					/>
-					<path
+						/>
+					</HoverHandler>
+
+					<HoverHandler
 						id='brisket'
-						fill='blue'
-						className='brisket'
-						d='M4345 4019 c-4 -6 -14 -8 -22 -4 -9 3 -43 0 -77 -6 -61 -11 -93 -14
+						isHovered={!!hoveredIds['brisket']}
+						onHoverStart={handleHoverStart}
+						onHoverEnd={handleHoverEnd}
+					>
+						<path
+							onClick={() => handlePathClick('brisket')}
+							fill={hoveredIds['brisket'] ? '#e55e72' : '#174354'}
+							d='M4345 4019 c-4 -6 -14 -8 -22 -4 -9 3 -43 0 -77 -6 -61 -11 -93 -14
 -276 -23 -52 -2 -106 -9 -120 -14 -14 -4 -73 -8 -132 -8 -60 1 -109 -2 -110
 -6 -2 -4 -17 -9 -34 -11 -17 -2 -36 -7 -41 -10 -6 -4 -24 -2 -41 2 -21 6 -38
 5 -56 -5 -27 -13 -238 -34 -426 -41 -173 -7 -206 -10 -229 -23 -13 -6 -33 -9
@@ -805,28 +1008,49 @@ c2 -20 7 -37 12 -37 5 0 29 13 52 29 32 22 46 27 56 18 11 -8 4 -19 -32 -50
 -15 -77 -31 -52 -5 8 -9 51 -9 96 0 52 -6 97 -16 123 -13 32 -14 43 -4 55 16
 20 89 19 118 -1z m122 -8 c13 -34 17 -220 5 -224 -13 -5 -46 184 -39 221 7 33
 21 35 34 3z'
-					/>
-					<path
+						/>
+					</HoverHandler>
+
+					<HoverHandler
 						id='brisket'
-						fill='blue'
-						className='brisket'
-						d='M2839 3663 c-5 -14 -7 -34 -4 -42 5 -13 12 -10 36 17 31 35 31 52 -2
+						isHovered={!!hoveredIds['brisket']}
+						onHoverStart={handleHoverStart}
+						onHoverEnd={handleHoverEnd}
+					>
+						<path
+							onClick={() => handlePathClick('brisket')}
+							fill={hoveredIds['brisket'] ? '#e55e72' : '#174354'}
+							d='M2839 3663 c-5 -14 -7 -34 -4 -42 5 -13 12 -10 36 17 31 35 31 52 -2
 52 -12 0 -23 -10 -30 -27z'
-					/>
-					<path
+						/>
+					</HoverHandler>
+
+					<HoverHandler
 						id='brisket'
-						fill='blue'
-						className='brisket'
-						d='M2853 3562 c-6 -4 -13 -32 -14 -62 -4 -63 11 -74 53 -40 31 24 45 74
+						isHovered={!!hoveredIds['brisket']}
+						onHoverStart={handleHoverStart}
+						onHoverEnd={handleHoverEnd}
+					>
+						<path
+							onClick={() => handlePathClick('brisket')}
+							fill={hoveredIds['brisket'] ? '#e55e72' : '#174354'}
+							d='M2853 3562 c-6 -4 -13 -32 -14 -62 -4 -63 11 -74 53 -40 31 24 45 74
 28 95 -13 16 -47 20 -67 7z'
-					/>
-					<path
+						/>
+					</HoverHandler>
+					<HoverHandler
 						id='brisket'
-						fill='blue'
-						className='brisket'
-						d='M3047 3673 c-12 -12 -7 -53 6 -53 19 0 50 37 42 49 -7 12 -38 15 -48
+						isHovered={!!hoveredIds['brisket']}
+						onHoverStart={handleHoverStart}
+						onHoverEnd={handleHoverEnd}
+					>
+						<path
+							onClick={() => handlePathClick('brisket')}
+							fill={hoveredIds['brisket'] ? '#e55e72' : '#174354'}
+							d='M3047 3673 c-12 -12 -7 -53 6 -53 19 0 50 37 42 49 -7 12 -38 15 -48
 4z'
-					/>
+						/>
+					</HoverHandler>
 					<path
 						d='M8907 3488 c-7 -4 -20 -5 -29 -2 -9 3 -33 -2 -53 -10 -20 -9 -55 -15
 -78 -15 -23 1 -65 -3 -93 -8 -38 -7 -56 -6 -69 3 -12 9 -24 10 -34 4 -14 -7
