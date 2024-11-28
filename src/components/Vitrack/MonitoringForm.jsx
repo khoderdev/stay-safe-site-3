@@ -45,6 +45,7 @@ function formReducer(state, { name, value, subKey }) {
 	}
 	return { ...state, [name]: value };
 }
+
 const InputField = ({
 	label,
 	name,
