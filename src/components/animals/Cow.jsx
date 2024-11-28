@@ -6,7 +6,7 @@ import HoverHandler from './HoverHandler';
 function Cow() {
 	const [isPopupVisible, setPopupVisible] = useState(false);
 	const [popupContent, setPopupContent] = useState('');
-	const [isHovered, setHovered] = useState(false);
+	// const [isHovered, setHovered] = useState(false);
 	const [hoveredIds, setHoveredIds] = useState({});
 
 	const handleHoverStart = (id) => {
@@ -27,13 +27,13 @@ function Cow() {
 		setPopupContent('');
 	};
 
-	const handleMouseEnter = () => {
-		setHovered(true); // Hovering starts
-	};
+	// const handleMouseEnter = () => {
+	// 	setHovered(true); // Hovering starts
+	// };
 
-	const handleMouseLeave = () => {
-		setHovered(false); // Hovering ends
-	};
+	// const handleMouseLeave = () => {
+	// 	setHovered(false); // Hovering ends
+	// };
 
 	return (
 		<>
@@ -340,13 +340,20 @@ c0 -76 -11 -151 -21 -151 -10 0 -12 117 -3 173 10 57 24 44 24 -22z'
 -31 35z'
 						/>
 					</HoverHandler>
-					<path
+
+					<HoverHandler
 						id='sirloin'
-						fill='#F9C0AB'
-						className='sirloin'
-						d='M7751 6676 c-7 -8 -11 -25 -9 -38 3 -22 3 -22 21 6 21 31 10 58 -12
+						isHovered={!!hoveredIds['sirloin']}
+						onHoverStart={handleHoverStart}
+						onHoverEnd={handleHoverEnd}
+					>
+						<path
+							onClick={() => handlePathClick('sirloin')}
+							fill={hoveredIds['sirloin'] ? '#e55e72' : '#174354'}
+							d='M7751 6676 c-7 -8 -11 -25 -9 -38 3 -22 3 -22 21 6 21 31 10 58 -12
 32z'
-					/>
+						/>
+					</HoverHandler>
 					<HoverHandler
 						id='short-loin'
 						isHovered={!!hoveredIds['short-loin']}
