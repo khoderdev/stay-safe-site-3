@@ -77,31 +77,37 @@ const PatientInfoForm = ({ formData, handleChange }) => (
 
 		{/* Known Allergies to Medications */}
 		<div>
-			<label className='block text-sm text-black dark:text-white-bg mb-1'>
+			<label className='block text-sm text-black dark:text-white-bg mb-2 font-semibold'>
 				Do you have any Known Allergies to medications?
 			</label>
-			<div className='flex items-center space-x-4 mb-4'>
-				<label className='text-black dark:text-white-bg'>
+			<div className='flex items-center space-x-6 mb-4'>
+				<label className='flex items-center space-x-2 text-black dark:text-white-bg cursor-pointer'>
 					<input
 						type='radio'
 						name='allergiesMed'
 						value='Yes'
 						onChange={handleChange}
 						checked={formData.allergiesMed === 'Yes'}
-						className='mr-2 dark:text-white-bg'
+						className='hidden peer'
 					/>
-					Yes
+					<span className='w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:border-blue-500 peer-checked:ring-2 peer-checked:ring-blue-500'>
+						<span className='w-3 h-3 bg-blue-500 rounded-full opacity-0 peer-checked:opacity-100'></span>
+					</span>
+					<span>Yes</span>
 				</label>
-				<label className='text-black dark:text-white-bg'>
+				<label className='flex items-center space-x-2 text-black dark:text-white-bg cursor-pointer'>
 					<input
 						type='radio'
 						name='allergiesMed'
 						value='No'
 						onChange={handleChange}
 						checked={formData.allergiesMed === 'No'}
-						className='mr-2 dark:text-white-bg'
+						className='hidden peer'
 					/>
-					No
+					<span className='w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:border-blue-500 peer-checked:ring-2 peer-checked:ring-blue-500'>
+						<span className='w-3 h-3 bg-blue-500 rounded-full opacity-0 peer-checked:opacity-100'></span>
+					</span>
+					<span>No</span>
 				</label>
 			</div>
 			{formData.allergiesMed === 'Yes' && (
@@ -116,31 +122,37 @@ const PatientInfoForm = ({ formData, handleChange }) => (
 
 		{/* Known Food Allergies */}
 		<div>
-			<label className='block text-sm text-black dark:text-white-bg mb-1'>
+			<label className='block text-sm text-black dark:text-white-bg mb-2 font-semibold'>
 				Do you have any Known Food Allergies?
 			</label>
-			<div className='flex items-center space-x-4 mb-4'>
-				<label className='text-black dark:text-white-bg'>
+			<div className='flex items-center space-x-6 mb-4'>
+				<label className='flex items-center space-x-2 text-black dark:text-white-bg cursor-pointer'>
 					<input
 						type='radio'
 						name='hasNutritionAllergie'
 						value='Yes'
 						onChange={handleChange}
 						checked={formData.hasNutritionAllergie === 'Yes'}
-						className='mr-2'
+						className='hidden peer'
 					/>
-					Yes
+					<span className='w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:border-blue-500 peer-checked:ring-2 peer-checked:ring-blue-500'>
+						<span className='w-3 h-3 bg-blue-500 rounded-full opacity-0 peer-checked:opacity-100'></span>
+					</span>
+					<span>Yes</span>
 				</label>
-				<label className='text-black dark:text-white-bg'>
+				<label className='flex items-center space-x-2 text-black dark:text-white-bg cursor-pointer'>
 					<input
 						type='radio'
 						name='hasNutritionAllergie'
 						value='No'
 						onChange={handleChange}
 						checked={formData.hasNutritionAllergie === 'No'}
-						className='mr-2'
+						className='hidden peer'
 					/>
-					No
+					<span className='w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:border-blue-500 peer-checked:ring-2 peer-checked:ring-blue-500'>
+						<span className='w-3 h-3 bg-blue-500 rounded-full opacity-0 peer-checked:opacity-100'></span>
+					</span>
+					<span>No</span>
 				</label>
 			</div>
 			{formData.hasNutritionAllergie === 'Yes' && (
