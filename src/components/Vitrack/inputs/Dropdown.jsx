@@ -79,6 +79,8 @@ const Dropdown = ({ label, name, value, onChange, options }) => {
 				placeholder={`Select ${label}`}
 				className={`${inputStyles()} !text-black dark:!text-white-bg !bg-white-bg dark:!bg-black`}
 				autoComplete='off'
+				autoCorrect='off'
+				autoCapitalize='off'
 				onFocus={() => setShowDropdown(true)}
 			/>
 
