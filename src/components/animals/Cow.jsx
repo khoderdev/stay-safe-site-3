@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './index.css';
 import Popup from './Popup';
 import HoverHandler from './HoverHandler';
 
@@ -27,12 +26,13 @@ function Cow() {
 	};
 
 	return (
-		<>
+		<div className="flex justify-center items-center">
 			<svg
 				version='1.0'
 				xmlns='http://www.w3.org/2000/svg'
-				width='1080'
-				height='727'
+				className="w-[80dvw] h-[80dvh]"
+				// width='777.6'
+				// height='523.2'
 				viewBox='0 0 1080.000000 727.000000'
 				preserveAspectRatio='xMidYMid meet'
 			>
@@ -1125,7 +1125,7 @@ c2 -20 7 -37 12 -37 5 0 29 13 52 29 32 22 46 27 56 18 11 -8 4 -19 -32 -50
 				onClose={closePopup}
 				content={popupContent}
 			/>
-		</>
+		</div>
 	);
 }
 

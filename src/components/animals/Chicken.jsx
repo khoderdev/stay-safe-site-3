@@ -1,5 +1,4 @@
 import React from 'react';
-import './index.css';
 function Cow() {
 	return (
 <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
