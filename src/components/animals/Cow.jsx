@@ -26,13 +26,11 @@ function Cow() {
 	};
 
 	return (
-		<div className="flex justify-center items-center">
+		<div className='flex justify-center items-center'>
 			<svg
 				version='1.0'
 				xmlns='http://www.w3.org/2000/svg'
-				className="w-[80dvw] h-[80dvh]"
-				// width='777.6'
-				// height='523.2'
+				className='w-[80dvw] h-[80dvh]'
 				viewBox='0 0 1080.000000 727.000000'
 				preserveAspectRatio='xMidYMid meet'
 			>
@@ -133,6 +131,7 @@ m66 -31 c0 -6 -5 -13 -10 -16 -8 -5 -8 -11 -1 -19 12 -14 5 -26 -16 -26 -16 0
 						onHoverEnd={handleHoverEnd}
 					>
 						<path
+							className='cursor-pointer'
 							onClick={() => handlePathClick('chuck')}
 							fill={hoveredIds['chuck'] ? '#e55e72' : '#174354'}
 							d='M2850 6829 c-1 -46 -2 -127 -1 -179 0 -52 -5 -113 -12 -135 -6 -22
@@ -189,6 +188,7 @@ c21 -41 21 -46 7 -80 -8 -20 -27 -49 -42 -64 -79 -82 -159 -100 -417 -91 -104
 						onHoverEnd={handleHoverEnd}
 					>
 						<path
+							className='cursor-pointer'
 							onClick={() => handlePathClick('round')}
 							fill={hoveredIds['round'] ? '#e55e72' : '#174354'}
 							d='M8895 6869 c-132 -8 -253 -24 -263 -33 -2 -3 2 -16 10 -28 9 -13 19
@@ -250,6 +250,7 @@ c21 -41 21 -46 7 -80 -8 -20 -27 -49 -42 -64 -79 -82 -159 -100 -417 -91 -104
 						onHoverEnd={handleHoverEnd}
 					>
 						<path
+							className='cursor-pointer'
 							onClick={() => handlePathClick('round')}
 							fill={hoveredIds['round'] ? '#e55e72' : '#174354'}
 							d='M9388 6186 c-89 -32 -111 -65 -82 -127 19 -44 22 -45 139 -54 44 -3
@@ -265,6 +266,7 @@ c21 -41 21 -46 7 -80 -8 -20 -27 -49 -42 -64 -79 -82 -159 -100 -417 -91 -104
 						onHoverEnd={handleHoverEnd}
 					>
 						<path
+							className='cursor-pointer'
 							onClick={() => handlePathClick('round')}
 							fill={hoveredIds['round'] ? '#e55e72' : '#174354'}
 							d='M9536 4738 c-94 -18 -136 -77 -121 -169 7 -40 41 -69 82 -69 10 0 29
@@ -280,6 +282,7 @@ c21 -41 21 -46 7 -80 -8 -20 -27 -49 -42 -64 -79 -82 -159 -100 -417 -91 -104
 						onHoverEnd={handleHoverEnd}
 					>
 						<path
+							className='cursor-pointer'
 							onClick={() => handlePathClick('round')}
 							fill={hoveredIds['round'] ? '#e55e72' : '#174354'}
 							d='M9395 4310 c-23 -44 -19 -60 29 -105 36 -35 52 -43 97 -49 30 -4 77
@@ -294,6 +297,7 @@ c21 -41 21 -46 7 -80 -8 -20 -27 -49 -42 -64 -79 -82 -159 -100 -417 -91 -104
 						onHoverEnd={handleHoverEnd}
 					>
 						<path
+							className='cursor-pointer'
 							onClick={() => handlePathClick('sirloin')}
 							fill={hoveredIds['sirloin'] ? '#e55e72' : '#174354'}
 							d='M8345 6809 c-94 -10 -319 -28 -425 -35 -41 -2 -164 -11 -274 -19
@@ -325,6 +329,7 @@ c0 -76 -11 -151 -21 -151 -10 0 -12 117 -3 173 10 57 24 44 24 -22z'
 						onHoverEnd={handleHoverEnd}
 					>
 						<path
+							className='cursor-pointer'
 							onClick={() => handlePathClick('sirloin')}
 							fill={hoveredIds['sirloin'] ? '#e55e72' : '#174354'}
 							d='M7972 6678 c-14 -14 -17 -138 -3 -138 13 0 29 48 34 103 5 48 -6 60
@@ -339,6 +344,7 @@ c0 -76 -11 -151 -21 -151 -10 0 -12 117 -3 173 10 57 24 44 24 -22z'
 						onHoverEnd={handleHoverEnd}
 					>
 						<path
+							className='cursor-pointer'
 							onClick={() => handlePathClick('sirloin')}
 							fill={hoveredIds['sirloin'] ? '#e55e72' : '#174354'}
 							d='M7751 6676 c-7 -8 -11 -25 -9 -38 3 -22 3 -22 21 6 21 31 10 58 -12
@@ -352,6 +358,7 @@ c0 -76 -11 -151 -21 -151 -10 0 -12 117 -3 173 10 57 24 44 24 -22z'
 						onHoverEnd={handleHoverEnd}
 					>
 						<path
+							className='cursor-pointer'
 							onClick={() => handlePathClick('short-loin')}
 							fill={hoveredIds['short-loin'] ? '#e55e72' : '#174354'}
 							d='M6774 6696 c-15 -11 -75 -18 -229 -26 -196 -11 -210 -11 -222 6 -14
@@ -414,6 +421,7 @@ c123 -11 212 -32 236 -56 8 -9 15 -30 15 -49 0 -25 -8 -40 -35 -64 -40 -35
 						onHoverEnd={handleHoverEnd}
 					>
 						<path
+							className='cursor-pointer'
 							onClick={() => handlePathClick('short-loin')}
 							fill={hoveredIds['short-loin'] ? '#e55e72' : '#174354'}
 							d='M6244 5634 c-4 -15 -3 -43 2 -63 9 -36 10 -36 67 -39 31 -2 57 1 57
@@ -427,6 +435,7 @@ c123 -11 212 -32 236 -56 8 -9 15 -30 15 -49 0 -25 -8 -40 -35 -64 -40 -35
 						onHoverEnd={handleHoverEnd}
 					>
 						<path
+							className='cursor-pointer'
 							onClick={() => handlePathClick('short-loin')}
 							fill={hoveredIds['short-loin'] ? '#e55e72' : '#174354'}
 							d='M6287 5344 c-21 -20 -27 -33 -25 -57 4 -40 24 -45 182 -49 103 -3
@@ -440,6 +449,7 @@ c123 -11 212 -32 236 -56 8 -9 15 -30 15 -49 0 -25 -8 -40 -35 -64 -40 -35
 						onHoverEnd={handleHoverEnd}
 					>
 						<path
+							className='cursor-pointer'
 							onClick={() => handlePathClick('short-loin')}
 							fill={hoveredIds['short-loin'] ? '#e55e72' : '#174354'}
 							d='M6970 4883 c-81 -12 -84 -17 -42 -61 40 -42 82 -56 155 -50 122 11
@@ -453,6 +463,7 @@ c123 -11 212 -32 236 -56 8 -9 15 -30 15 -49 0 -25 -8 -40 -35 -64 -40 -35
 						onHoverEnd={handleHoverEnd}
 					>
 						<path
+							className='cursor-pointer'
 							onClick={() => handlePathClick('rib')}
 							fill={hoveredIds['rib'] ? '#e55e72' : '#174354'}
 							d='M4320 6679 c1 -8 7 -25 15 -39 8 -14 14 -49 15 -77 0 -29 4 -72 10
@@ -494,6 +505,7 @@ l-214 12 -23 34 c-62 93 11 196 124 175 56 -11 130 -51 173 -95 37 -38 60 -49
 						onHoverEnd={handleHoverEnd}
 					>
 						<path
+							className='cursor-pointer'
 							onClick={() => handlePathClick('rib')}
 							fill={hoveredIds['rib'] ? '#e55e72' : '#174354'}
 							d='M5280 5591 c-8 -5 -23 -12 -33 -15 -41 -13 -60 -121 -32 -177 l16
@@ -508,6 +520,7 @@ l-214 12 -23 34 c-62 93 11 196 124 175 56 -11 130 -51 173 -95 37 -38 60 -49
 						onHoverEnd={handleHoverEnd}
 					>
 						<path
+							className='cursor-pointer'
 							onClick={() => handlePathClick('rib')}
 							fill={hoveredIds['rib'] ? '#e55e72' : '#174354'}
 							d='M4849 5471 c-31 -31 -37 -66 -16 -94 11 -16 30 -17 172 -15 183 3
@@ -521,6 +534,7 @@ l-214 12 -23 34 c-62 93 11 196 124 175 56 -11 130 -51 173 -95 37 -38 60 -49
 						onHoverEnd={handleHoverEnd}
 					>
 						<path
+							className='cursor-pointer'
 							onClick={() => handlePathClick('rib')}
 							fill={hoveredIds['rib'] ? '#e55e72' : '#174354'}
 							d='M4847 4808 c-31 -11 -44 -48 -31 -87 13 -35 66 -49 192 -50 77 -1
@@ -535,6 +549,7 @@ l-214 12 -23 34 c-62 93 11 196 124 175 56 -11 130 -51 173 -95 37 -38 60 -49
 						onHoverEnd={handleHoverEnd}
 					>
 						<path
+							className='cursor-pointer'
 							onClick={() => handlePathClick('tenderloin')}
 							fill={hoveredIds['tenderloin'] ? '#e55e72' : '#174354'}
 							d='M8625 6318 c-22 -5 -152 -10 -288 -13 -137 -3 -252 -7 -257 -10 -4
@@ -579,6 +594,7 @@ c10 -13 16 -44 16 -74 0 -47 -4 -56 -35 -86 -20 -18 -41 -33 -48 -33 -8 0 -14
 						onHoverEnd={handleHoverEnd}
 					>
 						<path
+							className='cursor-pointer'
 							onClick={() => handlePathClick('tenderloin')}
 							fill={hoveredIds['tenderloin'] ? '#e55e72' : '#174354'}
 							d='M7997 6162 c-20 -22 -22 -52 -3 -52 7 0 25 9 40 21 21 17 24 24 15
@@ -592,6 +608,7 @@ c10 -13 16 -44 16 -74 0 -47 -4 -56 -35 -86 -20 -18 -41 -33 -48 -33 -8 0 -14
 						onHoverEnd={handleHoverEnd}
 					>
 						<path
+							className='cursor-pointer'
 							onClick={() => handlePathClick('tenderloin')}
 							fill={hoveredIds['tenderloin'] ? '#e55e72' : '#174354'}
 							d='M8245 6117 c-10 -50 -3 -92 15 -92 11 0 16 15 18 63 2 50 0 62 -12
@@ -605,6 +622,7 @@ c10 -13 16 -44 16 -74 0 -47 -4 -56 -35 -86 -20 -18 -41 -33 -48 -33 -8 0 -14
 						onHoverEnd={handleHoverEnd}
 					>
 						<path
+							className='cursor-pointer'
 							onClick={() => handlePathClick('tenderloin')}
 							fill={hoveredIds['tenderloin'] ? '#e55e72' : '#174354'}
 							d='M7706 6153 c-3 -4 -6 -40 -6 -81 0 -64 2 -73 14 -62 22 17 38 76 31
@@ -619,6 +637,7 @@ c10 -13 16 -44 16 -74 0 -47 -4 -56 -35 -86 -20 -18 -41 -33 -48 -33 -8 0 -14
 						onHoverEnd={handleHoverEnd}
 					>
 						<path
+							className='cursor-pointer'
 							onClick={() => handlePathClick('top-sirloin')}
 							fill={hoveredIds['top-sirloin'] ? '#e55e72' : '#174354'}
 							d='M7441 5719 c1 -41 6 -92 12 -114 5 -22 11 -67 12 -100 4 -81 16 -154
@@ -660,6 +679,7 @@ l-12 30 -12 -47 c-7 -26 -12 -58 -12 -72 0 -14 -4 -26 -10 -26 -13 0 -11 80 3
 						onHoverEnd={handleHoverEnd}
 					>
 						<path
+							className='cursor-pointer'
 							onClick={() => handlePathClick('top-sirloin')}
 							fill={hoveredIds['top-sirloin'] ? '#e55e72' : '#174354'}
 							d='M7709 5574 c-7 -9 -15 -42 -17 -74 -5 -70 10 -86 45 -46 18 21 23 39
@@ -673,6 +693,7 @@ l-12 30 -12 -47 c-7 -26 -12 -58 -12 -72 0 -14 -4 -26 -10 -26 -13 0 -11 80 3
 						onHoverEnd={handleHoverEnd}
 					>
 						<path
+							className='cursor-pointer'
 							onClick={() => handlePathClick('top-sirloin')}
 							fill={hoveredIds['top-sirloin'] ? '#e55e72' : '#174354'}
 							d='M7836 5581 c-23 -25 -21 -71 2 -71 22 0 52 30 52 51 0 8 -9 20 -19
@@ -686,6 +707,7 @@ l-12 30 -12 -47 c-7 -26 -12 -58 -12 -72 0 -14 -4 -26 -10 -26 -13 0 -11 80 3
 						onHoverEnd={handleHoverEnd}
 					>
 						<path
+							className='cursor-pointer'
 							onClick={() => handlePathClick('top-sirloin')}
 							fill={hoveredIds['top-sirloin'] ? '#e55e72' : '#174354'}
 							d='M8272 5562 c-14 -10 -35 -72 -23 -72 14 0 51 46 51 63 0 19 -8 21
@@ -699,6 +721,7 @@ l-12 30 -12 -47 c-7 -26 -12 -58 -12 -72 0 -14 -4 -26 -10 -26 -13 0 -11 80 3
 						onHoverEnd={handleHoverEnd}
 					>
 						<path
+							className='cursor-pointer'
 							onClick={() => handlePathClick('top-sirloin')}
 							fill={hoveredIds['top-sirloin'] ? '#e55e72' : '#174354'}
 							d='M8512 5552 c-25 -17 -45 -142 -22 -142 20 0 50 65 50 108 0 42 -5 48
@@ -712,6 +735,7 @@ l-12 30 -12 -47 c-7 -26 -12 -58 -12 -72 0 -14 -4 -26 -10 -26 -13 0 -11 80 3
 						onHoverEnd={handleHoverEnd}
 					>
 						<path
+							className='cursor-pointer'
 							onClick={() => handlePathClick('bottom-sirloin')}
 							fill={hoveredIds['bottom-sirloin'] ? '#e55e72' : '#174354'}
 							d='M7518 5063 c-4 -104 -3 -125 4 -129 4 -3 5 -18 1 -34 -3 -17 -1 -36
@@ -768,6 +792,7 @@ m277 58 c9 -6 12 -32 10 -97 l-3 -89 33 3 c28 3 33 1 30 -14 -3 -19 -70 -39
 						onHoverEnd={handleHoverEnd}
 					>
 						<path
+							className='cursor-pointer'
 							onClick={() => handlePathClick('bottom-sirloin')}
 							fill={hoveredIds['bottom-sirloin'] ? '#e55e72' : '#174354'}
 							d='M7802 4855 c-24 -52 -10 -59 37 -19 34 28 33 44 -3 44 -15 0 -27 -9
@@ -782,6 +807,7 @@ m277 58 c9 -6 12 -32 10 -97 l-3 -89 33 3 c28 3 33 1 30 -14 -3 -19 -70 -39
 						onHoverEnd={handleHoverEnd}
 					>
 						<path
+							className='cursor-pointer'
 							onClick={() => handlePathClick('bottom-sirloin')}
 							fill={hoveredIds['bottom-sirloin'] ? '#e55e72' : '#174354'}
 							d='M7825 4787 c-55 -18 -99 -72 -74 -88 24 -15 55 -10 89 14 65 44 54
@@ -796,6 +822,7 @@ m277 58 c9 -6 12 -32 10 -97 l-3 -89 33 3 c28 3 33 1 30 -14 -3 -19 -70 -39
 						onHoverEnd={handleHoverEnd}
 					>
 						<path
+							className='cursor-pointer'
 							onClick={() => handlePathClick('bottom-sirloin')}
 							fill={hoveredIds['bottom-sirloin'] ? '#e55e72' : '#174354'}
 							d='M7979 4800 c-17 -52 -20 -73 -12 -81 23 -23 79 100 62 133 -16 30
@@ -809,6 +836,7 @@ m277 58 c9 -6 12 -32 10 -97 l-3 -89 33 3 c28 3 33 1 30 -14 -3 -19 -70 -39
 						onHoverEnd={handleHoverEnd}
 					>
 						<path
+							className='cursor-pointer'
 							onClick={() => handlePathClick('bottom-sirloin')}
 							fill={hoveredIds['bottom-sirloin'] ? '#e55e72' : '#174354'}
 							d='M8355 4826 c-20 -47 -19 -86 1 -86 16 0 39 47 46 90 5 41 -29 39 -47
@@ -823,6 +851,7 @@ m277 58 c9 -6 12 -32 10 -97 l-3 -89 33 3 c28 3 33 1 30 -14 -3 -19 -70 -39
 						onHoverEnd={handleHoverEnd}
 					>
 						<path
+							className='cursor-pointer'
 							onClick={() => handlePathClick('bottom-sirloin')}
 							fill={hoveredIds['bottom-sirloin'] ? '#e55e72' : '#174354'}
 							d='M8014 4557 c-35 -42 -12 -50 28 -10 24 24 27 31 14 36 -9 4 -25 -6
@@ -836,6 +865,7 @@ m277 58 c9 -6 12 -32 10 -97 l-3 -89 33 3 c28 3 33 1 30 -14 -3 -19 -70 -39
 						onHoverEnd={handleHoverEnd}
 					>
 						<path
+							className='cursor-pointer'
 							onClick={() => handlePathClick('bottom-sirloin')}
 							fill={hoveredIds['bottom-sirloin'] ? '#e55e72' : '#174354'}
 							d='M8348 4573 c-21 -5 -28 -25 -35 -97 -6 -64 5 -71 40 -25 41 55 38
@@ -850,6 +880,7 @@ m277 58 c9 -6 12 -32 10 -97 l-3 -89 33 3 c28 3 33 1 30 -14 -3 -19 -70 -39
 						onHoverEnd={handleHoverEnd}
 					>
 						<path
+							className='cursor-pointer'
 							onClick={() => handlePathClick('flank')}
 							fill={hoveredIds['flank'] ? '#e55e72' : '#174354'}
 							d='M6152 4081 c-26 -46 -28 -69 -6 -78 8 -3 13 -12 10 -20 -4 -8 -3 -20
@@ -899,6 +930,7 @@ l-50 34 -7 -45 c-8 -54 -11 -59 -34 -50 -15 6 -16 22 -11 160 5 143 15 196 36
 						onHoverEnd={handleHoverEnd}
 					>
 						<path
+							className='cursor-pointer'
 							onClick={() => handlePathClick('flank')}
 							fill={hoveredIds['flank'] ? '#e55e72' : '#174354'}
 							d='M6930 3811 c0 -44 2 -49 20 -44 23 6 23 5 8 54 -15 53 -28 49 -28
@@ -913,6 +945,7 @@ l-50 34 -7 -45 c-8 -54 -11 -59 -34 -50 -15 6 -16 22 -11 160 5 143 15 196 36
 						onHoverEnd={handleHoverEnd}
 					>
 						<path
+							className='cursor-pointer'
 							onClick={() => handlePathClick('plate')}
 							fill={hoveredIds['plate'] ? '#e55e72' : '#174354'}
 							d='M5855 4102 c-4 -4 -163 -10 -353 -13 -431 -8 -725 -25 -837 -49 -27
@@ -946,6 +979,7 @@ m-237 -24 c3 -15 -1 -18 -22 -14 -25 5 -26 3 -28 -46 -1 -28 -1 -62 0 -76 3
 						onHoverEnd={handleHoverEnd}
 					>
 						<path
+							className='cursor-pointer'
 							onClick={() => handlePathClick('plate')}
 							fill={hoveredIds['plate'] ? '#e55e72' : '#174354'}
 							d='M4797 3823 c-11 -10 -8 -93 3 -93 6 0 27 15 47 33 44 41 41 67 -10
@@ -960,6 +994,7 @@ m-237 -24 c3 -15 -1 -18 -22 -14 -25 5 -26 3 -28 -46 -1 -28 -1 -62 0 -76 3
 						onHoverEnd={handleHoverEnd}
 					>
 						<path
+							className='cursor-pointer'
 							onClick={() => handlePathClick('plate')}
 							fill={hoveredIds['plate'] ? '#e55e72' : '#174354'}
 							d='M5165 3736 c-4 -25 -4 -49 -1 -54 9 -14 46 -2 46 14 0 18 -27 84 -34
@@ -974,6 +1009,7 @@ m-237 -24 c3 -15 -1 -18 -22 -14 -25 5 -26 3 -28 -46 -1 -28 -1 -62 0 -76 3
 						onHoverEnd={handleHoverEnd}
 					>
 						<path
+							className='cursor-pointer'
 							onClick={() => handlePathClick('brisket')}
 							fill={hoveredIds['brisket'] ? '#e55e72' : '#174354'}
 							d='M4345 4019 c-4 -6 -14 -8 -22 -4 -9 3 -43 0 -77 -6 -61 -11 -93 -14
@@ -1016,6 +1052,7 @@ c2 -20 7 -37 12 -37 5 0 29 13 52 29 32 22 46 27 56 18 11 -8 4 -19 -32 -50
 						onHoverEnd={handleHoverEnd}
 					>
 						<path
+							className='cursor-pointer'
 							onClick={() => handlePathClick('brisket')}
 							fill={hoveredIds['brisket'] ? '#e55e72' : '#174354'}
 							d='M2839 3663 c-5 -14 -7 -34 -4 -42 5 -13 12 -10 36 17 31 35 31 52 -2
@@ -1030,6 +1067,7 @@ c2 -20 7 -37 12 -37 5 0 29 13 52 29 32 22 46 27 56 18 11 -8 4 -19 -32 -50
 						onHoverEnd={handleHoverEnd}
 					>
 						<path
+							className='cursor-pointer'
 							onClick={() => handlePathClick('brisket')}
 							fill={hoveredIds['brisket'] ? '#e55e72' : '#174354'}
 							d='M2853 3562 c-6 -4 -13 -32 -14 -62 -4 -63 11 -74 53 -40 31 24 45 74
@@ -1043,6 +1081,7 @@ c2 -20 7 -37 12 -37 5 0 29 13 52 29 32 22 46 27 56 18 11 -8 4 -19 -32 -50
 						onHoverEnd={handleHoverEnd}
 					>
 						<path
+							className='cursor-pointer'
 							onClick={() => handlePathClick('brisket')}
 							fill={hoveredIds['brisket'] ? '#e55e72' : '#174354'}
 							d='M3047 3673 c-12 -12 -7 -53 6 -53 19 0 50 37 42 49 -7 12 -38 15 -48
