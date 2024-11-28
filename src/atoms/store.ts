@@ -1,36 +1,3 @@
-// import { atom } from 'jotai';
-
-// export const firstNameAtom = atom('');
-// export const lastNameAtom = atom('');
-// export const dateOfBirthAtom = atom('');
-// export const genderAtom = atom('');
-// export const nationalityAtom = atom('');
-// export const countryAtom = atom('');
-// export const addressAtom = atom('');
-// export const healthConditionAtom = atom('');
-// export const otherHealthConditionAtom = atom('');
-// export const hasFoodAllergieAtom = atom('');
-// export const allergiesMedAtom = atom('');
-// export const specificAllergiesMedAtom = atom('');
-// export const nutritionAllergieAtom = atom('');
-// export const specificNutritionAllergieAtom = atom('');
-// export const vitrackKitAtom = atom('');
-// export const bloodPressureSetsAtom = atom([
-// 	{
-// 		id: 1,
-// 		isDefault: true,
-// 		leftHand: { systolic: '', diastolic: '' },
-// 		rightHand: { systolic: '', diastolic: '' },
-// 	},
-// ]);
-
-// export const leftHandOxygenAtom = atom('');
-// export const rightHandOxygenAtom = atom('');
-// export const heartRateAtom = atom('');
-// export const respiratoryRateAtom = atom('');
-// export const temperatureAtom = atom('');
-// export const painScaleAtom = atom(0);
-// export const symptomsAtom = atom([]);
 import { atom } from 'jotai';
 
 // Define types for objects
