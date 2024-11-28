@@ -13,7 +13,7 @@ const HealthMetricsForm = ({
 			<InputField
 				label='Oral Temperature (°C)'
 				name='temperature'
-				value={formData.temperature}
+				value={formData.temperature || ''}
 				onChange={handleChange}
 				type='text'
 			/>
@@ -32,14 +32,14 @@ const HealthMetricsForm = ({
 			<InputField
 				label='Heart Rate (bpm)'
 				name='heartRate'
-				value={formData.heartRate}
+				value={formData.heartRate || ''}
 				onChange={handleChange}
 				type='text'
 			/>
 			<InputField
 				label='Respiratory Rate (breaths/min)'
 				name='respiratoryRate'
-				value={formData.respiratoryRate}
+				value={formData.respiratoryRate || ''}
 				onChange={handleChange}
 				type='text'
 			/>
@@ -48,7 +48,7 @@ const HealthMetricsForm = ({
 				<InputField
 					label='Left Hand Oxygen Saturation (%)'
 					name='leftHandOxygen'
-					value={formData.leftHandOxygen}
+					value={formData.leftHandOxygen || ''}
 					onChange={handleChange}
 					type='text'
 					max={100}
@@ -58,7 +58,7 @@ const HealthMetricsForm = ({
 				<InputField
 					label='Right Hand Oxygen Saturation (%)'
 					name='rightHandOxygen'
-					value={formData.rightHandOxygen}
+					value={formData.rightHandOxygen || ''}
 					onChange={handleChange}
 					type='text'
 					max={100}
@@ -74,7 +74,7 @@ const HealthMetricsForm = ({
 							<label key={index} className='flex items-center space-x-2'>
 								<input
 									type='checkbox'
-									value={symptom}
+									value={symptom || ''}
 									onChange={handleSymptomsChange}
 									checked={formData.symptoms.includes(symptom)}
 									className='form-checkbox'
@@ -95,7 +95,7 @@ const HealthMetricsForm = ({
 						name='painScale'
 						min='0'
 						max='10'
-						value={formData.painScale}
+						value={formData.painScale || ''}
 						onChange={handleChange}
 						className='mt-1 w-full cursor-pointer'
 					/>
