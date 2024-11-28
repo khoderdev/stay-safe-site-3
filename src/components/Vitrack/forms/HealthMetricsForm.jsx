@@ -1,7 +1,7 @@
 import React from 'react';
-import InputField from './InputField';
-import BloodPressureInput from './BloodPressureInput';
-import { symptomsList } from './data';
+import InputField from '../inputs/InputField';
+import BloodPressureInput from '../inputs/BloodPressureInput';
+import { symptomsList } from '../data';
 
 const HealthMetricsForm = ({
 	formData,

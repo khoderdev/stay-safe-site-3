@@ -100,7 +100,7 @@
 
 // export default Dropdown;
 import React, { useState, useEffect, useRef } from 'react';
-import { inputStyles } from '../../utils/styles';
+import { inputStyles } from '../../../utils/styles';
 
 const Dropdown = ({ label, name, value, onChange, options }) => {
 	const [filteredOptions, setFilteredOptions] = useState(options);

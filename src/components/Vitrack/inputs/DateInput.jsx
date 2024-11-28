@@ -173,8 +173,8 @@ import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { CiCalendar } from 'react-icons/ci';
-import './styles.css';
-import { inputStyles } from '../../utils/styles';
+import '../styles.css';
+import { inputStyles } from '../../../utils/styles';
 
 const formatDate = (date) => {
 	if (!date) return '';

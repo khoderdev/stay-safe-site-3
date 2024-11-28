@@ -1,5 +1,5 @@
 import React from 'react';
-import { inputStyles } from '../../utils/styles';
+import { inputStyles } from '../../../utils/styles';
 
 const InputField = ({
 	label,
@@ -31,7 +31,14 @@ const InputField = ({
 
 	return (
 		<div className='input-field'>
-			{label && <label htmlFor={name} className='block text-sm !text-black dark:!text-white-bg'>{label}</label>}
+			{label && (
+				<label
+					htmlFor={name}
+					className='block text-sm !text-black dark:!text-white-bg'
+				>
+					{label}
+				</label>
+			)}
 			<input
 				id={name}
 				name={name}

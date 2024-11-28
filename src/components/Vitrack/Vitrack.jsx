@@ -1,9 +1,9 @@
 import React, { useReducer, useState } from 'react';
 import Stepper from './Stepper';
-import PatientInfoForm from './PatientInfoForm';
-import HealthMetricsForm from './HealthMetricsForm';
+import PatientInfoForm from './forms/PatientInfoForm';
+import HealthMetricsForm from './forms/HealthMetricsForm';
 import ReviewResults from './ReviewSection';
-import { initialState, formReducer } from './formReducer';
+import { initialState, formReducer } from './forms/formReducer';
 
 const Vitrack = () => {
 	const [formData, dispatch] = useReducer(formReducer, initialState);
