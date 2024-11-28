@@ -44,6 +44,7 @@ const InputField = ({
 				name={name}
 				type={type}
 				value={value}
+				autoComplete='off'
 				placeholder={placeholder}
 				onChange={handleChange}
 				min={type === 'number' ? min : undefined}

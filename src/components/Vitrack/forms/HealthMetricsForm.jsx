@@ -9,7 +9,7 @@ const HealthMetricsForm = ({
 	handleSymptomsChange,
 }) => {
 	return (
-		<div className='p-7 rounded-lg !bg-white-bg2 dark:!bg-[#000]'>
+		<div className='p-7 rounded-lg !bg-white-bg2 dark:!bg-[#000] space-y-6'>
 			<InputField
 				label='Oral Temperature (°C)'
 				name='temperature'

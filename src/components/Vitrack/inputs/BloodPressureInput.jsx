@@ -3,7 +3,7 @@ import InputField from './InputField';
 
 const BloodPressureInput = ({ hand, systolic, diastolic, onChange }) => (
 	<div>
-		<div className="mb-2">{hand} Hand</div>
+		<div className="mb-2 dark:text-white-whites">{hand} Hand</div>
 		<div className="flex space-x-8">
 			<InputField
 				label="Systolic"
