@@ -45,3 +45,17 @@ export const respiratoryRateAtom = atom<string>('');
 export const temperatureAtom = atom<string>('');
 export const painScaleAtom = atom<number>(0);
 export const symptomsAtom = atom<string[]>([]);  
+
+export const phoneAtom = atom<string>('');
+export const emergencyPhoneAtom = atom<string>('');
+export const contactPersonAtom = atom<string>('');
+export const languageAtom = atom<string>('');
+export const tShirtSizeAtom = atom<string>('');
+export const bloodGroupAtom = atom<string>('');
+export const educationAtom = atom<string>('');
+export const isOtherLanguageAtom = atom<boolean>(false);
+export const manualLanguageAtom = atom<string>('');
+export const selectedSkillsAtom = atom<string[]>([]);
+export const selfDescriptionAtom = atom<string>('');
+export const volunteerInterestAtom = atom<string>('');
+export const imageConsentAtom = atom<boolean>(false);

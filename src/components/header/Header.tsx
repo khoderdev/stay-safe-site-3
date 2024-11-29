@@ -95,12 +95,7 @@ export default function Header() {
             className="text-black hover:text-blue dark:text-white-bg dark:hover:text-blue transition-colors">
             Home
           </Link>
-          {/* <Link
-            to="/mdc"
-            className="text-black hover:text-blue dark:text-white-bg dark:hover:text-blue transition-colors">
 
-            Medical Dietry Clinic
-          </Link> */}
           <Dropdown
             title="Preventive Health & Patient Services"
             mainLink="/preventive-health-patient-services"
@@ -127,12 +122,20 @@ export default function Header() {
 
             Public Health Academy
           </Link>
-          <Link
+          {/* <Link
             to="/about-us"
             className="text-black hover:text-blue dark:text-white-bg dark:hover:text-blue transition-colors">
 
             About us
-          </Link>
+          </Link> */}
+          <Dropdown
+            title="About us"
+            mainLink="/about-us"
+            items={[
+              { label: 'Volenteers', to: '/volenteering' },
+             
+            ]}
+          />
         </nav>
 
         <div className="flex space-x-2 pr-2 items-center">

@@ -859,3 +859,24 @@ export const nationalitiesOptions = [
 	'Zambian',
 	'Zimbabwean',
 ];
+
+export const skillsOptions = [
+	'Sharing knowledge about healthy practices and lifestyles.',
+	'Educating communities on methods to prevent illnesses.',
+	'Assisting with basic health checks (e.g., blood pressure, oxygen levels).',
+	'Gathering community health data through surveys or interviews.',
+	'Engaging and educating underserved populations.',
+	'Supporting event logistics and planning.',
+	'Tracking health data, attendance, or resource distribution.',
+	'Promoting public health initiatives and regulations.',
+	'Providing basic life support when needed.',
+	'Assisting in emergency relief and public health responses.',
+	'Respecting and addressing cultural health practices.',
+	'Building trust with community members in sensitive situations.',
+	'Using technology for telehealth, virtual workshops, or awareness campaigns.',
+	'Creating or sharing public health content online.',
+	'Assisting with hygiene and sanitation education.',
+	'Promoting healthy eating habits and addressing malnutrition.',
+	'Promoting sustainability and environmental health awareness.',
+	'Providing resources or guidance on occupational health and safety matters.',
+];
