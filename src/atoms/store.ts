@@ -1,36 +1,3 @@
-// import { atom } from 'jotai';
-
-// export const firstNameAtom = atom('');
-// export const lastNameAtom = atom('');
-// export const dateOfBirthAtom = atom('');
-// export const genderAtom = atom('');
-// export const nationalityAtom = atom('');
-// export const countryAtom = atom('');
-// export const addressAtom = atom('');
-// export const healthConditionAtom = atom('');
-// export const otherHealthConditionAtom = atom('');
-// export const hasFoodAllergieAtom = atom('');
-// export const allergiesMedAtom = atom('');
-// export const specificAllergiesMedAtom = atom('');
-// export const nutritionAllergieAtom = atom('');
-// export const specificNutritionAllergieAtom = atom('');
-// export const vitrackKitAtom = atom('');
-// export const bloodPressureSetsAtom = atom([
-// 	{
-// 		id: 1,
-// 		isDefault: true,
-// 		leftHand: { systolic: '', diastolic: '' },
-// 		rightHand: { systolic: '', diastolic: '' },
-// 	},
-// ]);
-
-// export const leftHandOxygenAtom = atom('');
-// export const rightHandOxygenAtom = atom('');
-// export const heartRateAtom = atom('');
-// export const respiratoryRateAtom = atom('');
-// export const temperatureAtom = atom('');
-// export const painScaleAtom = atom(0);
-// export const symptomsAtom = atom([]);
 import { atom } from 'jotai';
 
 // Define types for objects
@@ -78,3 +45,17 @@ export const respiratoryRateAtom = atom<string>('');
 export const temperatureAtom = atom<string>('');
 export const painScaleAtom = atom<number>(0);
 export const symptomsAtom = atom<string[]>([]);  
+
+export const phoneAtom = atom<string>('');
+export const emergencyPhoneAtom = atom<string>('');
+export const contactPersonAtom = atom<string>('');
+export const languageAtom = atom<string>('');
+export const tShirtSizeAtom = atom<string>('');
+export const bloodGroupAtom = atom<string>('');
+export const educationAtom = atom<string>('');
+export const isOtherLanguageAtom = atom<boolean>(false);
+export const manualLanguageAtom = atom<string>('');
+export const selectedSkillsAtom = atom<string[]>([]);
+export const selfDescriptionAtom = atom<string>('');
+export const volunteerInterestAtom = atom<string>('');
+export const imageConsentAtom = atom<boolean>(false);

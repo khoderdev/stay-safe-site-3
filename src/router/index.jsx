@@ -164,6 +164,9 @@ import PublicHealthAcademy from '../views/PublicHealthAcademy';
 import FoodSafetyPage from '../views/FoodSafetyPage';
 import Sample1 from '../components/buttons/Sample1';
 import HealthAndSafety from '../views/HealthAndSafety';
+import Volenteering from '../components/volenteering/Volenteering';
+import { Circle1, Circle2 } from '../components/circle/images';
+import ShareAroundTheWorld from '../components/ShareAroundTheWorld/ShareAroundTheWorld';
 
 const AppRoutes = () => {
 	return (
@@ -177,10 +180,7 @@ const AppRoutes = () => {
 				path='/preventive-health-patient-services'
 				element={<PreventiveHealthPatientServices />}
 			/>
-			<Route
-				path='/vitrack'
-				element={<Vitrack />}
-			/>
+			<Route path='/vitrack' element={<Vitrack />} />
 			<Route
 				path='/public-health-interventions'
 				element={<PublicHealthInterventions />}
@@ -190,12 +190,15 @@ const AppRoutes = () => {
 			<Route path='/ohs' element={<OHS />} />
 			<Route path='/environmental-health' element={<EnvirementalHealth />} />
 			<Route path='/about-us' element={<AboutUs />} />
+			<Route path='/volenteering' element={<Volenteering />} />
 
 			<Route path='/users' element={<Users />} />
 			<Route path='/posts' element={<Posts />} />
 			<Route path='/post/:id' element={<Single />} />
 			<Route path='/write' element={<Write />} />
 			<Route path='/users' element={<Users />} />
+			<Route path='/share' element={<ShareAroundTheWorld />} />
+
 		</Routes>
 	);
 };
