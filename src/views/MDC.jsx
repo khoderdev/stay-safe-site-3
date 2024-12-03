@@ -14,20 +14,20 @@ import { FoodSafetyTable } from '../components/Table/FoodSafetyTable';
 import { columns } from '../components/Table/columns';
 import CTA from '../components/circle/CTA';
 import Child from '../components/child/Child';
-import { BreastColored } from '../components/breast/Breast';
+import BreastColored  from '../components/breast/Breast';
 
 function MDC() {
 	const sectionRef = useRef(null);
 
 	return (
 		<div className='flex flex-col bg-white-bg2 dark:bg-[#000]'>
-			<div className='section bg-white-bg'>
+			<div className='section bg-white-bg dark:bg-[#000]'>
 				<CowChickenPage />
 			</div>
 
-			<div className='bg-white-bg2 dark:bg-[#000]'>
+			{/* <div className='bg-white-bg2 dark:bg-[#000]'>
 				<MDCServices targetRef={sectionRef} />
-			</div>
+			</div> */}
 			<div className='section'>
 				<Kitchen />
 			</div>
@@ -49,26 +49,26 @@ function MDC() {
 				<Puzzle />
 			</div>
 
-			<div className='section !py-52 bg-white-fg dark:bg-black'>
+			<div className='section bg-white-fg dark:bg-black'>
 				<FoodAndNutrition />
 			</div>
 
-			<div className='section p-6 bg-white-bg2'>
+			<div className='section p-6 bg-white-bg2 dark:bg-black'>
 				<MediterraneanDietScore />
 			</div>
 			<div className='sm:!h-[65dvh] bg-white-bg dark:bg-black'>
 				<QualitativeDiets />
 			</div>
 
-			<div className='section py-52 bg-[#000]'>
+			<div className='section py-52 bg-white-bg dark:bg-black'>
 				<Child />
 			</div>
-			<div className=' h-[150dvh] pt-52 items-center flex justify-center bg-white-bg dark:bg-black'>
+			<div className=' items-center flex justify-center bg-white-bg dark:bg-black'>
 				<BreastColored />
 				{/* <Breast /> */}
 			</div>
 
-			<div className='h-[150dvh] bg-white-bg dark:bg-[#000]'>
+			<div className='section panel bg-white-bg dark:bg-[#000]'>
 				<FoodSafetyTable columns={columns} data={FoodSafetyTable} />
 			</div>
 		</div>
