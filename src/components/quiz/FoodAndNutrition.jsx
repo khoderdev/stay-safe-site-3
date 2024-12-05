@@ -325,11 +325,11 @@ const FoodAndNutrition = () => {
 	return (
 		<div
 			ref={sectionRef}
-			className='relative min-h-screen w-full flex flex-col md:flex md:flex-row items-center justify-center p-0 bg-cover bg-center'
+			className='relative min-h-screen w-full flex flex-col md:flex md:flex-row items-center justify-center p-0 bg-cover bg-center '
 		>
-			<div className='md:w-[40%] flex flex-col items-start'>
+			{/* <div className='md:w-[40%] flex flex-col items-start'>
 				<img src={mind} alt='mind' className='md:w-[550px]' />
-			</div>
+			</div> */}
 
 			<div className='right-col md:w-[60%] pb-10 flex-wrap'>
 				<div className='flex items-center p-4 h-52 flex-wrap'>
@@ -337,7 +337,7 @@ const FoodAndNutrition = () => {
 						initial='hidden'
 						animate={isInView ? 'visible' : 'hidden'}
 						variants={containerAnimation}
-						className='text-3xl sm:text-4xl text-center ml-0 lg:ml-24 dark:text-white-bg leading-relaxed md:text-5xl md:leading-relaxed font-semibold m-0 uppercase break-words md:flex-wrap'
+						className='text-3xl sm:text-4xl text-center dark:text-white-bg leading-relaxed md:text-5xl md:leading-relaxed font-semibold m-0 uppercase break-words md:flex-wrap'
 					>
 						{words.map((word, index) => (
 							<motion.span key={index} variants={wordAnimation}>

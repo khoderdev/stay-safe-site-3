@@ -34,7 +34,7 @@ export default function Dropdown({ title, items, mainLink }) {
 			{mainLink ? (
 				<Link
 					to={mainLink}
-					className='text-black dark:text-white-bg hover:text-blue dark:hover:text-blue transition-colors'
+					className='text-black  dark:text-white-bg hover:text-blue dark:hover:text-blue transition-colors'
 				>
 					{title}
 				</Link>
@@ -47,7 +47,7 @@ export default function Dropdown({ title, items, mainLink }) {
 			<AnimatePresence>
 				{isOpen && (
 					<motion.div
-						className='absolute left-0 mt-2 w-48 bg-white dark:bg-dark shadow-lg rounded-md'
+						className='absolute bg-white-whites left-0 mt-2 w-52 bg-white dark:bg-dark shadow-lg rounded-md'
 						initial='closed'
 						animate='open'
 						exit='closed'
