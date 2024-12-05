@@ -436,6 +436,82 @@ const HealthMetricsForm = () => {
 					</button>
 				</div>
 			</div>
+			{/* Other Inputs */}
+			<InputField
+				label='Heart Rate (bpm)'
+				name='heartRate'
+				value={heartRate || ''}
+				onChange={handleChange}
+				type='text'
+			/>
+			<InputField
+				label='Respiratory Rate (breaths/min)'
+				name='respiratoryRate'
+				value={respiratoryRate || ''}
+				onChange={handleChange}
+				type='text'
+			/>
+			<div className='grid grid-cols-2 gap-x-14'>
+				{/* Left Hand Oxygen */}
+				<InputField
+					label='Left Hand Oxygen Saturation (%)'
+					name='leftHandOxygen'
+					value={leftHandOxygen || ''}
+					onChange={handleChange}
+					type='text'
+					max={100}
+				/>
+
+				{/* Right Hand Oxygen */}
+				<InputField
+					label='Right Hand Oxygen Saturation (%)'
+					name='rightHandOxygen'
+					value={rightHandOxygen || ''}
+					onChange={handleChange}
+					type='text'
+					max={100}
+				/>
+
+				{/* Symptoms */}
+				<div className='col-span-full mt-6'>
+					<h2 className='text-lg font-semibold dark:text-white-bg2'>
+						Symptoms
+					</h2>
+					<div className='grid grid-cols-1 sm:grid-cols-2 gap-2'>
+						{symptomsList.map((symptom, index) => (
+							<label key={index} className='flex items-center space-x-2'>
+								<input
+									type='checkbox'
+									value={symptom || ''}
+									onChange={handleSymptomsChange}
+									checked={symptoms.includes(symptom)}
+									className='form-checkbox'
+								/>
+								<span className='dark:text-white-bg2'>{symptom}</span>
+							</label>
+						))}
+					</div>
+				</div>
+
+				{/* Pain Scale */}
+				<div className='col-span-full mt-6'>
+					<label className='block text-sm dark:text-white-bg2'>
+						Pain Scale
+					</label>
+					<input
+						type='range'
+						name='painScale'
+						min='0'
+						max='10'
+						value={painScale || 0}
+						onChange={handleChange}
+						className='mt-1 w-full cursor-pointer'
+					/>
+					<span className='block text-center dark:text-white-bg2'>
+						{painScale}/10
+					</span>
+				</div>
+			</div>
 		</div>
 	);
 };
