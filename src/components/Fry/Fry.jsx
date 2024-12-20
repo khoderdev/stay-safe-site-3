@@ -2,7 +2,6 @@ import React, { useRef, useState, useEffect, Suspense } from 'react';
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import {
   Environment,
-  Sparkles,
   PerspectiveCamera,
 } from "@react-three/drei";
 import * as THREE from "three";
@@ -14,11 +13,9 @@ const Fryer = () => {
       <planeGeometry args={[1.2, 1.2]} />
       <meshBasicMaterial
         map={texture}
-        transparent={true}
-        opacity={1}
+        transparent
+        opacity={0.8}
         side={THREE.DoubleSide}
-        depthTest={true}
-        depthWrite={true}
       />
     </mesh>
   );
@@ -32,8 +29,6 @@ const Fry = () => {
   const startPosition = 4;
   const targetPosition = -2;
   const dropSpeed = 0.05;
-  const bounceSpeed = 4;
-  const bounceHeight = 0.1;
   
   // Create textures for all three sprites
   const textures = [
@@ -43,42 +38,31 @@ const Fry = () => {
   ];
 
   useEffect(() => {
-    if (!hasLanded) {
-      const interval = setInterval(() => {
-        setTextureIndex((prev) => (prev + 1) % 3);
-      }, 150); // Change sprite every 150ms
+    const interval = setInterval(() => {
+      setTextureIndex((prev) => (prev + 1) % 3);
+    }, 200);
 
-      return () => clearInterval(interval);
-    }
-  }, [hasLanded]);
+    return () => clearInterval(interval);
+  }, []);
 
   useFrame((state, delta) => {
-    if (spriteRef.current) {
-      if (!hasLanded) {
-        spriteRef.current.position.y -=
-          dropSpeed * (1 + (startPosition - spriteRef.current.position.y) * 0.1);
-        spriteRef.current.position.x = Math.sin(state.clock.elapsedTime) * 0.2;
+    if (spriteRef.current && !hasLanded) {
+      spriteRef.current.position.y -=
+        dropSpeed * (1 + (startPosition - spriteRef.current.position.y) * 0.1);
 
-        if (spriteRef.current.position.y <= targetPosition) {
-          setHasLanded(true);
-          spriteRef.current.position.y = targetPosition;
-        }
-      } else {
-        const bounce =
-          Math.sin(state.clock.elapsedTime * bounceSpeed) * bounceHeight;
-        spriteRef.current.position.y =
-          targetPosition + Math.max(0, bounce * 0.2);
-        spriteRef.current.rotation.z =
-          Math.sin(state.clock.elapsedTime * 2) * 0.1;
+      if (spriteRef.current.position.y <= targetPosition) {
+        setHasLanded(true);
       }
     }
   });
+
+  if (hasLanded) return null;
 
   return (
     <sprite
       ref={spriteRef}
       position={[0, startPosition, 0]}
-      scale={[1, 1, 1]}
+      scale={[1.2, 1.2, 1.2]}
     >
       <spriteMaterial
         attach="material"
@@ -93,11 +77,10 @@ const FryScene = () => {
   return (
     <div style={{ width: "100%", height: "100vh", overflow: "hidden" }}>
       <Canvas
-        shadows
         camera={{ position: [0, 0, 10], fov: 45 }}
-        style={{ background: "#87CEEB" }}
+        shadows
       >
-        <ambientLight intensity={0.8} />
+        <ambientLight intensity={0.5} />
         <directionalLight position={[10, 10, 5]} intensity={1} castShadow />
         <Environment preset="sunset" />
         <Suspense fallback={null}>
