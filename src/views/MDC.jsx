@@ -14,7 +14,8 @@ import { FoodSafetyTable } from '../components/Table/FoodSafetyTable';
 import { columns } from '../components/Table/columns';
 import CTA from '../components/circle/CTA';
 import Child from '../components/child/Child';
-import BreastColored  from '../components/breast/Breast';
+import BreastColored from '../components/breast/Breast';
+import Fry from '../components/Fry/Fry';
 
 function MDC() {
 	const sectionRef = useRef(null);
@@ -23,6 +24,9 @@ function MDC() {
 		<div className='flex flex-col bg-white-bg2 dark:bg-[#000]'>
 			<div className='section bg-white-bg dark:bg-[#000]'>
 				<CowChickenPage />
+			</div>
+			<div className='section bg-white-bg dark:bg-[#000]'>
+				<Fry />
 			</div>
 
 			{/* <div className='bg-white-bg2 dark:bg-[#000]'>
