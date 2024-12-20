@@ -1,7 +1,6 @@
-import React, { useRef, useState, Suspense } from "react";
+import React, { useRef, useState, useEffect, Suspense } from 'react';
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import {
-  useGLTF,
   Environment,
   Sparkles,
   PerspectiveCamera,
@@ -25,69 +24,72 @@ const Fryer = () => {
   );
 };
 
-const Model = () => {
-  const { nodes } = useGLTF("/fry.glb");
-  const modelRef = useRef();
+const Fry = () => {
+  const spriteRef = useRef();
   const [hasLanded, setHasLanded] = useState(false);
-  const startPosition = 8;
-  const targetPosition = -1.8;
-  const dropSpeed = 0.03;
-  const rotationSpeed = 0.02;
-  const bounceHeight = 0.3;
+  const [textureIndex, setTextureIndex] = useState(0);
+  
+  const startPosition = 4;
+  const targetPosition = -2;
+  const dropSpeed = 0.05;
   const bounceSpeed = 4;
+  const bounceHeight = 0.1;
+  
+  // Create textures for all three sprites
+  const textures = [
+    new THREE.TextureLoader().load('/images/fries1.png'),
+    new THREE.TextureLoader().load('/images/fries2.png'),
+    new THREE.TextureLoader().load('/images/fries3.png')
+  ];
+
+  useEffect(() => {
+    if (!hasLanded) {
+      const interval = setInterval(() => {
+        setTextureIndex((prev) => (prev + 1) % 3);
+      }, 150); // Change sprite every 150ms
+
+      return () => clearInterval(interval);
+    }
+  }, [hasLanded]);
 
   useFrame((state, delta) => {
-    if (modelRef.current) {
+    if (spriteRef.current) {
       if (!hasLanded) {
-        modelRef.current.position.y -=
-          dropSpeed * (1 + (startPosition - modelRef.current.position.y) * 0.1);
-        modelRef.current.position.x = Math.sin(state.clock.elapsedTime) * 0.2;
-        modelRef.current.rotation.x =
-          Math.sin(state.clock.elapsedTime * 2) * 0.3;
-        modelRef.current.rotation.z = Math.cos(state.clock.elapsedTime) * 0.15;
-        modelRef.current.rotation.y += rotationSpeed * delta;
+        spriteRef.current.position.y -=
+          dropSpeed * (1 + (startPosition - spriteRef.current.position.y) * 0.1);
+        spriteRef.current.position.x = Math.sin(state.clock.elapsedTime) * 0.2;
 
-        if (modelRef.current.position.y <= targetPosition) {
+        if (spriteRef.current.position.y <= targetPosition) {
           setHasLanded(true);
-          modelRef.current.position.y = targetPosition;
+          spriteRef.current.position.y = targetPosition;
         }
       } else {
         const bounce =
           Math.sin(state.clock.elapsedTime * bounceSpeed) * bounceHeight;
-        modelRef.current.position.y =
+        spriteRef.current.position.y =
           targetPosition + Math.max(0, bounce * 0.2);
-        modelRef.current.rotation.z =
+        spriteRef.current.rotation.z =
           Math.sin(state.clock.elapsedTime * 2) * 0.1;
       }
     }
   });
 
   return (
-    <>
-      <group
-        ref={modelRef}
-        position={[0, startPosition, -1]}
-        scale={[1.2, 1.2, 1.2]}
-      >
-        <mesh geometry={nodes.Mesh1.geometry}>
-          <meshStandardMaterial color="#d7bc1b" />
-        </mesh>
-      </group>
-      {hasLanded && (
-        <Sparkles
-          count={20}
-          scale={[3, 0.5, 3]}
-          position={[0, -1.6, -1]}
-          size={2}
-          speed={0.3}
-          color="#ffeb3b"
-        />
-      )}
-    </>
+    <sprite
+      ref={spriteRef}
+      position={[0, startPosition, 0]}
+      scale={[1, 1, 1]}
+    >
+      <spriteMaterial
+        attach="material"
+        map={textures[textureIndex]}
+        transparent={true}
+      />
+    </sprite>
   );
 };
 
-const Fry = () => {
+const FryScene = () => {
   return (
     <div style={{ width: "100%", height: "100vh", overflow: "hidden" }}>
       <Canvas
@@ -99,7 +101,7 @@ const Fry = () => {
         <directionalLight position={[10, 10, 5]} intensity={1} castShadow />
         <Environment preset="sunset" />
         <Suspense fallback={null}>
-          <Model />
+          <Fry />
           <Fryer />
         </Suspense>
       </Canvas>
@@ -107,4 +109,4 @@ const Fry = () => {
   );
 };
 
-export default Fry;
+export default FryScene;
