@@ -78,7 +78,7 @@ const Fry = () => {
     <sprite
       ref={spriteRef}
       position={[0, startPosition, 0]}
-      scale={[1, 1, 1]}
+      scale={[1.3, 1.3, 1.3]}
     >
       <spriteMaterial
         attach="material"
@@ -95,7 +95,6 @@ const FryScene = () => {
       <Canvas
         shadows
         camera={{ position: [0, 0, 10], fov: 45 }}
-        style={{ background: "#" }}
       >
         <ambientLight intensity={0.8} />
         <directionalLight position={[10, 10, 5]} intensity={1} castShadow />
