@@ -42,29 +42,29 @@ const FoodAndNutrition = () => {
   // Animation variants
   const questionVariants = {
     initial: { scale: 1 },
-    drag: { 
+    drag: {
       scale: 1.05,
       boxShadow: "0 8px 16px rgba(0,0,0,0.2)",
       transition: {
         type: "spring",
         damping: 15,
         stiffness: 300,
-      }
+      },
     },
     hover: { scale: 1.02 },
-    tap: { scale: 0.98 }
+    tap: { scale: 0.98 },
   };
 
   const dropTargetVariants = {
     initial: { scale: 1, opacity: 1 },
-    hover: { 
+    hover: {
       scale: 1.05,
       opacity: 0.9,
       transition: {
         type: "spring",
         damping: 15,
         stiffness: 300,
-      }
+      },
     },
   };
 
@@ -120,6 +120,11 @@ const FoodAndNutrition = () => {
       id,
     });
 
+    const getBgColor = () => {
+      if (!isOver) return "transparent";
+      return id === "True" ? "rgba(194, 195, 107, 1)" : "rgba(236, 72, 153, 1)";
+    };
+
     return (
       <motion.div
         ref={setNodeRef}
@@ -127,9 +132,12 @@ const FoodAndNutrition = () => {
         initial="initial"
         whileHover="hover"
         whileTap={{ scale: 0.98 }}
+        style={{
+          background: getBgColor(),
+        }}
         className={`${className} ${
-          isOver ? "bg-opacity-70 scale-105 ring-opacity-80" : ""
-        } transition-all duration-300 ease-out select-none touch-none`}
+          isOver ? "scale-105 ring-opacity-100 shadow-2xl" : ""
+        } transition-all duration-300 ease-out select-none touch-none backdrop-blur-sm`}
       >
         {children}
       </motion.div>
@@ -150,7 +158,7 @@ const FoodAndNutrition = () => {
 
       // Add haptic feedback if available
       if (window.navigator && window.navigator.vibrate) {
-        window.navigator.vibrate(isCorrect ? [50] : [100, 50, 100]);
+        window.navigator.vibrate(isCorrect ? [25] : [200, 50, 200]);
       }
 
       setAnswers((prev) => [
@@ -237,7 +245,7 @@ const FoodAndNutrition = () => {
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
             variants={containerAnimation}
-            className="text-3xl sm:text-4xl text-center dark:text-white-bg leading-relaxed md:text-5xl md:leading-relaxed font-semibold m-0 uppercase break-words md:flex-wrap"
+            className="text-[24px] sm:text-4xl text-center dark:text-white-bg leading-relaxed md:text-5xl md:leading-relaxed font-semibold m-0 uppercase break-words md:flex-wrap"
           >
             {words.map((word, index) => (
               <motion.span key={index} variants={wordAnimation}>
@@ -285,7 +293,7 @@ const FoodAndNutrition = () => {
               >
                 <div
                   key={currentQuestion}
-                  className="grid grid-cols-2 gap-8 gap-y-12 sm:gap-20 relative"
+                  className="grid grid-cols-2 gap-8 gap-y-20 sm:gap-28 relative"
                 >
                   <DraggableQuestion />
 
