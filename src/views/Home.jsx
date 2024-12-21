@@ -8,7 +8,6 @@ import { useRef, useState, useEffect } from 'react';
 import Bacteria from '../components/bacteria/Bacteria';
 import FiftyPercent from '../components/FiftyPercent/FiftyPercent';
 import BarCharts from '../components/Charts/BarCharts';
-import CirclesCharts from '../components/Charts/CirclesCharts';
 import Balloon from '../components/Balloon/Balloon';
 
 export default function Home() {
