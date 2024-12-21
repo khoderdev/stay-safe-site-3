@@ -1,9 +1,9 @@
-import FormComponent from "./FormComponent";
+import AppointmentForm from "./AppointmentForm";
 
 export default function Form() {
   return (
     <div className="flex-grow h-screen">
-      <FormComponent />
+      <AppointmentForm />
     </div>
 
   )
