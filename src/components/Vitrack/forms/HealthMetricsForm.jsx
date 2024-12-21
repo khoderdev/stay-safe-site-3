@@ -299,7 +299,7 @@ const HealthMetricsForm = () => {
 			diastolicBP: diastolic,
 			heartRate,
 			respiratoryRate,
-			spO2: leftHandOxygen, // Assuming oxygen values are used in some way here
+			spO2: leftHandOxygen, 
 			symptoms,
 		});
 
