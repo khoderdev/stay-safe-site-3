@@ -24,23 +24,48 @@ const FoodAndNutrition = () => {
 
   const sensors = useSensors(
     useSensor(PointerSensor, {
-      activationConstraint: { distance: 8 },
+      activationConstraint: {
+        distance: 5,
+        delay: 0,
+        tolerance: 5,
+      },
     }),
     useSensor(TouchSensor, {
-      activationConstraint: { delay: 150, tolerance: 8 },
+      activationConstraint: {
+        delay: 0,
+        tolerance: 8,
+        distance: 0,
+      },
     })
   );
 
   // Animation variants
   const questionVariants = {
     initial: { scale: 1 },
-    drag: { scale: 1.05, boxShadow: "0 8px 16px rgba(0,0,0,0.2)" },
+    drag: { 
+      scale: 1.05,
+      boxShadow: "0 8px 16px rgba(0,0,0,0.2)",
+      transition: {
+        type: "spring",
+        damping: 15,
+        stiffness: 300,
+      }
+    },
     hover: { scale: 1.02 },
+    tap: { scale: 0.98 }
   };
 
   const dropTargetVariants = {
     initial: { scale: 1, opacity: 1 },
-    hover: { scale: 1.05, opacity: 0.9 },
+    hover: { 
+      scale: 1.05,
+      opacity: 0.9,
+      transition: {
+        type: "spring",
+        damping: 15,
+        stiffness: 300,
+      }
+    },
   };
 
   const DraggableQuestion = () => {
@@ -58,8 +83,15 @@ const FoodAndNutrition = () => {
       ? {
           transform: `translate3d(${transform.x}px, ${transform.y}px, 0)`,
           zIndex: isCurrentDragging ? 1000 : 1,
+          touchAction: "none",
+          WebkitUserSelect: "none",
+          WebkitTouchCallout: "none",
         }
-      : undefined;
+      : {
+          touchAction: "none",
+          WebkitUserSelect: "none",
+          WebkitTouchCallout: "none",
+        };
 
     return (
       <motion.div
@@ -71,11 +103,12 @@ const FoodAndNutrition = () => {
         initial="initial"
         whileHover="hover"
         whileDrag="drag"
-        className={`col-span-2 place-self-center flex justify-center items-center w-48 h-44 sm:w-72 sm:h-64 bg-[#b0e1ec] sm:text-[1.2rem] leading-snug sm:font-semibold p-4 rounded-md text-gray-800 shadow-lg cursor-grab transition-all ${
+        whileTap="tap"
+        className={`col-span-2 place-self-center flex justify-center items-center w-48 h-44 sm:w-72 sm:h-64 bg-[#b0e1ec] sm:text-[1.2rem] leading-snug sm:font-semibold p-4 rounded-md text-gray-800 shadow-lg cursor-grab select-none touch-none ${
           shake ? "animate-shake" : ""
         } ${isCurrentDragging ? "cursor-grabbing" : ""}`}
       >
-        <span className="text-center">
+        <span className="text-center pointer-events-none">
           {questions[currentQuestion].question}
         </span>
       </motion.div>
@@ -93,9 +126,10 @@ const FoodAndNutrition = () => {
         variants={dropTargetVariants}
         initial="initial"
         whileHover="hover"
+        whileTap={{ scale: 0.98 }}
         className={`${className} ${
           isOver ? "bg-opacity-70 scale-105 ring-opacity-80" : ""
-        } transition-all duration-300 ease-out`}
+        } transition-all duration-300 ease-out select-none touch-none`}
       >
         {children}
       </motion.div>
@@ -113,6 +147,11 @@ const FoodAndNutrition = () => {
 
       const selectedOption = over.id;
       const isCorrect = selectedOption === questions[currentQuestion].answer;
+
+      // Add haptic feedback if available
+      if (window.navigator && window.navigator.vibrate) {
+        window.navigator.vibrate(isCorrect ? [50] : [100, 50, 100]);
+      }
 
       setAnswers((prev) => [
         ...prev,
@@ -264,14 +303,15 @@ const FoodAndNutrition = () => {
                     False
                   </DroppableOption>
 
-                  <DragOverlay>
+                  <DragOverlay dropAnimation={null}>
                     {isDragging && (
-                      <div
-                    
-                        className="w-48 h-44 sm:w-72 sm:h-64 bg-[#b0e1ec] sm:text-[1.2rem] leading-snug sm:font-semibold p-4 rounded-md text-gray-800 shadow-xl opacity-90 flex justify-center items-center"
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        className="w-48 h-44 sm:w-72 sm:h-64 bg-[#b0e1ec] sm:text-[1.2rem] leading-snug sm:font-semibold p-4 rounded-md text-gray-800 shadow-xl opacity-90 flex justify-center items-center select-none touch-none"
                       >
                         {questions[currentQuestion].question}
-                      </div>
+                      </motion.div>
                     )}
                   </DragOverlay>
                 </div>
