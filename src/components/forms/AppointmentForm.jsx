@@ -278,13 +278,6 @@ const AppointmentFormContent = () => {
                     </div>
                   ))}
               </div>
-              {/* {appointmentDetails && (
-                <div className="mt-6 p-4 bg-green-50 dark:bg-green-900 rounded-lg w-full">
-                  <h3 className="text-lg font-semibold text-green-700 dark:text-green-200 mb-2">Selected Appointment</h3>
-                  <p className="text-green-600 dark:text-green-300">Date: {appointmentDetails.appointmentDate}</p>
-                  <p className="text-green-600 dark:text-green-300">Time: {appointmentDetails.appointmentTime}</p>
-                </div>
-              )} */}
             </div>
             <div className="sm:w-1/2">
               <Calendar />

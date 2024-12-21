@@ -60,16 +60,34 @@
   border-radius: 0.25rem !important;
   border: none !important;
   margin: 1px !important;
+  transition: all 0.2s ease !important;
+}
+
+.fc-event.available-slot:hover {
+  transform: scale(1.02);
+  filter: brightness(1.1);
+}
+
+.fc-event.booked-slot {
+  cursor: not-allowed !important;
+  opacity: 0.9 !important;
+  background-color: #E53E3E !important;
+}
+
+.fc-event.booked-slot:hover {
+  transform: none !important;
+  filter: none !important;
+}
+
+.fc-event.selected {
+  background-color: #2196F3 !important;
+  border: 2px solid #1976D2 !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .fc-event:hover {
   transform: scale(1.02);
   transition: transform 0.2s ease;
-}
-
-.fc-event.selected {
-  border: 2px solid #1a73e8 !important;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .fc-day-today {
@@ -117,4 +135,13 @@
 .dark .fc-button:hover {
   background-color: #2f855a !important;
   border-color: #2f855a !important;
+}
+
+.dark .fc-event.booked-slot {
+  background-color: #C53030 !important;
+}
+
+.dark .fc-event.selected {
+  background-color: #1976D2 !important;
+  border-color: #1565C0 !important;
 }
