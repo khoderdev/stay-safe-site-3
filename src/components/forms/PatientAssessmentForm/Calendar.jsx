@@ -141,7 +141,7 @@ const Calendar = () => {
         selectable={true}
         selectMirror={true}
         dayMaxEvents={true}
-        hiddenDays={[0]} // Only hide Sundays (0 = Sunday, 6 = Saturday)
+        hiddenDays={[0]}
         validRange={{
           start: currentDate,
           end: maxDate

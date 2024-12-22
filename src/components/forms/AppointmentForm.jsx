@@ -13,6 +13,7 @@ import {
   AppointmentProvider,
   useAppointment,
 } from "../../context/AppointmentContext";
+import { ArrowLeft } from "../icons/Icons";
 
 const AppointmentFormContent = () => {
   const { appointmentDetails, clearAppointment } = useAppointment();
@@ -167,7 +168,7 @@ const AppointmentFormContent = () => {
   };
 
   return (
-    <div className="form-component flex flex-col py-8 md:px-4 bg-gradient-to-br from-white-bg to-pink/5 dark:from-black dark:to-pink/10 min-h-screen">
+    <div className="form-component flex flex-col py-8 md:px-4 min-h-screen">
       {/* Stepper component */}
       <Stepper
         steps={[
@@ -285,16 +286,16 @@ const AppointmentFormContent = () => {
               </div>
               {appointmentDetails && (
                 <div className="bg-gradient-to-r from-green-500 to-green-600 rounded-xl p-6 shadow-lg">
-                  <h3 className="text-xl font-bold text-white mb-4">
+                  <h3 className="text-xl font-bold text-white-bg mb-4">
                     Your Appointment is at:
                   </h3>
                   <div className="space-y-2">
-                    <p className="text-white flex items-center gap-2">
-                      <span className="text-white/80">Date:</span>
+                    <p className="text-white-bg flex items-center gap-2">
+                      <span className="text-white-bg/80">Date:</span>
                       {appointmentDetails.appointmentDate}
                     </p>
-                    <p className="text-white flex items-center gap-2">
-                      <span className="text-white/80">Time:</span>
+                    <p className="text-white-bg flex items-center gap-2">
+                      <span className="text-white-bg/80">Time:</span>
                       {appointmentDetails.appointmentTime}
                     </p>
                   </div>
@@ -303,10 +304,12 @@ const AppointmentFormContent = () => {
               <div className="flex gap-4">
                 <button
                   onClick={previousStep}
-                  className="w-1/2 py-4 px-6 rounded-xl bg-transparent text-gray-700 dark:text-gray-400 border-2 border-dark dark:border-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white-bg transition-all duration-300 "
+                  className="w-1/2 flex items-center justify-center gap-2 py-4 px-6 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-400 border-2 border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-600 hover:text-black dark:hover:text-white transition-all duration-300 shadow-sm hover:shadow-md"
                 >
+                  <ArrowLeft className="h-5 w-5" />
                   Go Back
                 </button>
+
                 <button
                   onClick={handleSubmit}
                   disabled={!appointmentDetails}

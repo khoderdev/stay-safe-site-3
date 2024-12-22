@@ -17,8 +17,8 @@
 }
 
 .fc .fc-button {
-  background-color: #4CAF50 !important;
-  border-color: #4CAF50 !important;
+  background-color: #4caf50 !important;
+  border-color: #4caf50 !important;
   text-transform: capitalize !important;
   padding: 0.3rem 0.3rem !important;
 }
@@ -34,14 +34,17 @@
   border-color: #388e3c !important;
 }
 
-.fc-theme-standard td {
+/* .fc-theme-standard td {
   border: 1px solid #e2e8f0 !important;
-}
+} */
 
 .fc-theme-standard th {
   background-color: #f8fafc;
-  padding: 0.75rem 0 !important;
-  font-weight: 600;
+  /* padding: 0.5rem 0rem  !important; */
+  /* padding-bottom: 1rem !important; */
+  margin: 1rem !important;
+  font-weight: 700;
+  font-size: 20px;
 }
 
 .fc-timegrid-slot {
@@ -52,9 +55,9 @@
   cursor: pointer !important;
   padding: 0.25rem !important;
   font-size: 0.875rem !important;
-  border-radius: 0.25rem !important;
+  /* border-radius: 0.25rem !important; */
   border: none !important;
-  margin: 1px !important;
+  /* margin: 1px !important; */
   transition: all 0.2s ease !important;
 }
 
@@ -66,7 +69,7 @@
 .fc-event.booked-slot {
   cursor: not-allowed !important;
   opacity: 0.9 !important;
-  background-color: #E53E3E !important;
+  background-color: #e53e3e !important;
 }
 
 .fc-event.booked-slot:hover {
@@ -75,8 +78,8 @@
 }
 
 .fc-event.selected {
-  background-color: #2196F3 !important;
-  border: 2px solid #1976D2 !important;
+  background-color: #2196f3 !important;
+  border: 2px solid #1976d2 !important;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -90,12 +93,12 @@
 }
 
 .fc-timegrid-now-indicator-line {
-  border-color: #4CAF50 !important;
+  border-color: #4caf50 !important;
 }
 
 .fc-timegrid-now-indicator-arrow {
-  border-color: #4CAF50 !important;
-  color: #4CAF50 !important;
+  border-color: #4caf50 !important;
+  color: #4caf50 !important;
 }
 
 /* Dark mode support */
@@ -133,10 +136,10 @@
 }
 
 .dark .fc-event.booked-slot {
-  background-color: #C53030 !important;
+  background-color: #c53030 !important;
 }
 
 .dark .fc-event.selected {
-  background-color: #1976D2 !important;
-  border-color: #1565C0 !important;
+  background-color: #1976d2 !important;
+  border-color: #1565c0 !important;
 }
