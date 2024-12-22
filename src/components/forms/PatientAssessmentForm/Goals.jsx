@@ -48,7 +48,7 @@ function Goals({ formData, setFormData, nextStep }) {
               name="goal1"
               value={formData.goal1}
               onChange={handleChange}
-              className={`${inputStyles()} md:!w-96 mt-2 bg-white-fg dark:!bg-[#000]`}
+              className={`${inputStyles()} md:!w-96 mt-2 !bg-white-fg dark:!bg-[#000]`}
               placeholder="1"
             />
             {errors.goal1 && <span className="error">{errors.goal1}</span>}
@@ -63,7 +63,7 @@ function Goals({ formData, setFormData, nextStep }) {
               name="goal2"
               value={formData.goal2}
               onChange={handleChange}
-              className={`${inputStyles()} md:!w-96 mt-2 bg-white-fg dark:!bg-[#000]`}
+              className={`${inputStyles()} md:!w-96 mt-2 !bg-white-fg dark:!bg-[#000]`}
               placeholder="2"
             />
             {errors.goal2 && <span className="error">{errors.goal2}</span>}
@@ -78,7 +78,7 @@ function Goals({ formData, setFormData, nextStep }) {
               name="goal3"
               value={formData.goal3}
               onChange={handleChange}
-              className={`${inputStyles()} md:!w-96 mt-2 bg-white-fg dark:!bg-[#000]`}
+              className={`${inputStyles()} md:!w-96 mt-2 !bg-white-fg dark:!bg-[#000]`}
               placeholder="3"
             />
             {errors.goal3 && <span className="error">{errors.goal3}</span>}

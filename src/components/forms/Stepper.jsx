@@ -13,28 +13,28 @@ const Stepper = ({ steps, currentStep, isSubmitted, onStepClick }) => {
             key={index}
             className={`flex w-full items-center ${
               index < steps.length - 1
-                ? "after:content-[''] after:w-full after:h-1 after:border-b after:border-4 after:inline-block"
+                ? "after:content-[''] after:w-full after:h- after:border-b after:border-2 after:inline-block"
                 : ""
             } ${
               isCompleted
-                ? "text-blue-600 dark:text-blue-500 after:border-blue-100 dark:after:border-blue-800"
-                : "after:border-gray-100 dark:after:border-gray-700"
+                ? "text-blue-600 dark:text-blue-500 after:border-blue-500 dark:after:border-blue-800"
+                : "after:border-blue-100 dark:after:border-gray-700"
             }`}
           >
             <span
               className={`flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full lg:h-12 lg:w-12 shrink-0 ${
                 isCompleted
-                  ? "bg-blue-100 dark:bg-blue-800"
+                  ? "bg-blue-500 dark:bg-blue-800"
                   : isActive
-                  ? "bg-blue-500 text-white dark:bg-blue-500"
-                  : "bg-gray-100 dark:bg-gray-700"
+                  ? "bg-blue-500 text-white-whites dark:bg-blue-500"
+                  : "bg-blue-100 dark:bg-gray-700"
               }`}
-              onClick={() => onStepClick(index)} // Add click handler
+              onClick={() => onStepClick(index)}
             >
               {/* Render checkmark for completed steps */}
               {isCompleted ? (
                 <svg
-                  className="w-3.5 h-3.5 text-blue-600 lg:w-4 lg:h-4 dark:text-blue-300"
+                  className="w-3.5 h-3.5 text-white-bg lg:w-4 lg:h-4"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"

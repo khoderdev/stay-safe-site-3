@@ -13,6 +13,7 @@ import {
   AppointmentProvider,
   useAppointment,
 } from "../../context/AppointmentContext";
+import { ArrowLeft } from "../icons/Icons";
 
 const AppointmentFormContent = () => {
   const { appointmentDetails, clearAppointment } = useAppointment();
@@ -167,7 +168,7 @@ const AppointmentFormContent = () => {
   };
 
   return (
-    <div className="form-component flex flex-col py-4 md:px-14 bg-white-bg dark:bg-black dark:text-white-bg">
+    <div className="form-component flex flex-col py-8 md:px-4 min-h-screen">
       {/* Stepper component */}
       <Stepper
         steps={[
@@ -185,9 +186,9 @@ const AppointmentFormContent = () => {
       />
 
       {/* Form content for each step */}
-      <div className="form-content flex my-4">
+      <div className="form-content flex my-8">
         {currentStep === 0 && (
-          <div className="w-full space-x-4">
+          <div className="w-full animate-fadeIn">
             <PersonalInfo
               formData={formData}
               setFormData={setFormData}
@@ -197,7 +198,7 @@ const AppointmentFormContent = () => {
         )}
 
         {currentStep === 1 && (
-          <div className="w-full space-x-4">
+          <div className="w-full animate-fadeIn">
             <MedicalAssessment
               formData={formData}
               setFormData={setFormData}
@@ -206,7 +207,7 @@ const AppointmentFormContent = () => {
           </div>
         )}
         {currentStep === 2 && (
-          <div className="w-full space-x-4">
+          <div className="w-full animate-fadeIn">
             <PhysicalActivityAssessment
               formData={formData}
               setFormData={setFormData}
@@ -215,7 +216,7 @@ const AppointmentFormContent = () => {
           </div>
         )}
         {currentStep === 3 && (
-          <div className="w-full space-x-4">
+          <div className="w-full animate-fadeIn">
             <DietaryAssessment
               formData={formData}
               setFormData={setFormData}
@@ -224,7 +225,7 @@ const AppointmentFormContent = () => {
           </div>
         )}
         {currentStep === 4 && (
-          <div className="w-full space-x-4">
+          <div className="w-full animate-fadeIn">
             <PsychologicalAssessment
               formData={formData}
               setFormData={setFormData}
@@ -233,7 +234,7 @@ const AppointmentFormContent = () => {
           </div>
         )}
         {currentStep === 5 && (
-          <div className="w-full space-x-4">
+          <div className="w-full animate-fadeIn">
             <PrecedentTreatmentAssessment
               formData={formData}
               setFormData={setFormData}
@@ -242,7 +243,7 @@ const AppointmentFormContent = () => {
           </div>
         )}
         {currentStep === 6 && (
-          <div className="w-full space-x-4">
+          <div className="w-full animate-fadeIn">
             <Goals
               formData={formData}
               setFormData={setFormData}
@@ -250,94 +251,105 @@ const AppointmentFormContent = () => {
             />
           </div>
         )}
-        {/* Render confirmation step and booking calendar when the form is submitted */}
         {currentStep === 7 && (
-          <div className="w-full flex flex-col sm:flex-row p-4 gap-6">
-            <div className="sm:w-1/2 border-2 border-gray-300 rounded-lg p-6 text-center flex flex-col items-center custom-scrollbar h-1/2">
-              <h2 className="text-2xl font-semibold mb-2">Confirmation</h2>
-              <p className="text-gray-400 mb-4">
+          <div className="w-full flex flex-col md:flex-row gap-8 animate-fadeIn">
+            <div className="md:w-1/2 bg-white-bg dark:bg-dark rounded-xl shadow-lg p-6 flex flex-col max-h-[800px]">
+              <h2 className="text-2xl font-bold mb-2  bg-clip-text dark:text-white-bg">
+                Confirmation
+              </h2>
+              <p className=" dark:text-white-bg mb-6">
                 Review your information and select an appointment time.
               </p>
-              <div className="summary grid grid-cols-2 sm:grid-cols-3 gap-4 w-full border-t border-gray-300 pt-4">
+              <div className="summary grid grid-cols-1 sm:grid-cols-2 gap-4 overflow-y-auto custom-scrollbar pr-2">
                 {Object.entries(formData)
                   .filter(([key]) => !key.startsWith("appointment"))
                   .map(([key, value]) => (
                     <div
                       key={key}
-                      className="flex flex-col p-4 bg-[#000] border border-black rounded-lg shadow-md transition transform hover:scale-105 duration-300 hover"
+                      className="flex flex-col p-4 bg-white-bg3 dark:bg-[#000] rounded-lg border border-gray-200 dark:border-[#000] hover:shadow-md transition-all duration-300"
                     >
-                      <span className="text-[#f0f0fed3] font-semibold">
+                      <span className="text-gray-700 dark:text-gray-50 text-sm">
                         {key
                           .replace(/([A-Z])/g, " $1")
                           .replace(/^./, (str) => str.toUpperCase())}
-                        :
                       </span>
-                      <span className="text-[#f0f0fed3]">
+                      <span className="text-gray-900 dark:text-gray-100 mt-1">
                         {value || "Not provided"}
                       </span>
                     </div>
                   ))}
               </div>
-              {/* {appointmentDetails && (
-                <div className="mt-6 p-4 bg-green-50 dark:bg-green-900 rounded-lg w-full">
-                  <h3 className="text-lg font-semibold text-green-700 dark:text-green-200 mb-2">Selected Appointment</h3>
-                  <p className="text-green-600 dark:text-green-300">Date: {appointmentDetails.appointmentDate}</p>
-                  <p className="text-green-600 dark:text-green-300">Time: {appointmentDetails.appointmentTime}</p>
-                </div>
-              )} */}
             </div>
-            <div className="sm:w-1/2">
-              <Calendar />
+            <div className="md:w-1/2 flex flex-col gap-6">
+              <div className="bg-white-bg  rounded-xl shadow-lg">
+                <Calendar />
+              </div>
               {appointmentDetails && (
-                <div className="mt-6 p-4 bg-green-700 rounded-lg w-full">
-                  <h3 className="text-xl font-semibold text-white-whites mb-2">
+                <div className="bg-gradient-to-r from-green-500 to-green-600 rounded-xl p-6 shadow-lg">
+                  <h3 className="text-xl font-bold text-white-bg mb-4">
                     Your Appointment is at:
                   </h3>
-                  <p className="text-white-whites">
-                    Date: {appointmentDetails.appointmentDate}
-                  </p>
-                  <p className="text-white-whites">
-                    Time: {appointmentDetails.appointmentTime}
-                  </p>
+                  <div className="space-y-2">
+                    <p className="text-white-bg flex items-center gap-2">
+                      <span className="text-white-bg/80">Date:</span>
+                      {appointmentDetails.appointmentDate}
+                    </p>
+                    <p className="text-white-bg flex items-center gap-2">
+                      <span className="text-white-bg/80">Time:</span>
+                      {appointmentDetails.appointmentTime}
+                    </p>
+                  </div>
                 </div>
               )}
-              <button
-                onClick={handleSubmit}
-                disabled={!appointmentDetails}
-                className={`mt-6 px-8 py-3 rounded-lg text-white-whites font-semibold transition-all duration-300 ${
-                  appointmentDetails
-                    ? "bg-green-600 hover:bg-green-700 cursor-pointer"
-                    : "bg-gray-400 cursor-not-allowed"
-                }`}
-              >
-                {appointmentDetails
-                  ? "Submit Appointment"
-                  : "Select an Appointment Time"}
-              </button>
+              <div className="flex gap-4">
+                <button
+                  onClick={previousStep}
+                  className="w-1/2 flex items-center justify-center gap-2 py-4 px-6 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-400 border-2 border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-600 hover:text-black dark:hover:text-white transition-all duration-300 shadow-sm hover:shadow-md"
+                >
+                  <ArrowLeft className="h-5 w-5" />
+                  Go Back
+                </button>
+
+                <button
+                  onClick={handleSubmit}
+                  disabled={!appointmentDetails}
+                  className={`w-1/2 py-4 px-6 rounded-xl  transition-all duration-300 ${
+                    appointmentDetails
+                      ? "bg-pink text-white-bg hover:shadow-lg hover:scale-[1.02]"
+                      : "bg-gray-300 dark:bg-gray-600 text-gray-500 dark:text-gray-400 cursor-not-allowed"
+                  }`}
+                >
+                  {appointmentDetails
+                    ? "Book Appointment"
+                    : "Select an Appointment Time"}
+                </button>
+              </div>
             </div>
           </div>
         )}
       </div>
 
       {/* Navigation buttons */}
-      <div className="button-group flex justify-center my-4 space-x-12">
-        {currentStep > 0 && (
-          <button
-            onClick={previousStep}
-            className="bg-[#71743c] rounded-lg hover hover:bg-transparent border-2  hover:border-2 border-[#71743c] !w-24"
-          >
-            Previous
-          </button>
-        )}
-        {currentStep < 7 && (
-          <button
-            onClick={nextStep}
-            className="bg-[#71743c] p-1.5 rounded-lg hover hover:bg-transparent border-2 hover:border-2 border-[#71743c] !w-24"
-          >
-            Next
-          </button>
-        )}
-      </div>
+      {currentStep !== 7 && (
+        <div className="button-group flex justify-center my-4 space-x-12">
+          {currentStep > 0 && (
+            <button
+              onClick={previousStep}
+              className="bg-[#71743c] rounded-lg hover:bg-transparent border-2 hover:border-[#71743c] !w-24"
+            >
+              Previous
+            </button>
+          )}
+          {currentStep < 7 && (
+            <button
+              onClick={nextStep}
+              className="bg-[#71743c] p-1.5 rounded-lg hover:bg-transparent border-2 hover:border-[#71743c] !w-24"
+            >
+              Next
+            </button>
+          )}
+        </div>
+      )}
     </div>
   );
 };
