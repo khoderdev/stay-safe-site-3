@@ -56,7 +56,7 @@ function PhysicalActivityAssessment({ formData, setFormData, nextStep }) {
             value={formData.accessToFacilities}
             onChange={handleChange}
 
-            className={`${selectStyles()}  bg-white-fg dark:!bg-[#000]`}
+            className={`${selectStyles()}  !bg-white-fg dark:!bg-[#000]`}
           >
             <option value="">Select</option>
             <option value="yes">Yes</option>
@@ -72,7 +72,7 @@ function PhysicalActivityAssessment({ formData, setFormData, nextStep }) {
             value={formData.physicallyActive}
             onChange={handleChange}
 
-            className={`${selectStyles()}  bg-white-fg dark:!bg-[#000]`}
+            className={`${selectStyles()}  !bg-white-fg dark:!bg-[#000]`}
           >
             <option value="">Select</option>
             <option value="yes">Yes</option>
@@ -90,7 +90,7 @@ function PhysicalActivityAssessment({ formData, setFormData, nextStep }) {
             value={formData.activityType}
             onChange={handleChange}
 
-            className={`${inputStyles()}  bg-white-fg dark:!bg-[#000]`}
+            className={`${inputStyles()}  !bg-white-fg dark:!bg-[#000]`}
           />
           {errors.activityType && <span className="error">{errors.activityType}</span>}
         </div>
@@ -102,7 +102,7 @@ function PhysicalActivityAssessment({ formData, setFormData, nextStep }) {
             value={formData.exerciseDaily}
             onChange={handleChange}
 
-            className={`${selectStyles()}  bg-white-fg dark:!bg-[#000]`}
+            className={`${selectStyles()}  !bg-white-fg dark:!bg-[#000]`}
           >
             <option value="">Select</option>
             <option value="yes">Yes</option>
@@ -119,7 +119,7 @@ function PhysicalActivityAssessment({ formData, setFormData, nextStep }) {
             value={formData.hoursPerWeek}
             onChange={handleChange}
 
-            className={`${inputStyles()}  bg-white-fg dark:!bg-[#000]`}
+            className={`${inputStyles()}  !bg-white-fg dark:!bg-[#000]`}
           />
           {errors.hoursPerWeek && <span className="error">{errors.hoursPerWeek}</span>}
         </div>
@@ -132,7 +132,7 @@ function PhysicalActivityAssessment({ formData, setFormData, nextStep }) {
             value={formData.duration}
             onChange={handleChange}
 
-            className={`${inputStyles()}  bg-white-fg dark:!bg-[#000]`}
+            className={`${inputStyles()}  !bg-white-fg dark:!bg-[#000]`}
           />
           {errors.duration && <span className="error">{errors.duration}</span>}
         </div>
@@ -145,7 +145,7 @@ function PhysicalActivityAssessment({ formData, setFormData, nextStep }) {
             value={formData.favoriteSport}
             onChange={handleChange}
 
-            className={`${inputStyles()}  bg-white-fg dark:!bg-[#000]`}
+            className={`${inputStyles()}  !bg-white-fg dark:!bg-[#000]`}
           />
           {errors.favoriteSport && <span className="error">{errors.favoriteSport}</span>}
         </div>
@@ -157,7 +157,7 @@ function PhysicalActivityAssessment({ formData, setFormData, nextStep }) {
             value={formData.limitations}
             onChange={handleChange}
 
-            className={`${inputStyles()} bg-white-fg dark:!bg-[#000]`}
+            className={`${inputStyles()} !bg-white-fg dark:!bg-[#000]`}
           />
           {errors.limitations && <span className="error">{errors.limitations}</span>}
         </div>
@@ -169,7 +169,7 @@ function PhysicalActivityAssessment({ formData, setFormData, nextStep }) {
             value={formData.exercisePlan}
             onChange={handleChange}
 
-            className={`${inputStyles()} bg-white-fg dark:!bg-[#000]`}
+            className={`${inputStyles()} !bg-white-fg dark:!bg-[#000]`}
           />
           {errors.exercisePlan && <span className="error">{errors.exercisePlan}</span>}
         </div>

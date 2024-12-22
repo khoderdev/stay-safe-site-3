@@ -32,6 +32,9 @@ const Calendar = () => {
       { date: '2024-12-22', hours: [10, 14] },
       { date: '2024-12-23', hours: [9, 13, 15] },
       { date: '2024-12-24', hours: [11, 16] },
+      { date: '2024-12-25', hours: [12] },
+      { date: '2024-12-26', hours: [14] },
+      { date: '2024-12-27', hours: [10] },
     ];
 
     // Generate slots for the next 30 days
@@ -125,7 +128,7 @@ const Calendar = () => {
   };
 
   return (
-    <div className="calendar-container bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4">
+    <div className="calendar-container">
       <FullCalendar
         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
         initialView="timeGridWeek"
@@ -138,7 +141,7 @@ const Calendar = () => {
         selectable={true}
         selectMirror={true}
         dayMaxEvents={true}
-        weekends={false}
+        hiddenDays={[0]} // Only hide Sundays (0 = Sunday, 6 = Saturday)
         validRange={{
           start: currentDate,
           end: maxDate

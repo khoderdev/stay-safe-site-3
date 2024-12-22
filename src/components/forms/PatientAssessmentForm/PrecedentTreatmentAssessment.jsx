@@ -36,7 +36,7 @@ function PrecedentTreatmentAssessment({ formData, setFormData, nextStep }) {
 
   return (
     <form onSubmit={handleSubmit} className="">
-      <h2 className='text-center font-semibold mb-2 text-2xl mb-6'>Precedent Treatment Assessment</h2>
+      <h2 className='text-center font-semibold text-2xl mb-6'>Precedent Treatment Assessment</h2>
       <div className='grid drid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
         <div className="flex flex-col p-4">
           <label className="font-semibold mb-2">Previous dieting?</label>
@@ -44,7 +44,7 @@ function PrecedentTreatmentAssessment({ formData, setFormData, nextStep }) {
             name="previousDieting"
             value={formData.previousDieting}
             onChange={handleChange}
-            className={`${selectStyles()}   bg-white-fg dark:!bg-[#000]`}
+            className={`${selectStyles()}   !bg-white-fg dark:!bg-[#000]`}
           >
             <option value="">Select</option>
             <option value="yes">Yes</option>
@@ -60,7 +60,7 @@ function PrecedentTreatmentAssessment({ formData, setFormData, nextStep }) {
             name="dietIssue"
             value={formData.dietIssue}
             onChange={handleChange}
-            className={`${inputStyles()}bg-white-fg dark:!bg-[#000]`}
+            className={`${inputStyles()}!bg-white-fg dark:!bg-[#000]`}
           />
           {errors.dietIssue && <span className="error">{errors.dietIssue}</span>}
         </div>
@@ -71,7 +71,7 @@ function PrecedentTreatmentAssessment({ formData, setFormData, nextStep }) {
             name="pillsUsed"
             value={formData.pillsUsed}
             onChange={handleChange}
-            className={`${selectStyles()}   bg-white-fg dark:!bg-[#000]`}
+            className={`${selectStyles()}   !bg-white-fg dark:!bg-[#000]`}
           >
             <option value="">Select</option>
             <option value="yes">Yes</option>

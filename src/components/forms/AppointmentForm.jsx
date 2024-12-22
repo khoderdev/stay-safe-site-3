@@ -167,7 +167,7 @@ const AppointmentFormContent = () => {
   };
 
   return (
-    <div className="form-component flex flex-col py-4 md:px-14 bg-white-bg dark:bg-black dark:text-white-bg">
+    <div className="form-component flex flex-col py-4 md:px-2 bg-white-bg dark:bg-black dark:text-white-bg">
       {/* Stepper component */}
       <Stepper
         steps={[
@@ -252,34 +252,34 @@ const AppointmentFormContent = () => {
         )}
         {/* Render confirmation step and booking calendar when the form is submitted */}
         {currentStep === 7 && (
-          <div className="w-full flex flex-col sm:flex-row p-4 gap-6">
-            <div className="sm:w-1/2 border-2 border-gray-300 rounded-lg p-6 text-center flex flex-col items-center custom-scrollbar h-1/2">
+          <div className="w-full flex flex-col md:flex-row p-4 gap-6">
+            <div className="md:w-1/2 border-2 border-gray-300 rounded-lg p-6 text-center flex flex-col items-center h-1/2">
               <h2 className="text-2xl font-semibold mb-2">Confirmation</h2>
               <p className="text-gray-400 mb-4">
                 Review your information and select an appointment time.
               </p>
-              <div className="summary grid grid-cols-2 sm:grid-cols-3 gap-4 w-full border-t border-gray-300 pt-4">
+              <div className="summary grid grid-cols-2 sm:grid-cols-3 gap-4 w-full border-t border-gray-300 pt-4  p-4 custom-scrollbar overflow-x-hidden">
                 {Object.entries(formData)
                   .filter(([key]) => !key.startsWith("appointment"))
                   .map(([key, value]) => (
                     <div
                       key={key}
-                      className="flex flex-col p-4 bg-[#000] border border-black rounded-lg shadow-md transition transform hover:scale-105 duration-300 hover"
+                      className="flex flex-col p-4 bg-white-bg3 dark:bg-[#000] border border-dark rounded-lg shadow-md transition transform hover:scale-105 duration-300 hover"
                     >
-                      <span className="text-[#f0f0fed3] font-semibold">
+                      <span className="dark:text-[#f0f0fed3] font-semibold">
                         {key
                           .replace(/([A-Z])/g, " $1")
                           .replace(/^./, (str) => str.toUpperCase())}
                         :
                       </span>
-                      <span className="text-[#f0f0fed3]">
+                      <span className="dark:text-[#f0f0fed3]">
                         {value || "Not provided"}
                       </span>
                     </div>
                   ))}
               </div>
             </div>
-            <div className="sm:w-1/2">
+            <div className="md:w-1/2">
               <Calendar />
               {appointmentDetails && (
                 <div className="mt-6 p-4 bg-green-700 rounded-lg w-full">
@@ -297,14 +297,14 @@ const AppointmentFormContent = () => {
               <button
                 onClick={handleSubmit}
                 disabled={!appointmentDetails}
-                className={`mt-6 px-8 py-3 rounded-lg text-white-whites font-semibold transition-all duration-300 ${
+                className={`mt-14 px-8 py-8 w-full rounded-lg text-pink hover:text-white-whites font-semibold transition-all duration-300 ${
                   appointmentDetails
-                    ? "bg-green-600 hover:bg-green-700 cursor-pointer"
+                    ? "bg-transparent hover:bg-pink ring ring-pink cursor-pointer"
                     : "bg-gray-400 cursor-not-allowed"
                 }`}
               >
                 {appointmentDetails
-                  ? "Submit Appointment"
+                  ? "Book Appointment"
                   : "Select an Appointment Time"}
               </button>
             </div>

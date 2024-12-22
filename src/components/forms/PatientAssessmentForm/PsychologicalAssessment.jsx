@@ -35,7 +35,7 @@ function PsychologicalAssessment({ formData, setFormData, nextStep }) {
 
   return (
     <form onSubmit={handleSubmit} className="">
-      <h2 className='text-center font-semibold mb-2 text-2xl mb-6'>Psychological Assessment</h2>
+      <h2 className='text-center font-semibold file:text-2xl mb-6'>Psychological Assessment</h2>
       <div className='grid drid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
         <div className="flex flex-col p-4">
           <label className="font-semibold mb-2">Stressed/Traumatized?</label>
@@ -43,7 +43,7 @@ function PsychologicalAssessment({ formData, setFormData, nextStep }) {
             name="stressed"
             value={formData.stressed}
             onChange={handleChange}
-            className={`${selectStyles()}  bg-white-fg dark:!bg-[#000]`}
+            className={`${selectStyles()}  !bg-white-fg dark:!bg-[#000]`}
           >
             <option value="">Select</option>
             <option value="yes">Yes</option>
@@ -58,7 +58,7 @@ function PsychologicalAssessment({ formData, setFormData, nextStep }) {
             name="emotionalEater"
             value={formData.emotionalEater}
             onChange={handleChange}
-            className={`${selectStyles()}  bg-white-fg dark:!bg-[#000]`}
+            className={`${selectStyles()}  !bg-white-fg dark:!bg-[#000]`}
           >
             <option value="">Select</option>
             <option value="yes">Yes</option>
@@ -74,7 +74,7 @@ function PsychologicalAssessment({ formData, setFormData, nextStep }) {
             name="sleepHours"
             value={formData.sleepHours}
             onChange={handleChange}
-            className={`${inputStyles()}  bg-white-fg dark:!bg-[#000]`}
+            className={`${inputStyles()}  !bg-white-fg dark:!bg-[#000]`}
           />
           {errors.sleepHours && <span className="error">{errors.sleepHours}</span>}
         </div>
