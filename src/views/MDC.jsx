@@ -18,10 +18,10 @@ function MDC() {
 
   return (
     <div className="flex flex-col bg-white-bg2 dark:bg-[#000]">
-      <div className="section bg-white-bg dark:bg-[#000]">
+      <div className="section bg-white-bg dark:bg-black">
         <Fry />
       </div>
-      <div className="section bg-white-bg dark:bg-[#000]">
+      <div className="section bg-white-bg dark:bg-black">
         <CowChickenPage />
       </div>
       <div className="section">

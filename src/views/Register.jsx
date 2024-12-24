@@ -24,13 +24,21 @@ const Register = () => {
       await axios.post("http://localhost:8800/users/register", inputs);
       navigate("/login");
     } catch (err) {
-      const errorMessage = err.response?.data || "An error occurred. Please try again.";
+      const errorMessage =
+        err.response?.data || "An error occurred. Please try again.";
       setError(errorMessage);
     }
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen relative bg-gradient-to-r from-blue-400 to-blue-600" style={{ backgroundImage: 'url("/stay2.webp")', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+    <div
+      className="flex items-center justify-center min-h-screen relative bg-gradient-to-r from-blue-400 to-blue-600"
+      style={{
+        backgroundImage: 'url("/stay2.webp")',
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
       <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
       <div className="w-full max-w-md p-8 space-y-3 bg-white-fg rounded-lg shadow-lg animate__animated animate__fadeIn z-10">
         <h1 className="text-2xl font-semibold text-center">Register</h1>
@@ -79,14 +87,20 @@ const Register = () => {
           >
             Register
           </button>
-          {err && <p className="text-red-500">{typeof err === "string" ? err : JSON.stringify(err)}</p>}
+          {err && (
+            <p className="text-red-500">
+              {typeof err === "string" ? err : JSON.stringify(err)}
+            </p>
+          )}
           <span className="block text-center">
-            Do you have an account? <Link to="/login" className="text-blue ml-1 hover:underline">Login</Link>
+            Do you have an account?{" "}
+            <Link to="/login" className="text-blue ml-1 hover:underline">
+              Login
+            </Link>
           </span>
         </form>
       </div>
     </div>
-
   );
 };
 

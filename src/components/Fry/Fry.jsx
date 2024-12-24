@@ -28,7 +28,7 @@ const Fry = () => {
   const startPosition = 4;
   const targetPosition = -2;
   const dropSpeed = 0.01;
-  const bounceSpeed = 2;
+  const bounceSpeed = 0;
   const bounceHeight = 0.15;
 
   // Create textures for all three sprites
