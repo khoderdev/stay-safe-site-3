@@ -1,58 +1,41 @@
-import React, { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import React, { useState, useEffect } from "react";
+import { motion, useScroll, useSpring } from "framer-motion";
 import SmallCircle from "./SmallCircle";
 import { Text } from "./images";
 import CTA from "./CTA";
 
-function PrevelenceCircle({ scrollContainerRef }) {
-  const [rotation, setRotation] = useState(0); // Accumulated rotation value
-  const lastScrollTop = useRef(0); // Store the last scroll position
+function PrevelenceCircle() {
+  const { scrollY } = useScroll();
+  const rotationForward = useSpring(0, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+  
+  const rotationReverse = useSpring(0, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
 
-  // Listen to the scroll container's scroll event
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollContainer = scrollContainerRef.current;
-      if (scrollContainer) {
-        const currentScrollTop = scrollContainer.scrollTop; // Current scroll position
-        const deltaY = currentScrollTop - lastScrollTop.current; // Scroll delta
-        lastScrollTop.current = currentScrollTop; // Update the last scroll position
-
-        // Adjust rotation based on scroll delta
-        const spinMultiplier = 0.3; // Reduced for slower spinning
-        setRotation((prev) => prev + deltaY * spinMultiplier);
-      }
-    };
-
-    const scrollContainer = scrollContainerRef.current;
-    if (scrollContainer) {
-      scrollContainer.addEventListener("scroll", handleScroll);
-    }
-
-    return () => {
-      if (scrollContainer) {
-        scrollContainer.removeEventListener("scroll", handleScroll);
-      }
-    };
-  }, [scrollContainerRef]);
+    return scrollY.onChange((latest) => {
+      const rotation = latest * 0.3; // Adjust multiplier for rotation speed
+      rotationForward.set(rotation);
+      rotationReverse.set(-rotation); // Opposite direction
+    });
+  }, [scrollY, rotationForward, rotationReverse]);
 
   return (
     <div className="w-full h-full flex flex-col bg-black">
-      <div className="relative z-30 flex flex-col items-center justify-center w-full h-[220dvh] overflow-hidden bg-black -2 border-pink">
+      <div className="relative z-30 flex flex-col items-center justify-center w-full h-screen overflow-hidden bg-black -2 border-pink">
         {/* First Circle (Normal Spin) */}
         <motion.div
-          initial={{ rotateX: 0, rotateY: 0, z: 0 }}
-          animate={{
-            rotate: rotation, // Bind accumulated rotation state
-          }}
-          transition={{
-            type: "tween",
-            duration: 0.1, // Smooth out quick scroll animations
-            ease: "easeOut",
-          }}
           style={{
+            rotate: rotationForward,
             perspective: 800,
           }}
-          className="absolute w-full sm:w-[60%] md:w-[80%] xl:w-full  flex items-center justify-center"
+          className="absolute w-full sm:w-[60%] md:w-[80%] xl:w-full flex items-center justify-center"
         >
           <SmallCircle />
         </motion.div>
@@ -71,16 +54,8 @@ function PrevelenceCircle({ scrollContainerRef }) {
         </div>
         {/* Second Circle (Opposite Spin) */}
         <motion.div
-          initial={{ rotateX: 0, rotateY: 0, z: 0 }}
-          animate={{
-            rotate: -rotation, // Reverse the rotation direction
-          }}
-          transition={{
-            type: "tween",
-            duration: 0.1, // Smooth out quick scroll animations
-            ease: "easeOut",
-          }}
           style={{
+            rotate: rotationReverse,
             perspective: 800,
           }}
           className="absolute w-[72%] sm:w-[43%] md:w-[60%] xl:w-[55%] h-auto rounded-full flex items-center justify-center"
@@ -88,7 +63,7 @@ function PrevelenceCircle({ scrollContainerRef }) {
           <SmallCircle />
         </motion.div>
       </div>
-      <div className="">
+      <div className="px-6">
         <CTA />
       </div>
     </div>

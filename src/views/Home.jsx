@@ -8,17 +8,16 @@ import BarCharts from "../components/Charts/BarCharts";
 import Balloon from "../components/Balloon/Balloon";
 
 export default function Home() {
-  const scrollContainerRef = useRef(null);
   const [isInView, setIsInView] = useState(false);
+  const balloonRef = useRef(null);
 
   // Scroll event handler
   const handleScroll = () => {
-    const balloonElement =
-      scrollContainerRef.current.querySelector("#balloon-section");
-    const rect = balloonElement.getBoundingClientRect();
-    const isElementInView = rect.top <= window.innerHeight && rect.bottom >= 0;
-
-    setIsInView(isElementInView);
+    if (balloonRef.current) {
+      const rect = balloonRef.current.getBoundingClientRect();
+      const isElementInView = rect.top <= window.innerHeight && rect.bottom >= 0;
+      setIsInView(isElementInView);
+    }
   };
 
   // Attach the scroll event listener
@@ -30,15 +29,12 @@ export default function Home() {
   }, []);
 
   return (
-    <div
-      ref={scrollContainerRef}
-      className="flex flex-col overflow-y-scroll scrollbar-hide h-full bg-white-fg dark:bg-black"
-    >
+    <div className="flex flex-col overflow-y-scroll scrollbar-hide h-full bg-white-fg dark:bg-black">
       <div className="py-16">
         <BarCharts />
       </div>
 
-      <div id="balloon-section" className="">
+      <div ref={balloonRef} id="balloon-section" className="">
         <Balloon isInView={isInView} />
       </div>
 
@@ -51,7 +47,7 @@ export default function Home() {
       </div>
 
       <div className="section">
-        <PrevelenceCircle scrollContainerRef={scrollContainerRef} />
+        <PrevelenceCircle />
       </div>
 
       <div className="py-16 mb-10">
