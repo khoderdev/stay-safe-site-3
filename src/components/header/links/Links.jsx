@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import './links.css';
 
 const variants = {
@@ -25,7 +26,7 @@ const itemVariants = {
     },
   },
   closed: {
-    y: 50,
+    y: 10,
     opacity: 0,
     transition: {
       duration: 0.3,
@@ -37,29 +38,35 @@ const itemVariants = {
 const MenuLinks = () => {
   const items = [
     { text: 'Home', route: '/' },
-    { text: 'Medical Dietry Clinic', route: '/mdc' },
+    { text: 'Medical Dietary Clinic', route: '/mdc' },
     { text: 'Preventive Health & Patient Services', route: '/preventive-health-patient-services' },
     { text: 'Health & Safety', route: '/health-and-safety' },
     { text: 'Public Health Interventions', route: '/public-health-interventions' },
     { text: 'Public Health Academy', route: '/public-health-academy' },
     { text: 'Patient Guidance & Support', route: '/patient-guidance-support' },
     { text: 'About us', route: '/about-us' },
-  
   ];
 
   return (
-    <motion.div className='!z-50 flex flex-col dark:bg-dark w-full ' variants={variants}>
+    <motion.div 
+      className="flex flex-col w-full" 
+      variants={variants}
+      initial="closed"
+      animate="open"
+    >
       {items.map(({ text, route }) => (
-        <motion.a
-          href={route}
-          key={text}
-          className="h-full w-full dark:bg-dark hover:bg-pink dark:hover:bg-pink py-3 pl-10 hover:border hover:border-pink !z-50 text-[24px] leading-snug text-left !text-[#212121] font-semibold  dark:!text-white-bg"
-          variants={itemVariants}
-          whileHover={{ scale: 1.1, color: '#e63946' }}
-          whileTap={{ scale: 1.1 }}
-        >
-          {text}
-        </motion.a>
+        <motion.div key={text} variants={itemVariants}>
+          <Link
+            to={route}
+            className="block w-full py-3 px-8 text-xl font-semibold text-gray-800 dark:text-white-bg hover:bg-pink/10 dark:hover:bg-pink/10 transition-colors duration-200"
+            onClick={(e) => {
+              // Close mobile menu when link is clicked
+              document.body.style.overflow = 'unset';
+            }}
+          >
+            {text}
+          </Link>
+        </motion.div>
       ))}
     </motion.div>
   );

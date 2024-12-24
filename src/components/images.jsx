@@ -8,7 +8,7 @@ const petri3 = '/images/petri3.png';
 const petri4 = '/images/petri3.png';
 const petri5 = '/images/petri5.png';
 
-const child = '/images/child.png';
+const BurgerShort = '/images/burger-short.png';
 
 export {
 	HandMonster,
@@ -19,5 +19,5 @@ export {
 	petri3,
 	petri4,
 	petri5,
-	child,
+	BurgerShort,
 };

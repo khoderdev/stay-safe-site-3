@@ -158,7 +158,7 @@ import { motion } from 'framer-motion';
 
 function Balloon({ isInView }) {
 	return (
-		<div className='flex justify-start'>
+		<div className='flex flex-col-reverse py-20 justify-start sm:flex sm:flex-row'>
 			<div className='w-fit flex items-center pl-8'>
 				<motion.p
 					className='text-6xl font-semibold'
@@ -211,7 +211,7 @@ function Balloon({ isInView }) {
 					</motion.span>
 				</motion.p>
 			</div>
-			<img src='/images/balloon.gif' alt='Balloon' className='ml-0 w-[35%]' />
+			<img src='/images/balloon.gif' alt='Balloon' className='ml-0 w-full sm:w-[35%]' />
 		</div>
 	);
 }

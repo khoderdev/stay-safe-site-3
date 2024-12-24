@@ -9,19 +9,31 @@ export const LinksData: LinkType[] = [
     linkTo: '/',
   },
   {
-    title: 'Skills',
-    linkTo: '/skills',
+    title: 'Medical Dietry Clinic',
+    linkTo: '/mdc',
   },
   {
-    title: 'Experience',
-    linkTo: '/experience',
+    title: 'Preventive Health & Patient Services',
+    linkTo: '/preventive-health-patient-services',
   },
   {
-    title: 'Projects',
-    linkTo: '/projects',
+    title: 'Health & Safety',
+    linkTo: '/health-and-safety',
   },
   {
-    title: 'Contact',
-    linkTo: '/contact',
+    title: 'Public Health Interventions',
+    linkTo: '/public-health-interventions',
+  },
+  {
+    title: 'Public Health Academy',
+    linkTo: '/public-health-academy',
+  },
+  {
+    title: 'Patient Guidance & Support',
+    linkTo: '/patient-guidance-support',
+  },
+  {
+    title: 'About us',
+    linkTo: '/about-us',
   },
 ];

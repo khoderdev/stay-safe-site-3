@@ -269,7 +269,7 @@ function PersonalInfo({ formData, setFormData, nextStep }) {
             value={formData.howDidYouKnow || ""}
             onChange={handleChange}
             required
-            className={`${selectStyles()}  !bg-white-fg dark:!bg-[#000]`}
+            className={`${selectStyles()} !text-black !bg-white-fg dark:!bg-[#000]`}
           >
             <option value="">Select</option>
             <option value="internet-search">Internet search (e.g., Google)</option>
@@ -299,7 +299,7 @@ function PersonalInfo({ formData, setFormData, nextStep }) {
                 value={formData.fieldOfStudy || ""}
                 onChange={handleChange}
                 required
-                className={`${inputStyles()} !bg-white-fg dark:!bg-[#000]`}
+                className={`${inputStyles()} !text-black !bg-white-fg dark:!bg-[#000]`}
               />
               {errors.fieldOfStudy && <span className="error">{errors.fieldOfStudy}</span>}
             </div>

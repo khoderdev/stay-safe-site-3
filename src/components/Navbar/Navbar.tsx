@@ -4,6 +4,7 @@ import { IoMenu, IoClose } from "react-icons/io5";
 
 import { LinksData } from "./LinksData";
 import styles from "./navbar.module.scss";
+import React from "react";
 
 const Navbar = () => {
   const [isMenuOpen, setIsmenuOpen] = useState(false);

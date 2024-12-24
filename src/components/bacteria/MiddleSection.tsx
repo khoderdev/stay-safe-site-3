@@ -78,7 +78,7 @@ function MiddleSection() {
   };
 
   return (
-    <motion.div className='section relative flex flex-col overflow-hidden select-none bg-white-fg dark:bg-black'>
+    <motion.div className='section relative flex flex-col select-none bg-white-fg dark:bg-black'>
       <motion.div>
         <motion.div
           className="grid grid-cols-12 grid-rows-5 gap- h-[100dvh] text-center text- dark:text-white-bg2 font-semibold"
@@ -95,13 +95,13 @@ function MiddleSection() {
           >
 
             <motion.div
-              className="col-span-8 col-start-3 row-start-2 font-normal text-[14px] sm:text-[20px] flex items-center justify-start dark:text-white-bg2"
+              className="col-span-8 col-start-3 row-start-2 text-center font-normal text-[14px] sm:text-[20px] flex items-center justify-center dark:text-white-bg2"
               variants={fadeInVariant}
             >
               Everyone has a role to play in improving antibiotic use.
             </motion.div>
             <motion.div
-              className="text-[29px] sm:text-5xl mt-3 text-left"
+              className="text-[29px] sm:text-5xl mt-3 text-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
@@ -120,7 +120,7 @@ function MiddleSection() {
               transition={{ duration: 0.5 }}
               style={{ overflow: 'hidden', marginTop: '8px' }}
             >
-              <p className='text-xl py-4 px-2 drop-shadow-md rounded-b pt-4 text- dark:!bg-[#000] opacity-1 z-40 relative flex flex-col w-[58%] sm:w-[83%] md:w-[31%] mr-20 sm:mr-28 place-self-center'>
+              <p className='text-xl py-4 px-2 drop-shadow-md rounded-b pt-4 text-center dark:!bg-[#000] opacity-1 z-40 relative flex flex-col w-[58%] sm:w-[83%] md:w-[31%] mr-20 sm:mr-28 place-self-center'>
                 Antibiotics are medications specifically designed to kill certain bacteria or stop their growth.
                 However, their use can sometimes lead to side effects and contribute to antimicrobial resistance where bacteria develop the ability to resist the drugs meant to eliminate them.
               </p>
@@ -130,7 +130,7 @@ function MiddleSection() {
           <br />
 
           <motion.div
-            className="col-span-2 col-start-3 row-start-3  font-normal text-2xl flex flex-col items-end justify-center"
+            className="col-span-2 col-start-3 row-start-3 font-normal text-2xl flex flex-col items-end justify-center"
             variants={fadeInVariant}
           >
             <span>Get the</span>
@@ -138,7 +138,7 @@ function MiddleSection() {
             <span>For the</span>
           </motion.div>
           <motion.div
-            className="col-span-2 col-start-9 row-start-3  font-normal text-2xl flex flex-col items-start justify-center"
+            className="col-span-2 col-start-9 row-start-3 font-normal text-2xl flex flex-col items-start justify-center"
             variants={fadeInVariant}
           >
             <span>antibiotic</span>
