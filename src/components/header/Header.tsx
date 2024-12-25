@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useTheme } from "../../hooks/useTheme";
 import ThemeToggle from "./ThemeToggle";
@@ -20,19 +20,23 @@ export default function Header() {
 
   const sidebarVariants = {
     open: {
-      y: 70,
+      y: 0,
+      opacity: 1,
       transition: {
         type: "spring",
         stiffness: 300,
         damping: 30,
+        mass: 0.8,
       },
     },
     closed: {
-      y: "-150%",
+      y: "-100%",
+      opacity: 0,
       transition: {
         type: "spring",
-        stiffness: 300,
-        damping: 30,
+        stiffness: 400,
+        damping: 40,
+        mass: 0.8,
       },
     },
   };
@@ -110,26 +114,30 @@ export default function Header() {
 
       {/* Mobile Menu */}
       <motion.nav
-        className="fixed top-0 left-0 h-full w-full dark:text-white-bg bg-white-fg dark:bg-[#212121] shadow-lg z-50 md:hidden"
+        className="fixed top-0 left-0 right-0 h-[100dvh] w-full dark:text-white-bg bg-white-fg dark:bg-[#212121] shadow-lg z-40 md:hidden overflow-y-auto"
         initial="closed"
         animate={isOpen ? "open" : "closed"}
         variants={sidebarVariants}
       >
-        <div className="pt-20">
+        <div className="h-full pt-20 pb-8">
           <MenuLinks />
         </div>
       </motion.nav>
 
       {/* Overlay */}
-      {isOpen && (
-        <motion.div
-          className="fixed inset-0 dark:text-white-bg  z-50 md:hidden"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={toggleSidebar}
-        />
-      )}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="fixed inset-0 bg-black/40 backdrop-blur-sm z-30 md:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onClick={toggleSidebar}
+          />
+        )}
+      </AnimatePresence>
+
     </header>
   );
 }
