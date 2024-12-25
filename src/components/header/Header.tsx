@@ -120,7 +120,10 @@ export default function Header() {
         variants={sidebarVariants}
       >
         <div className="h-full pt-20 pb-8">
-          <MenuLinks />
+          <MenuLinks onNavigate={() => {
+            toggleSidebar();
+            document.body.style.overflow = 'unset';
+          }} />
         </div>
       </motion.nav>
 
