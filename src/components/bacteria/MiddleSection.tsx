@@ -1,16 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-// import { useMousePosition } from 'react-use-mouse-position';
 import { motion } from 'framer-motion';
 
 function MiddleSection() {
-  // const { mouseX, mouseY } = useMousePosition();
-  // const imageRef = useRef(null);
   const containerRef = useRef(null);
-  // const offset = { x: -20, y: -0 };
   const [isVisible, setIsVisible] = useState(false);
   const [isClicked, setIsClicked] = useState(false); // Track if visibility is due to a click
 
-  // Handle visibility toggle for hover
   const handleMouseEnter = () => {
     if (!isClicked) {
       setIsVisible(true);
@@ -45,15 +40,6 @@ function MiddleSection() {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
-
-  // // Update position of the image based on mouse coordinates
-  // useEffect(() => {
-  //   if (imageRef.current && mouseX !== null && mouseY !== null) {
-  //     const adjustedX = mouseX + offset.x;
-  //     const adjustedY = mouseY + offset.y;
-  //     imageRef.current.style.transform = `translate(${adjustedX}px, ${adjustedY}px)`;
-  //   }
-  // }, [mouseX, mouseY]);
 
   // Animation for each word
   const fadeInVariant = {
@@ -159,12 +145,6 @@ function MiddleSection() {
             Right
           </motion.div>
         </motion.div>
-        {/* <img
-          src="/images/bacteria.png"
-          ref={imageRef}
-          className="w-40 sm:w-52 absolute pointer-events-none"
-          style={{ top: 25, left: 30 }}
-        /> */}
       </motion.div>
     </motion.div>
   );

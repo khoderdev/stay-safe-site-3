@@ -1,5 +1,5 @@
 import PackYearsCalculator from "../components/calculator/index";
-import OnScrollComponent from "../components/dx-prevention/OnScrollComponent";
+import DXPrevention from "../components/dx-prevention/DXPrevention";
 import HandMonster from "../components/HandMonster";
 import PrevelenceCircle from "../components/circle/PrevelenceCircle";
 import { useRef, useState, useEffect } from "react";
@@ -39,7 +39,7 @@ export default function Home() {
       </div>
 
       <div className="section flex">
-        <OnScrollComponent />
+        <DXPrevention />
       </div>
 
       <div className="section">

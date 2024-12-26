@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from "react";
-import TopSection from "./TopSection";
 import MiddleSection from "./MiddleSection";
 import BottomSection from "./BottomSection";
 import { useMousePosition } from "react-use-mouse-position";
