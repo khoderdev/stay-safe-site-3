@@ -19,7 +19,7 @@ function Consultations() {
 
 	return (
 		<>
-			<div className='w-2/3 lg:w-full self-center gap-16 lg:gap-36 lg:gap-y-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center p-8 md:p-20'>
+			<div className='w-full self-center gap-16 lg:gap-36 lg:gap-y-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-items-center p-8 md:p-20'>
 				<Clinic
 					sectionId='clinic'
 					setIsOpen={() => handleCardClick('clinic', 'Book Appointment')}

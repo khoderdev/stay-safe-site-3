@@ -45,7 +45,6 @@ export default function Header() {
     <header
       ref={headerRef}
       className="fixed w-full bg-white/60 dark:bg-black/50 backdrop-blur-md  shadow-lg dark:shadow-[#00000021] z-50 flex items-center justify-between lg:pl-32 lg:pr-6"
-
     >
       {/* Logo */}
       <motion.div
@@ -58,30 +57,39 @@ export default function Header() {
           <img
             src="/logo-dark.png"
             alt="staysafe-logo"
-            className={`w-32 p-2 md:w-36 ${theme === "dark" ? "block" : "hidden"
-              }`}
+            className={`w-32 p-2 md:w-36 ${
+              theme === "dark" ? "block" : "hidden"
+            }`}
           />
           <img
             src="/logo-light.png"
             alt="staysafe-logo"
-            className={`w-32 p-2 md:w-36 ${theme === "dark" ? "hidden" : "block"
-              }`}
+            className={`w-32 p-2 md:w-36 ${
+              theme === "dark" ? "hidden" : "block"
+            }`}
           />
         </Link>
       </motion.div>
 
       {/* Desktop Menu */}
-      <div className="hidden md:flex items-center space-x-8">
+      <div className="hidden md:flex items-center space-x-8 text-black dark:text-white-bg2">
         <Link to="/" className="nav-link">
           Home
         </Link>
         <Dropdown
-          title="Preventive Health & Patient Services"
-          mainLink="/preventive-health-patient-services"
+          title="Services"
+          // mainLink="/preventive-health-patient-services"
           items={[
+            {
+              label: "Preventive Health & Patient Services",
+              to: "/preventive-health-patient-services",
+            },
             { label: "Medical Dietary Clinic", to: "/mdc" },
             { label: "Vitrack", to: "/vitrack" },
           ]}
+          className={
+            "block px-4 py-2 text-black dark:text-white-bg2 hover:bg-gray-100 dark:hover:bg-pink dark:hover:text-white-bg2 rounded-md transition-colors"
+          }
         />
         <Link to="/health-and-safety" className="nav-link">
           Health & Safety
@@ -96,6 +104,7 @@ export default function Header() {
           title="About us"
           mainLink="/about-us"
           items={[{ label: "Volunteers", to: "/volunteering" }]}
+          className={"text-pink"}
         />
       </div>
 
@@ -119,10 +128,12 @@ export default function Header() {
         variants={sidebarVariants}
       >
         <div className="h-full pt-20 pb-8">
-          <MenuLinks onNavigate={() => {
-            toggleSidebar();
-            document.body.style.overflow = 'unset';
-          }} />
+          <MenuLinks
+            onNavigate={() => {
+              toggleSidebar();
+              document.body.style.overflow = "unset";
+            }}
+          />
         </div>
       </motion.nav>
 
@@ -139,7 +150,6 @@ export default function Header() {
           />
         )}
       </AnimatePresence>
-
     </header>
   );
 }

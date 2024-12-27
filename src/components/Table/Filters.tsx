@@ -50,7 +50,7 @@ export const AlphabetFilter = ({
             <button
               key={letter}
               onClick={() => handleLetterClick(letter)}
-              className={`m-1 sm:m-1 sm:p-1 sm:py-3 sm:w-8 sm:h-8 flex items-center justify-center text-lg font-semibold 
+              className={`m-1 sm:m-1 sm:p-1 sm:py-3 sm:w-[28px] sm:h-[28px] flex items-center justify-center text-[1rem] 
         sm:border rounded-full 
          ${selectedLetter === letter
                   ? 'sm:bg-blue-500 text-white-bg2 sm:ring sm:border-blue-500 sm:dark:border-blue-500'
