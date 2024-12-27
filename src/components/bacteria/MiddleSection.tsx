@@ -143,7 +143,7 @@ const MiddleSection: React.FC = React.memo(() => {
           </motion.div>
 
           <motion.div
-            className="col-span-4 row-span-3 col-start-5 row-start-2 text-[10.5rem] flex justify-center items-center mb-16 font-bold text-[#d23c88]"
+            className="col-span-4 row-span-3 col-start-5 row-start-2 text-[9rem] flex justify-center items-center mb-16 font-bold text-[#d23c88]"
             initial={{ opacity: 0 }}
             animate={{ opacity: [0, 1, 0] }}
             transition={{
