@@ -77,13 +77,13 @@ const MiddleSection: React.FC = React.memo(() => {
     <motion.div className='section relative flex flex-col select-none bg-white-fg dark:bg-black'>
       <motion.div>
         <motion.div
-          className="grid grid-cols-12 grid-rows-5 gap- h-[100dvh] text-center text- dark:text-white-bg2 font-semibold"
+          className="grid grid-cols-12 grid-rows-5 h-[100dvh] text-center text- dark:text-white-bg2 font-semibold"
           initial="hidden"
           animate="visible"
           variants={animations.containerVariant}
         >
           <motion.div
-            className='col-span-8 row-span-1 col-start-3 text- pt-8 sm:text-4xl md:text- dark:text-white-bg2'
+            className='col-span-full text- pt-8 sm:text-4xl md:text- dark:text-white-bg2'
             ref={containerRef}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
@@ -115,7 +115,7 @@ const MiddleSection: React.FC = React.memo(() => {
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <p className='text-xl py-4 px-2 drop-shadow-md rounded-b pt-4 text-center dark:!bg-[#000] opacity-1 z-40 relative flex flex-col w-[58%] sm:w-[83%] md:w-[31%] mr-20 sm:mr-28 place-self-center'>
+                  <p className='text-xl py-4 px-2 drop-shadow-md rounded pt-4 text-center dark:!bg-[#000] opacity-1 z-40 relative flex flex-col w-[88%] sm:w-[70%] md:w-[34%]  sm:mx-0 place-self-center'>
                     Antibiotics are medications specifically designed to kill certain bacteria or stop their growth.
                     However, their use can sometimes lead to side effects and contribute to antimicrobial resistance where bacteria develop the ability to resist the drugs meant to eliminate them.
                   </p>
