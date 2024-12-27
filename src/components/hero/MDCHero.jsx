@@ -2,7 +2,7 @@
 function MDCHero() {
   return (
     <div className='flex justify-center'>
-      <img src='/images/MDC-anim.gif' alt='mdc' className=' ' />
+      <img src='/images/MDC-anim.gif' loading="lazy" alt='mdc' className=' ' />
     </div>
 
   )

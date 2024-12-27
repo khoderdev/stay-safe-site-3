@@ -9,7 +9,6 @@ import {
 	ResponsiveContainer,
 	LabelList,
 } from 'recharts';
-// import './charts.css'
 
 const data = [
 	{ name: 'Ischaemic Heart Disease', deaths: 9.1 },

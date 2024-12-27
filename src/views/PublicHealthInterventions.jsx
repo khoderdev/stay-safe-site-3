@@ -33,7 +33,7 @@ function ThreeDImage({ src, width = 3, height = 2 }) {
 
 export default function PublicHealthInterventions() {
 	return (
-		<Canvas style={{ height: '100vh', background: '#f0f0f0' }} shadowMap>
+		<Canvas style={{ height: '100vh', background: '#f0f0f0' }} shadowmap>
 			<ambientLight intensity={0.5} />
 			<spotLight position={[10, 10, 10]} intensity={1000} castShadow />
 			<ThreeDImage src='/nine-news.png' width={8} height={6} />

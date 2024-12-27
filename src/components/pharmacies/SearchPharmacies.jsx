@@ -96,7 +96,7 @@ const SearchPharmacies = () => {
 
       <div className='flex flex-col sm:w-[66%] p-4'>
         <h2 className="animated__content" data-splitting ref={(el) => titlesRef.current[0] = el}>
-          <span className="text-3xl sm:text-5xl text-black dark:text-white-bg">
+          <span className="text-6xl font-semibold leading-tight dark:text-white-bg2 flex flex-col ">
             Looking for Cancer Medication?
           </span>
         </h2>

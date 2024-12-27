@@ -7,7 +7,7 @@ const Modal = ({
   setIsOpen,
   children,
   showCloseButton = true,
-  closeOnOutsideClick = true,
+  closeOnOutsideClick = false,
   width = '50%',
   height = '95dvh',
   position = 'center',
@@ -69,7 +69,12 @@ const Modal = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          onClick={() => closeOnOutsideClick && handleClose()}
+          onClick={(e) => {
+            if (closeOnOutsideClick) {
+              handleClose();
+            }
+            e.stopPropagation();
+          }}
           className={`fixed inset-0 z-50 flex ${getPositionClass()} ${
             customBackdrop ||
             'bg-slate-900/20 backdrop-blur'
@@ -90,8 +95,8 @@ const Modal = ({
                   : `max-h-[${height}px]`
               }
               overflow-y-auto scrollbar-hide shadow-xl 
-              ring-1 ring-[#00000048] 
-              bg-white-bg dark:bg-black dark:text-white-bg
+              ring-1 ring-dark/20 
+              bg-white-bg dark:bg-dark dark:text-white-bg
             `}
           >
             {showCloseButton && (

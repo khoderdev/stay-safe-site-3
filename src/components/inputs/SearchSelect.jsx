@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dropdown } from 'semantic-ui-react';
+import ModernDropdown from './ModernDropdown';
 
 const DynamicDropdown = ({
 	options = [],
@@ -12,15 +12,13 @@ const DynamicDropdown = ({
 	value,
 	...props
 }) => (
-	<Dropdown
+	<ModernDropdown
 		placeholder={placeholder}
 		fluid={fluid}
 		search={search}
-		selection={selection}
 		options={options}
 		onChange={onChange}
 		value={value}
-		open={open}
 		{...props}
 	/>
 );

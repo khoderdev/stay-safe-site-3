@@ -2,24 +2,54 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.png" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1.0, user-scalable=no"
-		/>
+		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="Stay Safe - Health Application" />
+		
+		<!-- Resource hints -->
+		<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		
+		<!-- Fonts -->
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+		
+		<!-- Defer non-critical CSS -->
+		<!-- <link rel="stylesheet" href="/src/index.css" media="print" onload="this.media='all'">
+		<noscript><link rel="stylesheet" href="/src/index.css"></noscript> -->
+		
 		<title>Stay Safe</title>
+		
+		<!-- Inline critical JS -->
+		<script type="module">
+			// Detect if JS is enabled
+			document.documentElement.classList.remove('no-js');
+			document.documentElement.classList.add('js');
+			
+			// Add support for native lazy loading
+			if ('loading' in HTMLImageElement.prototype) {
+				document.documentElement.classList.add('lazy-loading');
+			}
+			
+			// Add support for requestIdleCallback
+			window.requestIdleCallback = window.requestIdleCallback || function(cb) {
+				const start = Date.now();
+				return setTimeout(function() {
+					cb({
+						didTimeout: false,
+						timeRemaining: function() {
+							return Math.max(0, 50 - (Date.now() - start));
+						}
+					});
+				}, 1);
+			};
+			
+			window.cancelIdleCallback = window.cancelIdleCallback || function(id) {
+				clearTimeout(id);
+			};
+		</script>
 	</head>
 	<body>
 		<div id="root"></div>
 		<script type="module" src="/src/main.jsx"></script>
-		<script
-			defer
-			src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
-		></script>
-		<!-- <script src="https://cdn.jsdelivr.net/npm/react-pdf-flipbook@0.1.6/dist/index.min.js"></script> -->
-		<!-- <script
-			type="text/javascript"
-			src="http://code.jquery.com/jquery-1.7.1.min.js"
-		></script> -->
 	</body>
 </html>

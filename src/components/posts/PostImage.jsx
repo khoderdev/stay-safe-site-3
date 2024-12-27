@@ -78,7 +78,7 @@ const Menu = ({ postId }) => {
         posts.map((post) => (
           <div className="post" key={post.id}>
             <h2 className="text-2xl font-bold">{post.title}</h2>
-            <img src={`../upload/${post?.img}`} alt={post.title} />
+            <img src={`../upload/${post?.img}`} loading="lazy" alt={post.title} />
           </div>
         ))
       ) : (

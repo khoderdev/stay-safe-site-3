@@ -1,102 +1,173 @@
-import React, { useEffect, useState } from 'react';
+import { useRef, useState } from 'react';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
+import Button from '../buttons/Button';
+import CircularText from './Circle';
 
-const LEDNumberDisplay = () => {
-  const [topBoxStyle, setTopBoxStyle] = useState({});
-  const [bottomBoxStyle, setBottomBoxStyle] = useState({});
-  
-  const on = 'Snow';
-  const off = 'transparent';
+const DXPrevention = () => {
+  const [showButton, setShowButton] = useState(false);
+  const containerRef = useRef(null);
+  const isInView = useInView(containerRef, { once: true, amount: 0.3 });
 
-  const styles = {
-    container: {
-      marginTop: '3rem',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      width: '500px',
-      height: '300px',
-      background: '#555',
-      border: 'ridge 8px BurlyWood',
-      borderRadius: '30px',
-      boxShadow: '0 0.6rem 0.6rem rgba(0, 0, 0, 0.33)',
-    },
-    box: {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      width: '100px',
-      height: '100px',
-      background: '#555',
-      borderLeft: '10px ridge transparent',
-      borderRight: '10px ridge transparent',
-      borderRadius: '10px',
-    },
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1,
+      transition: { duration: 0.5 }
+    }
   };
 
-  const numbers = [
-    () => {
-      setTopBoxStyle({ borderTopColor: on, borderLeftColor: on, borderRightColor: on, borderBottomColor: off });
-      setBottomBoxStyle({ borderTopColor: off, borderLeftColor: on, borderRightColor: on, borderBottomColor: on });
+  const listVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.08,
+        delayChildren: 0.2,
+      }
     },
-    () => {
-      setTopBoxStyle({ borderTopColor: off, borderLeftColor: off, borderRightColor: on, borderBottomColor: off });
-      setBottomBoxStyle({ borderTopColor: off, borderLeftColor: off, borderRightColor: on, borderBottomColor: off });
+    exit: {
+      opacity: 0,
+      y: -20,
+      transition: { duration: 0.3 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: {
+      opacity: 0,
+      y: 20,
+      z: 100,
+      rotateX: -45,
+      rotateY: -45,
     },
-    () => {
-      setTopBoxStyle({ borderTopColor: on, borderLeftColor: off, borderRightColor: on, borderBottomColor: on });
-      setBottomBoxStyle({ borderTopColor: on, borderLeftColor: on, borderRightColor: off, borderBottomColor: on });
+    visible: {
+      opacity: 1,
+      y: 0,
+      z: 0,
+      rotateX: 0,
+      rotateY: 0,
+      transition: {
+        type: "spring",
+        stiffness: 200,
+        damping: 20,
+      }
+    }
+  };
+
+  const buttonVariants = {
+    hidden: { 
+      opacity: 0, 
+      scale: 0.5,
+      y: 30
     },
-    () => {
-      setTopBoxStyle({ borderTopColor: on, borderLeftColor: off, borderRightColor: on, borderBottomColor: on });
-      setBottomBoxStyle({ borderTopColor: on, borderLeftColor: off, borderRightColor: on, borderBottomColor: on });
-    },
-    () => {
-      setTopBoxStyle({ borderTopColor: off, borderLeftColor: on, borderRightColor: on, borderBottomColor: on });
-      setBottomBoxStyle({ borderTopColor: on, borderLeftColor: off, borderRightColor: on, borderBottomColor: off });
-    },
-    () => {
-      setTopBoxStyle({ borderTopColor: on, borderLeftColor: on, borderRightColor: off, borderBottomColor: on });
-      setBottomBoxStyle({ borderTopColor: on, borderLeftColor: off, borderRightColor: on, borderBottomColor: on });
-    },
-    () => {
-      setTopBoxStyle({ borderTopColor: on, borderLeftColor: on, borderRightColor: off, borderBottomColor: on });
-      setBottomBoxStyle({ borderTopColor: on, borderLeftColor: on, borderRightColor: on, borderBottomColor: on });
-    },
-    () => {
-      setTopBoxStyle({ borderTopColor: on, borderLeftColor: on, borderRightColor: on, borderBottomColor: off });
-      setBottomBoxStyle({ borderTopColor: off, borderLeftColor: off, borderRightColor: on, borderBottomColor: off });
-    },
-    () => {
-      setTopBoxStyle({ borderTopColor: on, borderLeftColor: on, borderRightColor: on, borderBottomColor: on });
-      setBottomBoxStyle({ borderTopColor: on, borderLeftColor: on, borderRightColor: on, borderBottomColor: on });
-    },
-    () => {
-      setTopBoxStyle({ borderTopColor: on, borderLeftColor: on, borderRightColor: on, borderBottomColor: on });
-      setBottomBoxStyle({ borderTopColor: on, borderLeftColor: off, borderRightColor: on, borderBottomColor: on });
-    },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 400,
+        damping: 25,
+      }
+    }
+  };
+
+  const diseases = [
+    'Obesity',
+    'Type 2 Diabetes',
+    'Anthrax Cervical Cancer',
+    'Hypertension Lung Cancer',
+    'Malaria Metabolic Syndrome',
+    'STI Rabies Chronic Heart Disease',
+    'HIV HPV COPD Bladder Cancer Cholera',
+    'Work-Related Musculoskeletal Diseases',
+    'High Cholesterol Slips & Lapses COVID-19 Asthma',
+    'Food Poisoning Mumps Syndrome',
+    'Tuberculosis Chlamydia Sleep Apnea Diphtheria Influenza Hearing Loss Hepatitis',
+    'Colon Cancer Skin Cancer Hand-Arm Vibration Mesothelioma Mpox',
+    'Brucellosis Measles Occupational Coronary Artery Disease MERS Polio',
   ];
 
-  useEffect(() => {
-    const playNumbers = () => {
-      numbers.forEach((number, index) => {
-        setTimeout(number, index * 1000);
-      });
-    };
-    playNumbers();
-    const interval = setInterval(playNumbers, 10000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '3rem', background: 'DarkSeaGreen' }}>
-      <h1 style={{ color: 'Navy', textShadow: '1px 1px 2px #000', fontSize: '2rem', fontFamily: 'sans-serif' }}>LED Number Display</h1>
-      <div id="container" style={styles.container}>
-        <div id="top-box" style={{ ...styles.box, borderTopColor: topBoxStyle.borderTopColor, borderLeftColor: topBoxStyle.borderLeftColor, borderRightColor: topBoxStyle.borderRightColor, borderBottomColor: topBoxStyle.borderBottomColor, borderBottom: '5px inset transparent' }}></div>
-        <div id="bottom-box" style={{ ...styles.box, borderTopColor: bottomBoxStyle.borderTopColor, borderLeftColor: bottomBoxStyle.borderLeftColor, borderRightColor: bottomBoxStyle.borderRightColor, borderBottomColor: bottomBoxStyle.borderBottomColor, borderTop: '5px inset transparent' }}></div>
-      </div>
-    </div>
+    <motion.div
+      ref={containerRef}
+      className="w-full min-h-screen flex flex-col items-center justify-start py-20 px-4 relative overflow-hidden perspective-1000"
+      variants={containerVariants}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+    >
+      <motion.div
+        initial={{ opacity: 0, scale: 0.5, y: 50 }}
+        animate={isInView ? { 
+          opacity: 1, 
+          scale: 1, 
+          y: 0,
+          transition: {
+            type: "spring",
+            stiffness: 300,
+            damping: 20,
+          }
+        } : {}}
+      >
+        <CircularText />
+      </motion.div>
+      
+      <AnimatePresence mode="wait">
+        {!showButton ? (
+          <motion.div
+            className="relative z-10 mt-8 perspective-1000"
+            variants={listVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+          >
+            <motion.div className="text-center font-medium leading-loose tracking-wide text-base md:text-lg lg:text-xl text-black dark:text-white-bg">
+              {diseases.map((disease, index) => (
+                <motion.div
+                  key={index}
+                  variants={itemVariants}
+                  className="mb-2"
+                  whileHover={{ 
+                    scale: 1.05,
+                    color: "rgb(236, 72, 153)", // pink color
+                    transition: { duration: 0.2 }
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {disease}
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
+        ) : (
+          <motion.div
+            className="mt-16"
+            variants={buttonVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            <Button
+              customStyles="hover:!border-pink hover:!bg-transparent hover:!text-pink dark:hover:!text-pink !bg-pink !text-white-bg dark:!text-white-bg transform hover:scale-110 transition-all duration-300 ease-out"
+              onClick={() => {}}
+              aria-label="Show details"
+            >
+              Let's Show You How
+            </Button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <motion.div
+        className="fixed inset-0 pointer-events-none"
+        animate={isInView ? { opacity: [0, 0.1, 0] } : {}}
+        transition={{
+          duration: 2,
+          repeat: Infinity,
+          repeatType: "reverse"
+        }}
+      />
+    </motion.div>
   );
 };
 
-export default LEDNumberDisplay;
+export default DXPrevention;

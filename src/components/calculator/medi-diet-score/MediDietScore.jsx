@@ -3,7 +3,7 @@ import { useState } from "react";
 import questions from "./questions";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "../../icons/Icons";
-import Modal from "../../modals/PHQ9";
+import Modal from "../../modals/Modal";
 
 const MediterraneanDietScore = () => {
   const [currentStep, setCurrentStep] = useState(0);

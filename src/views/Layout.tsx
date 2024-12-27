@@ -10,7 +10,7 @@ export default function Layout({ children }: Props) {
     <div className="min-h-screen text-black dark:text-white-bg dark:bg-black">
       <Header />
       <main className="flex-grow relative pt-16">
-        <div className="max-w-[2000px] mx-auto bg-pink">{children}</div>
+        <div className="max-w-[2000px] mx-auto ">{children}</div>
       </main>
     </div>
   );

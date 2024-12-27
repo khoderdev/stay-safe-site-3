@@ -19,16 +19,24 @@ function PrevelenceCircle() {
   });
 
   useEffect(() => {
-    return scrollY.onChange((latest) => {
-      const rotation = latest * 0.3; // Adjust multiplier for rotation speed
+    const updateRotation = () => {
+      const latest = scrollY.get();
+      const rotation = latest * 0.1; // Adjust multiplier for rotation speed
       rotationForward.set(rotation);
       rotationReverse.set(-rotation); // Opposite direction
-    });
+    };
+
+    window.addEventListener('scroll', updateRotation);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener('scroll', updateRotation);
+    };
   }, [scrollY, rotationForward, rotationReverse]);
 
   return (
     <div className="w-full h-full flex flex-col bg-black">
-      <div className="relative z-30 flex flex-col items-center justify-center w-full h-[150dvh] overflow-hidden bg-black -2 border-pink">
+      <div className="relative z-30 flex flex-col items-center justify-center w-full h-[200dvh] overflow-hidden bg-black -2 border-pink">
         {/* First Circle (Normal Spin) */}
         <motion.div
           style={{
