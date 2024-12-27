@@ -20,7 +20,7 @@ const Form: React.FC<FormProps> = ({
   const shouldDisableInputs = (age < 20 && age > 1) || (age > 75 && age < 101) || !isAdult;
 
   return (
-    <div className="flex flex-col md:w-[50%] w-full p-4 rounded  bg-white-fg dark:bg-black">
+    <div className="flex flex-col md:w-[50%] w-full p-4 rounded  bg-white-fg dark:bg-dark">
       <div className="grid grid-cols-2 text-left items-center md:grid-cols-1 gap-x-10 gap-y-4 md:gap-y-8 md:pr-28">
         <div className="col-span-1 md:col-span-2 w-full md:flex md:justify-between text-left">
           <label className="text-lg md:text-[1.1rem]">Age</label>
