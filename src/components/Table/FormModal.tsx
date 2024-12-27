@@ -1,50 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FoodSafety } from "./columns";
+import formFields from "./Form";
 
-const formFields = {
-  pathogen: {
-    label: "Pathogen",
-    type: "text",
-    placeholder: "Enter the pathogen",
-    value: "",
-  },
-  illness: {
-    label: "Illness",
-    type: "text",
-    placeholder: "Enter the illness caused",
-    value: "",
-  },
-  signsSymptoms: {
-    label: "Signs & Symptoms",
-    type: "textarea",
-    placeholder: "Describe the signs and symptoms",
-    value: "",
-  },
-  onsetTimeDuration: {
-    label: "Onset Time Duration",
-    type: "text",
-    placeholder: "Enter the onset time duration",
-    value: "",
-  },
-  causes: {
-    label: "Causes",
-    type: "textarea",
-    placeholder: "Enter causes (comma-separated)",
-    value: "",
-  },
-  prevention: {
-    label: "Prevention",
-    type: "textarea",
-    placeholder: "Enter prevention measures (comma-separated)",
-    value: "",
-  },
-  comments: {
-    label: "Comments",
-    type: "textarea",
-    placeholder: "Enter additional comments",
-    value: "",
-  },
-};
 
 const Modal = ({
   isOpen,
@@ -80,11 +37,13 @@ const Modal = ({
   return (
     isOpen && (
       <div
-        className="fixed inset-0 z-40 flex items-center justify-center bg-black bg-opacity-75 p-4 transition-opacity duration-300"
+        className="fixed inset-0 z-40 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-md p-6 sm:p-8 transition-opacity duration-300"
         role="dialog"
         aria-modal="true"
+
       >
-        <div className="relative w-full h-full max-h-screen sm:max-h-[90vh] lg:max-h-[85vh] md:max-h-[90vh] max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-3xl bg-white-bg dark:bg-[#1a1a1a] p-6 rounded-lg shadow-lg overflow-y-auto">
+        <div className="relative w-full max-h-screen sm:max-h-[90vh] lg:max-h-[85vh] max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-3xl bg-white dark:bg-[#1a1a1a] p-6 sm:p-8 rounded-xl shadow-2xl overflow-y-auto"
+        >
           {/* Close button */}
           <button
             onClick={onClose}
@@ -95,7 +54,7 @@ const Modal = ({
           </button>
 
           {/* Header */}
-          <h2 className="text-2xl font-semibold mb-6 text-gray-800 dark:text-gray-100">
+          <h2 className="text-2xl font-semibold mb-6 text-gray-800 dark:text-dark">
             {isAddingNew ? "Add New Food Safety Record" : "Food Safety Details"}
           </h2>
 
