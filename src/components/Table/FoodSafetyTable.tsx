@@ -22,13 +22,6 @@ import { truncateText } from "../../utils/utils";
 import { data as initialData } from "./data";
 import { AlphabetFilter } from './Filters';
 import { fetchAllData, createData, updateData } from '../../indexedDbService';
-import {
-  petri1,
-  petri2,
-  petri3,
-  petri4,
-  petri5,
-} from '../images';
 
 
 export const FoodSafetyTable = <TValue,>({

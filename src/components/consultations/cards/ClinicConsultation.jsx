@@ -29,7 +29,7 @@ const Clinic = ({
 				</p>
 				<button
 					onClick={handleClick}
-					className='btn-3 !text-[15px] !p-2 !px-3 !transition-all duration-300 ease-in-out !bg-white-bg hover:!bg-transparent rounded-md shadow-md hover:border-white-bg hover:text-white-bg dark:hover:border-white-bg select-none'
+					className='btn-3 !text-[15px] dark:!text-black hover:dark:!text-white-bg !p-2 !px-3 !transition-all duration-300 ease-in-out !bg-white-bg hover:!bg-transparent rounded-md shadow-md hover:border-white-bg hover:text-white-bg dark:hover:border-white-bg select-none'
 				>
 					Start your journey
 				</button>
