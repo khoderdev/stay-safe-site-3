@@ -44,7 +44,8 @@ export default function Header() {
   return (
     <header
       ref={headerRef}
-      className="fixed w-full bg-white-fg dark:bg-black shadow-md dark:shadow-[#00000021]  z-50 flex items-center justify-between lg:pl-32 lg:pr-6"
+      className="fixed w-full bg-white/60 dark:bg-black/50 backdrop-blur-md  shadow-lg dark:shadow-[#00000021] z-50 flex items-center justify-between lg:pl-32 lg:pr-6"
+
     >
       {/* Logo */}
       <motion.div
@@ -57,16 +58,14 @@ export default function Header() {
           <img
             src="/logo-dark.png"
             alt="staysafe-logo"
-            className={`w-32 p-2 md:w-36 ${
-              theme === "dark" ? "block" : "hidden"
-            }`}
+            className={`w-32 p-2 md:w-36 ${theme === "dark" ? "block" : "hidden"
+              }`}
           />
           <img
             src="/logo-light.png"
             alt="staysafe-logo"
-            className={`w-32 p-2 md:w-36 ${
-              theme === "dark" ? "hidden" : "block"
-            }`}
+            className={`w-32 p-2 md:w-36 ${theme === "dark" ? "hidden" : "block"
+              }`}
           />
         </Link>
       </motion.div>

@@ -177,7 +177,7 @@ const PackYearsCalculator: React.FC<PackYearsCalculatorProps> = () => {
           Get the screening you need!
         </h1>
       </div>
-      <div className='col-span-1 flex flex-col md:flex-row w-full h-full gap-4'>
+      <div className='col-span-1 flex flex-col md:flex-row w-full gap-4'>
         <Form
           age={age}
           handleAgeChange={handleAgeChange}
