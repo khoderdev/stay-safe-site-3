@@ -1,36 +1,3 @@
-// import React from 'react';
-
-// function Titles() {
-// 	return (
-// 		<div className='flex flex-col space-y-6 pb-10'>
-// 			<h1 className='sm:text-5xl font-semibold dark:text-white-bg2'>
-// 				Could Sleep Apnea Be Disrupting Your Sleep?
-// 			</h1>
-// 			<h3 className='text-2xl font- dark:text-white-bg2'>
-// 				Many people experience poor sleep but don’t realize it could be caused
-// 				by a condition called sleep apnea. <br />
-// 				Sleep apnea happens when your breathing repeatedly stops and starts
-// 				during sleep.
-// 			</h3>
-// 			<h3 className='text-xl font- dark:text-white-bg2'>
-// 				<h2 className='text-2xl font-semibold dark:text-white-bg2 mb-2'>
-// 					Signs You Might Have Sleep Apnea:
-// 				</h2>
-// 				Do you snore loudly or gasp for air while sleeping? <br />
-// 				Do you wake up feeling tired, even after a full night's sleep? <br />
-// 				Do you experience headaches or dry mouth in the morning? <br />
-// 				Do you often feel sleepy or struggle to stay alert during the day?
-// 				<br />
-// 				If these sound familiar, sleep apnea might be the cause. <br /> <br />
-// 				Take this screening tool to assess your risk. A better night's sleep
-// 				could change your life!
-// 			</h3>
-// 		</div>
-// 	);
-// }
-
-// export default Titles;
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
@@ -46,7 +13,7 @@ function Titles() {
 	return (
 		<div className='flex flex-col space-y-6 pb-10'>
 			<motion.h1
-				className='sm:text-6xl font-semibold dark:text-white-bg2'
+				className='text-6xl font-semibold leading-tight dark:text-white-bg2'
 				initial={{ opacity: 0, y: -50 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.8 }}
