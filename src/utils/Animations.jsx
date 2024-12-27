@@ -157,7 +157,7 @@ const AnimatedSection = () => {
 							style={{ y: parallaxEffect }}
 							className={item.className}
 						>
-							<img src={item.src} alt={item.alt} />
+							<img src={item.src} loading="lazy" alt={item.alt} />
 						</motion.div>
 					);
 				})}

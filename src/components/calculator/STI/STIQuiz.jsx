@@ -132,29 +132,32 @@ const STIQuiz = () => {
 							</div>
 						</div>
 					) : (
-						<div className='result-container flex flex-col min-h-[70vh] items-center py-10'>
-							<h2 className='text-2xl font-bold mb-4 text-black dark:text-white-bg'>
+						<div className='result-container flex flex-col min-h-[70vh] items-center py-10 px-4 md:px-6 max-w-3xl mx-auto'>
+							<h2 className='text-3xl font-bold mb-6 text-black dark:text-white-bg text-center'>
 								Quiz Results
 							</h2>
-							<ul className='grid grid-cols-1 gap-6 bg-dark p-4 rounded-lg'>
+							<ul className='grid grid-cols-1 gap-6 bg-white-bg dark:bg-black p-6 rounded-xl shadow-lg w-full transition-all duration-300 hover:shadow-xl'>
 								{questions.map((question, index) => (
-									<li key={index} className='mb-6'>
-										<p className='text-lg text-black dark:text-white-bg'>
-											<strong>Q{index + 1}:</strong> {question.question}
+									<li key={index} className='mb-6 p-4 bg-gray-50 dark:bg-gray-900 rounded-lg transition-all duration-300 hover:shadow-md'>
+										<p className='text-lg font-medium text-black dark:text-white-bg mb-3'>
+											<span className='inline-block bg-primary text-white px-3 py-1 rounded-full mr-2 text-sm'>Q{index + 1}</span>
+											{question.question}
 										</p>
-										<p className='text-md text-black dark:text-white-bg'>
-											<strong>Your Answer:</strong>{' '}
-											{question.options[answers[index]]}
-										</p>
-										<p className='text-md text-black dark:text-white-bg'>
-											<strong>Correct Answer:</strong>{' '}
-											{question.options[question.correctAnswer]}
-										</p>
+										<div className='space-y-2 ml-4'>
+											<p className='text-md text-black dark:text-white-bg flex items-center'>
+												<strong className='min-w-[120px] inline-block'>Your Answer:</strong>
+												<span className='ml-2'>{question.options[answers[index]]}</span>
+											</p>
+											<p className='text-md text-black dark:text-white-bg flex items-center'>
+												<strong className='min-w-[120px] inline-block'>Correct Answer:</strong>
+												<span className='ml-2'>{question.options[question.correctAnswer]}</span>
+											</p>
+										</div>
 									</li>
 								))}
 							</ul>
 							<button
-								className='btn-1 mx-auto w-full text-center mt-6'
+								className='btn-1 mx-auto w-full md:w-1/2 text-center mt-8 py-3 text-lg font-semibold transition-all duration-300 hover:scale-105'
 								onClick={retakeQuiz}
 							>
 								Retake Quiz

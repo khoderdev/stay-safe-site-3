@@ -19,11 +19,19 @@ function PrevelenceCircle() {
   });
 
   useEffect(() => {
-    return scrollY.onChange((latest) => {
+    const updateRotation = () => {
+      const latest = scrollY.get();
       const rotation = latest * 0.1; // Adjust multiplier for rotation speed
       rotationForward.set(rotation);
       rotationReverse.set(-rotation); // Opposite direction
-    });
+    };
+
+    window.addEventListener('scroll', updateRotation);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener('scroll', updateRotation);
+    };
   }, [scrollY, rotationForward, rotationReverse]);
 
   return (

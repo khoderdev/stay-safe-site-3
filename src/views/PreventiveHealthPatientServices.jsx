@@ -20,7 +20,7 @@ function PreventiveHealthPatientServicesPage() {
 
   return (
     <>
-      <div class="relative h-screen bg-white-bg dark:bg-black ">
+      <div className="relative h-screen bg-white-bg dark:bg-black ">
         <div className="h-screen flex flex-col items-center justify-start pt-10 bg-white-bg dark:bg-black">
           <h1 className="text-4xl md:text-6xl font-semibold flex flex-col px-6 dark:text-white-bg mb-1">
             Your Mental Health Matters
@@ -42,7 +42,7 @@ function PreventiveHealthPatientServicesPage() {
           </PHQ9Modal>
         </div>
 
-        <div class="sticky top-0 h-screen flex flex-col items-center justify-center bg-white-fg dark:bg-[#000]">
+        <div className="sticky top-0 h-screen flex flex-col items-center justify-center bg-white-fg dark:bg-[#000]">
           <SearchPharmacies />
         </div>
 
@@ -63,7 +63,7 @@ function PreventiveHealthPatientServicesPage() {
             <STOPBang />
           </PHQ9Modal>
         </div>
-        <div class="sticky top-0 h-screen flex flex-col items-center justify-center bg-white-fg dark:bg-black">
+        <div className="sticky top-0 h-screen flex flex-col items-center justify-center bg-white-fg dark:bg-black">
           <STIQuiz />
         </div>
       </div>

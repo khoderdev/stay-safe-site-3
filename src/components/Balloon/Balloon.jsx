@@ -56,7 +56,7 @@ function Balloon({ isInView }) {
 					</motion.span>
 				</motion.p>
 			</div>
-			<img src='/images/balloon.gif' alt='Balloon' className='ml-0 w-full sm:w-[35%]' />
+			<img src='/images/balloon.gif' loading="lazy" alt='Balloon' className='ml-0 w-full sm:w-[35%]' />
 		</div>
 	);
 }

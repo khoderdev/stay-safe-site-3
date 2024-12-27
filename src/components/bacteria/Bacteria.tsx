@@ -1,21 +1,26 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useMemo, useCallback } from "react";
 import MiddleSection from "./MiddleSection";
 import BottomSection from "./BottomSection";
 import { useMousePosition } from "react-use-mouse-position";
 
-function Bacteria() {
-  const imageRef = useRef(null);
+const Bacteria: React.FC = React.memo(() => {
+  const imageRef = useRef<HTMLImageElement>(null);
   const { mouseX, mouseY } = useMousePosition();
-  const offset = { x: -20, y: -0 };
+  
+  const offset = useMemo(() => ({ x: -20, y: -0 }), []);
 
-  // Update position of the image based on mouse coordinates
-  useEffect(() => {
+  const updateImagePosition = useCallback(() => {
     if (imageRef.current && mouseX !== null && mouseY !== null) {
       const adjustedX = mouseX + offset.x;
       const adjustedY = mouseY + offset.y;
       imageRef.current.style.transform = `translate(${adjustedX}px, ${adjustedY}px)`;
     }
-  }, [mouseX, mouseY]);
+  }, [mouseX, mouseY, offset]);
+
+  useEffect(() => {
+    const rafId = requestAnimationFrame(updateImagePosition);
+    return () => cancelAnimationFrame(rafId);
+  }, [updateImagePosition]);
 
   return (
     <div className="flex flex-col overflow-hidden h-full">
@@ -27,9 +32,13 @@ function Bacteria() {
         src="/images/bacteria.png"
         ref={imageRef}
         className="w-40 sm:w-52 absolute pointer-events-none"
-        // style={{ top: 25, left: 30 }}
+        alt="Bacteria"
+        loading="lazy"
       />
     </div>
   );
-}
+});
+
+Bacteria.displayName = 'Bacteria';
+
 export default Bacteria;

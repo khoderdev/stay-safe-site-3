@@ -11,7 +11,7 @@ const PackYearsCalculator: React.FC<PackYearsCalculatorProps> = () => {
   const [age, setAge] = useState<string>('');
   const [gender, setGender] = useState<string>('');
   const [smoker, setSmoker] = useState<boolean>(false);
-  const [packsPerDay, setPacksPerDay] = useState<string>('');
+  const [packsPerDay, setPacksPerDay] = useState<number>(0);
   const [yearsSmoked, setYearsSmoked] = useState<string>('');
   const [result, setResult] = useState<string | null>(null);
   const controls = useAnimation();
@@ -75,7 +75,7 @@ const PackYearsCalculator: React.FC<PackYearsCalculatorProps> = () => {
   }, [packsPerDay, yearsSmoked, smoker]);
 
   const calculatePackYears = () => {
-    const packs = parseFloat(packsPerDay);
+    const packs = packsPerDay;
     const years = parseFloat(yearsSmoked);
     if (isNaN(packs) || isNaN(years)) return;
 
@@ -96,7 +96,7 @@ const PackYearsCalculator: React.FC<PackYearsCalculatorProps> = () => {
   const resetForm = () => {
     setGender('');
     setSmoker(false);
-    setPacksPerDay('');
+    setPacksPerDay(0);
     setYearsSmoked('');
     setResult(null); // Reset result to null
   };
@@ -124,7 +124,7 @@ const PackYearsCalculator: React.FC<PackYearsCalculatorProps> = () => {
 
     // Check if the value is not a number, negative, or exceeds 10
     if (isNaN(value) || value < 0) {
-      value = ''; // Clear if invalid or negative
+      value = 0; // Clear if invalid or negative
     } else if (value > 40) {
       value = 40; // Limit to max 10
     } else {
@@ -132,7 +132,7 @@ const PackYearsCalculator: React.FC<PackYearsCalculatorProps> = () => {
       value = Math.round(value * 10) / 10;
     }
 
-    setPacksPerDay(value.toString());
+    setPacksPerDay(value);
   };
 
   const resetScreeningMessages = () => { };
@@ -200,15 +200,15 @@ const PackYearsCalculator: React.FC<PackYearsCalculatorProps> = () => {
             !smoker &&
             !packsPerDay &&
             !yearsSmoked &&
-            age >= 20 &&
-            age <= 75 && (
+            Number(age) >= 20 &&
+            Number(age) <= 75 && (
               <div className='flex items-center justify-center h-full'>
                 <p className='text-gray-500'>Choose your Gender to continue.</p>
               </div>
             )}
 
           {/* Display warning if age is out of valid range */}
-          {(age < 20 || age > 75) && (
+          {(Number(age) < 20 || Number(age) > 75) && (
             <div className='flex items-start justify-center pt-12 h-full'>
               <p className='text-gray-500 text-md md:text-xl'>
                 These recommendations apply to otherwise healthy <br />{' '}

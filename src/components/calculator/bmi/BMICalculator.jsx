@@ -80,7 +80,7 @@ const BMICalculator = () => {
 						min={0}
 						value={weight}
 						onChange={handleWeightChange}
-						autocomplete='off'
+						autoComplete='off'
 						className={`${inputStyles()} sm:!w-[50%] !text-black dark:!text-white-fg !bg-white-fg dark:!bg-[#000]`}
 						required
 					/>
@@ -95,7 +95,7 @@ const BMICalculator = () => {
 						min={0}
 						value={height}
 						onChange={handleHeightChange}
-						autocomplete='off'
+						autoComplete='off'
 						className={`${inputStyles()} sm:!w-[50%] !text-black dark:!text-white-fg !bg-white-fg dark:!bg-[#000]`}
 						required
 					/>

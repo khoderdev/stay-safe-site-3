@@ -77,7 +77,7 @@ const Single = () => {
             {currentUser?.id === post.uid && (
               <div className="edit flex flex-col lg:flex-row items-center space-x-2">
                 <Link to={`/write?edit=2`} state={post} className="transition-opacity duration-200 hover:opacity-80">
-                  <img src={Edit} alt="Edit" className="w-7 h-7 cursor-pointer" />
+                  <img src={Edit} loading="lazy" alt="Edit" className="w-7 h-7 cursor-pointer" />
                 </Link>
                 <img
                   onClick={handleDelete}
