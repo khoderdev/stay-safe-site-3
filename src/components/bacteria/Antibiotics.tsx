@@ -92,7 +92,7 @@ export default function Stagger() {
     >
       <motion.h1
         variants={itemVariants}
-        className="text-2xl md:text-4xl font-bold text-center mb-12 dark:text-white-bg2 leading-tight"
+        className="text-[1.4rem] md:text-4xl font-bold text-center mb-12 dark:text-white-bg2 leading-tight"
       >
         <span className="text-pink">Antibiotics</span> are losing their power
         <span className="block text-lg md:text-2xl mt-4  opacity-90">
