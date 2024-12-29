@@ -14,7 +14,7 @@ export default function Header() {
   const location = useLocation();
 
   const isActive = (path: string) => {
-    if (path === '/') {
+    if (path === "/") {
       return location.pathname === path;
     }
     return location.pathname.startsWith(path);
@@ -22,12 +22,13 @@ export default function Header() {
 
   const getLinkClassName = (path: string) => {
     return `relative inline-flex items-center text-base transition-all duration-200
-      ${isActive(path)
-        ? 'text-white-bg2 bg-pink dark:bg-pink'
-        : 'text-gray-700 dark:text-gray-200 hover:text-pink dark:hover:text-pink'
+      ${
+        isActive(path)
+          ? "text-white-bg2 bg-pink dark:bg-pink"
+          : "text-gray-700 dark:text-gray-200 hover:text-pink dark:hover:text-pink"
       } 
       rounded-lg before:content-[''] before:absolute before:inset-0 before:bg-current 
-      before:rounded-lg before:opacity-0 hover:before:opacity-5 active:scale-95`
+      before:rounded-lg before:opacity-0 hover:before:opacity-5 active:scale-95`;
   };
 
   const toggleSidebar = () => {
@@ -91,7 +92,7 @@ export default function Header() {
 
       {/* Desktop Menu */}
       <div className="hidden md:flex items-center justify-end flex-1 gap-2 pr-4">
-        <Link to="/" className={`${getLinkClassName('/')} px-3 py-2`}>
+        <Link to="/" className={`${getLinkClassName("/")} px-3 py-2`}>
           Home
         </Link>
         <Dropdown
@@ -105,28 +106,37 @@ export default function Header() {
             { label: "Vitrack", to: "/vitrack" },
           ]}
           className={`relative inline-flex items-center text-base transition-all duration-200
-            ${isActive('/preventive-health-patient-services') || isActive('/mdc') || isActive('/vitrack')
-              ? 'text-white-bg2 bg-pink dark:bg-pink'
-              : 'text-gray-700 dark:text-gray-200 hover:text-pink dark:hover:text-pink'
+            ${
+              isActive("/preventive-health-patient-services") ||
+              isActive("/mdc") ||
+              isActive("/vitrack")
+                ? "text-white-bg2 bg-pink dark:bg-pink"
+                : "text-gray-700 dark:text-gray-200 hover:text-pink dark:hover:text-pink"
             } 
-            rounded-lg px-3 py-2`
-          }
+            rounded-lg px-3 py-2`}
+          mainLink={undefined}
         />
         <Link
           to="/health-and-safety"
-          className={`${getLinkClassName('/health-and-safety')} px-3 py-2 whitespace-nowrap`}
+          className={`${getLinkClassName(
+            "/health-and-safety"
+          )} px-3 py-2 whitespace-nowrap`}
         >
           Health & Safety
         </Link>
         <Link
           to="/public-health-interventions"
-          className={`${getLinkClassName('/public-health-interventions')} px-3 py-2 whitespace-nowrap`}
+          className={`${getLinkClassName(
+            "/public-health-interventions"
+          )} px-3 py-2 whitespace-nowrap`}
         >
           Public Health Interventions
         </Link>
         <Link
           to="/public-health-academy"
-          className={`${getLinkClassName('/public-health-academy')} px-3 py-2 whitespace-nowrap`}
+          className={`${getLinkClassName(
+            "/public-health-academy"
+          )} px-3 py-2 whitespace-nowrap`}
         >
           Public Health Academy
         </Link>
@@ -135,12 +145,12 @@ export default function Header() {
           mainLink="/about-us"
           items={[{ label: "Volunteers", to: "/volunteering" }]}
           className={`relative inline-flex items-center text-base transition-all duration-200
-            ${isActive('/about-us') || isActive('/volunteering')
-              ? 'text-white-bg2 bg-pink dark:bg-pink'
-              : 'text-gray-700 dark:text-gray-200 hover:text-pink dark:hover:text-pink'
+            ${
+              isActive("/about-us") || isActive("/volunteering")
+                ? "text-white-bg2 bg-pink dark:bg-pink"
+                : "text-gray-700 dark:text-gray-200 hover:text-pink dark:hover:text-pink"
             } 
-            rounded-lg px-3 py-2`
-          }
+            rounded-lg px-3 py-2`}
         />
       </div>
 
