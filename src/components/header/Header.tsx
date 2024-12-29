@@ -63,7 +63,7 @@ export default function Header() {
   return (
     <header
       ref={headerRef}
-      className="fixed w-full bg-white/60 dark:bg-black/50 backdrop-blur-md  shadow-lg dark:shadow-[#00000021] z-50 flex items-center justify-between lg:pl-32 lg:pr-6"
+      className="fixed w-full bg-white/60 dark:bg-black/50 backdrop-blur-md shadow-lg dark:shadow-[#00000021] z-50 flex items-center justify-between lg:pl-32"
     >
       {/* Logo */}
       <motion.div
@@ -91,8 +91,8 @@ export default function Header() {
       </motion.div>
 
       {/* Desktop Menu */}
-      <div className="hidden md:flex items-center justify-end flex-1 gap-2 pr-4">
-        <Link to="/" className={`${getLinkClassName("/")} px-3 py-2`}>
+      <div className="hidden md:flex items-center justify-end flex-1">
+        <Link to="/" className={`${getLinkClassName("/")} px-3 py-1`}>
           Home
         </Link>
         <Dropdown
@@ -155,7 +155,7 @@ export default function Header() {
       </div>
 
       {/* Mobile Menu Button and Theme Toggle */}
-      <div className="flex items-center gap-2 pl-4">
+      <div className="flex items-center gap-2 px-4">
         <ThemeToggle />
         <button
           onClick={toggleSidebar}

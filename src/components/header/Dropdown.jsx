@@ -85,13 +85,13 @@ export default function Dropdown({ title, items, mainLink, className }) {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="absolute z-50 left-0 mt-2 min-w-[240px] origin-top-left"
+            className="absolute z-50 -left-14 mt-2 min-w-[200px] origin-top-left"
             initial="closed"
             animate="open"
             exit="closed"
             variants={menuVariants}
           >
-            <div className="backdrop-blur-lg bg-white/90 dark:bg-dark/90 rounded-lg shadow-lg ring-1 ring-black/5 dark:ring-white/10">
+            <div className="backdrop-blur-lg bg-white-bg3 dark:bg-dark/90 rounded-lg shadow-lg ring-1 ring-black/5 dark:ring-white/10">
               <ul className="py-1">
                 {items.map((item, index) => (
                   <motion.li 
