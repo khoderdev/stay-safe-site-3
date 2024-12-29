@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useTheme } from "../../hooks/useTheme";
 import ThemeToggle from "./ThemeToggle";
 import { HiMenuAlt4, HiX } from "react-icons/hi";
@@ -11,6 +11,24 @@ export default function Header() {
   const { theme } = useTheme();
   const headerRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+
+  const isActive = (path: string) => {
+    if (path === '/') {
+      return location.pathname === path;
+    }
+    return location.pathname.startsWith(path);
+  };
+
+  const getLinkClassName = (path: string) => {
+    return `relative inline-flex items-center text-base transition-all duration-200
+      ${isActive(path)
+        ? 'text-white-bg2 bg-pink dark:bg-pink'
+        : 'text-gray-700 dark:text-gray-200 hover:text-pink dark:hover:text-pink'
+      } 
+      rounded-lg before:content-[''] before:absolute before:inset-0 before:bg-current 
+      before:rounded-lg before:opacity-0 hover:before:opacity-5 active:scale-95`
+  };
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -72,13 +90,12 @@ export default function Header() {
       </motion.div>
 
       {/* Desktop Menu */}
-      <div className="hidden md:flex items-center space-x-8 text-black dark:text-white-bg2">
-        <Link to="/" className="nav-link">
+      <div className="hidden md:flex items-center justify-end flex-1 gap-2 pr-4">
+        <Link to="/" className={`${getLinkClassName('/')} px-3 py-2`}>
           Home
         </Link>
         <Dropdown
           title="Services"
-          // mainLink="/preventive-health-patient-services"
           items={[
             {
               label: "Preventive Health & Patient Services",
@@ -87,33 +104,52 @@ export default function Header() {
             { label: "Medical Dietary Clinic", to: "/mdc" },
             { label: "Vitrack", to: "/vitrack" },
           ]}
-          className={
-            "block px-4 py-2 text-black dark:text-white-bg2 hover:bg-gray-100 dark:hover:bg-pink dark:hover:text-white-bg2 rounded-md transition-colors"
+          className={`relative inline-flex items-center text-base transition-all duration-200
+            ${isActive('/preventive-health-patient-services') || isActive('/mdc') || isActive('/vitrack')
+              ? 'text-white-bg2 bg-pink dark:bg-pink'
+              : 'text-gray-700 dark:text-gray-200 hover:text-pink dark:hover:text-pink'
+            } 
+            rounded-lg px-3 py-2`
           }
         />
-        <Link to="/health-and-safety" className="nav-link">
+        <Link
+          to="/health-and-safety"
+          className={`${getLinkClassName('/health-and-safety')} px-3 py-2 whitespace-nowrap`}
+        >
           Health & Safety
         </Link>
-        <Link to="/public-health-interventions" className="nav-link">
+        <Link
+          to="/public-health-interventions"
+          className={`${getLinkClassName('/public-health-interventions')} px-3 py-2 whitespace-nowrap`}
+        >
           Public Health Interventions
         </Link>
-        <Link to="/public-health-academy" className="nav-link">
+        <Link
+          to="/public-health-academy"
+          className={`${getLinkClassName('/public-health-academy')} px-3 py-2 whitespace-nowrap`}
+        >
           Public Health Academy
         </Link>
         <Dropdown
           title="About us"
           mainLink="/about-us"
           items={[{ label: "Volunteers", to: "/volunteering" }]}
-          className={"text-pink"}
+          className={`relative inline-flex items-center text-base transition-all duration-200
+            ${isActive('/about-us') || isActive('/volunteering')
+              ? 'text-white-bg2 bg-pink dark:bg-pink'
+              : 'text-gray-700 dark:text-gray-200 hover:text-pink dark:hover:text-pink'
+            } 
+            rounded-lg px-3 py-2`
+          }
         />
       </div>
 
       {/* Mobile Menu Button and Theme Toggle */}
-      <div className="flex items-center space-x-4 pr-4">
+      <div className="flex items-center gap-2 pl-4">
         <ThemeToggle />
         <button
           onClick={toggleSidebar}
-          className="md:hidden p-2 text-3xl text- dark:text-white-bg z-50 relative focus:outline-none"
+          className="md:hidden p-2 text-3xl text-gray-700 dark:text-white-bg z-50 relative focus:outline-none"
           aria-label="Toggle menu"
         >
           {isOpen ? <HiX /> : <HiMenuAlt4 />}
