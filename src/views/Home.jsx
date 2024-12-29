@@ -53,7 +53,7 @@ const Home = React.memo(() => {
         <DXPrevention />
       </div>
 
-      <div className="">
+      <div className="p-4">
         <PackYearsCalculator />
       </div>
 

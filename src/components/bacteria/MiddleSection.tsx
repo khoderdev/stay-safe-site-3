@@ -123,7 +123,7 @@ const MiddleSection: React.FC = React.memo(() => {
                 exit={{ height: 0, opacity: 0 }}
                 transition={{ duration: 0.3 }}
               >
-                <p className="text-xl py-4 px-2 drop-shadow-md rounded pt-4 text-center bg-white-bg3 dark:!bg-[#000] opacity-1 z-40 relative flex flex-col w-[88%] sm:w-[70%] md:w-[34%]  sm:mx-0 place-self-center">
+                <p className="text-xl py-4 px-2 drop-shadow-md rounded pt-4 mt-2 text-center bg-white-bg3 dark:!bg-[#000] opacity-1 z-40 relative flex flex-col w-[88%] sm:w-[70%] md:w-[34%] sm:mx-0 place-self-center">
                   Antibiotics are medications specifically designed to kill
                   certain bacteria or stop their growth. However, their use can
                   sometimes lead to side effects and contribute to antimicrobial

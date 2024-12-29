@@ -21,7 +21,7 @@ function PrevelenceCircle() {
 	useEffect(() => {
 		const updateRotation = () => {
 			const latest = scrollY.get();
-			const rotation = latest * 0.1; // Adjust multiplier for rotation speed
+			const rotation = latest * 0.3; // Adjust multiplier for rotation speed
 			rotationForward.set(rotation);
 			rotationReverse.set(-rotation); // Opposite direction
 		};
