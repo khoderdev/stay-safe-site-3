@@ -5,23 +5,23 @@ import { IoChevronDown } from 'react-icons/io5';
 import './links.css';
 
 const menuItems = [
-  { text: 'Home', route: '/' },
+  { title: 'Home', route: '/' },
   {
-    text: 'Preventive Health & Patient Services',
+    title: 'Preventive Health & Patient Services',
     route: '/preventive-health-patient-services',
     submenu: [
-      { text: 'Medical Dietary Clinic', route: '/mdc' },
-      { text: 'Vitrack', route: '/vitrack' },
+      { title: 'Medical Dietary Clinic', route: '/mdc' },
+      { title: 'Vitrack', route: '/vitrack' },
     ]
   },
-  { text: 'Health & Safety', route: '/health-and-safety' },
-  { text: 'Public Health Interventions', route: '/public-health-interventions' },
-  { text: 'Public Health Academy', route: '/public-health-academy' },
+  { title: 'Health & Safety', route: '/health-and-safety' },
+  { title: 'Public Health Interventions', route: '/public-health-interventions' },
+  { title: 'Public Health Academy', route: '/public-health-academy' },
   {
-    text: 'About us',
+    title: 'About us',
     route: '/about-us',
     submenu: [
-      { text: 'Volunteers', route: '/volunteering' },
+      { title: 'Volunteers', route: '/volunteering' },
     ]
   }
 ];
@@ -140,7 +140,7 @@ const MenuItem = ({ item, onNavigate }) => {
         to={item.route}
         className={`block w-full px-8 py-4 text-lg relative group transition-all duration-200
           ${isActive(item.route) 
-            ? 'text-pink dark:text-pink '
+            ? 'text-pink dark:text-pink'
             : 'text-gray-700 dark:text-gray-200'
           }`}
         onClick={(e) => {
@@ -180,7 +180,7 @@ const MenuItem = ({ item, onNavigate }) => {
             initial="closed"
             animate="open"
             exit="closed"
-            className="overflow-hidden bg-gray-50/5 dark:bg-black backdrop-blur-sm"
+            className="overflow-hidden bg-gray-50/5 dark:bg-gray-900/20 backdrop-blur-sm"
           >
             <div className="py-2">
               {item.submenu.map((subItem) => (
@@ -193,13 +193,13 @@ const MenuItem = ({ item, onNavigate }) => {
                     to={subItem.route}
                     className={`block py-3.5 px-12 text-base relative group/item transition-all duration-200
                       ${isActive(subItem.route)
-                        ? 'text-pink dark:text-pink '
-                        : 'text-gray-600 dark:text-gray-100 hover:text-pink dark:hover:text-pink'
+                        ? 'text-pink dark:text-pink'
+                        : 'text-gray-600 dark:text-gray-300 hover:text-pink dark:hover:text-pink'
                       }`}
                     onClick={handleSubmenuNavigation}
                   >
                     <span className="relative z-10">
-                      {subItem.text}
+                      {subItem.title}
                       <span className={`absolute -bottom-1 left-0 h-0.5 bg-pink transition-all duration-300
                         ${isActive(subItem.route) ? 'w-full' : 'w-0 group-hover/item:w-full'}`}>
                       </span>
