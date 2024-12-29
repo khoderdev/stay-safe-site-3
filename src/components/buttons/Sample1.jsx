@@ -9,7 +9,7 @@ function Sample1() {
 				className='relative inline-flex items-center justify-center px-10 py-4 overflow-hidden font-mono font-medium tracking-tighter text-white bg-gray-800 rounded-lg group'
 			>
 				<span className='absolute w-0 h-0 transition-all duration-500 ease-out bg-green-500 rounded-full group-hover:w-56 group-hover:h-56'></span>
-				<span className='absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-gray-700'></span>
+				<span className='absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-linear-to-b from-transparent via-transparent to-gray-700'></span>
 				<span className='relative'>Button Text</span>
 			</a>
 
@@ -103,7 +103,7 @@ function Sample1() {
 
 			<a
 				href='#_'
-				className='relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-indigo-600 transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 group'
+				className='relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-indigo-600 transition-all duration-150 ease-in-out rounded-sm hover:pl-10 hover:pr-6 bg-gray-50 group'
 			>
 				<span className='absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-indigo-600 group-hover:h-full'></span>
 				<span className='absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12'>
@@ -155,7 +155,7 @@ function Sample1() {
 
 			<a
 				href='#_'
-				className='px-5 py-2.5 relative rounded group overflow-hidden font-medium bg-purple-50 text-purple-600 inline-block'
+				className='px-5 py-2.5 relative rounded-sm group overflow-hidden font-medium bg-purple-50 text-purple-600 inline-block'
 			>
 				<span className='absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-purple-600 group-hover:h-full opacity-90'></span>
 				<span className='relative group-hover:text-white'>Button Text</span>

@@ -32,7 +32,7 @@
 
 //   return (
 //     <section className="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 antialiased">
-//       <div className="mx-auto max-w-screen-2xl px-4 lg:px-12">
+//       <div className="mx-auto max-w-(--breakpoint-2xl) px-4 lg:px-12">
 //         <div className="bg-white-fg dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
 //           <div className="flex justify-between items-center p-4">
 //             <h2 className="text-lg font-semibold text-gray-900 dark:text-white-bg">
@@ -169,7 +169,7 @@ const Table = ({ columns, data = [], title, onSearch, onAddItem }) => {
 
   return (
     <section className="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 antialiased">
-      <div className="mx-auto max-w-screen-2xl px-4 lg:px-12">
+      <div className="mx-auto max-w-(--breakpoint-2xl) px-4 lg:px-12">
         <div className="bg-white-fg dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
           <div className="flex justify-between items-center p-4">
             <h2 className="text-lg font-semibold text-gray-900 dark:text-white-bg">

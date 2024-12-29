@@ -58,7 +58,7 @@
 
 //       {/* Table Section */}
 //       <div className="overflow-x-auto">
-//         <table className="min-w-full bg-white-bg border border-gray-300 rounded-lg shadow-sm">
+//         <table className="min-w-full bg-white-bg border border-gray-300 rounded-lg shadow-xs">
 //           <thead>
 //             <tr className=" text-gray-700 text-sm font-semibold">
 //               <th className="py-3">
@@ -202,7 +202,7 @@ const FoodSafetyTable = () => {
 
 			{/* Table Section */}
 			<div className='overflow-x-auto'>
-				<table className='min-w-full bg-white-bg border border-gray-300 rounded-lg shadow-sm'>
+				<table className='min-w-full bg-white-bg border border-gray-300 rounded-lg shadow-xs'>
 					<thead>
 						<tr className=' text-gray-700 text-sm font-semibold'>
 							<th className='py-3'>

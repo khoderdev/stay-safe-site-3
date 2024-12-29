@@ -147,7 +147,7 @@ const STOPBang = () => {
 													}
 													transition={{ duration: 0.3 }}
 												>
-													<span className='answer-text text-xl text-black dark:!text-[#f0f0fe]'>
+													<span className='answer-text text-xl text-black dark:text-[#f0f0fe]!'>
 														{answer}
 													</span>
 												</motion.div>
@@ -171,7 +171,7 @@ const STOPBang = () => {
 												name='weight'
 												value={form.weight}
 												onChange={handleFormChange}
-												className={`${inputStyles()} !w-full !text-black dark:!text-white-bg !bg-white-fg dark:!bg-[#000]`}
+												className={`${inputStyles()} w-full! text-black! dark:text-white-bg! bg-white-fg! dark:bg-[#000]!`}
 											/>
 										</div>
 										<div className='flex w-full flex-col'>
@@ -183,7 +183,7 @@ const STOPBang = () => {
 												name='height'
 												value={form.height}
 												onChange={handleFormChange}
-												className={`${inputStyles()} !w-full !text-black dark:!text-white-bg !bg-white-fg dark:!bg-[#000]`}
+												className={`${inputStyles()} w-full! text-black! dark:text-white-bg! bg-white-fg! dark:bg-[#000]!`}
 											/>
 										</div>
 									</div>

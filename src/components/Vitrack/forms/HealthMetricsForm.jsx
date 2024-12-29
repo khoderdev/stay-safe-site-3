@@ -89,7 +89,7 @@
 // 	};
 
 // 	return (
-// 		<div className='xsm:p-3 sm:p-7 rounded-lg !bg-white-bg2 dark:!bg-[#000] space-y-6'>
+// 		<div className='xsm:p-3 sm:p-7 rounded-lg bg-white-bg2! dark:bg-[#000]! space-y-6'>
 // 			<InputField
 // 				label='Oral Temperature (°C)'
 // 				name='temperature'
@@ -106,7 +106,7 @@
 // 				{bloodPressureSets.map((set) => (
 // 					<div
 // 						key={set.id}
-// 						className='space-y-4 relative border border-black p-4 rounded'
+// 						className='space-y-4 relative border border-black p-4 rounded-sm'
 // 					>
 // 						{/* Remove Button */}
 // 						{!set.isDefault && (
@@ -371,11 +371,11 @@ const HealthMetricsForm = () => {
 	const warnings = getHealthWarnings();
 
 	return (
-		<div className='xsm:p-3 sm:p-7 rounded-lg !bg-white-bg2 dark:!bg-[#000] space-y-6'>
+		<div className='xsm:p-3 sm:p-7 rounded-lg bg-white-bg2! dark:bg-[#000]! space-y-6'>
 			{/* Your other form inputs here */}
 			<div className='space-y-4'>
 				{warnings.length > 0 && (
-					<div className='bg-red-500 text-white p-3 rounded'>
+					<div className='bg-red-500 text-white p-3 rounded-sm'>
 						<h3 className='font-bold'>Warnings:</h3>
 						<ul>
 							{warnings.map((warning, index) => (
@@ -393,7 +393,7 @@ const HealthMetricsForm = () => {
 				{bloodPressureSets.map((set) => (
 					<div
 						key={set.id}
-						className='space-y-4 relative border border-black p-4 rounded'
+						className='space-y-4 relative border border-black p-4 rounded-sm'
 					>
 						{/* Blood Pressure Inputs */}
 						<div className='xsm:grid xsm:grid-cols-1 sm:flex-col sm:flex sm:space-x-0 sm:space-y-3 sm:items-center md:flex md:flex-row md:space-x-8 md:space-y-0 md:items-center md:justify-center'>

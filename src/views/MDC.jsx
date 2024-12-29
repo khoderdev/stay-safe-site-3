@@ -59,11 +59,11 @@ const MDC = React.memo(() => {
         <MediterraneanDietScore />
       </div>
 
-      <div className="flex sm:!h-[65dvh] p-8 bg-white-fg dark:bg-[#000]">
+      <div className="flex sm:h-[65dvh]! p-8 bg-white-fg dark:bg-[#000]">
         <BMICalculator />
       </div>
 
-      <div className="sm:!h-[65dvh] bg-white-bg dark:bg-black">
+      <div className="sm:h-[65dvh]! bg-white-bg dark:bg-black">
         <QualitativeDiets />
       </div>
 

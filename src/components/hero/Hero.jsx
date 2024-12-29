@@ -97,14 +97,14 @@ const Hero = () => {
 							Things Around
 						</motion.span>
 					</motion.h1>
-					<Link to={'./volenteering'} className='btn-1 text-white-whites !p-4 place-self-center'>
+					<Link to={'./volenteering'} className='btn-1 text-white-whites p-4! place-self-center'>
 						Join Our Team
 					</Link>
 				</motion.div>
 			</div>
 			<div style={{ overflow: 'hidden', whiteSpace: 'nowrap', width: '100%' }}>
 				<motion.div
-					className='slidingTextContainer !text-slate-200 dark:!text-[#212121]'
+					className='slidingTextContainer text-slate-200! dark:text-[#212121]!'
 					variants={sliderVariants}
 					initial='initial'
 					animate='animate'

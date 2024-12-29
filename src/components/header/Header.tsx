@@ -44,11 +44,11 @@ export default function Header() {
   return (
     <header
       ref={headerRef}
-      className="fixed w-full bg-white/60 dark:bg-black/50 backdrop-blur-md  shadow-lg dark:shadow-[#00000021] z-50 flex items-center justify-between lg:pl-32 lg:pr-6"
+      className="fixed w-full bg-white/60 dark:bg-black/50 backdrop-blur-md shadow-lg dark:shadow-[#00000021] z-50 flex items-center justify-between !px-4 lg:!px-24"
     >
       {/* Logo */}
       <motion.div
-        className="flex-shrink-0 pl-2"
+        className="shrink-0 pl-2"
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
@@ -72,13 +72,12 @@ export default function Header() {
       </motion.div>
 
       {/* Desktop Menu */}
-      <div className="hidden md:flex items-center space-x-8 text-black dark:text-white-bg2">
+      <div className="hidden md:flex items-center !space-x-4 lg:!space-x-8 text-black dark:text-white-bg2">
         <Link to="/" className="nav-link">
           Home
         </Link>
         <Dropdown
           title="Services"
-          // mainLink="/preventive-health-patient-services"
           items={[
             {
               label: "Preventive Health & Patient Services",
@@ -109,11 +108,11 @@ export default function Header() {
       </div>
 
       {/* Mobile Menu Button and Theme Toggle */}
-      <div className="flex items-center space-x-4 pr-4">
+      <div className="flex items-center !space-x-4 ">
         <ThemeToggle />
         <button
           onClick={toggleSidebar}
-          className="md:hidden p-2 text-3xl text- dark:text-white-bg z-50 relative focus:outline-none"
+          className="md:hidden p-2 text-3xl text- dark:text-white-bg z-50 relative focus:outline-hidden"
           aria-label="Toggle menu"
         >
           {isOpen ? <HiX /> : <HiMenuAlt4 />}
@@ -141,7 +140,7 @@ export default function Header() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed inset-0 bg-black/40 backdrop-blur-sm z-30 md:hidden"
+            className="fixed inset-0 bg-black/40 backdrop-blur-xs z-30 md:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

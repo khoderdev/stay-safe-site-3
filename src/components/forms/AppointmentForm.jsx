@@ -285,7 +285,7 @@ const AppointmentFormContent = () => {
                 <Calendar />
               </div>
               {appointmentDetails && (
-                <div className="bg-gradient-to-r from-green-500 to-green-600 rounded-xl p-6 shadow-lg">
+                <div className="bg-linear-to-r from-green-500 to-green-600 rounded-xl p-6 shadow-lg">
                   <h3 className="text-xl font-bold dark:text-white-bg mb-4">
                     Your Appointment is at:
                   </h3>
@@ -304,7 +304,7 @@ const AppointmentFormContent = () => {
               <div className="flex gap-4">
                 <button
                   onClick={previousStep}
-                  className="w-1/2 flex items-center justify-center gap-2 py-4 px-6 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-400 border-2 border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-600 hover:text-black dark:hover:dark:text-white transition-all duration-300 shadow-sm hover:shadow-md"
+                  className="w-1/2 flex items-center justify-center gap-2 py-4 px-6 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-400 border-2 border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-600 hover:text-black dark:dark:hover:text-white transition-all duration-300 shadow-xs hover:shadow-md"
                 >
                   <ArrowLeft className="h-5 w-5" />
                   Go Back
@@ -335,7 +335,7 @@ const AppointmentFormContent = () => {
           {currentStep > 0 && (
             <button
               onClick={previousStep}
-              className="bg-[#71743c] rounded-lg hover:bg-transparent border-2 hover:border-[#71743c] !w-24"
+              className="bg-[#71743c] rounded-lg hover:bg-transparent border-2 hover:border-[#71743c] w-24!"
             >
               Previous
             </button>
@@ -343,7 +343,7 @@ const AppointmentFormContent = () => {
           {currentStep < 7 && (
             <button
               onClick={nextStep}
-              className="bg-[#71743c] p-1.5 rounded-lg hover:bg-transparent border-2 hover:border-[#71743c] !w-24"
+              className="bg-[#71743c] p-1.5 rounded-lg hover:bg-transparent border-2 hover:border-[#71743c] w-24!"
             >
               Next
             </button>

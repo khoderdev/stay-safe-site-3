@@ -11,7 +11,7 @@ function CreateModal() {
       >
         <div className="relative p-4 w-full max-w-3xl h-full md:h-auto">
           {/* Modal content */}
-          <div className="relative p-4 bg-white-fg rounded-lg shadow dark:bg-gray-800 sm:p-5">
+          <div className="relative p-4 bg-white-fg rounded-lg shadow-sm dark:bg-gray-800 sm:p-5">
             {/* Modal header */}
             <div className="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white-bg">
@@ -196,7 +196,7 @@ function CreateModal() {
                     type="checkbox"
                     defaultValue=""
                     name="sellingType"
-                    className="w-4 h-4 bg-gray-100 rounded border-gray-300 text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                    className="w-4 h-4 bg-gray-100 rounded-sm border-gray-300 text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                   />
                   <label
                     htmlFor="inline-checkbox"
@@ -211,7 +211,7 @@ function CreateModal() {
                     type="checkbox"
                     defaultValue=""
                     name="sellingType"
-                    className="w-4 h-4 bg-gray-100 rounded border-gray-300 text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                    className="w-4 h-4 bg-gray-100 rounded-sm border-gray-300 text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                   />
                   <label
                     htmlFor="inline-2-checkbox"
@@ -227,7 +227,7 @@ function CreateModal() {
                     type="checkbox"
                     defaultValue=""
                     name="sellingType"
-                    className="w-4 h-4 bg-gray-100 rounded border-gray-300 text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                    className="w-4 h-4 bg-gray-100 rounded-sm border-gray-300 text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                   />
                   <label
                     htmlFor="inline-checked-checkbox"
@@ -277,11 +277,11 @@ function CreateModal() {
               <div className="items-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
                 <button
                   type="submit"
-                  className="w-full sm:w-auto justify-center text-white inline-flex bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                  className="w-full sm:w-auto justify-center text-white inline-flex bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-hidden focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                 >
                   Add product
                 </button>
-                <button className="w-full sm:w-auto text-white justify-center inline-flex items-center bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                <button className="w-full sm:w-auto text-white justify-center inline-flex items-center bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-hidden focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                   <svg
                     className="mr-1 -ml-1 w-5 h-5"
                     fill="currentColor"
@@ -299,7 +299,7 @@ function CreateModal() {
                 <button
                   data-modal-toggle="createProductModal"
                   type="button"
-                  className="w-full justify-center sm:w-auto text-gray-500 inline-flex items-center bg-white-fg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-primary-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
+                  className="w-full justify-center sm:w-auto text-gray-500 inline-flex items-center bg-white-fg hover:bg-gray-100 focus:ring-4 focus:outline-hidden focus:ring-primary-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
                 >
                   <svg
                     className="mr-1 -ml-1 w-5 h-5"

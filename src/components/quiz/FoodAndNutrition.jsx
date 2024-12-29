@@ -137,7 +137,7 @@ const FoodAndNutrition = () => {
         }}
         className={`${className} ${
           isOver ? "scale-105 ring-opacity-100 shadow-2xl" : ""
-        } transition-all duration-300 ease-out select-none touch-none backdrop-blur-sm`}
+        } transition-all duration-300 ease-out select-none touch-none backdrop-blur-xs`}
       >
         {children}
       </motion.div>
@@ -279,7 +279,7 @@ const FoodAndNutrition = () => {
                   onClick={handleRestart}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className={`${inputStyles()} !w-[65%] !text-black dark:!text-white-bg2 !bg-white-fg hover:!ring-2 focus:!ring-2 !ring-[#c2c36b] dark:!bg-[#000]`}
+                  className={`${inputStyles()} w-[65%]! text-black! dark:text-white-bg2! bg-white-fg! hover:ring-2! focus:ring-2! ring-[#c2c36b]! dark:bg-[#000]!`}
                 >
                   Retake Quiz
                 </motion.button>

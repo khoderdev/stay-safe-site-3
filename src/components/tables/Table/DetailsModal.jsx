@@ -11,7 +11,7 @@ const DetailsModal = ({ entry, onClose }) => (
       <p><strong>Causes:</strong> {entry.comments}</p>
       <button
         onClick={onClose}
-        className="mt-4 px-4 py-2 bg-red-500 text-white rounded"
+        className="mt-4 px-4 py-2 bg-red-500 text-white rounded-sm"
       >
         Close
       </button>

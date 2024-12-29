@@ -29,7 +29,7 @@ const SpringModal = ({ isOpen, setIsOpen, consultationType, buttonText }) => {
 					animate={{ opacity: 1 }}
 					exit={{ opacity: 0 }}
 					onClick={() => setIsOpen(false)}
-					className='bg-slate-900/20 backdrop-blur sm:p-8 fixed inset-0 z-30 flex items-center justify-center cursor-pointer'
+					className='bg-slate-900/20 backdrop-blur-sm sm:p-8 fixed inset-0 z-30 flex items-center justify-center cursor-pointer'
 				>
 					<motion.div
 						initial={{ scale: 0, rotate: '12.5deg' }}

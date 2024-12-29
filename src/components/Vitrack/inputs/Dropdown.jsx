@@ -67,7 +67,7 @@
 
 // 	return (
 // 		<div ref={dropdownRef} className='relative'>
-// 			<label className='block mb-2 text-sm !text-black dark:!text-white-bg'>
+// 			<label className='block mb-2 text-sm text-black! dark:text-white-bg!'>
 // 				{label}
 // 			</label>
 // 			<input
@@ -77,7 +77,7 @@
 // 				onChange={handleInputChange}
 // 				onKeyDown={handleKeyDown}
 // 				placeholder={`Select ${label}`}
-// 				className={`${inputStyles()} !text-black dark:!text-white-bg !bg-white-bg dark:!bg-black`}
+// 				className={`${inputStyles()} text-black! dark:text-white-bg! bg-white-bg! dark:bg-black!`}
 // 				autoComplete='off'
 // 				autoCorrect='off'
 // 				autoCapitalize='off'
@@ -86,7 +86,7 @@
 
 // 			{/* Dropdown Menu */}
 // 			{showDropdown && filteredOptions.length > 0 && (
-// 				<ul className='absolute z-10 dark:!text-white-bg bg-white-bg dark:bg-black w-full max-h-52 overflow-y-auto shadow-md mt-[1px] rounded'>
+// 				<ul className='absolute z-10 dark:text-white-bg! bg-white-bg dark:bg-black w-full max-h-52 overflow-y-auto shadow-md mt-[1px] rounded-sm'>
 // 					{filteredOptions.map((option, index) => (
 // 						<li
 // 							key={option}
@@ -182,7 +182,7 @@ const Dropdown = ({ label, name, value, onChange, options }) => {
 
 	return (
 		<div ref={dropdownRef} className='relative'>
-			<label className='block mb-2 text-sm !text-black dark:!text-white-bg'>
+			<label className='block mb-2 text-sm text-black! dark:text-white-bg!'>
 				{label}
 			</label>
 			<div className='relative'>
@@ -193,7 +193,7 @@ const Dropdown = ({ label, name, value, onChange, options }) => {
 					onChange={handleInputChange}
 					onKeyDown={handleKeyDown}
 					placeholder={`Select ${label}`}
-					className={`${inputStyles()} !text-black dark:!text-white-bg !bg-white-bg dark:!bg-black`}
+					className={`${inputStyles()} text-black! dark:text-white-bg! bg-white-bg! dark:bg-black!`}
 					autoComplete='off'
 					autoCorrect='off'
 					autoCapitalize='off'
@@ -214,7 +214,7 @@ const Dropdown = ({ label, name, value, onChange, options }) => {
 
 			{/* Dropdown Menu */}
 			{showDropdown && filteredOptions.length > 0 && (
-				<ul className='absolute z-10 dark:!text-white-bg bg-white-bg dark:bg-black w-full max-h-52 overflow-y-auto shadow-md mt-[1px] rounded'>
+				<ul className='absolute z-10 dark:text-white-bg! bg-white-bg dark:bg-black w-full max-h-52 overflow-y-auto shadow-md mt-[1px] rounded-sm'>
 					{filteredOptions.map((option, index) => (
 						<li
 							key={option}

@@ -79,7 +79,7 @@ const Write = () => {
           required
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="w-full p-2 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-[#000] dark:border-black dark:text-white-bg transition-all duration-200"
+          className="w-full p-2 mb-4 border border-gray-300 rounded-md focus:outline-hidden focus:ring-2 focus:ring-blue-500 dark:bg-[#000] dark:border-black dark:text-white-bg transition-all duration-200"
         />
         <div className="editorContainer mb-4">
           <ReactQuill
@@ -112,7 +112,7 @@ const Write = () => {
       </div>
 
       <div className="menu grid grid-cols-1 gap-6 border-red-500">
-        <div className="flex flex-col w-72 justify-center bg-white-bg dark:bg-black text-black dark:text-white-bg p-4 pt-2 rounded-md shadow-sm space-y-2">
+        <div className="flex flex-col w-72 justify-center bg-white-bg dark:bg-black text-black dark:text-white-bg p-4 pt-2 rounded-md shadow-xs space-y-2">
           <h1 className="font-bold text-xl mb-6 dark:text-white-bg">Actions</h1>
           <span className="block">
             <b>Status: </b> Draft
@@ -144,7 +144,7 @@ const Write = () => {
           </div>
         </div>
 
-        <div className="item bg-white-bg dark:bg-black text-black dark:text-white-bg p-4 rounded-md shadow-sm">
+        <div className="item bg-white-bg dark:bg-black text-black dark:text-white-bg p-4 rounded-md shadow-xs">
           <h1 className="font-semibold text-lg dark:text-white-bg mb-4">Category</h1>
           <div className="cat">
             {["art", "science", "technology", "cinema", "design", "food"].map(

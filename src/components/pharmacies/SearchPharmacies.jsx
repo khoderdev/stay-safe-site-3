@@ -151,7 +151,7 @@ const SearchPharmacies = () => {
                   id='governorate'
                   value={selectedGovernorate}
                   onChange={handleGovernorateChange}
-                  className={`${selectStyles()} !w-[12em] !ml-0 `}
+                  className={`${selectStyles()} w-[12em]! ml-0! `}
                 >
                   <option value=''>Select Governorate</option>
                   {governorates.map((governorate) => (
@@ -176,7 +176,7 @@ const SearchPharmacies = () => {
                   value={selectedLocality}
                   onChange={handleLocalityChange}
                   disabled={!selectedGovernorate}
-                  className={`!w-[12.5em] ${localitySelect({ disabled: !selectedGovernorate })}`}
+                  className={`w-[12.5em]! ${localitySelect({ disabled: !selectedGovernorate })}`}
                 >
                   <option value=''>Select Locality</option>
                   {localities.map((locality) => (
@@ -202,7 +202,7 @@ const SearchPharmacies = () => {
                   {filteredPharmacies.map((pharmacy, index) => (
                     <motion.li
                       key={index}
-                      className='flex flex-col justify-center bg-white-fg dark:bg-[#000] p-4 border border-gray-300 rounded-lg shadow hover:shadow-lg transition-shadow duration-300 text-black dark:text-white-bg'
+                      className='flex flex-col justify-center bg-white-fg dark:bg-[#000] p-4 border border-gray-300 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 text-black dark:text-white-bg'
                       transition={{ type: 'spring', stiffness: 100 }}
                       variants={wordVariants}
                       initial="hidden"

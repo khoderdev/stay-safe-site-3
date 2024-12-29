@@ -12,7 +12,7 @@ const SeverityFilter = ({ selectedSeverity, onChange }) => {
     <div className="mb-4">
       <label className="mr-2 text-xl font-semibold">Severity:</label>
       <select
-        className="p-2 border rounded"
+        className="p-2 border rounded-sm"
         value={selectedSeverity}
         onChange={(e) => handleChange(e.target.value)}
       >

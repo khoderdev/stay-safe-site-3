@@ -4,7 +4,7 @@ export default function CirclesImages() {
 	return (
 		<>
 			<div
-				className='my-4 flex flex-wrap mx-auto max-w-screen-lg'
+				className='my-4 flex flex-wrap mx-auto max-w-(--breakpoint-lg)'
 				style={{
 					borderWidth: '0px',
 					borderStyle: 'solid',
@@ -2630,7 +2630,7 @@ export default function CirclesImages() {
 								</div>
 							</a>
 							<a
-								className='bg-[url("/images/14.webp")] absolute bg-no-repeat bg-bottom bg-cover rounded-full w-[95%] h-[95%] dark:w-[100.5%] dark:h-[100.5%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 !transition-transform !duration-150 !ease-in-out hover:!scale-110'
+								className='bg-[url("/images/14.webp")] absolute bg-no-repeat bg-bottom bg-cover rounded-full w-[95%] h-[95%] dark:w-[100.5%] dark:h-[100.5%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform! duration-150! ease-in-out! hover:scale-110!'
 								style={{
 									borderWidth: '0px',
 									borderStyle: 'solid',
@@ -2660,7 +2660,7 @@ export default function CirclesImages() {
 								</div>
 							</a>
 							<a
-								className='bg-[url("/images/16.webp")] absolute bg-no-repeat bg-bottom bg-cover rounded-full w-[95%] h-[95%] dark:w-[100.5%] dark:h-[100.5%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 !transition-transform !duration-150 !ease-in-out hover:!scale-110'
+								className='bg-[url("/images/16.webp")] absolute bg-no-repeat bg-bottom bg-cover rounded-full w-[95%] h-[95%] dark:w-[100.5%] dark:h-[100.5%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform! duration-150! ease-in-out! hover:scale-110!'
 								style={{
 									borderWidth: '0px',
 									borderStyle: 'solid',
@@ -2717,7 +2717,7 @@ export default function CirclesImages() {
 								</div>
 							</a>
 							<a
-								className='bg-[url("/images/32.webp")] absolute bg-no-repeat bg-bottom bg-cover rounded-full w-[95%] h-[95%] dark:w-[100.5%] dark:h-[100.5%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 !transition-transform !duration-150 !ease-in-out hover:!scale-110'
+								className='bg-[url("/images/32.webp")] absolute bg-no-repeat bg-bottom bg-cover rounded-full w-[95%] h-[95%] dark:w-[100.5%] dark:h-[100.5%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform! duration-150! ease-in-out! hover:scale-110!'
 								style={{
 									borderWidth: '0px',
 									borderStyle: 'solid',
@@ -2747,7 +2747,7 @@ export default function CirclesImages() {
 								</div>
 							</a>
 							<a
-								className='bg-[url("/images/33.webp")] absolute bg-no-repeat bg-bottom bg-cover rounded-full w-[95%] h-[95%] dark:w-[100.5%] dark:h-[100.5%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 !transition-transform !duration-150 !ease-in-out hover:!scale-110'
+								className='bg-[url("/images/33.webp")] absolute bg-no-repeat bg-bottom bg-cover rounded-full w-[95%] h-[95%] dark:w-[100.5%] dark:h-[100.5%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform! duration-150! ease-in-out! hover:scale-110!'
 								style={{
 									borderWidth: '0px',
 									borderStyle: 'solid',
@@ -3217,7 +3217,7 @@ export default function CirclesImages() {
 								</div>
 							</a>
 							<a
-								className='bg-[url("/images/8.webp")] absolute bg-no-repeat bg-bottom bg-cover rounded-full w-[95%] h-[95%] dark:w-[100.5%] dark:h-[100.5%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 !transition-transform !duration-150 !ease-in-out hover:!scale-110'
+								className='bg-[url("/images/8.webp")] absolute bg-no-repeat bg-bottom bg-cover rounded-full w-[95%] h-[95%] dark:w-[100.5%] dark:h-[100.5%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform! duration-150! ease-in-out! hover:scale-110!'
 								style={{
 									borderWidth: '0px',
 									borderStyle: 'solid',
@@ -3274,7 +3274,7 @@ export default function CirclesImages() {
 								</div>
 							</a>
 							<a
-								className='bg-[url("/images/9.webp")] absolute bg-no-repeat bg-bottom bg-cover rounded-full w-[95%] h-[95%] dark:w-[100.5%] dark:h-[100.5%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 !transition-transform !duration-150 !ease-in-out hover:!scale-110'
+								className='bg-[url("/images/9.webp")] absolute bg-no-repeat bg-bottom bg-cover rounded-full w-[95%] h-[95%] dark:w-[100.5%] dark:h-[100.5%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform! duration-150! ease-in-out! hover:scale-110!'
 								style={{
 									borderWidth: '0px',
 									borderStyle: 'solid',
@@ -3304,7 +3304,7 @@ export default function CirclesImages() {
 								</div>
 							</a>
 							<a
-								className='bg-[url("/images/41.webp")] absolute bg-no-repeat bg-bottom bg-cover rounded-full w-[95%] h-[95%] dark:w-[100.5%] dark:h-[100.5%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 !transition-transform !duration-150 !ease-in-out hover:!scale-110'
+								className='bg-[url("/images/41.webp")] absolute bg-no-repeat bg-bottom bg-cover rounded-full w-[95%] h-[95%] dark:w-[100.5%] dark:h-[100.5%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform! duration-150! ease-in-out! hover:scale-110!'
 								style={{
 									borderWidth: '0px',
 									borderStyle: 'solid',
@@ -4422,7 +4422,7 @@ export default function CirclesImages() {
 								</div>
 							</a>
 							<a
-								className='bg-[url("/images/46.webp")] absolute bg-no-repeat bg-bottom bg-cover rounded-full w-[95%] h-[95%] dark:w-[100.5%] dark:h-[100.5%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 !transition-transform !duration-150 !ease-in-out hover:!scale-110'
+								className='bg-[url("/images/46.webp")] absolute bg-no-repeat bg-bottom bg-cover rounded-full w-[95%] h-[95%] dark:w-[100.5%] dark:h-[100.5%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform! duration-150! ease-in-out! hover:scale-110!'
 								style={{
 									borderWidth: '0px',
 									borderStyle: 'solid',
@@ -4452,7 +4452,7 @@ export default function CirclesImages() {
 								</div>
 							</a>
 							<a
-								className='bg-[url("/images/14.webp")] absolute bg-no-repeat bg-bottom bg-cover rounded-full w-[95%] h-[95%] dark:w-[100.5%] dark:h-[100.5%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 !transition-transform !duration-150 !ease-in-out hover:!scale-110'
+								className='bg-[url("/images/14.webp")] absolute bg-no-repeat bg-bottom bg-cover rounded-full w-[95%] h-[95%] dark:w-[100.5%] dark:h-[100.5%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform! duration-150! ease-in-out! hover:scale-110!'
 								style={{
 									borderWidth: '0px',
 									borderStyle: 'solid',
@@ -4482,7 +4482,7 @@ export default function CirclesImages() {
 								</div>
 							</a>
 							<a
-								className='bg-[url("/images/41.webp")] absolute bg-no-repeat bg-bottom bg-cover rounded-full w-[95%] h-[95%] dark:w-[100.5%] dark:h-[100.5%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 !transition-transform !duration-150 !ease-in-out hover:!scale-110'
+								className='bg-[url("/images/41.webp")] absolute bg-no-repeat bg-bottom bg-cover rounded-full w-[95%] h-[95%] dark:w-[100.5%] dark:h-[100.5%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform! duration-150! ease-in-out! hover:scale-110!'
 								style={{
 									borderWidth: '0px',
 									borderStyle: 'solid',
@@ -4982,7 +4982,7 @@ export default function CirclesImages() {
 								</div>
 							</a>
 							<a
-								className='bg-[url("/images/40.webp")] absolute bg-no-repeat bg-bottom bg-cover rounded-full w-[95%] h-[95%] dark:w-[100.5%] dark:h-[100.5%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 !transition-transform !duration-150 !ease-in-out hover:!scale-110'
+								className='bg-[url("/images/40.webp")] absolute bg-no-repeat bg-bottom bg-cover rounded-full w-[95%] h-[95%] dark:w-[100.5%] dark:h-[100.5%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform! duration-150! ease-in-out! hover:scale-110!'
 								style={{
 									borderWidth: '0px',
 									borderStyle: 'solid',
@@ -5012,7 +5012,7 @@ export default function CirclesImages() {
 								</div>
 							</a>
 							<a
-								className='bg-[url("/images/3.webp")] absolute bg-no-repeat bg-bottom bg-cover rounded-full w-[95%] h-[95%] dark:w-[100.5%] dark:h-[100.5%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 !transition-transform !duration-150 !ease-in-out hover:!scale-110'
+								className='bg-[url("/images/3.webp")] absolute bg-no-repeat bg-bottom bg-cover rounded-full w-[95%] h-[95%] dark:w-[100.5%] dark:h-[100.5%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform! duration-150! ease-in-out! hover:scale-110!'
 								style={{
 									borderWidth: '0px',
 									borderStyle: 'solid',
@@ -5069,7 +5069,7 @@ export default function CirclesImages() {
 								</div>
 							</a>
 							<a
-								className='bg-[url("/images/9.webp")] absolute bg-no-repeat bg-bottom bg-cover rounded-full w-[95%] h-[95%] dark:w-[100.5%] dark:h-[100.5%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 !transition-transform !duration-150 !ease-in-out hover:!scale-110'
+								className='bg-[url("/images/9.webp")] absolute bg-no-repeat bg-bottom bg-cover rounded-full w-[95%] h-[95%] dark:w-[100.5%] dark:h-[100.5%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform! duration-150! ease-in-out! hover:scale-110!'
 								style={{
 									borderWidth: '0px',
 									borderStyle: 'solid',
@@ -5099,7 +5099,7 @@ export default function CirclesImages() {
 								</div>
 							</a>
 							<a
-								className='bg-[url("/images/16.webp")] absolute bg-no-repeat bg-bottom bg-cover rounded-full w-[95%] h-[95%] dark:w-[100.5%] dark:h-[100.5%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 !transition-transform !duration-150 !ease-in-out hover:!scale-110'
+								className='bg-[url("/images/16.webp")] absolute bg-no-repeat bg-bottom bg-cover rounded-full w-[95%] h-[95%] dark:w-[100.5%] dark:h-[100.5%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform! duration-150! ease-in-out! hover:scale-110!'
 								style={{
 									borderWidth: '0px',
 									borderStyle: 'solid',
@@ -5129,7 +5129,7 @@ export default function CirclesImages() {
 								</div>
 							</a>
 							<a
-								className='bg-[url("/images/32.webp")] absolute bg-no-repeat bg-bottom bg-cover rounded-full w-[95%] h-[95%] dark:w-[100.5%] dark:h-[100.5%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 !transition-transform !duration-150 !ease-in-out hover:!scale-110'
+								className='bg-[url("/images/32.webp")] absolute bg-no-repeat bg-bottom bg-cover rounded-full w-[95%] h-[95%] dark:w-[100.5%] dark:h-[100.5%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform! duration-150! ease-in-out! hover:scale-110!'
 								style={{
 									borderWidth: '0px',
 									borderStyle: 'solid',
@@ -5159,7 +5159,7 @@ export default function CirclesImages() {
 								</div>
 							</a>
 							<a
-								className='bg-[url("/images/46.webp")] absolute bg-no-repeat bg-bottom bg-cover rounded-full w-[95%] h-[95%] dark:w-[100.5%] dark:h-[100.5%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 !transition-transform !duration-150 !ease-in-out hover:!scale-110'
+								className='bg-[url("/images/46.webp")] absolute bg-no-repeat bg-bottom bg-cover rounded-full w-[95%] h-[95%] dark:w-[100.5%] dark:h-[100.5%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform! duration-150! ease-in-out! hover:scale-110!'
 								style={{
 									borderWidth: '0px',
 									borderStyle: 'solid',
@@ -5189,7 +5189,7 @@ export default function CirclesImages() {
 								</div>
 							</a>
 							<a
-								className='bg-[url("/images/43.webp")] absolute bg-no-repeat bg-bottom bg-cover rounded-full w-[95%] h-[95%] dark:w-[100.5%] dark:h-[100.5%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 !transition-transform !duration-150 !ease-in-out hover:!scale-110'
+								className='bg-[url("/images/43.webp")] absolute bg-no-repeat bg-bottom bg-cover rounded-full w-[95%] h-[95%] dark:w-[100.5%] dark:h-[100.5%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform! duration-150! ease-in-out! hover:scale-110!'
 								style={{
 									borderWidth: '0px',
 									borderStyle: 'solid',
@@ -5219,7 +5219,7 @@ export default function CirclesImages() {
 								</div>
 							</a>
 							<a
-								className='bg-[url("/images/42.webp")] absolute bg-no-repeat bg-bottom bg-cover rounded-full w-[95%] h-[95%] dark:w-[100.5%] dark:h-[100.5%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 !transition-transform !duration-150 !ease-in-out hover:!scale-110'
+								className='bg-[url("/images/42.webp")] absolute bg-no-repeat bg-bottom bg-cover rounded-full w-[95%] h-[95%] dark:w-[100.5%] dark:h-[100.5%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform! duration-150! ease-in-out! hover:scale-110!'
 								style={{
 									borderWidth: '0px',
 									borderStyle: 'solid',
@@ -5276,7 +5276,7 @@ export default function CirclesImages() {
 								</div>
 							</a>
 							<a
-								className='bg-[url("/images/41.webp")] absolute bg-no-repeat bg-bottom bg-cover rounded-full w-[95%] h-[95%] dark:w-[100.5%] dark:h-[100.5%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 !transition-transform !duration-150 !ease-in-out hover:!scale-110'
+								className='bg-[url("/images/41.webp")] absolute bg-no-repeat bg-bottom bg-cover rounded-full w-[95%] h-[95%] dark:w-[100.5%] dark:h-[100.5%] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform! duration-150! ease-in-out! hover:scale-110!'
 								style={{
 									borderWidth: '0px',
 									borderStyle: 'solid',

@@ -128,7 +128,7 @@ const Volunteering = () => {
 
 	return (
 		<form className='container mx-auto h-screen py-8' autoComplete='off'>
-			<div className='xsm:p-3 sm:p-7 rounded-lg !bg-white-bg2 dark:!bg-[#000] grid grid-cols-1 sm:grid-cols-2 gap-x-14 gap-y-8'>
+			<div className='xsm:p-3 sm:p-7 rounded-lg bg-white-bg2! dark:bg-[#000]! grid grid-cols-1 sm:grid-cols-2 gap-x-14 gap-y-8'>
 				<InputField
 					label='First Name'
 					name='firstName'

@@ -176,7 +176,7 @@
 //       {/* Floating Chat Button */}
 //       <button
 //         onClick={() => setIsModalOpen(true)}
-//         className="fixed bottom-8 right-8 bg-indigo-500 text-white-bg2 p-4 rounded-full shadow-lg hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-300 transition duration-300 ease-in-out"
+//         className="fixed bottom-8 right-8 bg-indigo-500 text-white-bg2 p-4 rounded-full shadow-lg hover:bg-indigo-600 focus:outline-hidden focus:ring-2 focus:ring-indigo-300 transition duration-300 ease-in-out"
 //         aria-label="Open chat"
 //       >
 //         💬
@@ -430,7 +430,7 @@ const StaySafeBot = () => {
 			{/* Floating Chat Button */}
 			<button
 				onClick={() => setIsModalOpen(true)}
-				className='fixed bottom-8 right-8 bg-blue-500 text-white p-4 rounded-full shadow-lg hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-300 transition duration-300 ease-in-out'
+				className='fixed bottom-8 right-8 bg-blue-500 text-white p-4 rounded-full shadow-lg hover:bg-indigo-600 focus:outline-hidden focus:ring-2 focus:ring-indigo-300 transition duration-300 ease-in-out'
 				aria-label='Open chat'
 			>
 				💬

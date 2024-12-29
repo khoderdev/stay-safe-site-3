@@ -18,7 +18,7 @@ export default function BookAppointment() {
   }
 
   return (
-    <div className="flex-grow">
+    <div className="grow">
       <AppointmentForm />
     </div>
   );

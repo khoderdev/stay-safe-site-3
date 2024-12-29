@@ -22,7 +22,7 @@ const StopBangModal = ({ isOpen, setIsOpen, children }) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={() => setIsOpen(false)}
-          className='bg-slate-900/20 backdrop-blur fixed inset-0 z-50 flex items-center justify-center'
+          className='bg-slate-900/20 backdrop-blur-sm fixed inset-0 z-50 flex items-center justify-center'
         >
           <motion.div
             initial={{ scale: 0, rotate: '12.5deg' }}

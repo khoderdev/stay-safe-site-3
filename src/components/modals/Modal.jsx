@@ -77,7 +77,7 @@ const Modal = ({
           }}
           className={`fixed inset-0 z-50 flex ${getPositionClass()} ${
             customBackdrop ||
-            'bg-slate-900/20 backdrop-blur'
+            'bg-slate-900/20 backdrop-blur-sm'
           }`}
         >
           <motion.div

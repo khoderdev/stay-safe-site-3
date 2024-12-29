@@ -23,7 +23,7 @@ const CustomDateInput = React.forwardRef(({ value, onClick }, ref) => (
 			value={value}
 			placeholder='DD/MM/YYYY'
 			onClick={onClick}
-			className={`${inputStyles()} !w-full !text-black dark:!text-white-bg !bg-white-bg dark:!bg-black`}
+			className={`${inputStyles()} w-full! text-black! dark:text-white-bg! bg-white-bg! dark:bg-black!`}
 		/>
 		<div
 			className='absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer'
@@ -44,7 +44,7 @@ const DateInput = ({ label }) => {
 
 	return (
 		<div className='w-full'>
-			<label className='block mb-2 text-sm !text-black dark:!text-white-bg'>
+			<label className='block mb-2 text-sm text-black! dark:text-white-bg!'>
 				{label}
 			</label>
 			<DatePicker
@@ -55,7 +55,7 @@ const DateInput = ({ label }) => {
 					setDateOfBirth(formattedDate); // Update the Jotai atom state
 				}}
 				dateFormat='dd/MM/yyyy'
-				className='w-full px-4 py-2 border rounded-md shadow-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent'
+				className='w-full px-4 py-2 border rounded-md shadow-xs text-gray-700 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:border-transparent'
 				popperClassName='custom-popper'
 				calendarClassName='custom-calendar'
 				customInput={<CustomDateInput />}

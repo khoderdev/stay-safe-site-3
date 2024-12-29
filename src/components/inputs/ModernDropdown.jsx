@@ -70,7 +70,7 @@ const ModernDropdown = ({
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Search..."
-                className="w-full p-1 border border-gray-300 dark:border-gray-600 rounded dark:bg-gray-800 dark:text-white"
+                className="w-full p-1 border border-gray-300 dark:border-gray-600 rounded-sm dark:bg-gray-800 dark:text-white"
                 onClick={(e) => e.stopPropagation()}
               />
             </div>

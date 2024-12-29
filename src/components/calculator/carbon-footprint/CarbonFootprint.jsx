@@ -43,7 +43,7 @@
 // //           value={url}
 // //           onChange={(e) => setUrl(e.target.value)}
 // //           placeholder="Enter website URL"
-// //           className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring focus:ring-blue-500"
+// //           className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-3 focus:ring-blue-500"
 // //         />
 // //       </label>
 
@@ -123,7 +123,7 @@
 //   return (
 //     <div className='border flex'>
 
-//       <div className="w-full bg-gradient-to-r from-blue-400 to-blue-600 p-8 max-w-lg mx-auto rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105">
+//       <div className="w-full bg-linear-to-r from-blue-400 to-blue-600 p-8 max-w-lg mx-auto rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105">
 //         <motion.h2
 //           className="text-3xl font-bold mb-6 text-white text-center"
 //           initial={{ opacity: 0, y: -20 }}
@@ -140,13 +140,13 @@
 //             value={url}
 //             onChange={(e) => setUrl(e.target.value)}
 //             placeholder="Enter website URL"
-//             className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring focus:ring-blue-500 transition duration-200"
+//             className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-3 focus:ring-blue-500 transition duration-200"
 //           />
 //         </label>
 
 //         <button
 //           onClick={calculateCarbonFootprint}
-//           className="mt-4 w-full bg-white text-blue-600 font-semibold py-2 rounded-md shadow hover:bg-blue-100 transition duration-200"
+//           className="mt-4 w-full bg-white text-blue-600 font-semibold py-2 rounded-md shadow-sm hover:bg-blue-100 transition duration-200"
 //           disabled={loading}
 //         >
 //           {loading ? 'Calculating...' : 'Calculate Carbon Footprint'}
@@ -244,7 +244,7 @@ const CarbonFootprintCalculator = () => {
 		<div className='flex justify-center '>
 			{/* Input Section */}
 			<motion.div
-				className={`max-w-[50%] bg-gradient-to-r from-blue-400 to-blue-600 p-8 rounded-lg shadow-lg transition-all duration-300 ${
+				className={`max-w-[50%] bg-linear-to-r from-blue-400 to-blue-600 p-8 rounded-lg shadow-lg transition-all duration-300 ${
 					result ? 'translate-x-[-50%]' : 'mx-auto'
 				}`} // Center the input when there's no result
 				initial={{ opacity: 0, scale: 0.8 }}
@@ -262,13 +262,13 @@ const CarbonFootprintCalculator = () => {
 						value={url}
 						onChange={(e) => setUrl(e.target.value)}
 						placeholder='Enter website URL'
-						className='mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring focus:ring-blue-500 transition duration-200'
+						className='mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-3 focus:ring-blue-500 transition duration-200'
 					/>
 				</label>
 
 				<button
 					onClick={calculateCarbonFootprint}
-					className='mt-4 w-full bg-white text-white-fg font-semibold py-2 rounded-md shadow hover:bg-blue-100 transition duration-200'
+					className='mt-4 w-full bg-white text-white-fg font-semibold py-2 rounded-md shadow-sm hover:bg-blue-100 transition duration-200'
 					disabled={loading}
 				>
 					{loading ? 'Calculating...' : 'Calculate Carbon Footprint'}

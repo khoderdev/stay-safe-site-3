@@ -22,7 +22,7 @@ const Corporate = ({
 			</h3>
 
 			{/* Hover Overlay with Description and Button (slides up from bottom) */}
-			<div className='bg-pink flex flex-col items-center justify-end px-6 pb-4 w-full h-full bg-opacity-90 !text-left opacity-0 transition-all duration-300 transform translate-y-full group-hover:opacity-100 group-hover:translate-y-0'>
+			<div className='bg-pink flex flex-col items-center justify-end px-6 pb-4 w-full h-full bg-opacity-90 text-left! opacity-0 transition-all duration-300 transform translate-y-full group-hover:opacity-100 group-hover:translate-y-0'>
 				<p className='text-left text-lg group-hover:text-white-bg select-none'>
 					Specific to the workplace, Stay Safe notes that healthy eating
 					increases productivity, decreases the number of sick days, increases
@@ -30,7 +30,7 @@ const Corporate = ({
 				</p>
 				<button
 					onClick={handleClick}
-					className='btn-3 !text-[15px] dark:!text-black hover:dark:!text-white-bg !p-2 !px-3 !transition-all duration-300 ease-in-out !bg-white-bg hover:!bg-transparent rounded-md shadow-md hover:border-white-bg hover:text-white-bg dark:hover:border-white-bg select-none'
+					className='btn-3 text-[15px]! dark:text-black! dark:hover:text-white-bg! p-2! px-3! transition-all! duration-300 ease-in-out bg-white-bg! hover:bg-transparent! rounded-md shadow-md hover:border-white-bg hover:text-white-bg dark:hover:border-white-bg select-none'
 				>
 					Start your journey
 				</button>

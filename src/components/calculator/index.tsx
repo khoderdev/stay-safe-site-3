@@ -222,13 +222,13 @@ const PackYearsCalculator: React.FC<PackYearsCalculatorProps> = () => {
             <>
               {/* Monthly Screening Messages */}
               {monthlyScreening.length > 0 && (
-                <div className='p-4 mb-4 rounded bg-white-bg dark:bg-[#191A19]'>
+                <div className='p-4 mb-4 rounded-sm bg-white-bg dark:bg-[#191A19]'>
                   <h2 className='text-lg mb-2'>Monthly</h2>
                   <div className='grid grid-cols-2 gap-4'>
                     {monthlyScreening.map((message, index) => (
                       <motion.div
                         key={index}
-                        className='flex items-center justify-center bg-white-fg dark:bg-[#000] p-2 rounded text-sm'
+                        className='flex items-center justify-center bg-white-fg dark:bg-[#000] p-2 rounded-sm text-sm'
                         transition={{ type: 'spring', stiffness: 100 }}
                         variants={wordVariants}
                         initial='hidden'
@@ -245,13 +245,13 @@ const PackYearsCalculator: React.FC<PackYearsCalculatorProps> = () => {
               )}
               {/* Yearly Screening Messages */}
               {yearlyScreening.length > 0 && (
-                <div className='p-4 mb-4 rounded bg-white-bg dark:bg-[#191A19]'>
+                <div className='p-4 mb-4 rounded-sm bg-white-bg dark:bg-[#191A19]'>
                   <h2 className='text-lg mb-2'>Yearly</h2>
                   <div className='grid grid-cols-2 gap-4'>
                     {yearlyScreening.map((message, index) => (
                       <motion.div
                         key={index}
-                        className='flex items-center justify-center bg-white-fg dark:bg-[#000] p-2 rounded text-sm'
+                        className='flex items-center justify-center bg-white-fg dark:bg-[#000] p-2 rounded-sm text-sm'
                         transition={{ type: 'spring', stiffness: 100 }}
                         variants={wordVariants}
                         initial='hidden'
@@ -268,13 +268,13 @@ const PackYearsCalculator: React.FC<PackYearsCalculatorProps> = () => {
               )}
               {/* Once A Year Screening Messages */}
               {onceAYear.length > 0 && (
-                <div className='p-4 mb-4 rounded bg-white-bg dark:bg-[#191A19]'>
+                <div className='p-4 mb-4 rounded-sm bg-white-bg dark:bg-[#191A19]'>
                   <h2 className='text-lg mb-2'>Once A Year</h2>
                   <div className='grid grid-cols-2 gap-4'>
                     {onceAYear.map((message, index) => (
                       <motion.div
                         key={index}
-                        className='flex items-center justify-center bg-white-fg dark:bg-[#000] p-2 rounded text-sm'
+                        className='flex items-center justify-center bg-white-fg dark:bg-[#000] p-2 rounded-sm text-sm'
                         transition={{ type: 'spring', stiffness: 100 }}
                         variants={wordVariants}
                         initial='hidden'
@@ -291,13 +291,13 @@ const PackYearsCalculator: React.FC<PackYearsCalculatorProps> = () => {
               )}
               {/* Other Screening Messages */}
               {otherScreening.length > 0 && (
-                <div className='p-4 mb-4 rounded bg-white-bg dark:bg-[#191A19]'>
+                <div className='p-4 mb-4 rounded-sm bg-white-bg dark:bg-[#191A19]'>
                   <h2 className='text-lg mb-2'>Other</h2>
                   <div className='grid grid-cols-2 gap-4'>
                     {otherScreening.map((message, index) => (
                       <motion.div
                         key={index}
-                        className='flex items-center justify-center bg-white-fg dark:bg-[#000] p-2 rounded text-sm'
+                        className='flex items-center justify-center bg-white-fg dark:bg-[#000] p-2 rounded-sm text-sm'
                         transition={{ type: 'spring', stiffness: 100 }}
                         variants={wordVariants}
                         initial='hidden'

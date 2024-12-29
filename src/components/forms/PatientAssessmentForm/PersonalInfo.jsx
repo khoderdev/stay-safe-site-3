@@ -66,7 +66,7 @@ function PersonalInfo({ formData, setFormData, nextStep }) {
             value={formData.email || ""}
             onChange={handleChange}
             required
-            className={`${inputStyles()}   !bg-white-fg dark:!bg-[#000]`}
+            className={`${inputStyles()}   bg-white-fg! dark:bg-[#000]!`}
           />
           {errors.email && <span className="error">{errors.email}</span>}
         </div>
@@ -79,7 +79,7 @@ function PersonalInfo({ formData, setFormData, nextStep }) {
             value={formData.fullName || ""}
             onChange={handleChange}
             required
-            className={`${inputStyles()}  !bg-white-fg dark:!bg-[#000]`}
+            className={`${inputStyles()}  bg-white-fg! dark:bg-[#000]!`}
           />
           {errors.fullName && <span className="error">{errors.fullName}</span>}
         </div>
@@ -92,7 +92,7 @@ function PersonalInfo({ formData, setFormData, nextStep }) {
             value={formData.dateOfBirth || ""}
             onChange={handleChange}
             required
-            className={`${inputStyles()} !bg-white-fg dark:!bg-[#000]`}
+            className={`${inputStyles()} bg-white-fg! dark:bg-[#000]!`}
           />
           {errors.dateOfBirth && <span className="error">{errors.dateOfBirth}</span>}
         </div>
@@ -105,7 +105,7 @@ function PersonalInfo({ formData, setFormData, nextStep }) {
             value={formData.phone || ""}
             onChange={handleChange}
             required
-            className={`${inputStyles()}  !bg-white-fg dark:!bg-[#000]`}
+            className={`${inputStyles()}  bg-white-fg! dark:bg-[#000]!`}
           />
           {errors.phone && <span className="error">{errors.phone}</span>}
         </div>
@@ -128,7 +128,7 @@ function PersonalInfo({ formData, setFormData, nextStep }) {
             value={formData.address || ""}
             onChange={handleChange}
             required
-            className={`${inputStyles()} !bg-white-fg dark:!bg-[#000]`}
+            className={`${inputStyles()} bg-white-fg! dark:bg-[#000]!`}
           />
           {errors.address && <span className="error">{errors.address}</span>}
         </div>
@@ -140,7 +140,7 @@ function PersonalInfo({ formData, setFormData, nextStep }) {
             value={formData.maritalStatus || ""}
             onChange={handleChange}
             required
-            className={`${selectStyles()}!bg-white-fg dark:!bg-[#000]`}
+            className={`${selectStyles()}bg-white-fg! dark:bg-[#000]!`}
           >
             <option value="">Select</option>
             <option value="married">Married</option>
@@ -157,7 +157,7 @@ function PersonalInfo({ formData, setFormData, nextStep }) {
             name="numberOfKids"
             value={formData.numberOfKids || ""}
             onChange={handleChange}
-            className={`${inputStyles()}!bg-white-fg dark:!bg-[#000]`}
+            className={`${inputStyles()}bg-white-fg! dark:bg-[#000]!`}
           />
         </div>
 
@@ -168,7 +168,7 @@ function PersonalInfo({ formData, setFormData, nextStep }) {
             value={formData.workStatus || ""}
             onChange={handleChange}
             required
-            className={`${selectStyles()} !bg-white-fg dark:!bg-[#000]`}
+            className={`${selectStyles()} bg-white-fg! dark:bg-[#000]!`}
           >
             <option value="">Select</option>
             <option value="employed">Employed</option>
@@ -185,7 +185,7 @@ function PersonalInfo({ formData, setFormData, nextStep }) {
             value={formData.currentWorkDescription || ""}
             onChange={handleChange}
             required
-            className={`${selectStyles()}  !bg-white-fg dark:!bg-[#000]`}
+            className={`${selectStyles()}  bg-white-fg! dark:bg-[#000]!`}
           >
             <option value="">Select</option>
             <option value="location-based">Location-based</option>
@@ -205,7 +205,7 @@ function PersonalInfo({ formData, setFormData, nextStep }) {
             name="workingSchedule"
             value={formData.workingSchedule || ""}
             onChange={handleChange}
-            className={`${inputStyles()}  !bg-white-fg dark:!bg-[#000]`}
+            className={`${inputStyles()}  bg-white-fg! dark:bg-[#000]!`}
           />
         </div>
 
@@ -216,7 +216,7 @@ function PersonalInfo({ formData, setFormData, nextStep }) {
             value={formData.preferredLanguage || ""}
             onChange={handleChange}
             required
-            className={`${selectStyles()}  !bg-white-fg dark:!bg-[#000]`}
+            className={`${selectStyles()}  bg-white-fg! dark:bg-[#000]!`}
           >
             <option value="">Select</option>
             <option value="arabic">Arabic</option>
@@ -232,7 +232,7 @@ function PersonalInfo({ formData, setFormData, nextStep }) {
             value={formData.education || ""}
             onChange={handleChange}
             required
-            className={`${selectStyles()}  !bg-white-fg dark:!bg-[#000]`}
+            className={`${selectStyles()}  bg-white-fg! dark:bg-[#000]!`}
           >
             <option value="">Select</option>
             <option value="No Formal Education">No Formal Education</option>
@@ -257,7 +257,7 @@ function PersonalInfo({ formData, setFormData, nextStep }) {
             value={formData.reasonForVisit || ""}
             onChange={handleChange}
             required
-            className={`${inputStyles()} !bg-white-fg dark:!bg-[#000]`}
+            className={`${inputStyles()} bg-white-fg! dark:bg-[#000]!`}
           />
           {errors.reasonForVisit && <span className="error">{errors.reasonForVisit}</span>}
         </div>
@@ -269,7 +269,7 @@ function PersonalInfo({ formData, setFormData, nextStep }) {
             value={formData.howDidYouKnow || ""}
             onChange={handleChange}
             required
-            className={`${selectStyles()} !text-black !bg-white-fg dark:!bg-[#000]`}
+            className={`${selectStyles()} text-black! bg-white-fg! dark:bg-[#000]!`}
           >
             <option value="">Select</option>
             <option value="internet-search">Internet search (e.g., Google)</option>
@@ -299,7 +299,7 @@ function PersonalInfo({ formData, setFormData, nextStep }) {
                 value={formData.fieldOfStudy || ""}
                 onChange={handleChange}
                 required
-                className={`${inputStyles()} !text-black !bg-white-fg dark:!bg-[#000]`}
+                className={`${inputStyles()} text-black! bg-white-fg! dark:bg-[#000]!`}
               />
               {errors.fieldOfStudy && <span className="error">{errors.fieldOfStudy}</span>}
             </div>

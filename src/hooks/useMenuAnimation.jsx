@@ -26,8 +26,8 @@ function useMenuAnimation(isOpen) {
     animate(
       "li",
       isOpen
-        ? { opacity: 1, scale: 1, filter: "blur(0px)" }
-        : { opacity: 0, scale: 0.3, filter: "blur(20px)" },
+        ? { opacity: 1, scale: 1, filter: "blur-sm(0px)" }
+        : { opacity: 0, scale: 0.3, filter: "blur-sm(20px)" },
       {
         duration: 0.2,
         delay: isOpen ? staggerMenuItems : 0,

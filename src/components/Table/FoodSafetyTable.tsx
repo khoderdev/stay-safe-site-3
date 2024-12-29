@@ -156,7 +156,7 @@ export const FoodSafetyTable = <TValue,>({
       ></motion.div>
 
       <motion.div
-        className="absolute !z-50 top-[-22dvh] right-28 w-[160px] h-[160px] lg:w-[240px] lg:h-[240px] xl:top-[-22dvh] xl:right-28 xl:w-[370px] xl:h-[370px] bg-cover bg-center opacity-1"
+        className="absolute z-50! top-[-22dvh] right-28 w-[160px] h-[160px] lg:w-[240px] lg:h-[240px] xl:top-[-22dvh] xl:right-28 xl:w-[370px] xl:h-[370px] bg-cover bg-center opacity-1"
         style={{ backgroundImage: "url('/images/petri4.png')" }}
         animate={generateRandomAnimation()}
       ></motion.div>

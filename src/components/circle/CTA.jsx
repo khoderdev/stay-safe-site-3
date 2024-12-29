@@ -21,7 +21,7 @@ function CTA({ targetRef, className }) {
 				<br />
 				<motion.button
 					onClick={handleScrollToSection}
-					className='px-8 py-4 my-10 bg-pink text-white-bg text-[1rem] md:text-4xl font-semibold rounded-lg shadow-md hover:bg-pink focus:outline-none focus:ring-2 focus:ring-pink focus:drop-shadow focus:shadow-md focus:shadow-pink focus:bg-transparent focus:text-pink focus:font-semibold place-self-center'
+					className='px-8 py-4 my-10 bg-pink text-white-bg text-[1rem] md:text-4xl font-semibold rounded-lg shadow-md hover:bg-pink focus:outline-hidden focus:ring-2 focus:ring-pink focus:drop-shadow-sm focus:shadow-md focus:shadow-pink focus:bg-transparent focus:text-pink focus:font-semibold place-self-center'
 					whileHover={{ scale: 1.05 }}
 					whileTap={{ scale: 0.95 }}
 					initial={{ opacity: 0, y: 20 }}

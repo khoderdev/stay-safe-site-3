@@ -10,7 +10,7 @@ function Modal({ isOpen, onClose, onConfirm }) {
       className="fixed inset-0 z-30 flex items-center justify-center bg-black bg-opacity-60"
     >
       <div className="relative w-full h-auto max-w-md max-h-full">
-        <div className="relative bg-white-fg rounded-lg shadow dark:bg-gray-700">
+        <div className="relative bg-white-fg rounded-lg shadow-sm dark:bg-gray-700">
           <button
             type="button"
             className="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
@@ -38,14 +38,14 @@ function Modal({ isOpen, onClose, onConfirm }) {
             <button
               onClick={onConfirm}
               type="button"
-              className="text-white border border-transparent bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+              className="text-white border border-transparent bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-hidden focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
             >
               Yes, I'm sure
             </button>
             <button
               onClick={onClose}
               type="button"
-              className="text-white border border-transparent hover:border border-gray-400 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+              className="text-white border border-transparent hover:border border-gray-400 hover:bg-red-800 focus:ring-4 focus:outline-hidden focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
             >
               No, cancel
             </button>

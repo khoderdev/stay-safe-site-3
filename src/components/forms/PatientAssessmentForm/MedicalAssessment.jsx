@@ -57,7 +57,7 @@ function MedicalAssessment({ formData, setFormData, nextStep }) {
             value={formData.pastMedicalHistory || ""}
             onChange={handleChange}
             required
-            className={`${inputStyles()}  !bg-white-fg dark:!bg-[#000]`}
+            className={`${inputStyles()}  bg-white-fg! dark:bg-[#000]!`}
           />
           {errors.pastMedicalHistory && <span className="error">{errors.pastMedicalHistory}</span>}
         </div>
@@ -69,7 +69,7 @@ function MedicalAssessment({ formData, setFormData, nextStep }) {
             value={formData.pastSurgicalHistory || ""}
             onChange={handleChange}
             required
-            className={`${inputStyles()}  !bg-white-fg dark:!bg-[#000]`}
+            className={`${inputStyles()}  bg-white-fg! dark:bg-[#000]!`}
           />
           {errors.pastSurgicalHistory && <span className="error">{errors.pastSurgicalHistory}</span>}
         </div>
@@ -82,7 +82,7 @@ function MedicalAssessment({ formData, setFormData, nextStep }) {
             value={formData.foodIntolerance || ""}
             onChange={handleChange}
             required
-            className={`${inputStyles()}  !bg-white-fg dark:!bg-[#000]`}
+            className={`${inputStyles()}  bg-white-fg! dark:bg-[#000]!`}
           />
           {errors.foodIntolerance && <span className="error">{errors.foodIntolerance}</span>}
         </div>
@@ -94,7 +94,7 @@ function MedicalAssessment({ formData, setFormData, nextStep }) {
             value={formData.foodAllergies || ""}
             onChange={handleChange}
             required
-            className={`${selectStyles()}  !bg-white-fg dark:!bg-[#000]`}
+            className={`${selectStyles()}  bg-white-fg! dark:bg-[#000]!`}
           >
             <option value="">Select an option</option>
             <option value="eggs">Eggs</option>
@@ -120,7 +120,7 @@ function MedicalAssessment({ formData, setFormData, nextStep }) {
             value={formData.medications || ""}
             onChange={handleChange}
             required
-            className={`${inputStyles()}  !bg-white-fg dark:!bg-[#000]`}
+            className={`${inputStyles()}  bg-white-fg! dark:bg-[#000]!`}
           />
           {errors.medications && <span className="error">{errors.medications}</span>}
         </div>
@@ -132,7 +132,7 @@ function MedicalAssessment({ formData, setFormData, nextStep }) {
             value={formData.smokingStatus || ""}
             onChange={handleChange}
             required
-            className={`${selectStyles()}  !bg-white-fg dark:!bg-[#000]`}
+            className={`${selectStyles()}  bg-white-fg! dark:bg-[#000]!`}
           >
             <option value="">Select</option>
             <option value="yes">Yes</option>
@@ -150,7 +150,7 @@ function MedicalAssessment({ formData, setFormData, nextStep }) {
                 name="packsPerDay"
                 value={formData.packsPerDay || ""}
                 onChange={handleChange}
-                className={`${inputStyles()}  !bg-white-fg dark:!bg-[#000]`}
+                className={`${inputStyles()}  bg-white-fg! dark:bg-[#000]!`}
               />
             </div>
 
@@ -161,7 +161,7 @@ function MedicalAssessment({ formData, setFormData, nextStep }) {
                 name="smokingYears"
                 value={formData.smokingYears || ""}
                 onChange={handleChange}
-                className={`${inputStyles()}  !bg-white-fg dark:!bg-[#000]`}
+                className={`${inputStyles()}  bg-white-fg! dark:bg-[#000]!`}
               />
             </div>
           </>
@@ -174,7 +174,7 @@ function MedicalAssessment({ formData, setFormData, nextStep }) {
             value={formData.drinkingStatus || ""}
             onChange={handleChange}
             required
-            className={`${selectStyles()}  !bg-white-fg dark:!bg-[#000]`}
+            className={`${selectStyles()}  bg-white-fg! dark:bg-[#000]!`}
           >
             <option value="">Select</option>
             <option value="yes">Yes</option>
@@ -191,7 +191,7 @@ function MedicalAssessment({ formData, setFormData, nextStep }) {
                 name="drinkingFrequency"
                 value={formData.drinkingFrequency || ""}
                 onChange={handleChange}
-                className={`${selectStyles()}  !bg-white-fg dark:!bg-[#000]`}
+                className={`${selectStyles()}  bg-white-fg! dark:bg-[#000]!`}
               >
                 <option value="">Select</option>
                 <option value="never">Never</option>
@@ -208,7 +208,7 @@ function MedicalAssessment({ formData, setFormData, nextStep }) {
                 name="typicalDrinks"
                 value={formData.typicalDrinks || ""}
                 onChange={handleChange}
-                className={`${selectStyles()}  !bg-white-fg dark:!bg-[#000]`}
+                className={`${selectStyles()}  bg-white-fg! dark:bg-[#000]!`}
               >
                 <option value="">Select</option>
                 <option value="1 or 2">1 or 2</option>
@@ -229,7 +229,7 @@ function MedicalAssessment({ formData, setFormData, nextStep }) {
             value={formData.familyHistory || ""}
             onChange={handleChange}
             required
-            className={`${inputStyles()}  !bg-white-fg dark:!bg-[#000]`}
+            className={`${inputStyles()}  bg-white-fg! dark:bg-[#000]!`}
           />
           {errors.familyHistory && <span className="error">{errors.familyHistory}</span>}
         </div>

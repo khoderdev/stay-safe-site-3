@@ -106,7 +106,7 @@ export default function Stagger() {
             <motion.button
               onClick={() => handleClick(index)}
               className={`w-full p-4 md:p-5 rounded-lg flex items-center justify-between
-                ring-1 ring-pink/30 backdrop-blur-sm
+                ring-1 ring-pink/30 backdrop-blur-xs
                 hover:ring-pink hover:ring-opacity-100 
                 transition-all duration-300 ease-out
                 ${
@@ -139,7 +139,7 @@ export default function Stagger() {
                     className={`
                     mt-2 p-4 rounded-lg
                     border-2 border-pink dark:bg-black/30
-                    backdrop-blur-sm content content-${index}
+                    backdrop-blur-xs content content-${index}
                   `}
                   >
                     <p className="text-pink md:text-lg leading-relaxed ">

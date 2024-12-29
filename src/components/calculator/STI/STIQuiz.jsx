@@ -77,7 +77,7 @@ const STIQuiz = () => {
                           className={`w-[180px] !h-[180px] flex justify-center items-center border-2 border-transparent rounded-lg 
 													transition-all duration-300 ease-in-out cursor-pointer relative p-2
 													bg-white-bg3 dark:bg-black shadow-md hover:border-[#b0e1ec] hover:text-[#b0e1ec]
-													${answers[currentStep] === index ? "!border-[#3c79b4] !text-[#3c79b4] !text-xl" : "!text-xl"}
+													${answers[currentStep] === index ? "border-[#3c79b4]! text-[#3c79b4]! text-xl!" : "text-xl!"}
 													select-none`}
                           initial={{ scale: 1 }}
                           animate={
@@ -157,7 +157,7 @@ const STIQuiz = () => {
                 ))}
               </ul>
               <button
-                className="btn-3 !mx-auto !text-center !mt-6"
+                className="btn-3 mx-auto! text-center! mt-6!"
                 onClick={retakeQuiz}
               >
                 Retake Quiz

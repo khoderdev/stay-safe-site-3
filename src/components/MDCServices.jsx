@@ -79,7 +79,7 @@ function MDCServices({ targetRef }) {
 				{/* Button as part of the same animation sequence */}
 				<motion.div variants={wordAnimation}>
 					<Button
-						customStyles='bg-transparent place-self-center !border-2 !border-black hover:!border-transparent hover:!bg-pink !p-6 !rounded-full !mt-10 uppercase dark:!border-pink dark:!text-pink dark:hover:!text-white-bg'
+						customStyles='bg-transparent place-self-center border-2! border-black! hover:border-transparent! hover:bg-pink! p-6! rounded-full! mt-10! uppercase dark:border-pink! dark:text-pink! dark:hover:text-white-bg!'
 						aria-label='Show details'
 						onClick={handleScrollToSection}
 					>

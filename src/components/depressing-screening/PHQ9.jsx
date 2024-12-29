@@ -148,7 +148,7 @@ const PHQ9Quiz = () => {
                         }
                         transition={{ duration: 0.3 }}
                       >
-                        <span className="answer-text text-xl text-black dark:!text-[#f0f0fe]">
+                        <span className="answer-text text-xl text-black dark:text-[#f0f0fe]!">
                           {answer}
                         </span>
                       </motion.div>

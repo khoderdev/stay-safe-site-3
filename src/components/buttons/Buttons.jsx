@@ -27,7 +27,7 @@ const ButtonSample3 = () => {
         </div>
         {/* Button 3 */}
         <div className="flex justify-center">
-          <button className="rounded px-5 py-2.5 overflow-hidden group bg-cyan-500 relative hover:bg-gradient-to-r hover:from-cyan-500 hover:to-cyan-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-cyan-400 transition-all ease-out duration-300">
+          <button className="rounded-sm px-5 py-2.5 overflow-hidden group bg-cyan-500 relative hover:bg-linear-to-r hover:from-cyan-500 hover:to-cyan-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-cyan-400 transition-all ease-out duration-300">
             <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40"></span>
             <span className="relative">BUTTON</span>
           </button>
@@ -47,21 +47,21 @@ const ButtonSample3 = () => {
         </div>
         {/* Button 5 */}
         <div className="flex justify-center">
-          <button className="rounded relative inline-flex group items-center justify-center px-5 py-2.5 cursor-pointer border-b-4 border-l-2 active:border-sky-600 active:shadow-none shadow-lg bg-gradient-to-tr from-sky-600 to-sky-500 border-sky-700 text-white">
+          <button className="rounded-sm relative inline-flex group items-center justify-center px-5 py-2.5 cursor-pointer border-b-4 border-l-2 active:border-sky-600 active:shadow-none shadow-lg bg-linear-to-tr from-sky-600 to-sky-500 border-sky-700 text-white">
             <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white group-hover:w-full group-hover:h-full opacity-10"></span>
             <span className="relative">BUTTON</span>
           </button>
         </div>
         {/* Button 6 */}
         <div className="flex justify-center">
-          <button className="font-semibold text-[#2980B9] h-14 border-2 border-solid border-white bg-transparent rounded-xl px-5 py-2.5 outline-none relative after:absolute after:top-2 after:left-2 after:bg-[#D4E6F1] after:z-10 after:rounded-xl after:w-full after:h-full after:transition-all after:duration-200 hover:after:top-0 hover:after:left-0">
+          <button className="font-semibold text-[#2980B9] h-14 border-2 border-solid border-white bg-transparent rounded-xl px-5 py-2.5 outline-hidden relative after:absolute after:top-2 after:left-2 after:bg-[#D4E6F1] after:z-10 after:rounded-xl after:w-full after:h-full after:transition-all after:duration-200 hover:after:top-0 hover:after:left-0">
             <span className="relative z-20">BUTTON</span>
           </button>
         </div>
         {/* Button 7 */}
         <div className="flex justify-center">
           <button className="relative p-0.5 inline-flex items-center justify-center font-bold overflow-hidden group rounded-md">
-            <span className="w-full h-full bg-gradient-to-br from-[#ff8a05] via-[#ff5478] to-[#ff00c6] group-hover:from-[#ff00c6] group-hover:via-[#ff5478] group-hover:to-[#ff8a05] absolute"></span>
+            <span className="w-full h-full bg-linear-to-br from-[#ff8a05] via-[#ff5478] to-[#ff00c6] group-hover:from-[#ff00c6] group-hover:via-[#ff5478] group-hover:to-[#ff8a05] absolute"></span>
             <span className="relative px-6 py-3 transition-all ease-out bg-gray-900 rounded-md group-hover:bg-opacity-0 duration-400">
               <span className="relative text-white">BUTTON</span>
             </span>

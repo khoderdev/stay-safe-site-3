@@ -88,7 +88,7 @@ const MediterraneanDietScore = () => {
               }
               transition={{ duration: 0.3 }}
             >
-              <span className="answer-text text-xl text-black dark:!text-[#f0f0fe]">
+              <span className="answer-text text-xl text-black dark:text-[#f0f0fe]!">
                 {option.charAt(0).toUpperCase() + option.slice(1)}
               </span>
             </motion.div>
@@ -151,7 +151,7 @@ const MediterraneanDietScore = () => {
           </p>
           <button
             onClick={() => setIsModalOpen(true)}
-            className="btn-1 text-xl !px-12 !py-4 transform hover:scale-105 transition-transform duration-300  mt-10"
+            className="btn-1 text-xl px-12! py-4! transform hover:scale-105 transition-transform duration-300  mt-10"
           >
             Start Quiz
           </button>

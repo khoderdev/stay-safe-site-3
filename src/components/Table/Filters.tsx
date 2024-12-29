@@ -37,10 +37,10 @@ export const AlphabetFilter = ({
           placeholder="Search..."
           className='!w-40 md:!w-64 !p-2 border border-gray-300 dark:border-black
           rounded-md !bg-white-fg dark:!bg-black text-black dark:text-white-bg
-          focus:outline-none focus:ring focus:ring-blue-500 select-none
+          focus:outline-hidden focus:ring-3 focus:ring-blue-500 select-none
           transition duration-300 ease-in-out shadow-sm hover:shadow-md'
         />
-        <button onClick={onAddNew} className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+        <button onClick={onAddNew} className="px-4 py-2 bg-blue-500 text-white rounded-sm hover:bg-blue-600">
           Add New
         </button>
       </div>
@@ -53,9 +53,9 @@ export const AlphabetFilter = ({
               className={`m-1 sm:m-1 sm:p-1 sm:py-3 sm:w-[28px] sm:h-[28px] flex items-center justify-center text-[1rem] 
         sm:border rounded-full 
          ${selectedLetter === letter
-                  ? 'sm:bg-blue-500 text-white-bg2 sm:ring sm:border-blue-500 sm:dark:border-blue-500'
+                  ? 'sm:bg-blue-500 text-white-bg2 sm:ring-3 sm:border-blue-500 sm:dark:border-blue-500'
                   : 'sm:dark:bg-black text-black dark:text-white-bg2 sm:hover:border-blue-500 sm:dark:hover:border-blue-500'} 
-                  sm:hover:ring sm:ring-blue-500  dark:text-blue-500 sm:dark:text-white-bg sm:hover:dark:text-white-bg transition duration-300`}
+                  sm:hover:ring-3 sm:ring-blue-500  dark:text-blue-500 sm:dark:text-white-bg sm:dark:hover:text-white-bg transition duration-300`}
             >
               {letter}
             </button>

@@ -1,6 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@layer base {
+  :root {
+    --color-gray-200: #e5e7eb;
+  }
+}
 
 * {
   margin: 0;
@@ -22,7 +27,6 @@ body {
   height: 100dvh;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  overflow-scrolling: touch;
 }
 
 /* Optimize content visibility */
@@ -160,9 +164,10 @@ a {
 
 .hover {
   transition-duration: 400ms;
-  &:hover {
-    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
-  }
+}
+
+.hover:hover {
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
 }
 
 .btn-1 {
@@ -235,7 +240,7 @@ a {
   border-color: #e55e72;
   border-width: 2px;
   background-color: transparent;
-  scale: 1.1;
+  transform: scale(1.1);
 }
 
 .btn-main-normal.dark {
@@ -323,26 +328,21 @@ a {
 .no-spin {
   /* General input styles */
   width: 100%;
-  padding: 13.5px 12px; /* Adjust padding to match your design */
-  border: 1px solid #d1d5db; /* Use the Tailwind `gray-300` color */
-  border-radius: 0.375rem; /* Tailwind `rounded-md` */
-  background-color: #ffffff; /* Tailwind `bg-white` */
-  color: #000000; /* Text color */
-
-  /* Dark mode styles */
-  background-color: var(
-    --color-bg-dark,
-    #000000
-  ); /* Example dark mode background */
-  color: var(--color-text-dark, #ffffff); /* Example dark mode text */
-
-  /* Focus styles */
+  padding: 13.5px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  color: #000000;
   outline: none;
   transition: box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  
+  /* Theme-aware styles */
+  background-color: var(--color-bg-dark, #ffffff);
+  color: var(--color-text-dark, #000000);
 }
+
 .no-spin:focus {
-  border-color: #3b82f6; /* Tailwind `blue-500` */
-  box-shadow: 0 0 0 2px #3b82f6; /* Focus ring effect */
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px #3b82f6;
 }
 
 /* Hide number input arrows for WebKit browsers (Chrome, Safari, Edge) */
@@ -350,9 +350,4 @@ a {
 .no-spin::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
-}
-
-/* Hide number input arrows for Firefox */
-.no-spin[type="number"] {
-  -moz-appearance: textfield;
 }

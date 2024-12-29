@@ -28,7 +28,7 @@
 // // // //       {/* Image Container */}
 // // // //       <div
 // // // //         onDoubleClick={handleDoubleClick}
-// // // //         className={`w-full h-full bg-cover bg-center transition-transform duration-500 ${zoom ? 'scale-[2] md:scale-[2.5] lg:scale-[3]' : 'scale-100'
+// // // //         className={`w-full h-full bg-cover bg-center transition-transform duration-500 ${zoom ? 'scale-2 md:scale-[2.5] lg:scale-3' : 'scale-100'
 // // // //           }`}
 // // // //         style={{
 // // // //           backgroundImage: 'url(/public/fridge/kitchen.jpg)',
@@ -40,7 +40,7 @@
 // // // //       {zoom && (
 // // // //         <button
 // // // //           onClick={handleZoomOut}
-// // // //           className="absolute top-4 right-4 p-2 bg-white text-black rounded shadow-lg hover:bg-gray-300"
+// // // //           className="absolute top-4 right-4 p-2 bg-white text-black rounded-sm shadow-lg hover:bg-gray-300"
 // // // //         >
 // // // //           Zoom Out
 // // // //         </button>
@@ -116,7 +116,7 @@
 // // //       {/* Image Container */}
 // // //       <div
 // // //         onDoubleClick={handleDoubleClick}
-// // //         className={`w-full h-full bg-cover bg-center transition-transform duration-500 ${zoom ? 'scale-[2] md:scale-[2.5] lg:scale-[3]' : 'scale-100'
+// // //         className={`w-full h-full bg-cover bg-center transition-transform duration-500 ${zoom ? 'scale-2 md:scale-[2.5] lg:scale-3' : 'scale-100'
 // // //           }`}
 // // //         style={{
 // // //           backgroundImage: 'url(/public/fridge/kitchen.jpg)',
@@ -133,7 +133,7 @@
 // // //       {zoom && (
 // // //         <button
 // // //           onClick={handleZoomOut}
-// // //           className="absolute top-4 right-4 p-2 bg-white text-black rounded shadow-lg hover:bg-gray-300"
+// // //           className="absolute top-4 right-4 p-2 bg-white text-black rounded-sm shadow-lg hover:bg-gray-300"
 // // //         >
 // // //           Zoom Out
 // // //         </button>
@@ -222,7 +222,7 @@
 // // //       {/* Image Container */}
 // // //       <div
 // // //         onDoubleClick={handleDoubleClick}
-// // //         className={`w-full h-full bg-cover bg-center ${zoom ? '' : 'transition-transform duration-500'} ${zoom ? 'scale-[2] md:scale-[2.5] lg:scale-[3]' : 'scale-100'}`}
+// // //         className={`w-full h-full bg-cover bg-center ${zoom ? '' : 'transition-transform duration-500'} ${zoom ? 'scale-2 md:scale-[2.5] lg:scale-3' : 'scale-100'}`}
 // // //         style={{
 // // //           backgroundImage: 'url(/public/fridge/kitchen.jpg)',
 // // //           transformOrigin: `${zoomPosition.x} ${zoomPosition.y}`,
@@ -238,7 +238,7 @@
 // // //       {zoom && (
 // // //         <button
 // // //           onClick={handleZoomOut}
-// // //           className="absolute top-4 right-4 p-2 bg-white text-black rounded shadow-lg hover:bg-gray-300"
+// // //           className="absolute top-4 right-4 p-2 bg-white text-black rounded-sm shadow-lg hover:bg-gray-300"
 // // //         >
 // // //           Zoom Out
 // // //         </button>

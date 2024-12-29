@@ -34,7 +34,7 @@ const InputField = ({
 			{label && (
 				<label
 					htmlFor={name}
-					className='block mb-2 text-sm !text-black dark:!text-white-bg'
+					className='block mb-2 text-sm text-black! dark:text-white-bg!'
 				>
 					{label}
 				</label>
@@ -49,7 +49,7 @@ const InputField = ({
 				onChange={handleChange}
 				min={type === 'number' ? min : undefined}
 				max={type === 'number' ? max : undefined}
-				className={`${inputStyles()} !text-black dark:!text-white-bg !bg-white-bg dark:!bg-black`}
+				className={`${inputStyles()} text-black! dark:text-white-bg! bg-white-bg! dark:bg-black!`}
 			/>
 		</div>
 	);

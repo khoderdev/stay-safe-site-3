@@ -44,7 +44,7 @@ function PrecedentTreatmentAssessment({ formData, setFormData, nextStep }) {
             name="previousDieting"
             value={formData.previousDieting}
             onChange={handleChange}
-            className={`${selectStyles()}   !bg-white-fg dark:!bg-[#000]`}
+            className={`${selectStyles()}   bg-white-fg! dark:bg-[#000]!`}
           >
             <option value="">Select</option>
             <option value="yes">Yes</option>
@@ -60,7 +60,7 @@ function PrecedentTreatmentAssessment({ formData, setFormData, nextStep }) {
             name="dietIssue"
             value={formData.dietIssue}
             onChange={handleChange}
-            className={`${inputStyles()}!bg-white-fg dark:!bg-[#000]`}
+            className={`${inputStyles()}bg-white-fg! dark:bg-[#000]!`}
           />
           {errors.dietIssue && <span className="error">{errors.dietIssue}</span>}
         </div>
@@ -71,7 +71,7 @@ function PrecedentTreatmentAssessment({ formData, setFormData, nextStep }) {
             name="pillsUsed"
             value={formData.pillsUsed}
             onChange={handleChange}
-            className={`${selectStyles()}   !bg-white-fg dark:!bg-[#000]`}
+            className={`${selectStyles()}   bg-white-fg! dark:bg-[#000]!`}
           >
             <option value="">Select</option>
             <option value="yes">Yes</option>

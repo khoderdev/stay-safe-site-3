@@ -119,7 +119,7 @@ const BarCharts = () => {
 				</div>
 			</div>
 
-			<div className='w-full mt-8 text-center dark:text-white-bg2 p-4'>
+			<div className='w-full mt-8 text-center dark:text-white-bg2 !p-6 md:!p-4'>
 				<p>
 					We’re committed to supporting you in managing your health, no matter
 					where you are in your journey. We understand that living with disease

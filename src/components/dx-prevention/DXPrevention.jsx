@@ -147,7 +147,7 @@ const DXPrevention = () => {
             animate="visible"
           >
             <Button
-              customStyles="hover:!border-pink hover:!bg-transparent hover:!text-pink dark:hover:!text-pink !bg-pink !text-white-bg dark:!text-white-bg transform hover:scale-110 transition-all duration-300 ease-out"
+              customStyles="hover:border-pink! hover:bg-transparent! hover:text-pink! dark:hover:text-pink! bg-pink! text-white-bg! dark:text-white-bg! transform hover:scale-110 transition-all duration-300 ease-out"
               onClick={() => {}}
               aria-label="Show details"
             >

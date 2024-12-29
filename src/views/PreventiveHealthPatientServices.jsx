@@ -37,7 +37,7 @@ function PreventiveHealthPatientServicesPage() {
             </span>
           </h1>
           <button
-            className="btn-1 text-center !text-2xl !px-12 !py-8 mt-24 rounded-lg text-white bg-blue-500 hover:bg-blue-700 drop-shadow-lg"
+            className="btn-1 text-center text-2xl! px-12! py-8! mt-24 rounded-lg text-white bg-blue-500 hover:bg-blue-700 drop-shadow-lg"
             onClick={openPHQ9Modal}
           >
             Start Screening
@@ -60,7 +60,7 @@ function PreventiveHealthPatientServicesPage() {
         <div className="section bg-white-bg dark:bg-black p-4 md:p-8 py-16">
           <Titles />
           <button
-            className="btn-1 text-center !text-2xl !px-12 !py-8 place-self-center rounded-lg text-white bg-blue-500 hover:bg-blue-700 drop-shadow-lg"
+            className="btn-1 text-center text-2xl! px-12! py-8! place-self-center rounded-lg text-white bg-blue-500 hover:bg-blue-700 drop-shadow-lg"
             onClick={openStopBangModal}
           >
             Start Screening
@@ -80,13 +80,13 @@ function PreventiveHealthPatientServicesPage() {
           <div className="section bg-white-bg dark:bg-dark p-4 md:p-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-star">
             <div className="w-full h-full flex flex-col items-center justify-start md:pt-10 space-y-20 ">
               <div className="">
-                <h1 className="!text-5xl font-semibold dark:text-white-bg2 !leading-normal">
+                <h1 className="text-5xl! font-semibold dark:text-white-bg2 leading-normal!">
                   Test Your Knowledge About STIs!
                 </h1>
               </div>
               <div className="">
                 <button
-                  className="btn-1 text-center !text-2xl !px-12 !py-8 place-self-center"
+                  className="btn-1 text-center text-2xl! px-12! py-8! place-self-center"
                   onClick={openStIModal}
                 >
                   Start STI Test

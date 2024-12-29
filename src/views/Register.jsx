@@ -32,7 +32,7 @@ const Register = () => {
 
   return (
     <div
-      className="flex items-center justify-center min-h-screen relative bg-gradient-to-r from-blue-400 to-blue-600"
+      className="flex items-center justify-center min-h-screen relative bg-linear-to-r from-blue-400 to-blue-600"
       style={{
         backgroundImage: 'url("/stay2.webp")',
         backgroundSize: "cover",
@@ -49,7 +49,7 @@ const Register = () => {
             placeholder="Username"
             name="username"
             onChange={handleChange}
-            className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-500"
+            className="w-full p-3 border border-gray-300 rounded-sm focus:outline-hidden focus:ring-3 focus:ring-blue-500"
           />
           <input
             required
@@ -57,7 +57,7 @@ const Register = () => {
             placeholder="Email"
             name="email"
             onChange={handleChange}
-            className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-500"
+            className="w-full p-3 border border-gray-300 rounded-sm focus:outline-hidden focus:ring-3 focus:ring-blue-500"
           />
           <div className="relative">
             <input
@@ -66,7 +66,7 @@ const Register = () => {
               placeholder="Password"
               name="password"
               onChange={handleChange}
-              className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-500"
+              className="w-full p-3 border border-gray-300 rounded-sm focus:outline-hidden focus:ring-3 focus:ring-blue-500"
             />
             <span
               className="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer"
@@ -83,7 +83,7 @@ const Register = () => {
           </div>
           <button
             type="submit"
-            className="btn-3 w-full py-3 font-semibold text-white bg-blue-600 rounded hover:bg-blue-700 transition-colors duration-300"
+            className="btn-3 w-full py-3 font-semibold text-white bg-blue-600 rounded-sm hover:bg-blue-700 transition-colors duration-300"
           >
             Register
           </button>

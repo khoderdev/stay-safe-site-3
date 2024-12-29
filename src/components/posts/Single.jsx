@@ -60,7 +60,7 @@ const Single = () => {
               <img
                 src={post.user.img}
                 alt="User Avatar"
-                className="w-14 h-14 rounded-full object-cover border border-gray-300 shadow-sm"
+                className="w-14 h-14 rounded-full object-cover border border-gray-300 shadow-xs"
               />
             ) : (
               <div className="w-14 h-14 rounded-full bg-gray-300" />
@@ -168,7 +168,7 @@ export default Single;
 //               <img
 //                 src={post.user.img}
 //                 alt="User Avatar"
-//                 className="w-14 h-14 rounded-full object-cover border border-gray-300 shadow-sm"
+//                 className="w-14 h-14 rounded-full object-cover border border-gray-300 shadow-xs"
 //               />
 //             ) : (
 //               <div className="w-14 h-14 rounded-full bg-gray-300" />

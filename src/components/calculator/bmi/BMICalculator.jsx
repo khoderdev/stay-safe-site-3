@@ -67,7 +67,7 @@ const BMICalculator = () => {
 	};
 
 	return (
-		<div className='w-full sm:w-[70%] md:w-[40%] sm:h-[50dvh] mx-auto p-5 py-7 rounded-lg shadow-md border dark:border-[#000] dark:bg-black drop-shadow-sm text-black dark:text-white-bg'>
+		<div className='w-full sm:w-[70%] md:w-[40%] sm:h-[50dvh] mx-auto p-5 py-7 rounded-lg shadow-md border dark:border-[#000] dark:bg-black drop-shadow-xs text-black dark:text-white-bg'>
 			<h2 className='text-3xl font-bold text-center mb-6'>BMI Calculator</h2>
 			<form onSubmit={calculateBMI} className='space-y-6 text-center'>
 				<div>
@@ -81,7 +81,7 @@ const BMICalculator = () => {
 						value={weight}
 						onChange={handleWeightChange}
 						autoComplete='off'
-						className={`${inputStyles()} sm:!w-[50%] !text-black dark:!text-white-fg !bg-white-fg dark:!bg-[#000]`}
+						className={`${inputStyles()} sm:w-[50%]! text-black! dark:text-white-fg! bg-white-fg! dark:bg-[#000]!`}
 						required
 					/>
 				</div>
@@ -96,7 +96,7 @@ const BMICalculator = () => {
 						value={height}
 						onChange={handleHeightChange}
 						autoComplete='off'
-						className={`${inputStyles()} sm:!w-[50%] !text-black dark:!text-white-fg !bg-white-fg dark:!bg-[#000]`}
+						className={`${inputStyles()} sm:w-[50%]! text-black! dark:text-white-fg! bg-white-fg! dark:bg-[#000]!`}
 						required
 					/>
 				</div>
@@ -104,7 +104,7 @@ const BMICalculator = () => {
 				<div className='flex w-full justify-center items-center'>
 					<button
 						type='submit'
-						className={`${inputStyles()} !w-[50%] sm:!w-[25%] !text-black dark:!text-white-bg2 !bg-white-fg hover:!ring-2 focus:!ring-2 focus:!ring-blue-500 dark:!bg-[#000]`}
+						className={`${inputStyles()} w-[50%]! sm:w-[25%]! text-black! dark:text-white-bg2! bg-white-fg! hover:ring-2! focus:ring-2! focus:ring-blue-500! dark:bg-[#000]!`}
 					>
 						Calculate BMI
 					</button>

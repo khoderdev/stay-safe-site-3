@@ -138,7 +138,7 @@ const AnimatedSection = () => {
 					whileHover={{ scale: 1.1 }}
 					whileTap={{ scale: 0.9 }}
 					animate={getFloatingAnimation({ floatRange: 15, duration: 4 })}
-					className='px-6 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400'
+					className='px-6 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 focus:outline-hidden focus:ring-2 focus:ring-blue-400'
 				>
 					Book an Appointment
 				</motion.button>

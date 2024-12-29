@@ -50,21 +50,21 @@ const SexualInfectionsQuiz = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="mb-4 p-4 border rounded shadow hover:bg-gray-100"
+            className="mb-4 p-4 border rounded-sm shadow-sm hover:bg-gray-100"
           >
             <p className="font-medium">{q.question}</p>
             <div className="flex space-x-4">
               <button
                 type="button"
                 onClick={() => handleAnswer(q.question, true)}
-                className={`py-1 px-4 border rounded ${userAnswers[q.question] === true ? "bg-green-500 text-white" : "bg-white-fg"}`}
+                className={`py-1 px-4 border rounded-sm ${userAnswers[q.question] === true ? "bg-green-500 text-white" : "bg-white-fg"}`}
               >
                 True
               </button>
               <button
                 type="button"
                 onClick={() => handleAnswer(q.question, false)}
-                className={`py-1 px-4 border rounded ${userAnswers[q.question] === false ? "bg-red-500 text-white" : "bg-white-fg"}`}
+                className={`py-1 px-4 border rounded-sm ${userAnswers[q.question] === false ? "bg-red-500 text-white" : "bg-white-fg"}`}
               >
                 False
               </button>
@@ -77,7 +77,7 @@ const SexualInfectionsQuiz = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="mb-4 p-4 border rounded shadow hover:bg-gray-100"
+            className="mb-4 p-4 border rounded-sm shadow-sm hover:bg-gray-100"
           >
             <p className="font-medium">{mcq.question}</p>
             <div className="flex flex-col space-y-2">
@@ -86,7 +86,7 @@ const SexualInfectionsQuiz = () => {
                   key={idx}
                   type="button"
                   onClick={() => handleAnswer(mcq.question, option)}
-                  className={`py-1 px-4 border rounded ${userAnswers[mcq.question] === option ? "bg-blue-500 text-white" : "bg-white-fg"}`}
+                  className={`py-1 px-4 border rounded-sm ${userAnswers[mcq.question] === option ? "bg-blue-500 text-white" : "bg-white-fg"}`}
                 >
                   {option}
                 </button>
@@ -96,7 +96,7 @@ const SexualInfectionsQuiz = () => {
         ))}
         <button
           type="submit"
-          className="mt-4 py-2 px-4 bg-blue-500 text-white rounded shadow hover:bg-blue-600 transition duration-300"
+          className="mt-4 py-2 px-4 bg-blue-500 text-white rounded-sm shadow-sm hover:bg-blue-600 transition duration-300"
         >
           Submit
         </button>
@@ -107,7 +107,7 @@ const SexualInfectionsQuiz = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="mt-6 p-4 border rounded shadow"
+          className="mt-6 p-4 border rounded-sm shadow-sm"
         >
           <h2 className="text-lg font-bold">Results:</h2>
           {questions.map((q, index) => (

@@ -8,7 +8,7 @@ export const inputStyles = ({
   ${marginTop} ${marginLeft} ${paddingX} ${paddingY} ${width}
   w-full !py-[13.5px] border border-gray-300 dark:border-black
   rounded-md bg-white-fg dark:bg-[#000] text-black dark:text-white-bg
-  focus:outline-none focus:ring-2 focus:ring-blue-500 select-none
+  focus:outline-hidden focus:ring-2 focus:ring-blue-500 select-none
   transition duration-300 ease-in-out shadow-sm hover:shadow-md no-spin
 `;
 
@@ -22,7 +22,7 @@ export const selectStyles = ({
   ${marginTop} ${marginLeft} ${paddingX} ${paddingY} ${width}
   cursor-pointer w-full !py-[13px] border border-gray-300 dark:border-black
   rounded-md bg-white-fg dark:bg-[#000] text-black dark:text-white-bg
-  focus:outline-none focus:ring-2 focus:ring-blue-500
+  focus:outline-hidden focus:ring-2 focus:ring-blue-500
   transition duration-300 ease-in-out shadow-sm hover:shadow-md
 `;
 
@@ -31,10 +31,10 @@ export const localitySelect = ({ disabled = false } = {}) => `
   rounded-md 
   ${
 		disabled
-			? '!bg-white-bg dark:!bg-[#212121] dark:text-white-bg p-2 !w-full cursor-not-allowed'
-			: 'bg-white-fg dark:bg-[#000] text-black dark:text-white-bg px-2 !w-full'
+			? 'bg-white-bg! dark:bg-[#212121]! dark:text-white-bg p-2 w-full! cursor-not-allowed'
+			: 'bg-white-fg dark:bg-[#000] text-black dark:text-white-bg px-2 w-full!'
 	}
-  focus:outline-none focus:ring-2 focus:ring-blue-500
+  focus:outline-hidden focus:ring-2 focus:ring-blue-500
   transition duration-300 ease-in-out shadow-sm 
   ${disabled ? 'shadow-none ' : 'hover:shadow-md'}
 `;

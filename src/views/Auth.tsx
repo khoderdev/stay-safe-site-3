@@ -49,14 +49,14 @@ const Auth = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100 dark:from-gray-900 dark:to-gray-800 p-4">
+    <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-blue-50 to-blue-100 dark:from-gray-900 dark:to-gray-800 p-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         className="w-full max-w-md"
       >
         <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
-          <div className="p-6 bg-gradient-to-r from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700">
+          <div className="p-6 bg-linear-to-r from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700">
             <h2 className="text-2xl font-bold text-white text-center">
               {isLogin ? 'Welcome Back' : 'Create Account'}
             </h2>
@@ -67,7 +67,7 @@ const Auth = () => {
 
           <div className="p-6">
             {error && (
-              <div className="mb-4 p-3 bg-red-100 text-red-700 rounded">
+              <div className="mb-4 p-3 bg-red-100 text-red-700 rounded-sm">
                 {error}
               </div>
             )}
