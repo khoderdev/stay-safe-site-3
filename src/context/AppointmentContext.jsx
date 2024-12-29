@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState } from 'react';
 import { format } from 'date-fns';
+import AuthContext from '../hooks/authContext';
 
 const AppointmentContext = createContext();
 
@@ -12,6 +13,8 @@ export const useAppointment = () => {
 };
 
 export const AppointmentProvider = ({ children }) => {
+  const auth = useContext(AuthContext);
+  const { user, isAuthenticated } = auth || {};
   const [appointmentDetails, setAppointmentDetails] = useState(null);
 
   const clearAppointment = () => {
@@ -22,6 +25,8 @@ export const AppointmentProvider = ({ children }) => {
     if (date && time) {
       setAppointmentDetails({
         appointmentId: Date.now().toString(),
+        userId: user?.email || null,
+        userEmail: user?.email || null,
         appointmentDate: date,
         appointmentTime: time,
         appointmentStatus: 'pending'
@@ -32,8 +37,6 @@ export const AppointmentProvider = ({ children }) => {
   };
 
   const isTimeSlotAvailable = (start, end) => {
-    // Here you would typically check against your backend
-    // For now, we'll just return true if it's within business hours
     const hour = start.getHours();
     return hour >= 9 && hour < 17;
   };
@@ -42,7 +45,9 @@ export const AppointmentProvider = ({ children }) => {
     appointmentDetails,
     updateAppointment,
     clearAppointment,
-    isTimeSlotAvailable
+    isTimeSlotAvailable,
+    user,
+    isAuthenticated
   };
 
   return (

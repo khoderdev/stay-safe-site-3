@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Stepper from "./Stepper";
 import PersonalInfo from "./PatientAssessmentForm/PersonalInfo";
 import MedicalAssessment from "./PatientAssessmentForm/MedicalAssessment";
@@ -13,61 +13,63 @@ import {
   AppointmentProvider,
   useAppointment,
 } from "../../context/AppointmentContext";
+import AuthContext from "../../hooks/authContext";
 import { ArrowLeft } from "../icons/Icons";
 
 const AppointmentFormContent = () => {
   const { appointmentDetails, clearAppointment } = useAppointment();
+  const { isAuthenticated } = useContext(AuthContext);
   const [currentStep, setCurrentStep] = useState(0);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    phone: "",
-    country: "",
-    address: "",
-    maritalStatus: "",
-    numberOfKids: "",
-    workStatus: "",
-    currentWorkDescription: "",
-    workingSchedule: "",
-    preferredLanguage: "",
-    education: "",
-    fieldOfStudy: "",
-    reasonForVisit: "",
-    howDidYouKnow: "",
-    pastMedicalHistory: "",
-    pastSurgicalHistory: "",
-    foodAllergies: "",
-    medications: "",
-    smokingStatus: "",
-    drinkingStatus: "",
-    typicalDrinks: "",
-    familyHistory: "",
-    specialDiet: "",
-    threeMealsADay: "",
-    regularIntervals: "",
-    averageMealDuration: "",
-    mealLocation: "",
-    eatingCompany: "",
-    waterIntake: "",
-    goal1: "",
-    goal2: "",
-    goal3: "",
-    accessToFacilities: "",
-    physicallyActive: "",
-    activityType: "",
-    exerciseDaily: "",
-    hoursPerWeek: "",
-    duration: "",
-    favoriteSport: "",
-    limitations: "",
-    exercisePlan: "",
-    previousDieting: "",
-    dietIssue: "",
-    pillsUsed: "",
-    stressed: "",
-    emotionalEater: "",
-    sleepHours: "",
+    fullName: "khoder jaber",
+    email: "khoder.dev@gmail.com",
+    phone: "81977112",
+    country: "Lebanon",
+    address: "Zgharta",
+    maritalStatus: "single",
+    numberOfKids: "0",
+    workStatus: "employed",
+    currentWorkDescription: "Online",
+    workingSchedule: "23",
+    preferredLanguage: "English",
+    education: "Master's Degree",
+    fieldOfStudy: "Computer Science",
+    reasonForVisit: "checkup",
+    howDidYouKnow: "Email newsletter",
+    pastMedicalHistory: "No significant medical history",
+    pastSurgicalHistory: "No previous surgeries",
+    foodAllergies: "None",
+    medications: "No current medications",
+    smokingStatus: "Non-smoker",
+    drinkingStatus: "Non-drinker",
+    typicalDrinks: "Water",
+    familyHistory: "No significant family medical history",
+    specialDiet: "Balanced diet",
+    threeMealsADay: "Yes",
+    regularIntervals: "Every 4-5 hours",
+    averageMealDuration: "20 minutes",
+    mealLocation: "Home",
+    eatingCompany: "Family",
+    waterIntake: "2 liters per day",
+    goal1: "Maintain healthy lifestyle",
+    goal2: "Regular exercise routine",
+    goal3: "Balanced nutrition",
+    accessToFacilities: "Yes",
+    physicallyActive: "Yes",
+    activityType: "Mixed cardio and strength training",
+    exerciseDaily: "Yes",
+    hoursPerWeek: "10",
+    duration: "1 hour per session",
+    favoriteSport: "Swimming",
+    limitations: "None",
+    exercisePlan: "Regular gym attendance",
+    previousDieting: "No",
+    dietIssue: "None",
+    pillsUsed: "No supplements",
+    stressed: "Moderate",
+    emotionalEater: "No",
+    sleepHours: "7-8 hours",
     appointmentDate: "",
     appointmentTime: "",
   });
@@ -142,23 +144,41 @@ const AppointmentFormContent = () => {
         return;
       }
 
-      const response = await createAppointment({
+      // Check if we have a user email (which we use as userId)
+      if (!appointmentDetails.userEmail) {
+        if (!isAuthenticated) {
+          alert("Please log in to book an appointment.");
+          return;
+        }
+        alert("There was an issue with your session. Please try refreshing the page.");
+        return;
+      }
+
+      const appointmentData = {
         ...formData,
         ...appointmentDetails,
         submissionDate: new Date().toISOString(),
         status: "pending",
-      });
+        userId: appointmentDetails.userEmail, // Use email as userId
+        userEmail: appointmentDetails.userEmail
+      };
 
-      setIsSubmitted(true);
-      alert("Form and Appointment Submitted Successfully");
+      const response = await createAppointment(appointmentData);
 
-      setTimeout(() => {
-        resetForm();
-        clearAppointment();
-      }, 400);
+      if (response.success) {
+        setIsSubmitted(true);
+        alert("Appointment Booked Successfully!");
+
+        setTimeout(() => {
+          resetForm();
+          clearAppointment();
+        }, 400);
+      } else {
+        throw new Error(response.message || "Failed to book appointment");
+      }
     } catch (error) {
-      console.error("Error submitting form:", error);
-      alert("There was an error submitting the form. Please try again.");
+      console.error("Error submitting appointment:", error);
+      alert(error.message || "There was an error booking your appointment. Please try again.");
     }
   };
 
