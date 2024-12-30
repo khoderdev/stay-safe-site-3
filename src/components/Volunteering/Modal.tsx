@@ -42,8 +42,8 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-      <div className="bg-white-bg dark:bg-black p-6 rounded-lg w-full sm:w-2/3 md:w-1/2">
+    <div className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50">
+      <div className="bg-white-bg dark:bg-dark p-6 rounded-lg w-full sm:w-2/3 md:w-1/2">
         <h2 className="text-lg font-bold mb-4">Terms of Service</h2>
         <div className="space-y-4"> {/* Added space-y-4 for vertical spacing between paragraphs */}
           <p className="text-sm">
@@ -59,7 +59,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
         <div className="flex justify-end mt-4">
           <button
             onClick={onClose}
-            className="px-4 py-2 bg-blue-600 text-white rounded-md"
+            className="px-4 py-2 bg-pink text-white-bg rounded-md"
           >
             Close
           </button>
