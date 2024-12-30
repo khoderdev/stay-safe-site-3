@@ -78,7 +78,12 @@ export const AuthContextProvider = ({ children }) => {
         credentials.email === "test@example.com" &&
         credentials.password === "test123"
       ) {
-        const testUser = { email: credentials.email, username: "testuser" };
+        const testUser = {
+          id: 'test-123',
+          email: credentials.email,
+          username: "testuser",
+          name: "Test User"
+        };
         setUser(testUser);
         setIsAuthenticated(true);
         Cookies.set("user", JSON.stringify(testUser));

@@ -139,18 +139,29 @@ const AppointmentFormContent = () => {
   // Handle form submission
   const handleSubmit = async () => {
     try {
+      // Check authentication first
+      if (!isAuthenticated) {
+        alert("Please log in to book an appointment.");
+        return;
+      }
+
+      // Check appointment selection
       if (!appointmentDetails) {
         alert("Please select an appointment date and time before submitting.");
         return;
       }
 
-      // Check if we have a user email (which we use as userId)
-      if (!appointmentDetails.userEmail) {
-        if (!isAuthenticated) {
-          alert("Please log in to book an appointment.");
-          return;
-        }
-        alert("There was an issue with your session. Please try refreshing the page.");
+      // Log the current state for debugging
+      console.log('Submitting appointment with details:', {
+        isAuthenticated,
+        appointmentDetails,
+        formData
+      });
+
+      // Verify user data is present
+      if (!appointmentDetails.userId || !appointmentDetails.userEmail) {
+        console.error('Missing user data in appointment details:', appointmentDetails);
+        alert("Your session information is incomplete. Please log out, log back in, and try again.");
         return;
       }
 
@@ -158,9 +169,7 @@ const AppointmentFormContent = () => {
         ...formData,
         ...appointmentDetails,
         submissionDate: new Date().toISOString(),
-        status: "pending",
-        userId: appointmentDetails.userEmail, // Use email as userId
-        userEmail: appointmentDetails.userEmail
+        status: "pending"
       };
 
       const response = await createAppointment(appointmentData);
