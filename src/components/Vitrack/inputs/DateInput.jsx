@@ -1,9 +1,7 @@
 import React from 'react';
-import { useAtom } from 'jotai';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { CiCalendar } from 'react-icons/ci';
-import { dateOfBirthAtom } from '../../../atoms/store';
 import { inputStyles } from '../../../utils/styles';
 
 const formatDate = (date) => {
@@ -14,7 +12,7 @@ const formatDate = (date) => {
 	return `${day}/${month}/${year}`;
 };
 
-const CustomDateInput = React.forwardRef(({ value, onClick }, ref) => (
+const CustomDateInput = React.forwardRef(({ value, onClick, className }, ref) => (
 	<div className='w-full'>
 		<input
 			type='text'
@@ -23,7 +21,7 @@ const CustomDateInput = React.forwardRef(({ value, onClick }, ref) => (
 			value={value}
 			placeholder='DD/MM/YYYY'
 			onClick={onClick}
-			className={`${inputStyles()} !w-full !text-black dark:!text-white-bg !bg-white-bg dark:!bg-black`}
+			className={`${inputStyles()} !w-full !text-black dark:!text-white-bg !bg-white-bg dark:!bg-black ${className}`}
 		/>
 		<div
 			className='absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer'
@@ -34,13 +32,17 @@ const CustomDateInput = React.forwardRef(({ value, onClick }, ref) => (
 	</div>
 ));
 
-const DateInput = ({ label }) => {
-	const [dateOfBirth, setDateOfBirth] = useAtom(dateOfBirthAtom);
-
+const DateInput = ({ label, name, value, onChange, className = '' }) => {
 	// Convert the value (which is a string) back to a Date object for DatePicker
-	const dateValue = dateOfBirth
-		? new Date(dateOfBirth.split('/').reverse().join('-'))
+	const dateValue = value
+		? new Date(value.split('/').reverse().join('-'))
 		: null;
+
+	const handleDateChange = (date) => {
+		// Format the date as DD/MM/YYYY and call onChange
+		const formattedDate = formatDate(date);
+		onChange({ target: { name, value: formattedDate } });
+	};
 
 	return (
 		<div className='w-full'>
@@ -49,16 +51,12 @@ const DateInput = ({ label }) => {
 			</label>
 			<DatePicker
 				selected={dateValue}
-				onChange={(date) => {
-					// Format the date as DD/MM/YYYY and update the atom
-					const formattedDate = formatDate(date);
-					setDateOfBirth(formattedDate); // Update the Jotai atom state
-				}}
+				onChange={handleDateChange}
 				dateFormat='dd/MM/yyyy'
 				className='w-full px-4 py-2 border rounded-md shadow-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent'
 				popperClassName='custom-popper'
 				calendarClassName='custom-calendar'
-				customInput={<CustomDateInput />}
+				customInput={<CustomDateInput className={className} />}
 				showMonthDropdown
 				showYearDropdown
 				dropdownMode='select'

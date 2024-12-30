@@ -1,5 +1,6 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 import { format } from 'date-fns';
+import AuthContext from '../hooks/authContext';
 
 const AppointmentContext = createContext();
 
@@ -12,6 +13,7 @@ export const useAppointment = () => {
 };
 
 export const AppointmentProvider = ({ children }) => {
+  const { user, isAuthenticated } = useContext(AuthContext);
   const [appointmentDetails, setAppointmentDetails] = useState(null);
 
   const clearAppointment = () => {
@@ -19,21 +21,59 @@ export const AppointmentProvider = ({ children }) => {
   };
 
   const updateAppointment = (date, time) => {
-    if (date && time) {
-      setAppointmentDetails({
+    if (!date || !time) {
+      setAppointmentDetails(null);
+      return;
+    }
+
+    if (!user || !isAuthenticated) {
+      console.warn('Please log in to book an appointment');
+      return;
+    }
+
+    try {
+      // Get user details with fallbacks
+      const userId = user.id || 'temp-id';
+      const userEmail = user.email || '';
+      const username = user.username || user.name || 'Guest';
+
+      const newAppointmentDetails = {
         appointmentId: Date.now().toString(),
-        appointmentDate: date,
-        appointmentTime: time,
+        userId,
+        userEmail,
+        username,
+        appointmentDate: format(date, 'MMMM dd, yyyy'),
+        appointmentTime: format(time, 'h:mm a'),
         appointmentStatus: 'pending'
-      });
-    } else {
+      };
+
+      console.log('Updating appointment with details:', newAppointmentDetails);
+      setAppointmentDetails(newAppointmentDetails);
+    } catch (error) {
+      console.error('Error updating appointment:', error);
       setAppointmentDetails(null);
     }
   };
 
+  // Update appointment details when user changes
+  useEffect(() => {
+    if (appointmentDetails && user) {
+      const userId = user.id || 'temp-id';
+      const userEmail = user.email || '';
+      const username = user.username || user.name || 'Guest';
+
+      setAppointmentDetails(prev => ({
+        ...prev,
+        userId,
+        userEmail,
+        username
+      }));
+    } else if (!user && appointmentDetails) {
+      clearAppointment();
+    }
+  }, [user]);
+
   const isTimeSlotAvailable = (start, end) => {
-    // Here you would typically check against your backend
-    // For now, we'll just return true if it's within business hours
     const hour = start.getHours();
     return hour >= 9 && hour < 17;
   };
@@ -42,7 +82,9 @@ export const AppointmentProvider = ({ children }) => {
     appointmentDetails,
     updateAppointment,
     clearAppointment,
-    isTimeSlotAvailable
+    isTimeSlotAvailable,
+    user,
+    isAuthenticated
   };
 
   return (

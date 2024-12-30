@@ -8,8 +8,9 @@ export const inputStyles = ({
   ${marginTop} ${marginLeft} ${paddingX} ${paddingY} ${width}
   w-full !py-[13.5px] border border-gray-300 dark:border-black
   rounded-md bg-white-fg dark:bg-[#000] text-black dark:text-white-bg
-  focus:outline-none focus:ring-2 focus:ring-blue-500 select-none
-  transition duration-300 ease-in-out shadow-sm hover:shadow-md no-spin
+  focus:outline-none focus:ring-2 focus:ring-pink focus:border-pink
+  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink focus-visible:border-pink
+  select-none transition duration-300 ease-in-out shadow-sm hover:shadow-md no-spin
 `;
 
 export const selectStyles = ({
@@ -22,19 +23,21 @@ export const selectStyles = ({
   ${marginTop} ${marginLeft} ${paddingX} ${paddingY} ${width}
   cursor-pointer w-full !py-[13px] border border-gray-300 dark:border-black
   rounded-md bg-white-fg dark:bg-[#000] text-black dark:text-white-bg
-  focus:outline-none focus:ring-2 focus:ring-blue-500
+  focus:outline-none focus:ring-2 focus:ring-pink focus:border-pink
+  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink focus-visible:border-pink
   transition duration-300 ease-in-out shadow-sm hover:shadow-md
 `;
 
 export const localitySelect = ({ disabled = false } = {}) => `
-  !w-full !py-[13px] cursor-pointer border border-gray-300 dark:border-black
+  !w-full !py-[13px] cursor-pointer border border-pink dark:border-black
   rounded-md 
   ${
 		disabled
 			? '!bg-white-bg dark:!bg-[#212121] dark:text-white-bg p-2 !w-full cursor-not-allowed'
 			: 'bg-white-fg dark:bg-[#000] text-black dark:text-white-bg px-2 !w-full'
 	}
-  focus:outline-none focus:ring-2 focus:ring-blue-500
+  focus:outline-none focus:ring-2 focus:ring-pink focus:border-pink
+  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink focus-visible:border-pink
   transition duration-300 ease-in-out shadow-sm 
   ${disabled ? 'shadow-none ' : 'hover:shadow-md'}
 `;

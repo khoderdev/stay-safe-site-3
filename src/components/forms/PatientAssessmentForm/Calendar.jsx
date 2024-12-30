@@ -91,28 +91,13 @@ const Calendar = () => {
 
       setSelectedInfo(selectInfo);
       
-      const formattedDate = format(start, 'MMMM dd, yyyy');
-      const formattedTime = format(start, 'h:mm a');
-      
-      // Update the selected slot's appearance
-      const updatedSlots = availableSlots.map(slot => {
-        if (slot.id === selectedSlot.id) {
-          return {
-            ...slot,
-            backgroundColor: '#2196F3', // Change to blue when selected
-            borderColor: '#1976D2'
-          };
-        }
-        return slot;
-      });
-      setAvailableSlots(updatedSlots);
-      
-      updateAppointment(formattedDate, formattedTime);
+      // Pass the raw Date objects to updateAppointment
+      updateAppointment(start, start);
     }
   };
 
   const handleEventClick = (clickInfo) => {
-    const { start, end, extendedProps } = clickInfo.event;
+    const { start, extendedProps } = clickInfo.event;
     
     if (extendedProps.isBooked) {
       return; // Don't allow selection of booked slots
@@ -123,8 +108,8 @@ const Calendar = () => {
       selectedInfo.view.calendar.unselect();
     }
 
-    const formattedDate = format(start, 'MMMM dd, yyyy');
-    updateAppointment(formattedDate, extendedProps.time);
+    // Pass the raw Date object to updateAppointment
+    updateAppointment(start, start);
   };
 
   return (
