@@ -48,6 +48,13 @@ export const routes: RouteConfig[] = [
     cacheControl: "public, max-age=3600",
   },
   {
+    path: "/auth",
+    component: lazyLoadComponent(() => import("../views/Auth")),
+    prerender: true,
+    prefetch: "none",
+    cacheControl: "public, max-age=3600",
+  },
+  {
     path: "/mdc",
     component: lazyLoadComponent(() => import("../views/MDC")),
     prerender: true,
