@@ -118,7 +118,7 @@ export const routes: RouteConfig[] = [
     ),
     prerender: true,
     prefetch: "none",
-    cacheControl: "private, no-cache",
+    cacheControl: "public, max-age=1800",
   },
   {
     path: "/public-health-academy",
@@ -139,8 +139,17 @@ export const routes: RouteConfig[] = [
     component: lazyLoadComponent(
       () => import("../components/Volunteering/Volunteering")
     ),
-    prerender: false,
+    prerender: true,
     prefetch: "none",
-    cacheControl: "private, no-cache",
+    cacheControl: "public, max-age=1800",
+  },
+  {
+    path: "/contact-us",
+    component: lazyLoadComponent(
+      () => import("../components/contact/Contact")
+    ),
+    prerender: true,
+    prefetch: "none",
+    cacheControl: "public, max-age=1800",
   },
 ];

@@ -143,10 +143,15 @@ export default function Header() {
         <Dropdown
           title="About us"
           mainLink="/about-us"
-          items={[{ label: "Volunteers", to: "/volunteering" }]}
+          items={[
+            { label: "Volunteers", to: "/volunteering" },
+            { label: "Contact us", to: "/contact-us" },
+          ]}
           className={`relative inline-flex items-center text-base transition-all duration-200
             ${
-              isActive("/about-us") || isActive("/volunteering")
+              isActive("/about-us") ||
+              isActive("/volunteering") ||
+              isActive("/contact-us")
                 ? "text-white-bg2 bg-pink dark:bg-pink"
                 : "text-gray-700 dark:text-gray-200 hover:text-pink dark:hover:text-pink"
             } 
