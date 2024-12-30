@@ -138,9 +138,46 @@ const Volunteering = () => {
     }
   };
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
+    const formData = {
+      personalInfo: {
+        firstName,
+        lastName,
+        dateOfBirth,
+        gender,
+      },
+      contactInfo: {
+        nationality,
+        country,
+        address,
+        phone,
+      },
+      emergencyContact: {
+        emergencyPhone,
+        contactPerson,
+      },
+      additionalInfo: {
+        language: isOtherLanguage ? manualLanguage : language,
+        education,
+        tShirtSize,
+        bloodGroup,
+        selectedSkills,
+        selfDescription,
+      },
+      consent: {
+        agreedToTerms,
+        imageConsent,
+      }
+    };
+
+    alert(JSON.stringify(formData, null, 2));
+  };
+
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-      <form className="max-w-7xl mx-auto" autoComplete="off">
+      <form onSubmit={handleSubmit} className="max-w-7xl mx-auto" autoComplete="off">
         <div className="bg-white-bg3 dark:bg-dark rounded-2xl shadow-xl overflow-hidden">
           {/* Header Section */}
           <div className="bg-pink dark:bg-pink px-6 py-8 sm:px-10 sm:py-12">
