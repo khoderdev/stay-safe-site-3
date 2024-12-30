@@ -5,6 +5,7 @@ import { LoadingProvider } from "./components/preload/LoadingProvider";
 import ResourceLoader from "./components/preload/ResourceLoader";
 import PreloadResources from "./components/preload/PreloadResources";
 import { Toaster } from 'react-hot-toast';
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Layout>
             <AppRoutes />
           </Layout>
+          <ScrollToTop />
           <Toaster position="top-right" toastOptions={{
             duration: 1500,
             style: {
