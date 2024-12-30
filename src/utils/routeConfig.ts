@@ -143,4 +143,13 @@ export const routes: RouteConfig[] = [
     prefetch: "none",
     cacheControl: "public, max-age=1800",
   },
+  {
+    path: "/contact-us",
+    component: lazyLoadComponent(
+      () => import("../components/contact/Contact")
+    ),
+    prerender: true,
+    prefetch: "none",
+    cacheControl: "public, max-age=1800",
+  },
 ];
