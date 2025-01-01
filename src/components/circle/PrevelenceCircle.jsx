@@ -36,7 +36,7 @@ function PrevelenceCircle() {
 
   return (
     <div className="w-full h-full flex flex-col ">
-      <div className="relative z-40 flex flex-col items-center justify-center w-full min-h-screen md:h-[200dvh] overflow-hidden bg-slate-900">
+      <div className="relative z-40 flex flex-col items-center justify-center w-full min-h-screen md:h-[200dvh] overflow-hidden">
         {/* First Circle (Normal Spin) */}
         <motion.div
           style={{
