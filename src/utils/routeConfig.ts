@@ -153,9 +153,27 @@ export const routes: RouteConfig[] = [
     cacheControl: "private, no-cache",
   },
   {
+    path: "/volunteer/list",
+    component: lazyLoadComponent(
+      () => import("../components/Volunteering/components/VolunteersList")
+    ),
+    prerender: true,
+    prefetch: "none",
+    cacheControl: "public, max-age=1800",
+  },
+  {
     path: "/volunteering",
     component: lazyLoadComponent(
       () => import("../components/Volunteering/Volunteering")
+    ),
+    prerender: true,
+    prefetch: "none",
+    cacheControl: "public, max-age=1800",
+  },
+  {
+    path: "/volunteer/register",
+    component: lazyLoadComponent(
+      () => import("../components/Volunteering/components/VolunteerForm")
     ),
     prerender: true,
     prefetch: "none",

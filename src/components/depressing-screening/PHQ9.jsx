@@ -100,7 +100,7 @@ const PHQ9Quiz = () => {
         {score === null ? (
           <div className="w-full">
             {/* <div className='relative'> */}
-            <h1 className="text-black text-center dark:text-white-bg text-xl  mb-2">
+            <h1 className="text-black text-center dark:text-white-bg text-xl pt-4 mb-2">
               Over the last two weeks, how often have you <br /> been bothered
               by any of the following problems?
             </h1>

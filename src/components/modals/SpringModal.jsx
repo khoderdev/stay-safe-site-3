@@ -29,7 +29,7 @@ const SpringModal = ({ isOpen, setIsOpen, consultationType, buttonText }) => {
 					animate={{ opacity: 1 }}
 					exit={{ opacity: 0 }}
 					onClick={() => setIsOpen(false)}
-					className='bg-slate-900/20 backdrop-blur sm:p-8 fixed inset-0 z-30 flex items-center justify-center cursor-pointer'
+					className='bg-slate-900/20 backdrop-blur sm:p-8 fixed inset-0 z-50 flex items-center justify-center cursor-pointer'
 				>
 					<motion.div
 						initial={{ scale: 0, rotate: '12.5deg' }}
@@ -46,7 +46,7 @@ const SpringModal = ({ isOpen, setIsOpen, consultationType, buttonText }) => {
 							}}
 						/>
 						{/* Modal Header with Close Icon */}
-						<div className='relative z-10 pr-3 pt-3 pb-3 flex justify-end'>
+						<div className='relative z-50 pr-3 pt-3 pb-3 flex justify-end'>
 							<button
 								onClick={() => setIsOpen(false)}
 								className='text-gray-400 hover:text-black dark:hover:text-white-bg'
@@ -56,7 +56,7 @@ const SpringModal = ({ isOpen, setIsOpen, consultationType, buttonText }) => {
 						</div>
 
 						{/* Modal Content */}
-						<div className='relative z-10 p-2'>
+						<div className='relative p-2'>
 							<div className='flex dark:text-white-bg space-x-10 h-[70dvh] sm:h-[89dvh] overflow-y-scroll scrollbar-hide'>
 								<PricingCard
 									features={features}
