@@ -4,8 +4,25 @@ export const API_URL = "http://localhost:8800";
 
 const api = axios.create({
   baseURL: API_URL,
+  timeout: 5000, // 5 second timeout
 });
 
+// Add response interceptor to handle errors globally
+api.interceptors.response.use(
+  response => response,
+  error => {
+    if (error.code === 'ERR_NETWORK' || error.code === 'ECONNABORTED') {
+      console.warn('Network error occurred:', error);
+      return Promise.resolve({ 
+        data: null, 
+        success: false, 
+        offline: true,
+        message: 'Unable to connect to server. Working in offline mode.' 
+      });
+    }
+    return Promise.reject(error);
+  }
+);
 
 // User Management
 export const fetchUsers = async (setData) => {
@@ -17,8 +34,6 @@ export const fetchUsers = async (setData) => {
     console.error('Error fetching users:', error.response?.data || error.message);
   }
 };
-
-
 
 export const getUsers = async (token) => {
   return api.get(`/users`, {
@@ -96,7 +111,6 @@ export const loginUser = async (credentials) => {
   }
 };
 
-
 export const logoutUser = async () => {
   try {
     const response = await axios.post(
@@ -126,7 +140,6 @@ export const resetUserPassword = async (userId, data, token) => {
     headers: { Authorization: `Bearer ${token}` },
   });
 };
-
 
 export const deleteUser = async (id, token) => {
   return api.delete(`/users/${id}`, {
@@ -219,12 +232,26 @@ export const getPostById = async (postId, token) => {
   });
 };
 
-export const createAppointment = async (appointmentData,) => {
-  return api.post("/appointments", appointmentData, {
-    // headers: { Authorization: `Bearer ${token}` },
-  });
+export const createAppointment = async (appointmentData) => {
+  try {
+    const response = await api.post("/appointments", appointmentData);
+    return {
+      success: true,
+      data: response.data,
+      offline: false
+    };
+  } catch (error) {
+    if (error.offline) {
+      return error; // Return the offline response from the interceptor
+    }
+    console.error('Error creating appointment:', error);
+    return {
+      success: false,
+      message: error.response?.data?.message || 'Failed to create appointment',
+      offline: false
+    };
+  }
 };
-
 
 export const getPdfs = (token, dietName) => {
   return api.get(`/upload/${dietName}`, {

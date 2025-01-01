@@ -62,9 +62,27 @@ export const routes: RouteConfig[] = [
     cacheControl: "public, max-age=3600",
   },
   {
-    path: "/book-appointment",
+    path: "/appointments",
     component: lazyLoadComponent(
-      () => import("../components/forms/BookAppointment")
+      () => import("../components/Book-Appointment/Appointments")
+    ),
+    prerender: false,
+    prefetch: "none",
+    cacheControl: "no-cache",
+  },
+  {
+    path: "/appointments/list",
+    component: lazyLoadComponent(
+      () => import("../components/Book-Appointment/AppointmentList")
+    ),
+    prerender: false,
+    prefetch: "none",
+    cacheControl: "no-cache",
+  },
+  {
+    path: "/appointments/book",
+    component: lazyLoadComponent(
+      () => import("../components/Book-Appointment/AppointmentForm")
     ),
     prerender: false,
     prefetch: "none",

@@ -26,7 +26,7 @@ function CTA({ targetRef, className }) {
         </span>
       </motion.h1>
       <motion.button
-        onClick={()=> navigate("/book-appointment")}
+        onClick={()=> navigate("/appointments/book")}
 				type="button"
         className="px-10 py-4 bg-pink text-white rounded-lg shadow-md hover:bg-pink focus:outline-none focus:ring-2 focus:ring-pink focus:drop-shadow focus:shadow-md focus:shadow-pink focus:bg-transparent focus:text-pink focus:font-semibold place-self-start"
         whileHover={{ scale: 1.05 }}

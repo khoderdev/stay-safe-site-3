@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
-import AppointmentForm from "./AppointmentForm";
+import AppointmentList from "./AppointmentList";
 
 export default function BookAppointment() {
   const { isAuthenticated } = useAuth();
@@ -9,7 +9,7 @@ export default function BookAppointment() {
 
   useEffect(() => {
     if (!isAuthenticated) {
-      navigate("/auth", { state: { from: "/book-appointment" } });
+      navigate("/auth", { state: { from: "/appointments" } });
     }
   }, [isAuthenticated, navigate]);
 
@@ -18,8 +18,8 @@ export default function BookAppointment() {
   }
 
   return (
-    <div className="flex-grow">
-      <AppointmentForm />
+    <div className="flex-grow space-y-8">
+      <AppointmentList />
     </div>
   );
 }

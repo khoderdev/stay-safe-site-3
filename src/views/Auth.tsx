@@ -28,7 +28,7 @@ const Auth = () => {
       }
       
       if (success) {
-        navigate('/book-appointment');
+        navigate('/appointments');
       }
     } catch (err: any) {
       setError(err.message || 'Authentication failed');

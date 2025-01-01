@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 * {
   margin: 0;
   padding: 0;
@@ -20,9 +21,9 @@ body {
   margin: 0;
   width: 100dvw;
   height: 100dvh;
-  scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   overflow-scrolling: touch;
+  overflow-x: hidden;
 }
 
 /* Optimize content visibility */
