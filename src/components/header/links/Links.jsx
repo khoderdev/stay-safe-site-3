@@ -1,38 +1,42 @@
-import { motion, AnimatePresence } from 'framer-motion';
-import { Link, useLocation } from 'react-router-dom';
-import { useState } from 'react';
-import { IoChevronDown } from 'react-icons/io5';
-import './links.css';
+import { motion, AnimatePresence } from "framer-motion";
+import { Link, useLocation } from "react-router-dom";
+import { useState } from "react";
+import { IoChevronDown } from "react-icons/io5";
+import "./links.css";
 
 const menuItems = [
-  { text: 'Home', route: '/' },
+  { text: "Home", route: "/" },
   {
-    text: 'Preventive Health & Patient Services',
-    route: '/preventive-health-patient-services',
+    text: "Preventive Health & Patient Services",
+    route: "/preventive-health-patient-services",
     submenu: [
-      { text: 'Medical Dietary Clinic', route: '/mdc' },
-      { text: 'Vitrack', route: '/vitrack' },
-    ]
+      { text: "Medical Dietary Clinic", route: "/mdc" },
+      { text: "Vitrack", route: "/vitrack" },
+    ],
   },
-  { text: 'Health & Safety', route: '/health-and-safety' },
-  { text: 'Public Health Interventions', route: '/public-health-interventions' },
-  { text: 'Public Health Academy', route: '/public-health-academy' },
+  { text: "Health & Safety", route: "/health-and-safety" },
   {
-    text: 'About us',
-    route: '/about-us',
+    text: "Public Health Interventions",
+    route: "/public-health-interventions",
+  },
+  { text: "Public Health Academy", route: "/public-health-academy" },
+  {
+    text: "About us",
+    route: "/about-us",
     submenu: [
-      { text: 'Volunteers', route: '/volunteering' },
-    ]
-  }
+      { text: "Contact us", route: "/contact-us" },
+      { text: "Volunteers", route: "/volunteering" },
+    ],
+  },
 ];
 
 const variants = {
   open: {
-    transition: { staggerChildren: 0.1, delayChildren: 0.2 }
+    transition: { staggerChildren: 0.1, delayChildren: 0.2 },
   },
   closed: {
-    transition: { staggerChildren: 0.05, staggerDirection: -1 }
-  }
+    transition: { staggerChildren: 0.05, staggerDirection: -1 },
+  },
 };
 
 const itemVariants = {
@@ -44,8 +48,8 @@ const itemVariants = {
       type: "spring",
       stiffness: 300,
       damping: 24,
-      duration: 0.4
-    }
+      duration: 0.4,
+    },
   },
   closed: {
     y: 50,
@@ -53,9 +57,9 @@ const itemVariants = {
     opacity: 0,
     transition: {
       duration: 0.3,
-      ease: [0.4, 0, 0.2, 1]
-    }
-  }
+      ease: [0.4, 0, 0.2, 1],
+    },
+  },
 };
 
 const submenuVariants = {
@@ -68,8 +72,8 @@ const submenuVariants = {
       bounce: 0,
       duration: 0.5,
       delayChildren: 0.2,
-      staggerChildren: 0.1
-    }
+      staggerChildren: 0.1,
+    },
   },
   closed: {
     clipPath: "inset(0% 0% 100% 0%)",
@@ -78,9 +82,9 @@ const submenuVariants = {
     transition: {
       type: "spring",
       bounce: 0,
-      duration: 0.4
-    }
-  }
+      duration: 0.4,
+    },
+  },
 };
 
 const submenuItemVariants = {
@@ -90,16 +94,16 @@ const submenuItemVariants = {
     transition: {
       type: "spring",
       stiffness: 300,
-      damping: 24
-    }
+      damping: 24,
+    },
   },
   closed: {
     x: -20,
     opacity: 0,
     transition: {
-      duration: 0.2
-    }
-  }
+      duration: 0.2,
+    },
+  },
 };
 
 const MenuItem = ({ item, onNavigate }) => {
@@ -107,7 +111,7 @@ const MenuItem = ({ item, onNavigate }) => {
   const location = useLocation();
 
   const isActive = (path) => {
-    if (path === '/') {
+    if (path === "/") {
       return location.pathname === path;
     }
     return location.pathname.startsWith(path);
@@ -132,16 +136,17 @@ const MenuItem = ({ item, onNavigate }) => {
   };
 
   return (
-    <motion.div 
+    <motion.div
       variants={itemVariants}
       className="border-b border-gray-100/10 dark:border-gray-800/50 last:border-b-0"
     >
       <Link
         to={item.route}
         className={`block w-full px-8 py-4 text-lg relative group transition-all duration-200
-          ${isActive(item.route) 
-            ? 'text-pink dark:text-pink '
-            : 'text-gray-700 dark:text-gray-200'
+          ${
+            isActive(item.route)
+              ? "text-pink dark:text-pink "
+              : "text-gray-700 dark:text-gray-200"
           }`}
         onClick={(e) => {
           toggleSubmenu(e);
@@ -154,15 +159,19 @@ const MenuItem = ({ item, onNavigate }) => {
         >
           <span className="relative">
             {item.text}
-            <span className={`absolute -bottom-1 left-0 h-0.5 bg-pink transition-all duration-300
-              ${isActive(item.route) ? 'w-full' : 'w-0 group-hover:w-full'}`}>
-            </span>
+            <span
+              className={`absolute -bottom-1 left-0 h-0.5 bg-pink transition-all duration-300
+              ${isActive(item.route) ? "w-full" : "w-0 group-hover:w-full"}`}
+            ></span>
           </span>
           {item.submenu && (
             <motion.div
-              animate={{ 
+              animate={{
                 rotate: isSubmenuOpen ? 180 : 0,
-                color: isSubmenuOpen || isActive(item.route) ? "var(--color-pink)" : "currentColor"
+                color:
+                  isSubmenuOpen || isActive(item.route)
+                    ? "var(--color-pink)"
+                    : "currentColor",
               }}
               transition={{ duration: 0.3, ease: "anticipate" }}
               className="text-gray-400 dark:text-gray-500 group-hover:text-pink dark:group-hover:text-pink transition-colors duration-300"
@@ -192,17 +201,23 @@ const MenuItem = ({ item, onNavigate }) => {
                   <Link
                     to={subItem.route}
                     className={`block py-3.5 px-12 text-base relative group/item transition-all duration-200
-                      ${isActive(subItem.route)
-                        ? 'text-pink dark:text-pink '
-                        : 'text-gray-600 dark:text-gray-100 hover:text-pink dark:hover:text-pink'
+                      ${
+                        isActive(subItem.route)
+                          ? "text-pink dark:text-pink "
+                          : "text-gray-600 dark:text-gray-100 hover:text-pink dark:hover:text-pink"
                       }`}
                     onClick={handleSubmenuNavigation}
                   >
                     <span className="relative z-10">
                       {subItem.text}
-                      <span className={`absolute -bottom-1 left-0 h-0.5 bg-pink transition-all duration-300
-                        ${isActive(subItem.route) ? 'w-full' : 'w-0 group-hover/item:w-full'}`}>
-                      </span>
+                      <span
+                        className={`absolute -bottom-1 left-0 h-0.5 bg-pink transition-all duration-300
+                        ${
+                          isActive(subItem.route)
+                            ? "w-full"
+                            : "w-0 group-hover/item:w-full"
+                        }`}
+                      ></span>
                     </span>
                   </Link>
                 </motion.div>
@@ -217,8 +232,8 @@ const MenuItem = ({ item, onNavigate }) => {
 
 const MenuLinks = ({ onNavigate }) => {
   return (
-    <motion.div 
-      className="flex flex-col w-full pt-4" 
+    <motion.div
+      className="flex flex-col w-full pt-4"
       variants={variants}
       initial="closed"
       animate="open"

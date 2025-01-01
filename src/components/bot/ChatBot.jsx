@@ -9,7 +9,7 @@ const Message = ({ text, isBot, links, avatar }) => (
     className={`flex ${isBot ? "justify-start" : "justify-end"} mb-4 items-end`}
   >
     {isBot && (
-      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex-shrink-0 mr-2 overflow-hidden flex items-center justify-center text-white">
+      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pink to-pink flex-shrink-0 mr-2 overflow-hidden flex items-center justify-center text-white">
         <FaRobot />
       </div>
     )}
@@ -20,7 +20,7 @@ const Message = ({ text, isBot, links, avatar }) => (
       className={`max-w-[80%] p-3 rounded-lg shadow-sm ${
         isBot
           ? "bg-white border border-gray-200 rounded-tl-none"
-          : "bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-tr-none"
+          : "bg-gradient-to-r from-pink to-pink text-white rounded-tr-none"
       }`}
     >
       <p className="text-sm leading-relaxed">{text}</p>
@@ -50,21 +50,21 @@ const TypingIndicator = () => (
         scale: [1, 1.2, 1],
         transition: { repeat: Infinity, duration: 1 },
       }}
-      className="w-2 h-2 bg-blue-400 rounded-full"
+      className="w-2 h-2 bg-pink rounded-full"
     />
     <motion.div
       animate={{
         scale: [1, 1.2, 1],
         transition: { repeat: Infinity, duration: 1, delay: 0.2 },
       }}
-      className="w-2 h-2 bg-blue-400 rounded-full"
+      className="w-2 h-2 bg-pink rounded-full"
     />
     <motion.div
       animate={{
         scale: [1, 1.2, 1],
         transition: { repeat: Infinity, duration: 1, delay: 0.4 },
       }}
-      className="w-2 h-2 bg-blue-400 rounded-full"
+      className="w-2 h-2 bg-pink rounded-full"
     />
   </div>
 );
@@ -114,7 +114,7 @@ const StaySafeBot = () => {
 
   const getLinks = (option) => {
     const linkStyles =
-      "block w-full px-3 py-2 text-blue-600 hover:text-blue-700 hover:bg-blue-50 rounded-md transition-colors duration-200";
+      "block w-full px-3 py-2 text-pink hover:text-blue-700 hover:bg-blue-50 rounded-md transition-colors duration-200";
     switch (option) {
       case "contact":
         return (
@@ -136,13 +136,19 @@ const StaySafeBot = () => {
             <Link to="/screening" className={linkStyles}>
               🔍 Check Screening Requirements
             </Link>
-            <Link to="/preventive-health-patient-services" className={linkStyles}>
+            <Link
+              to="/preventive-health-patient-services"
+              className={linkStyles}
+            >
               💭 Depression Screening Tool
             </Link>
             <Link to="/mdc" className={linkStyles}>
               📊 BMI Calculator
             </Link>
-            <Link to="/preventive-health-patient-services" className={linkStyles}>
+            <Link
+              to="/preventive-health-patient-services"
+              className={linkStyles}
+            >
               😴 Sleep Apnea Support
             </Link>
             <Link to="/mdc" className={linkStyles}>
@@ -232,17 +238,15 @@ const StaySafeBot = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="absolute bottom-8 right-8 md:right-24 flex items-end justify-end w-[30%]"
+        className="absolute bottom-8 right-24 flex items-end justify-end w-[70%] sm:w-[55%] md:w-[35%]"
       >
         <div
-          className={`relative w-full ${
-            minimized ? "h-16" : "h-[80vh] md:h-[600px]"
-          } 
+          className={`relative w-full ${minimized ? "h-16" : "h-[600px]"} 
           max-w-[95vw] md:max-w-lg bg-white-bg rounded-lg shadow-2xl flex flex-col 
           transition-all duration-300 ease-in-out`}
         >
           {/* Header */}
-          <div className="p-2 border-b flex items-center justify-between bg-gradient-to-r from-blue-500 to-blue-600 rounded-t-lg">
+          <div className="p-2 border-b flex items-center justify-between bg-gradient-to-r from-pink to-pink rounded-t-lg">
             <div className="flex items-center space-x-3">
               <div className="relative flex items-center justify-center w-8 h-8 rounded-full bg-white/10">
                 <FaRobot />
@@ -327,7 +331,7 @@ const StaySafeBot = () => {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsModalOpen(true)}
-        className="fixed bottom-8 right-8 bg-gradient-to-r from-blue-500 to-blue-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-300 transition-all duration-300 ease-in-out z-50"
+        className="fixed bottom-8 right-8 bg-gradient-to-r from-pink to-pink text-white p-4 rounded-full shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-300 transition-all duration-300 ease-in-out z-50"
         aria-label="Open chat"
       >
         <FaRobot />
