@@ -1,7 +1,7 @@
-import { useRef, useState } from 'react';
-import { motion, AnimatePresence, useInView } from 'framer-motion';
-import Button from '../buttons/Button';
-import CircularText from './Circle';
+import { useRef, useState } from "react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
+import Button from "../buttons/Button";
+import CircularText from "./Circle";
 
 const DXPrevention = () => {
   const [showButton, setShowButton] = useState(false);
@@ -10,10 +10,10 @@ const DXPrevention = () => {
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: { 
+    visible: {
       opacity: 1,
-      transition: { duration: 0.5 }
-    }
+      transition: { duration: 0.5 },
+    },
   };
 
   const listVariants = {
@@ -23,13 +23,13 @@ const DXPrevention = () => {
       transition: {
         staggerChildren: 0.08,
         delayChildren: 0.2,
-      }
+      },
     },
     exit: {
       opacity: 0,
       y: -20,
-      transition: { duration: 0.3 }
-    }
+      transition: { duration: 0.3 },
+    },
   };
 
   const itemVariants = {
@@ -50,15 +50,15 @@ const DXPrevention = () => {
         type: "spring",
         stiffness: 200,
         damping: 20,
-      }
-    }
+      },
+    },
   };
 
   const buttonVariants = {
-    hidden: { 
-      opacity: 0, 
+    hidden: {
+      opacity: 0,
       scale: 0.5,
-      y: 30
+      y: 30,
     },
     visible: {
       opacity: 1,
@@ -68,24 +68,24 @@ const DXPrevention = () => {
         type: "spring",
         stiffness: 400,
         damping: 25,
-      }
-    }
+      },
+    },
   };
 
   const diseases = [
-    'Obesity',
-    'Type 2 Diabetes',
-    'Anthrax Cervical Cancer',
-    'Hypertension Lung Cancer',
-    'Malaria Metabolic Syndrome',
-    'STI Rabies Chronic Heart Disease',
-    'HIV HPV COPD Bladder Cancer Cholera',
-    'Work-Related Musculoskeletal Diseases',
-    'High Cholesterol Slips & Lapses COVID-19 Asthma',
-    'Food Poisoning Mumps Syndrome',
-    'Tuberculosis Chlamydia Sleep Apnea Diphtheria Influenza Hearing Loss Hepatitis',
-    'Colon Cancer Skin Cancer Hand-Arm Vibration Mesothelioma Mpox',
-    'Brucellosis Measles Occupational Coronary Artery Disease MERS Polio',
+    "Obesity",
+    "Type 2 Diabetes",
+    "Anthrax Cervical Cancer",
+    "Hypertension Lung Cancer",
+    "Malaria Metabolic Syndrome",
+    "STI Rabies Chronic Heart Disease",
+    "HIV HPV COPD Bladder Cancer Cholera",
+    "Work-Related Musculoskeletal Diseases",
+    "High Cholesterol Slips & Lapses COVID-19 Asthma",
+    "Food Poisoning Mumps Syndrome",
+    "Tuberculosis Chlamydia Sleep Apnea Diphtheria Influenza Hearing Loss Hepatitis",
+    "Colon Cancer Skin Cancer Hand-Arm Vibration Mesothelioma Mpox",
+    "Brucellosis Measles Occupational Coronary Artery Disease MERS Polio",
   ];
 
   return (
@@ -98,20 +98,24 @@ const DXPrevention = () => {
     >
       <motion.div
         initial={{ opacity: 0, scale: 0.5, y: 50 }}
-        animate={isInView ? { 
-          opacity: 1, 
-          scale: 1, 
-          y: 0,
-          transition: {
-            type: "spring",
-            stiffness: 300,
-            damping: 20,
-          }
-        } : {}}
+        animate={
+          isInView
+            ? {
+                opacity: 1,
+                scale: 1,
+                y: 0,
+                transition: {
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 20,
+                },
+              }
+            : {}
+        }
       >
         <CircularText />
       </motion.div>
-      
+
       <AnimatePresence mode="wait">
         {!showButton ? (
           <motion.div
@@ -126,11 +130,11 @@ const DXPrevention = () => {
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  className="mb-2"
-                  whileHover={{ 
+                  className="text-[1.5rem]"
+                  whileHover={{
                     scale: 1.05,
                     color: "rgb(236, 72, 153)", // pink color
-                    transition: { duration: 0.2 }
+                    transition: { duration: 0.2 },
                   }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -163,7 +167,7 @@ const DXPrevention = () => {
         transition={{
           duration: 2,
           repeat: Infinity,
-          repeatType: "reverse"
+          repeatType: "reverse",
         }}
       />
     </motion.div>
