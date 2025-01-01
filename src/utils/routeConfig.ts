@@ -62,9 +62,27 @@ export const routes: RouteConfig[] = [
     cacheControl: "public, max-age=3600",
   },
   {
-    path: "/book-appointment",
+    path: "/appointments",
     component: lazyLoadComponent(
-      () => import("../components/forms/BookAppointment")
+      () => import("../components/Book-Appointment/Appointments")
+    ),
+    prerender: false,
+    prefetch: "none",
+    cacheControl: "no-cache",
+  },
+  {
+    path: "/appointments/list",
+    component: lazyLoadComponent(
+      () => import("../components/Book-Appointment/AppointmentList")
+    ),
+    prerender: false,
+    prefetch: "none",
+    cacheControl: "no-cache",
+  },
+  {
+    path: "/appointments/book",
+    component: lazyLoadComponent(
+      () => import("../components/Book-Appointment/AppointmentForm")
     ),
     prerender: false,
     prefetch: "none",
@@ -135,9 +153,27 @@ export const routes: RouteConfig[] = [
     cacheControl: "private, no-cache",
   },
   {
+    path: "/volunteer/list",
+    component: lazyLoadComponent(
+      () => import("../components/Volunteering/components/VolunteersList")
+    ),
+    prerender: true,
+    prefetch: "none",
+    cacheControl: "public, max-age=1800",
+  },
+  {
     path: "/volunteering",
     component: lazyLoadComponent(
       () => import("../components/Volunteering/Volunteering")
+    ),
+    prerender: true,
+    prefetch: "none",
+    cacheControl: "public, max-age=1800",
+  },
+  {
+    path: "/volunteer/register",
+    component: lazyLoadComponent(
+      () => import("../components/Volunteering/components/VolunteerForm")
     ),
     prerender: true,
     prefetch: "none",

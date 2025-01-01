@@ -9,10 +9,8 @@ import PrecedentTreatmentAssessment from "./PatientAssessmentForm/PrecedentTreat
 import Goals from "./PatientAssessmentForm/Goals";
 import Calendar from "./PatientAssessmentForm/Calendar";
 import { createAppointment } from "../../services/api";
-import {
-  AppointmentProvider,
-  useAppointment,
-} from "../../context/AppointmentContext";
+import { AppointmentProvider, useAppointment } from "../../context/AppointmentContext";
+import { addAppointment, updateAppointment } from "../../services/indexedDB";
 import AuthContext from "../../hooks/authContext";
 import { ArrowLeft } from "../icons/Icons";
 
@@ -169,25 +167,56 @@ const AppointmentFormContent = () => {
         ...formData,
         ...appointmentDetails,
         submissionDate: new Date().toISOString(),
-        status: "pending"
+        status: "pending",
+        synced: false // Track sync status with backend
       };
 
-      const response = await createAppointment(appointmentData);
+      try {
+        // Save to IndexedDB first
+        const savedAppointment = await addAppointment(appointmentData);
+        console.log('Appointment saved locally:', savedAppointment);
 
-      if (response.success) {
+        // Attempt to sync with backend
+        const response = await createAppointment(appointmentData);
+        
+        // Update sync status based on backend response
+        if (!response.offline) {
+          if (response.success) {
+            await updateAppointment({
+              ...savedAppointment,
+              synced: true
+            });
+            console.log('Appointment synced with backend');
+          } else {
+            console.warn('Backend save failed:', response.message);
+          }
+        } else {
+          console.log('Working in offline mode:', response.message);
+        }
+
         setIsSubmitted(true);
-        alert("Appointment Booked Successfully!");
+        const successMessage = response.offline 
+          ? "Appointment Booked Successfully! (Saved locally, will sync when connection is restored)"
+          : response.success 
+            ? "Appointment Booked Successfully!"
+            : "Appointment Booked Successfully! (Saved locally, sync failed)";
+            
+        alert(successMessage);
 
         setTimeout(() => {
           resetForm();
           clearAppointment();
         }, 400);
-      } else {
-        throw new Error(response.message || "Failed to book appointment");
+      } catch (error) {
+        if (error.name === 'ConstraintError') {
+          alert("This appointment slot is already booked. Please select a different time.");
+        } else {
+          throw error;
+        }
       }
     } catch (error) {
       console.error("Error submitting appointment:", error);
-      alert(error.message || "There was an error booking your appointment. Please try again.");
+      alert("There was an error booking your appointment. Please try again.");
     }
   };
 
