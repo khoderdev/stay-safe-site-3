@@ -7,6 +7,7 @@ import ResourceLoader from "./components/preload/ResourceLoader";
 import PreloadResources from "./components/preload/PreloadResources";
 import { Toaster } from "react-hot-toast";
 import ScrollToTop from "./components/ScrollToTop";
+import StaySafeBot from "./components/bot/ChatBot";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
               <AppRoutes />
             </Layout>
             <ScrollToTop />
+            <StaySafeBot />
             <Toaster
               position="top-right"
               toastOptions={{
