@@ -72,6 +72,12 @@ const CustomXAxisTick = ({ x, y, payload }) => {
 const BarCharts = () => {
   return (
     <div className="chart-container w-full flex flex-col">
+      <div className="w-full md:w-1/2 flex items-center justify-center pl-10">
+        <h1 className="text-3xl text-center md:text-left dark:text-white-bg2">
+          Around 80% of the top 10 causes of death are preventable or manageable
+          through preventive measures and lifestyle changes
+        </h1>
+      </div>
       <div className="flex flex-wrap md:flex-nowrap w-full">
         <div className="flex flex-wrap md:flex-nowrap w-full">
           {/* Fully responsive container */}
@@ -108,13 +114,6 @@ const BarCharts = () => {
               </Bar>
             </BarChart>
           </ResponsiveContainer>
-        </div>
-
-        <div className="w-full md:w-1/2 flex items-center justify-center p-4">
-          <h1 className="text-3xl text-center md:text-left dark:text-white-bg2">
-            Around 80% of the top 10 causes of death are preventable or
-            manageable through preventive measures and lifestyle changes
-          </h1>
         </div>
       </div>
 

@@ -24,6 +24,7 @@ import { AlphabetFilter } from './Filters';
 import { fetchAllData, createData, updateData } from '../../indexedDbService';
 
 
+
 export const FoodSafetyTable = <TValue,>({
   columns = [],
 }: {
@@ -33,7 +34,7 @@ export const FoodSafetyTable = <TValue,>({
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingData, setEditingData] = useState<Partial<FoodSafety> | null>(null);
   const [isAddingNew, setIsAddingNew] = useState(false);
-  const [colSizing, setColSizing] = useState<ColumnSizingState>({});
+  const [colSizing, setColSizing] = useState<ColumnSizingState>([]);
   const [filterLetter, setFilterLetter] = useState<string>('');
   const [filterSearch, setFilterSearch] = useState<string>('');
 
@@ -42,7 +43,7 @@ export const FoodSafetyTable = <TValue,>({
     transition: {
       duration: 3, // Duration of the floating animation
       repeat: Infinity, // Infinite repetition
-      repeatType: 'mirror', // Smooth back-and-forth animation
+      repeatType: 'loop', // Updated to a valid value
       ease: 'easeInOut',
     },
   };
@@ -58,13 +59,12 @@ export const FoodSafetyTable = <TValue,>({
       transition: {
         duration: duration,
         repeat: Infinity,
-        repeatType: 'mirror',
+        repeatType: 'loop', // Updated to a valid value
         ease: 'easeInOut',
         delay: Math.random() * 2, // Random delay between 0 and 2 seconds
       },
     };
   };
-
 
   useEffect(() => {
     const loadData = async () => {
@@ -89,7 +89,11 @@ export const FoodSafetyTable = <TValue,>({
     setFilterSearch(searchTerm);
   };
 
-  const handleEdit = (app: FoodSafety) => {
+  const handleEdit = (app: FoodSafety, e?: React.MouseEvent) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
     setEditingData(app);
     setIsAddingNew(false);
     setIsModalOpen(true);
@@ -202,7 +206,7 @@ export const FoodSafetyTable = <TValue,>({
                 <TableRow
                   className="border-dark border-b cursor-pointer hover:bg-[#e8f5f2] dark:hover:bg-black transition"
                   key={row.id}
-                  onClick={() => handleEdit(row.original)}
+                  onClick={(e) => handleEdit(row.original, e)}
                 >
                   {row.getVisibleCells().map((cell) => {
                     const columnId = cell.column.id;
