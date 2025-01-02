@@ -282,7 +282,7 @@ const StaySafeBot = () => {
                 className="flex-1 flex flex-col relative h-full"
               >
                 {/* Messages */}
-                <div className="absolute inset-0 pt-4 pb-[160px] overflow-y-auto">
+                <div className="absolute inset-0 pt-4 pb-[160px] overflow-y-auto max-h-[400px]">
                   <div className="flex flex-col space-y-4 px-4">
                     {messages.map((msg, idx) => (
                       <Message key={idx} {...msg} />

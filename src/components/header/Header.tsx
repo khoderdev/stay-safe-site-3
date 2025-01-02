@@ -63,7 +63,7 @@ export default function Header() {
   return (
     <header
       ref={headerRef}
-      className="fixed w-full bg-white/60 dark:bg-black/50 backdrop-blur-md shadow-lg dark:shadow-[#00000021] z-50 flex items-center justify-between lg:pl-32"
+      className="fixed w-full bg-white/60 dark:bg-black/50 backdrop-blur-md shadow-lg dark:shadow-[#00000021] z-50 flex items-center justify-between lg:pl-32 md:pr-8"
     >
       {/* Logo */}
       <motion.div
@@ -96,10 +96,10 @@ export default function Header() {
           Home
         </Link>
         <Dropdown
-          title="Services"
+          title="Preventive Health"
           items={[
             {
-              label: "Preventive Health & Patient Services",
+              label: "Patient Services",
               to: "/preventive-health-patient-services",
             },
             { label: "Medical Dietary Clinic", to: "/mdc" },

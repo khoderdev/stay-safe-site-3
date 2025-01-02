@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import { useState } from "react";
 import questions from "./questions";
 import { motion } from "framer-motion";
@@ -125,7 +124,7 @@ const MediterraneanDietScore = () => {
         <p className="text-lg text-red-500 mt-4">Pick 1-2 areas to work on.</p>
       )}
       <button
-        className="btn-1 mt-8"
+        className="btn-3 mt-8"
         onClick={() => {
           setScore(null);
           setCurrentStep(0);
@@ -147,7 +146,8 @@ const MediterraneanDietScore = () => {
             <span className="block text-blue-500">Diet Score</span>
           </h1>
           <p className="text-lg md:text-xl text-center text-dark dark:text-gray-100 max-w-md">
-            Discover how well your eating habits align with the healthy Mediterranean diet pattern
+            Discover how well your eating habits align with the healthy
+            Mediterranean diet pattern
           </p>
           <button
             onClick={() => setIsModalOpen(true)}
@@ -197,9 +197,11 @@ const MediterraneanDietScore = () => {
                 <div>
                   {currentStep === questions.length - 1 ? (
                     <button
-                      className="btn-1 mx-auto w-full text-center"
+                      className="btn-3 mx-auto w-full text-center"
                       onClick={calculateScore}
-                      disabled={answers[questions[currentStep].id] === undefined}
+                      disabled={
+                        answers[questions[currentStep].id] === undefined
+                      }
                     >
                       Calculate Score
                     </button>
@@ -208,7 +210,9 @@ const MediterraneanDietScore = () => {
                       className="next-btn w-20 !text-blue !text-blue-500 py-2 px-4 rounded-lg cursor-pointer transition 
                      transform hover:scale-110 active:scale-95 dark:!text-blue-500 duration-300 ease-in-out"
                       onClick={nextStep}
-                      disabled={answers[questions[currentStep].id] === undefined}
+                      disabled={
+                        answers[questions[currentStep].id] === undefined
+                      }
                     >
                       Next
                     </ArrowRight>
