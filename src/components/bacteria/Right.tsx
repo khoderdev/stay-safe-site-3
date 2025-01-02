@@ -60,13 +60,13 @@ const Right: React.FC = () => {
           whileHover={{ scale: 1.05 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
-          <h1 className="text-8xl sm:text-9xl md:text-[15rem] lg:text-[25rem] font-bold text-[#d23c88] leading-none">
+          <h1 className="text-8xl sm:text-9xl md:text-[15rem] lg:text-[22rem] font-bold text-[#d23c88] leading-none">
             Right
           </h1>
         </motion.div>
 
         {/* Right Column */}
-        <motion.div className="flex flex-col items-start md:mt-14 z-20">
+        <motion.div className="flex flex-col items-start ml-2 md:ml-6 md:mt-14 z-20">
           {textGroups.map(({ suffix }, index) => (
             <motion.div
               key={`suffix-${index}`}
