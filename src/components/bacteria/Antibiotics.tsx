@@ -88,7 +88,7 @@ export default function Stagger() {
       initial="hidden"
       animate="show"
       variants={containerVariants}
-      className="w-full max-w-4xl mx-auto px-4"
+      className="w-full max-w-4xl mx-auto px-4 "
     >
       <motion.h1
         variants={itemVariants}
