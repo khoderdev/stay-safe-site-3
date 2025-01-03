@@ -43,12 +43,12 @@ function PrevelenceCircle() {
             rotate: rotationForward,
             perspective: 800,
           }}
-          className="absolute w-full flex items-center justify-center z-40 h-[100%] sm:h-[120%] lg:h-[50%] xl:h-[60%]"
+          className="absolute w-full flex items-center justify-center z-40 h-[100%] sm:h-[120%] lg:h-[50%] xl:h-[60%] 2xl:w-[43%]"
         >
           <SmallCircle />
         </motion.div>
 
-        <div className="w-[50%] flex items-center justify-center md:pl-6 xl:pl-10 z-40">
+        <div className="w-[50%] flex items-center justify-center md:pl-6 xl:pl-10 2xl:pr-10 z-40">
           <div className="mr-4">
             <img
               className="w-10 sm:w-[7rem] md:w-[8rem] lg:w-[7rem] xl:w-[9rem] z-40"
@@ -70,7 +70,7 @@ function PrevelenceCircle() {
             rotate: rotationReverse,
             perspective: 800,
           }}
-          className="absolute w-[70%] h-[87%] sm:w-[80%] sm:h-[80%] md:h-[80%] lg:w-[93%] xl:h-[80%] xl:w-[95%] z-40 rounded-full flex items-center justify-center"
+          className="absolute w-[70%] h-[87%] sm:w-[80%] sm:h-[80%] md:h-[80%] lg:w-[93%] xl:h-[80%] xl:w-[95%] 2xl:w-[60%] z-40 rounded-full flex items-center justify-center"
         >
           <SmallCircle />
         </motion.div>
