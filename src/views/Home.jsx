@@ -43,7 +43,7 @@ const Home = React.memo(() => {
   return (
     <div className="relative">
       {/* Sticky Hero Section */}
-    {/* <div className="sticky top-0 flex flex-col items-center justify-start bg-white-bg dark:bg-black z-10">
+      {/* <div className="sticky top-0 flex flex-col items-center justify-start bg-white-bg dark:bg-black z-10">
         <div className="animate-fade-in">
           <ChartsText />
         </div>
@@ -51,37 +51,32 @@ const Home = React.memo(() => {
 
       {/* Normal Scrolling Sections */}
       {/* <div className="sticky h-screen dark:text-white-bg2 bg-white-bg dark:bg-black z-10"> */}
-        {/* <div className="bg-white-bg dark:bg-black">
+      {/* <div className="bg-white-bg dark:bg-black">
           <BarCharts />
         </div> */}
-        <div className="bg-white-bg dark:bg-black">
-          <Balloon />
-        </div>
-        <div className="bg-white-bg dark:bg-black">
-          <DXPrevention />
-        </div>
-
-        <div className="p-4 bg-white-bg dark:bg-black">
-          <PackYearsCalculator />
-        </div>
-
-        <div className="bg-gray-200 dark:bg-black">
-          <PrevelenceCircle />
-        </div>
-
-        <div className="py-32 bg-white-bg dark:bg-black">
-          <HandMonster />
-        </div>
-
-        <div className="bg-white-bg dark:bg-black">
-          <Bacteria />
-        </div>
-
-        {/* <div className="py-16 bg-white-bg dark:bg-black">
-          <Antibiotics />
-        </div> */}
+      <div className="bg-white-bg dark:bg-black">
+        <Balloon />
       </div>
-    // </div>
+      <div className="bg-white-bg dark:bg-black">
+        <DXPrevention />
+      </div>
+
+      <div className="p-4 bg-white-bg dark:bg-black">
+        <PackYearsCalculator />
+      </div>
+
+      <div className="bg-gray-200 dark:bg-black">
+        <PrevelenceCircle />
+      </div>
+
+      <div className="py-32 bg-white-bg dark:bg-black">
+        <HandMonster />
+      </div>
+
+      <div className="bg-white-bg dark:bg-black">
+        <Bacteria />
+      </div>
+    </div>
   );
 });
 
