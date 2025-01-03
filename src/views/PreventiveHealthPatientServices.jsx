@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, lazy } from "react";
 import Modal from "../components/modals/Modal";
 import PHQ9Quiz from "../components/depressing-screening/PHQ9";
 import SearchPharmacies from "../components/pharmacies/SearchPharmacies";
@@ -7,6 +7,9 @@ import Titles from "../components/calculator/stop-bang/Titles";
 import STIQuiz from "../components/calculator/STI/STIQuiz";
 // import "../components/calculator/STI/STI.css";
 import { motion } from "framer-motion";
+
+const BarCharts = lazy(() => import("../components/Charts/BarCharts"));
+const ChartsText = lazy(() => import("../components/Charts/ChartsText"));
 
 function PreventiveHealthPatientServicesPage() {
   const [isPHQ9ModalOpen, setIsPHQ9ModalOpen] = useState(false);
@@ -28,7 +31,16 @@ function PreventiveHealthPatientServicesPage() {
   return (
     <>
       <div className="relative h-screen bg-white-bg dark:bg-black ">
-        <div className="h-screen flex flex-col items-center justify-start pt-10 bg-white-bg dark:bg-black">
+        {/* <div className="sticky top-0 flex flex-col items-center justify-start bg-white-bg dark:bg-black z-10"> */}
+        <div className="animate-fade-in">
+          <ChartsText />
+        </div>
+        {/* </div> */}
+
+        <div className="bg-white-bg dark:bg-black">
+        <BarCharts />
+        </div>
+        <div className="h-screen flex flex-col items-center justify-start pt-28 bg-white-bg dark:bg-black">
           <h1 className="text-6xl font-semibold leading-tight dark:text-white-bg2 flex flex-col px-6 mb-1">
             Your Mental Health Matters
             <span className="text-xl md:text-2xl font-normal">
@@ -128,7 +140,6 @@ function PreventiveHealthPatientServicesPage() {
             </div>
           </div>
         </>
-
       </div>
     </>
   );

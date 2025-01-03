@@ -70,7 +70,7 @@ function PrevelenceCircle() {
             rotate: rotationReverse,
             perspective: 800,
           }}
-          className="absolute w-[70%] h-[87%] sm:w-[80%] sm:h-[80%] md:h-[80%] lg:w-[93%] xl:h-[80%] xl:w-[95%] 2xl:w-[60%] z-40 rounded-full flex items-center justify-center"
+          className="absolute w-[70%] h-[87%] sm:w-[80%] sm:h-[80%] md:h-[80%] lg:w-[63%] xl:h-[30%] xl:w-[95%] 2xl:w-[60%] z-40 rounded-full flex items-center justify-center"
         >
           <SmallCircle />
         </motion.div>

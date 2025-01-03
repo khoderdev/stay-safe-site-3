@@ -11,8 +11,8 @@ const PrevelenceCircle = lazy(() =>
   import("../components/circle/PrevelenceCircle")
 );
 const Bacteria = lazy(() => import("../components/bacteria/Bacteria"));
-const BarCharts = lazy(() => import("../components/Charts/BarCharts"));
-const ChartsText = lazy(() => import("../components/Charts/ChartsText"));
+// const BarCharts = lazy(() => import("../components/Charts/BarCharts"));
+// const ChartsText = lazy(() => import("../components/Charts/ChartsText"));
 const Balloon = lazy(() => import("../components/Balloon/Balloon"));
 const Antibiotics = lazy(() => import("../components/bacteria/Antibiotics"));
 
@@ -43,17 +43,17 @@ const Home = React.memo(() => {
   return (
     <div className="relative">
       {/* Sticky Hero Section */}
-    <div className="sticky top-0 flex flex-col items-center justify-start bg-white-bg dark:bg-black z-10">
+    {/* <div className="sticky top-0 flex flex-col items-center justify-start bg-white-bg dark:bg-black z-10">
         <div className="animate-fade-in">
           <ChartsText />
         </div>
-      </div>
+      </div> */}
 
       {/* Normal Scrolling Sections */}
-      <div className="sticky h-screen dark:text-white-bg2 bg-white-bg dark:bg-black z-10">
-        <div className="bg-white-bg dark:bg-black">
+      {/* <div className="sticky h-screen dark:text-white-bg2 bg-white-bg dark:bg-black z-10"> */}
+        {/* <div className="bg-white-bg dark:bg-black">
           <BarCharts />
-        </div>
+        </div> */}
         <div className="bg-white-bg dark:bg-black">
           <Balloon />
         </div>
@@ -77,11 +77,11 @@ const Home = React.memo(() => {
           <Bacteria />
         </div>
 
-        <div className="py-16 bg-white-bg dark:bg-black">
+        {/* <div className="py-16 bg-white-bg dark:bg-black">
           <Antibiotics />
-        </div>
+        </div> */}
       </div>
-    </div>
+    // </div>
   );
 });
 
