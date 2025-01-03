@@ -60,7 +60,7 @@ const Right: React.FC = () => {
           whileHover={{ scale: 1.05 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
-          <h1 className="text-8xl sm:text-9xl md:text-[15rem] lg:text-[22rem] font-bold text-[#d23c88] leading-none">
+          <h1 className="text-8xl sm:text-9xl md:text-[15rem] md:ml-3 lg:text-[22rem] font-bold text-[#d23c88] leading-none">
             Right
           </h1>
         </motion.div>

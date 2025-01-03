@@ -1,6 +1,8 @@
-import React, { useEffect, useRef, useMemo, useCallback } from "react";
+import React, { useEffect, useRef, useMemo, useCallback, lazy } from "react";
 import MiddleSection from "./MiddleSection";
 import { useMousePosition } from "react-use-mouse-position";
+
+const Antibiotics = lazy(() => import("../../components/bacteria/Antibiotics"));
 
 const Bacteria: React.FC = React.memo(() => {
   const imageRef = useRef<HTMLImageElement>(null);
@@ -53,6 +55,7 @@ const Bacteria: React.FC = React.memo(() => {
         alt="Bacteria"
         loading="lazy"
       />
+      <Antibiotics />
     </div>
   );
 });
