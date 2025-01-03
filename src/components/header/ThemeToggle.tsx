@@ -34,10 +34,10 @@ export default function ThemeToggle() {
         {isDarkMode ? (
           <FaEnvira
             className="text-[#c2c36b] absolute left-1 top-1 "
-            size={20}
+            size={18}
           />
         ) : (
-          <FaEnvira className="text-gray-500 absolute left-1 top-1" size={20} />
+          <FaEnvira className="text-gray-500 absolute left-1 top-1" size={18} />
         )}
       </label>
       <span

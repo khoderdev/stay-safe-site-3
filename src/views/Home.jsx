@@ -69,7 +69,7 @@ const Home = React.memo(() => {
           <PrevelenceCircle />
         </div>
 
-        <div className="py-20 bg-white-bg dark:bg-black">
+        <div className="py-32 bg-white-bg dark:bg-black">
           <HandMonster />
         </div>
 
