@@ -84,7 +84,6 @@
 
 // export default PrevelenceCircle;
 
-
 import React, { useState, useEffect } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
 import SmallCircle from "./SmallCircle";
@@ -131,16 +130,13 @@ function PrevelenceCircle() {
             rotate: rotationForward,
             perspective: 800,
           }}
-          className="absolute w-full h-full flex items-center justify-center z-40"
-          // className="absolute w-full flex items-center justify-center z-40 h-[100%] sm:h-[120%] lg:h-[50%] xl:h-[60%] 2xl:w-[43%]"
+          className="absolute w-full h-full 2xl:w-[60dvw] 2xl:h-[60dvh] flex items-center justify-center z-40"
         >
           <SmallCircle />
         </motion.div>
 
         {/* Text Content */}
-        {/* <div className="w-full max-w-4xl flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 px-4 sm:px-6 lg:px-8 z-40">
-          <div className="w-24 sm:w-32 md:w-40 lg:w-48 xl:w-56"> */}
-          <div className="w-[50%] flex items-center justify-center md:pl-6 xl:pl-10 2xl:pr-10 z-40">
+        <div className="w-[50%] flex items-center justify-center md:pl-6 xl:pl-10 2xl:pr-10 z-40">
           <div className="mr-4">
             <img
               className="w-10 sm:w-[7rem] md:w-[8rem] lg:w-[7rem] xl:w-[9rem] z-40"
@@ -148,9 +144,11 @@ function PrevelenceCircle() {
               alt="1in6"
             />
           </div>
-          <div className="w-1/2">
+          <div className="w-1/2 2xl:w-1/3">
             <p className="xsm:text-[0.6rem] sm:text-[0.8rem] md:text-[1.2rem] lg:text-[1.2rem] xl:text-[1.8rem] font-semibold text-white-bg text-justify">
-              One in Six children and adolescents (ages 2-19) are overweight. Globally, over one billion people live with obesity, including nearly 880 million adults and 159 million youths.
+              One in Six children and adolescents (ages 2-19) are overweight.
+              Globally, over one billion people live with obesity, including
+              nearly 880 million adults and 159 million youths.
             </p>
           </div>
         </div>
