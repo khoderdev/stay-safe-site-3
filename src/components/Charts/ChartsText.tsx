@@ -27,7 +27,7 @@ function ChartsText() {
   };
 
   return (
-    <div className="flex flex-col sm:flex sm:flex-row h-full justify-center dark:text-white-bg2 p-4 py-20 md:py-10 md:pt-20">
+    <div className="flex flex-col md:flex md:flex-row h-full justify-center dark:text-white-bg2 md:space-x-8 p-4 md:px-20 py-20 md:py-10 md:pt-20">
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -53,7 +53,7 @@ function ChartsText() {
         variants={itemVariants}
         initial="hidden"
         animate="visible"
-        className="text-lg md:text-2xl w-full mt-8"
+        className="text-lg md:text-2xl w-full mt-8 md:mt-0"
       >
         We’re dedicated to helping you prevent diseases and manage your health,
         no matter where you are in your journey. We know the challenges you
