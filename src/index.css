@@ -10,7 +10,11 @@
   font-display: swap !important;
 }
 
-
+/* .custom-tooltip {
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 14px;
+} */
 
 .no-scroll {
   overflow: hidden;

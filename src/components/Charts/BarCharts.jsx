@@ -1,12 +1,24 @@
 import React from "react";
+import { Bar } from "react-chartjs-2";
 import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
   Tooltip,
-  ResponsiveContainer,
-} from "recharts";
+  Legend,
+} from "chart.js";
+
+// Register Chart.js components
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 const data = [
   { name: "Ischaemic Heart Disease", deaths: 9.1 },
@@ -21,31 +33,61 @@ const data = [
   { name: "Tuberculosis", deaths: 1.25 },
 ];
 
+// Prepare data for Chart.js
+const chartData = {
+  labels: data.map((item) => item.name),
+  datasets: [
+    {
+      label: "Deaths (Million)",
+      data: data.map((item) => item.deaths),
+      backgroundColor: "#e55e72",
+      borderRadius: 10, // Rounded corners for bars
+    },
+  ],
+};
+
+// Custom Tooltip
+const customTooltip = {
+  callbacks: {
+    title: (context) => {
+      return context[0].label;
+    },
+    label: (context) => {
+      const deaths = context.raw;
+      return `Deaths: ${deaths} Million`;
+    },
+  },
+  bodyFont: {
+    size: 14, // Base font size for tooltips
+  },
+  titleFont: {
+    size: 16, // Base font size for tooltip titles
+  },
+};
+
+const options = {
+  responsive: true,
+  maintainAspectRatio: false, // Allow chart to resize dynamically
+  plugins: {
+    tooltip: customTooltip,
+    legend: {
+      display: false, // Hide legend
+    },
+  },
+  scales: {
+    x: {
+      display: false, // Hide X-axis labels
+    },
+    y: {
+      display: false, // Hide Y-axis labels
+    },
+  },
+};
+
 const BarCharts = () => {
   return (
-    <div className="chart-container w-full flex flex-col p-8">
-      <div className=" rounded-lg p-4 mb-8 bg-white shadow-lg">
-        <div className="flex flex-wrap md:flex-nowrap w-full">
-          <div className="flex flex-wrap md:flex-nowrap w-full">
-            <ResponsiveContainer width="100%" height={400}>
-              <BarChart data={data}>
-                <XAxis dataKey="name" interval={0} tick={false} stroke="none" />
-                <YAxis stroke="none" />
-                <Tooltip
-                  formatter={(value) => `${value} M`}
-                  labelFormatter={(label) => `Deaths from ${label}`}
-                />
-                <Bar
-                  dataKey="deaths"
-                  fill="#e55e72"
-                  barSize={55}
-                  radius={[10, 10, 0, 0]}
-                />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-        </div>
-      </div>
+    <div className="w-full h-[400px] md:h-[500px] px-4 md:px-20">
+      <Bar data={chartData} options={options} />
     </div>
   );
 };
