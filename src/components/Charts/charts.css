@@ -1,28 +1,6 @@
-.apexcharts-xaxis-label {
-  white-space: normal;
-  text-align: center;
-  display: block;
-  font-size: clamp(0.75rem, 2vw, 0.875rem);
-  line-height: 1.2;
-  padding: 0.25rem;
-  transition: all 0.2s ease;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  hyphens: auto;
-  max-width: 120px;
-  margin: 0 auto;
-}
-
-@media screen and (max-width: 768px) {
-  .apexcharts-xaxis-label {
-    font-size: clamp(0.625rem, 1.5vw, 0.75rem);
-    max-width: 90px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .apexcharts-xaxis-label {
-    font-size: clamp(0.5rem, 1vw, 0.625rem);
-    max-width: 70px;
-  }
+.custom-tooltip {
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
