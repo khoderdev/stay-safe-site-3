@@ -30,38 +30,38 @@ function Balloon({ isInView }) {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{
-                duration: 0.5,
-                delay: 0.2,
-                ease: [0.6, -0.05, 0.01, 1],
-              }}
-            >
-              You are not alone
-            </motion.span>
-
-            <motion.span
-              className="block mb-4"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.5,
-                delay: 0.5,
-                ease: [0.6, -0.05, 0.01, 1],
-              }}
-            >
-              300 million people experience depression.
-            </motion.span>
-
-            <motion.span
-              className="block mb-4"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
                 duration: 1.2,
                 delay: 0.5,
                 ease: [0.6, -0.05, 0.01, 1],
               }}
             >
               Your Mental Health Matters.
+            </motion.span>
+            <motion.span
+              className="block mb-4 text-5xl"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.5,
+                delay: 0.2,
+                ease: [0.6, -0.05, 0.01, 1],
+              }}
+            >
+              You are Not Alone 300 Million <br/>People Experience Depression.
+            </motion.span>
+
+            <motion.span
+              className="block mb-4 text-5xl"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.5,
+                delay: 0.5,
+                ease: [0.6, -0.05, 0.01, 1],
+              }}
+            >
+             
+              <span className=""> </span>
             </motion.span>
           </motion.p>
         </div>
