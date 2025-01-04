@@ -4,25 +4,24 @@ import Splitting from "splitting";
 import "splitting/dist/splitting.css";
 import "splitting/dist/splitting-cells.css";
 import Button from "../buttons/Button";
+import CircularText from "./CircularText";
 
 const OnScrollComponent = () => {
   const [showButton, setShowButton] = useState(false);
-  const titlesRef = useRef(null); // Single ref for the title
-  const circleRef = useRef(null); // Reference for the circle
-  const buttonRef = useRef(null); // Reference for the button
+  const [showCircleText, setShowCircleText] = useState(false); // New state for CircularText
+  const titlesRef = useRef(null);
+  const circleRef = useRef(null);
+  const buttonRef = useRef(null);
 
   useEffect(() => {
-    // Initialize Splitting.js
     Splitting({ by: "words", target: titlesRef.current });
 
-    // Intersection Observer
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             console.log("Intersection observed");
 
-            // Animate title words
             const words = titlesRef.current.querySelectorAll(".word");
             gsap.fromTo(
               words,
@@ -32,19 +31,20 @@ const OnScrollComponent = () => {
                 y: 0,
                 stagger: 0.1,
                 onComplete: () => {
-                  // Hide title and show circle
                   gsap.to(titlesRef.current, {
                     opacity: 0,
                     duration: 1,
                     onComplete: () => {
-                      // Show circle
+                      // Set showCircleText to true after titles disappear
+                      setShowCircleText(true);
+                      // Show and animate circle
                       gsap.fromTo(
                         circleRef.current,
                         { opacity: 0, scale: 0 },
                         {
                           opacity: 1,
                           scale: 1,
-                          duration: 1,
+                          duration: 1.2,
                           onComplete: () => {
                             setShowButton(true);
                           },
@@ -73,16 +73,22 @@ const OnScrollComponent = () => {
   return (
     <div className="flex flex-col items-center relative min-h-screen justify-center">
       {/* Circle - Hidden by default */}
-      <img
-        src="/prev-circle.gif"
-        alt="dx prevention"
-        ref={circleRef}
-        className="opacity-0 scale-0 transform" // Apply transform for smoother animation
-      />
+      {showCircleText && <CircularText ref={circleRef} />}
 
+      {/* Button - Appears after circle animation */}
+      {showButton && (
+        <Button
+          ref={buttonRef}
+          aria-label="Show details"
+          customStyles="btn-3 mt-10"
+          onClick={() => console.log("Button clicked")}
+        >
+          Let's Show You How
+        </Button>
+      )}
       {/* Diseases Text - Visible initially */}
       <p
-        className="animated__content text-center text-sm text-black dark:text-white-bg max-w-4xl mx-auto px-4"
+        className="animated__content text-center md:text-[2rem] text-black dark:text-white-bg max-w-4xl mx-auto px-4"
         data-splitting
         ref={titlesRef}
         aria-label="List of health conditions"
@@ -102,18 +108,6 @@ const OnScrollComponent = () => {
         Colon Cancer Skin Cancer Hand-Arm Vibratioia Mesothelioma Mpox <br />
         Brucellosis Measles Occupational Coronary Artery Disease MERS Polio
       </p>
-
-      {/* Button - Appears after circle animation */}
-      {showButton && (
-        <Button
-          ref={buttonRef}
-          aria-label="Show details"
-          customStyles="btn-3 hover:scale-105 transition-transform duration-300"
-          onClick={() => console.log("Button clicked")} // Add an onClick handler
-        >
-          Let's Show You How
-        </Button>
-      )}
     </div>
   );
 };
