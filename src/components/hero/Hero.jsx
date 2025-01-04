@@ -97,7 +97,7 @@ const Hero = () => {
 							Things Around
 						</motion.span>
 					</motion.h1>
-					<Link to={'./volenteering'} className='btn-1 text-white-whites !p-4 place-self-center'>
+					<Link to={'./volunteer/register'} className='btn-1 text-white-whites !p-4 place-self-center'>
 						Join Our Team
 					</Link>
 				</motion.div>
