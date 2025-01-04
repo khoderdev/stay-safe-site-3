@@ -12,9 +12,10 @@ const CircularText = lazy(() =>
 );
 
 
-const OnScrollComponent = () => {
+const DXPrevention = () => {
   const [showButton, setShowButton] = useState(false);
   const [showCircleText, setShowCircleText] = useState(false); // New state for CircularText
+  const [showDiseasesText, setShowDiseasesText] = useState(true); // New state for diseases text
   const titlesRef = useRef(null);
   const circleRef = useRef(null);
   const buttonRef = useRef(null);
@@ -41,7 +42,7 @@ const OnScrollComponent = () => {
                     opacity: 0,
                     duration: 1,
                     onComplete: () => {
-                      // Set showCircleText to true after titles disappear
+                      setShowDiseasesText(false); // Hide diseases text after animation
                       setShowCircleText(true);
                       // Show and animate circle
                       gsap.fromTo(
@@ -93,29 +94,31 @@ const OnScrollComponent = () => {
         </Button>
       )}
       {/* Diseases Text - Visible initially */}
-      <p
-        className="animated__content text-center md:text-[2rem] text-black dark:text-white-bg max-w-4xl mx-auto px-4"
-        data-splitting
-        ref={titlesRef}
-        aria-label="List of health conditions"
-      >
-        Obesity <br />
-        Type 2 Diabetes <br />
-        Anthrax Cervical Cancer <br />
-        Hypertension Lung Cancer <br />
-        Malaria Metabolic Syndrome <br />
-        STI Rabies Chronic Heart Disease <br />
-        HIV HPV COPD Bladder Cancer Cholera <br />
-        Work-Related Musculoskeletal Diseases <br />
-        High Cholesterol Slips & Lapses COVID-19 Asthma <br />
-        Food Poisoning Mumps n Syndrome <br />
-        Tuberculosis Chlamydia Sleep Apnea DiphtherInfluenza Hearing Loss
-        Hepatitis <br />
-        Colon Cancer Skin Cancer Hand-Arm Vibratioia Mesothelioma Mpox <br />
-        Brucellosis Measles Occupational Coronary Artery Disease MERS Polio
-      </p>
+      {showDiseasesText && (  // Conditional rendering for diseases text
+        <p
+          className="animated__content text-center md:text-[2rem] text-black dark:text-white-bg max-w-4xl mx-auto px-4"
+          data-splitting
+          ref={titlesRef}
+          aria-label="List of health conditions"
+        >
+          Obesity <br />
+          Type 2 Diabetes <br />
+          Anthrax Cervical Cancer <br />
+          Hypertension Lung Cancer <br />
+          Malaria Metabolic Syndrome <br />
+          STI Rabies Chronic Heart Disease <br />
+          HIV HPV COPD Bladder Cancer Cholera <br />
+          Work-Related Musculoskeletal Diseases <br />
+          High Cholesterol Slips & Lapses COVID-19 Asthma <br />
+          Food Poisoning Mumps n Syndrome <br />
+          Tuberculosis Chlamydia Sleep Apnea DiphtherInfluenza Hearing Loss
+          Hepatitis <br />
+          Colon Cancer Skin Cancer Hand-Arm Vibratioia Mesothelioma Mpox <br />
+          Brucellosis Measles Occupational Coronary Artery Disease MERS Polio
+        </p>
+      )}
     </div>
   );
 };
 
-export default OnScrollComponent;
+export default DXPrevention;
