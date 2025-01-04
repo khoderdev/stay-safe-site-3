@@ -1,7 +1,7 @@
 .circular-text {
 	position: relative;
-	width: 300px;
-	height: 300px;
+	width: 400px;
+	height: 400px;
 	border-radius: 50%;
 	display: flex;
 	justify-content: center;
@@ -16,7 +16,8 @@
 	position: absolute;
 	top: 0%;
 	left: 50%;
-	transform-origin: 0 150px; /* Keeps the letters upright */
-	font-size: 30px;
-	font-weight: bold;
+	/* Keeps the letters upright */
+	transform-origin: 0 200px; 
+	font-size: 40px;
+	font-weight: 500;
 }
