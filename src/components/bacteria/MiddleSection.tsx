@@ -84,7 +84,7 @@ const MiddleSection: React.FC = React.memo(() => {
   );
 
   return (
-    <motion.div className=" relative flex flex-col select-none bg-white-fg dark:bg-black">
+    <motion.div className=" relative flex flex-col select-none">
       <motion.div>
         <motion.div
           className=" dark:text-white-bg2"

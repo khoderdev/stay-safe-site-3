@@ -1,13 +1,12 @@
 import React, { useState, lazy } from "react";
-import Modal from "../components/modals/Modal";
-import PHQ9Quiz from "../components/depressing-screening/PHQ9";
-import SearchPharmacies from "../components/pharmacies/SearchPharmacies";
-import STOPBang from "../components/calculator/stop-bang/StopBang";
-import Titles from "../components/calculator/stop-bang/Titles";
-import STIQuiz from "../components/calculator/STI/STIQuiz";
-// import "../components/calculator/STI/STI.css";
 import { motion } from "framer-motion";
 
+const Modal = lazy(() => import("../components/modals/Modal"));
+const PHQ9Quiz = lazy(() => import("../components/depressing-screening/PHQ9"));
+const SearchPharmacies = lazy(() => import("../components/pharmacies/SearchPharmacies"));
+const STOPBang = lazy(() => import("../components/calculator/stop-bang/StopBang"));
+const Titles = lazy(() => import("../components/calculator/stop-bang/Titles"));
+const STIQuiz = lazy(() => import("../components/calculator/STI/STIQuiz"));
 const BarCharts = lazy(() => import("../components/Charts/BarCharts"));
 const ChartsText = lazy(() => import("../components/Charts/ChartsText"));
 

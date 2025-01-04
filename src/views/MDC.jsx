@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy } from "react";
 import { columns } from "../components/Table/columns";
 
 // Lazy load components
