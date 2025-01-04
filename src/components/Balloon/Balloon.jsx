@@ -1,7 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, lazy } from "react";
 import { motion } from "framer-motion";
-import Modal from "../../components/modals/Modal";
-import PHQ9Quiz from "../../components/depressing-screening/PHQ9";
+
+const Modal = lazy(() =>
+  import("../../components/modals/Modal")
+);
+const PHQ9Quiz = lazy(() =>
+  import("../../components/depressing-screening/PHQ9")
+);
 
 function Balloon({ isInView }) {
   const [isPHQ9ModalOpen, setIsPHQ9ModalOpen] = useState(false);

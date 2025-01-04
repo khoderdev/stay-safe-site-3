@@ -1,10 +1,11 @@
-import { useState } from 'react';
-import SpringModal from '../modals/SpringModal';
-import Clinic from './cards/ClinicConsultation';
-import InHouse from './cards/InHouseConsultation';
-import Online from './cards/OnlineConsultation';
-import Corporate from './cards/CorporateTherapeuticServices';
-import Community from './cards/CommunityTherapeuticServices';
+import { useState, lazy } from 'react';
+
+const SpringModal = lazy(() => import('../modals/SpringModal'));
+const Clinic = lazy(() => import('./cards/ClinicConsultation'));
+const InHouse = lazy(() => import('./cards/InHouseConsultation'));
+const Online = lazy(() => import('./cards/OnlineConsultation'));
+const Corporate = lazy(() => import('./cards/CorporateTherapeuticServices'));
+const Community = lazy(() => import('./cards/CommunityTherapeuticServices'));
 
 function Consultations() {
 	const [modalOpen, setModalOpen] = useState(false);

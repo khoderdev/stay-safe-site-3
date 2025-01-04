@@ -4,7 +4,7 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import { useAppointment } from '../../../context/AppointmentContext';
-import { format, addDays, setHours, setMinutes, parseISO } from 'date-fns';
+import { format, addDays, setHours } from 'date-fns';
 import './Calendar.css';
 
 const Calendar = () => {

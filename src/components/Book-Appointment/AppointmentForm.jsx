@@ -1,18 +1,47 @@
-import { useState, useContext } from "react";
-import Stepper from "./Stepper";
-import PersonalInfo from "./PatientAssessmentForm/PersonalInfo";
-import MedicalAssessment from "./PatientAssessmentForm/MedicalAssessment";
-import PhysicalActivityAssessment from "./PatientAssessmentForm/PhysicalActivityAssessment";
-import PsychologicalAssessment from "./PatientAssessmentForm/PsychologicalAssessment";
-import DietaryAssessment from "./PatientAssessmentForm/DietaryAssessment";
-import PrecedentTreatmentAssessment from "./PatientAssessmentForm/PrecedentTreatmentAssessment";
-import Goals from "./PatientAssessmentForm/Goals";
-import Calendar from "./PatientAssessmentForm/Calendar";
+import { useState, useContext, lazy } from "react";
 import { createAppointment } from "../../services/api";
 import { AppointmentProvider, useAppointment } from "../../context/AppointmentContext";
 import { addAppointment, updateAppointment } from "../../services/indexedDB";
 import AuthContext from "../../hooks/authContext";
 import { ArrowLeft } from "../icons/Icons";
+
+
+const Stepper = lazy(() =>
+  import("./Stepper")
+);
+
+const PersonalInfo = lazy(() =>
+  import("./PatientAssessmentForm/PersonalInfo")
+);
+
+const MedicalAssessment = lazy(() =>
+  import("./PatientAssessmentForm/MedicalAssessment")
+);
+
+const PhysicalActivityAssessment = lazy(() =>
+  import("./PatientAssessmentForm/PhysicalActivityAssessment")
+);
+
+const PsychologicalAssessment = lazy(() =>
+  import("./PatientAssessmentForm/PsychologicalAssessment")
+);
+
+const DietaryAssessment = lazy(() =>
+  import("./PatientAssessmentForm/DietaryAssessment")
+);
+
+const PrecedentTreatmentAssessment = lazy(() =>
+  import("./PatientAssessmentForm/PrecedentTreatmentAssessment")
+);
+
+const Goals = lazy(() =>
+  import("./PatientAssessmentForm/Goals")
+);
+
+const Calendar = lazy(() =>
+  import("./PatientAssessmentForm/Calendar")
+);
+
 
 const AppointmentFormContent = () => {
   const { appointmentDetails, clearAppointment } = useAppointment();

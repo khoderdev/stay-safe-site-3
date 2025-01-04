@@ -56,7 +56,7 @@ function PersonalInfo({ formData, setFormData, nextStep }) {
 
   return (
     <form onSubmit={handleSubmit} className="">
-      <h2 className='text-center font-semibold mb-2 text-2xl mb-6'>Personal Info</h2>
+      <h2 className='text-center font-semibold text-2xl mb-6'>Personal Info</h2>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
         <div className="flex flex-col p-4">
           <label className="font-semibold mb-2">Email</label>

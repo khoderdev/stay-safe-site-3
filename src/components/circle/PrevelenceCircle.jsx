@@ -1,9 +1,9 @@
-
-import React, {  useEffect } from "react";
+import React, { useEffect, lazy } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
-import SmallCircle from "./SmallCircle";
 import { Text } from "./images";
 import CTA from "./CTA";
+
+const SmallCircle = lazy(() => import("./SmallCircle"));
 
 function PrevelenceCircle() {
   const { scrollY } = useScroll();
