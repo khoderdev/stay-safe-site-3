@@ -19,7 +19,7 @@ const Stepper = ({
 			<div>{children[currentStep]}</div>
 
 			{/* Navigation Buttons */}
-			<div className='flex justify-between mt-6'>
+			<div className='flex justify-center space-x-16 mt-6'>
 				<button
 					onClick={prevStep}
 					disabled={currentStep === 0}
@@ -38,7 +38,7 @@ const Stepper = ({
 				) : (
 					<button
 						onClick={nextStep}
-						className='px-4 py-2 rounded bg-blue-500 text-white hover:bg-blue-600'
+						className='px-4 py-2 rounded bg-pink text-white-bg hover:bg-[#e55e80]'
 					>
 						Next
 					</button>
