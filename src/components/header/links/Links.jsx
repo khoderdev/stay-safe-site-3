@@ -7,9 +7,10 @@ import "./links.css";
 const menuItems = [
   { text: "Home", route: "/" },
   {
-    text: "Preventive Health & Patient Services",
-    route: "/preventive-health-patient-services",
+    text: "Preventive Health",
+    // route: "/preventive-health-patient-services",
     submenu: [
+      { text: "Patient Services", route: "/preventive-health-patient-services" },
       { text: "Medical Dietary Clinic", route: "/mdc" },
       { text: "Vitrack", route: "/vitrack" },
     ],
