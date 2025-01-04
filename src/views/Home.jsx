@@ -43,7 +43,7 @@ const Home = React.memo(() => {
       <div className="">
         <Balloon />
       </div>
-      <div className="">
+      <div className="bg-gray-900">
         <DXPrevention />
       </div>
 

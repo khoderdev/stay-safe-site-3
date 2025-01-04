@@ -20,7 +20,7 @@ const CircularText = forwardRef((props, ref) => {
       {textArray.map((char, index) => (
         <span
           key={index}
-          className="char text-pink"
+          className="char text-[2rem] text-pink"
           style={{ transform: `rotate(${index * (360 / textArray.length)}deg)` }}
         >
           {char}
