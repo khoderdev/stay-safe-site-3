@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect, lazy } from "react";
 
 const PackYearsCalculator = lazy(() =>
-  import("../components/calculator/index")
+  import("../components/calculator/Text.tsx")
 );
 const Hero = lazy(() =>
   import("../components/hero/Hero")
@@ -50,7 +50,7 @@ const Home = React.memo(() => {
         <DXPrevention />
       </div>
 
-      <div className="p-4">
+      <div className="p-4 section">
         <PackYearsCalculator />
       </div>
 

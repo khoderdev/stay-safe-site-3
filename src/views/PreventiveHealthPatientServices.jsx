@@ -9,6 +9,7 @@ const Titles = lazy(() => import("../components/calculator/stop-bang/Titles"));
 const STIQuiz = lazy(() => import("../components/calculator/STI/STIQuiz"));
 const BarCharts = lazy(() => import("../components/Charts/BarCharts"));
 const ChartsText = lazy(() => import("../components/Charts/ChartsText"));
+const PackYearsCalculator = lazy(() => import("../components/calculator/index"));
 
 function PreventiveHealthPatientServicesPage() {
   const [isPHQ9ModalOpen, setIsPHQ9ModalOpen] = useState(false);
@@ -30,15 +31,19 @@ function PreventiveHealthPatientServicesPage() {
   return (
     <>
       <div className="relative h-screen bg-white-bg dark:bg-black ">
-        {/* <div className="sticky top-0 flex flex-col items-center justify-start bg-white-bg dark:bg-black z-10"> */}
         <div className="animate-fade-in">
           <ChartsText />
         </div>
-        {/* </div> */}
 
         <div className="bg-white-bg dark:bg-black">
         <BarCharts />
         </div>
+
+        <div className="flex flex-col !justify-items-center md:px-10 md:py-28 bg-white-bg dark:bg-black">
+          <h1 className="text-9xl font-bold mb-4 ml-4">iScreen</h1>
+        <PackYearsCalculator />
+        </div>
+
         <div className="h-screen flex flex-col items-center justify-start pt-28 bg-white-bg dark:bg-black">
           <h1 className="text-6xl font-semibold leading-tight dark:text-white-bg2 flex flex-col px-6 mb-1">
             Your Mental Health Matters

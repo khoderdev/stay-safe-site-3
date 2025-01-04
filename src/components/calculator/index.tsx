@@ -1,18 +1,18 @@
-import { useState, useEffect, useRef } from 'react';
-import useScreeningMessages from './useScreeningMessages';
-import { inputStyles, selectStyles } from '../../utils/styles';
-import { motion, useAnimation } from 'framer-motion';
-import Form from './Form';
-import './calculator.css';
-import React from 'react';
-import { PackYearsCalculatorProps } from '../../utils/types';
+import { useState, useEffect, useRef } from "react";
+import useScreeningMessages from "./useScreeningMessages";
+import { inputStyles, selectStyles } from "../../utils/styles";
+import { motion, useAnimation } from "framer-motion";
+import Form from "./Form";
+import "./calculator.css";
+import React from "react";
+import { PackYearsCalculatorProps } from "../../utils/types";
 
 const PackYearsCalculator: React.FC<PackYearsCalculatorProps> = () => {
-  const [age, setAge] = useState<string>('');
-  const [gender, setGender] = useState<string>('');
+  const [age, setAge] = useState<string>("");
+  const [gender, setGender] = useState<string>("");
   const [smoker, setSmoker] = useState<boolean>(false);
   const [packsPerDay, setPacksPerDay] = useState<number>(0);
-  const [yearsSmoked, setYearsSmoked] = useState<string>('');
+  const [yearsSmoked, setYearsSmoked] = useState<string>("");
   const [result, setResult] = useState<string | null>(null);
   const controls = useAnimation();
   const ref = useRef<HTMLDivElement | null>(null);
@@ -30,7 +30,7 @@ const PackYearsCalculator: React.FC<PackYearsCalculatorProps> = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { type: 'spring', stiffness: 100 },
+      transition: { type: "spring", stiffness: 100 },
     },
   };
 
@@ -47,9 +47,9 @@ const PackYearsCalculator: React.FC<PackYearsCalculatorProps> = () => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          controls.start('visible');
+          controls.start("visible");
         } else {
-          controls.start('hidden');
+          controls.start("hidden");
         }
       },
       { threshold: 0.5 }
@@ -88,16 +88,16 @@ const PackYearsCalculator: React.FC<PackYearsCalculatorProps> = () => {
     setValue: React.Dispatch<React.SetStateAction<string>>
   ) => {
     const value = e.target.value;
-    if (value === '' || parseInt(value, 10) > 0) {
+    if (value === "" || parseInt(value, 10) > 0) {
       setValue(value);
     }
   };
 
   const resetForm = () => {
-    setGender('');
+    setGender("");
     setSmoker(false);
     setPacksPerDay(0);
-    setYearsSmoked('');
+    setYearsSmoked("");
     setResult(null); // Reset result to null
   };
 
@@ -106,9 +106,9 @@ const PackYearsCalculator: React.FC<PackYearsCalculatorProps> = () => {
     const ageNum = parseInt(value, 10);
 
     // Allow clearing the input
-    if (value === '') {
+    if (value === "") {
       resetForm();
-      setAge('');
+      setAge("");
       return;
     }
 
@@ -135,7 +135,7 @@ const PackYearsCalculator: React.FC<PackYearsCalculatorProps> = () => {
     setPacksPerDay(value);
   };
 
-  const resetScreeningMessages = () => { };
+  const resetScreeningMessages = () => {};
 
   const handleYearsSmokedChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     handleNumberInputChange(e, setYearsSmoked);
@@ -169,15 +169,17 @@ const PackYearsCalculator: React.FC<PackYearsCalculatorProps> = () => {
   return (
     <div
       onWheel={handleWheel}
-      className='col-span-2 flex flex-col items-stretch py-4 sm:p-6 w-full h-full text-black dark:text-white-bg text-sm overflow-y-hidden gap-4'
+      className="col-span-2 flex flex-col items-stretch py-4 sm:p-6 w-full h-full text-black dark:text-white-bg text-sm overflow-y-hidden gap-4"
     >
-      <div className='col-span-1 md:col-span-2'>
-        <h1 className='title flex flex-col gap-y-3 text-left text-2xl mb-2'>
-          <span className='text-5xl leading-tight'>Why wait until it's too late?</span>
+      {/* <div className="col-span-1 md:col-span-2">
+        <h1 className="title flex flex-col gap-y-3 text-left text-2xl mb-2">
+          <span className="text-5xl leading-tight">
+            Why wait until it's too late?
+          </span>
           Get the screening you need!
         </h1>
-      </div>
-      <div className='col-span-1 flex flex-col md:flex-row w-full gap-4'>
+      </div> */}
+      <div className="col-span-1 flex flex-col md:flex-row w-full gap-4">
         <Form
           age={age}
           handleAgeChange={handleAgeChange}
@@ -194,7 +196,7 @@ const PackYearsCalculator: React.FC<PackYearsCalculatorProps> = () => {
           selectStyles={selectStyles}
           result={result}
         />
-        <div className='md:w-[50%] w-full h-full grid grid-cols-1 justify-content-center drop-shadow-md custom-scrollbar'>
+        <div className="md:w-[50%] w-full h-full grid grid-cols-1 justify-content-center drop-shadow-md custom-scrollbar">
           {/* Remove gender message if age warning is displayed */}
           {!gender &&
             !smoker &&
@@ -202,16 +204,16 @@ const PackYearsCalculator: React.FC<PackYearsCalculatorProps> = () => {
             !yearsSmoked &&
             Number(age) >= 20 &&
             Number(age) <= 75 && (
-              <div className='flex items-center justify-center h-full'>
-                <p className='text-gray-500'>Choose your Gender to continue.</p>
+              <div className="flex items-center justify-center h-full">
+                <p className="text-gray-500">Choose your Gender to continue.</p>
               </div>
             )}
 
           {/* Display warning if age is out of valid range */}
           {(Number(age) < 20 || Number(age) > 75) && (
-            <div className='flex items-start justify-center pt-12 h-full'>
-              <p className='text-gray-500 text-md md:text-xl'>
-                These recommendations apply to otherwise healthy <br />{' '}
+            <div className="flex items-start justify-center pt-12 h-full">
+              <p className="text-gray-500 text-md md:text-xl">
+                These recommendations apply to otherwise healthy <br />{" "}
                 individuals between the ages of 20 and 75.
               </p>
             </div>
@@ -222,17 +224,17 @@ const PackYearsCalculator: React.FC<PackYearsCalculatorProps> = () => {
             <>
               {/* Monthly Screening Messages */}
               {monthlyScreening.length > 0 && (
-                <div className='p-4 mb-4 rounded bg-white-bg dark:bg-[#191A19]'>
-                  <h2 className='text-lg mb-2'>Monthly</h2>
-                  <div className='grid grid-cols-2 gap-4'>
+                <div className="p-4 mb-4 rounded bg-white-bg dark:bg-[#191A19]">
+                  <h2 className="text-lg mb-2">Monthly</h2>
+                  <div className="grid grid-cols-2 gap-4">
                     {monthlyScreening.map((message, index) => (
                       <motion.div
                         key={index}
-                        className='flex items-center justify-center bg-white-fg dark:bg-[#000] p-2 rounded text-sm'
-                        transition={{ type: 'spring', stiffness: 100 }}
+                        className="flex items-center justify-center bg-white-fg dark:bg-[#000] p-2 rounded text-sm"
+                        transition={{ type: "spring", stiffness: 100 }}
                         variants={wordVariants}
-                        initial='hidden'
-                        whileInView='visible'
+                        initial="hidden"
+                        whileInView="visible"
                         custom={index + 1}
                         viewport={{ once: false }}
                         exit={{ opacity: 0, y: -10 }}
@@ -245,17 +247,17 @@ const PackYearsCalculator: React.FC<PackYearsCalculatorProps> = () => {
               )}
               {/* Yearly Screening Messages */}
               {yearlyScreening.length > 0 && (
-                <div className='p-4 mb-4 rounded bg-white-bg dark:bg-[#191A19]'>
-                  <h2 className='text-lg mb-2'>Yearly</h2>
-                  <div className='grid grid-cols-2 gap-4'>
+                <div className="p-4 mb-4 rounded bg-white-bg dark:bg-[#191A19]">
+                  <h2 className="text-lg mb-2">Yearly</h2>
+                  <div className="grid grid-cols-2 gap-4">
                     {yearlyScreening.map((message, index) => (
                       <motion.div
                         key={index}
-                        className='flex items-center justify-center bg-white-fg dark:bg-[#000] p-2 rounded text-sm'
-                        transition={{ type: 'spring', stiffness: 100 }}
+                        className="flex items-center justify-center bg-white-fg dark:bg-[#000] p-2 rounded text-sm"
+                        transition={{ type: "spring", stiffness: 100 }}
                         variants={wordVariants}
-                        initial='hidden'
-                        whileInView='visible'
+                        initial="hidden"
+                        whileInView="visible"
                         custom={index + 1}
                         viewport={{ once: false }}
                         exit={{ opacity: 0, y: -10 }}
@@ -268,17 +270,17 @@ const PackYearsCalculator: React.FC<PackYearsCalculatorProps> = () => {
               )}
               {/* Once A Year Screening Messages */}
               {onceAYear.length > 0 && (
-                <div className='p-4 mb-4 rounded bg-white-bg dark:bg-[#191A19]'>
-                  <h2 className='text-lg mb-2'>Once A Year</h2>
-                  <div className='grid grid-cols-2 gap-4'>
+                <div className="p-4 mb-4 rounded bg-white-bg dark:bg-[#191A19]">
+                  <h2 className="text-lg mb-2">Once A Year</h2>
+                  <div className="grid grid-cols-2 gap-4">
                     {onceAYear.map((message, index) => (
                       <motion.div
                         key={index}
-                        className='flex items-center justify-center bg-white-fg dark:bg-[#000] p-2 rounded text-sm'
-                        transition={{ type: 'spring', stiffness: 100 }}
+                        className="flex items-center justify-center bg-white-fg dark:bg-[#000] p-2 rounded text-sm"
+                        transition={{ type: "spring", stiffness: 100 }}
                         variants={wordVariants}
-                        initial='hidden'
-                        whileInView='visible'
+                        initial="hidden"
+                        whileInView="visible"
                         custom={index + 1}
                         viewport={{ once: false }}
                         exit={{ opacity: 0, y: -10 }}
@@ -291,17 +293,17 @@ const PackYearsCalculator: React.FC<PackYearsCalculatorProps> = () => {
               )}
               {/* Other Screening Messages */}
               {otherScreening.length > 0 && (
-                <div className='p-4 mb-4 rounded bg-white-bg dark:bg-[#191A19]'>
-                  <h2 className='text-lg mb-2'>Other</h2>
-                  <div className='grid grid-cols-2 gap-4'>
+                <div className="p-4 mb-4 rounded bg-white-bg dark:bg-[#191A19]">
+                  <h2 className="text-lg mb-2">Other</h2>
+                  <div className="grid grid-cols-2 gap-4">
                     {otherScreening.map((message, index) => (
                       <motion.div
                         key={index}
-                        className='flex items-center justify-center bg-white-fg dark:bg-[#000] p-2 rounded text-sm'
-                        transition={{ type: 'spring', stiffness: 100 }}
+                        className="flex items-center justify-center bg-white-fg dark:bg-[#000] p-2 rounded text-sm"
+                        transition={{ type: "spring", stiffness: 100 }}
                         variants={wordVariants}
-                        initial='hidden'
-                        whileInView='visible'
+                        initial="hidden"
+                        whileInView="visible"
                         custom={index + 1}
                         viewport={{ once: false }}
                         exit={{ opacity: 0, y: -10 }}
