@@ -38,28 +38,28 @@ const Home = React.memo(() => {
   }, []);
 
   return (
-    <div className="relative">
+    <div className="relative bg-white-bg dark:bg-black">
       {/* Sticky Hero Section */}
-      <div className="bg-white-bg dark:bg-black">
+      <div className="">
         <Balloon />
       </div>
-      <div className="bg-white-bg dark:bg-black">
+      <div className="">
         <DXPrevention />
       </div>
 
-      <div className="p-4 bg-white-bg dark:bg-black">
+      <div className="p-4">
         <PackYearsCalculator />
       </div>
 
-      <div className="bg-gray-200 dark:bg-black">
+      <div className="bg-gray-200">
         <PrevelenceCircle />
       </div>
 
-      <div className="py-32 bg-white-bg dark:bg-black">
+      <div className="py-32">
         <HandMonster />
       </div>
 
-      <div className="bg-white-bg dark:bg-black">
+      <div className="">
         <Bacteria />
       </div>
     </div>

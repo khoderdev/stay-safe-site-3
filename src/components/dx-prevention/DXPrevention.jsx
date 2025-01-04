@@ -1,177 +1,121 @@
-import { useRef, useState } from "react";
-import { motion, AnimatePresence, useInView } from "framer-motion";
-import Button from "../buttons/Button";
-import CircularText from "./Circle";
+import React, { useEffect, useRef, useState,lazy} from "react";
+import { gsap } from "gsap";
+import Splitting from "splitting";
+import "splitting/dist/splitting.css";
+import "splitting/dist/splitting-cells.css";
 
-const DXPrevention = () => {
+const Button = lazy(() =>
+  import("../buttons/Button")
+);
+const CircularText = lazy(() =>
+  import("./CircularText")
+);
+
+
+const OnScrollComponent = () => {
   const [showButton, setShowButton] = useState(false);
-  const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { once: true, amount: 0.3 });
+  const [showCircleText, setShowCircleText] = useState(false); // New state for CircularText
+  const titlesRef = useRef(null);
+  const circleRef = useRef(null);
+  const buttonRef = useRef(null);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { duration: 0.5 },
-    },
-  };
+  useEffect(() => {
+    Splitting({ by: "words", target: titlesRef.current });
 
-  const listVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.08,
-        delayChildren: 0.2,
-      },
-    },
-    exit: {
-      opacity: 0,
-      y: -20,
-      transition: { duration: 0.3 },
-    },
-  };
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            console.log("Intersection observed");
 
-  const itemVariants = {
-    hidden: {
-      opacity: 0,
-      y: 20,
-      z: 100,
-      rotateX: -45,
-      rotateY: -45,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      z: 0,
-      rotateX: 0,
-      rotateY: 0,
-      transition: {
-        type: "spring",
-        stiffness: 200,
-        damping: 20,
-      },
-    },
-  };
-
-  const buttonVariants = {
-    hidden: {
-      opacity: 0,
-      scale: 0.5,
-      y: 30,
-    },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        stiffness: 400,
-        damping: 25,
-      },
-    },
-  };
-
-  const diseases = [
-    "Obesity",
-    "Type 2 Diabetes",
-    "Anthrax Cervical Cancer",
-    "Hypertension Lung Cancer",
-    "Malaria Metabolic Syndrome",
-    "STI Rabies Chronic Heart Disease",
-    "HIV HPV COPD Bladder Cancer Cholera",
-    "Work-Related Musculoskeletal Diseases",
-    "High Cholesterol Slips & Lapses COVID-19 Asthma",
-    "Food Poisoning Mumps Syndrome",
-    "Tuberculosis Chlamydia Sleep Apnea Diphtheria Influenza Hearing Loss Hepatitis",
-    "Colon Cancer Skin Cancer Hand-Arm Vibration Mesothelioma Mpox",
-    "Brucellosis Measles Occupational Coronary Artery Disease MERS Polio",
-  ];
-
-  return (
-    <motion.div
-      ref={containerRef}
-      className="w-full min-h-screen flex flex-col items-center justify-start py-20 px-4 relative overflow-hidden perspective-1000"
-      variants={containerVariants}
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-    >
-      <motion.div
-        initial={{ opacity: 0, scale: 0.5, y: 50 }}
-        animate={
-          isInView
-            ? {
+            const words = titlesRef.current.querySelectorAll(".word");
+            gsap.fromTo(
+              words,
+              { opacity: 0, y: 50 },
+              {
                 opacity: 1,
-                scale: 1,
                 y: 0,
-                transition: {
-                  type: "spring",
-                  stiffness: 300,
-                  damping: 20,
+                stagger: 0.1,
+                onComplete: () => {
+                  gsap.to(titlesRef.current, {
+                    opacity: 0,
+                    duration: 1,
+                    onComplete: () => {
+                      // Set showCircleText to true after titles disappear
+                      setShowCircleText(true);
+                      // Show and animate circle
+                      gsap.fromTo(
+                        circleRef.current,
+                        { opacity: 0, scale: 0 },
+                        {
+                          opacity: 1,
+                          scale: 1,
+                          duration: 1.2,
+                          onComplete: () => {
+                            setShowButton(true);
+                          },
+                        }
+                      );
+                    },
+                  });
                 },
               }
-            : {}
-        }
+            );
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    if (titlesRef.current) {
+      observer.observe(titlesRef.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  return (
+    <div className="flex flex-col items-center relative min-h-screen justify-center">
+      {/* Circle - Hidden by default */}
+      {showCircleText && <CircularText ref={circleRef} />}
+
+      {/* Button - Appears after circle animation */}
+      {showButton && (
+        <Button
+          ref={buttonRef}
+          aria-label="Show details"
+          customStyles="btn-3 mt-10"
+          onClick={() => console.log("Button clicked")}
+        >
+          Let's Show You How
+        </Button>
+      )}
+      {/* Diseases Text - Visible initially */}
+      <p
+        className="animated__content text-center md:text-[2rem] text-black dark:text-white-bg max-w-4xl mx-auto px-4"
+        data-splitting
+        ref={titlesRef}
+        aria-label="List of health conditions"
       >
-        <CircularText />
-      </motion.div>
-
-      <AnimatePresence mode="wait">
-        {!showButton ? (
-          <motion.div
-            className="relative z-10 mt-8 perspective-1000"
-            variants={listVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-          >
-            <motion.div className="text-center font-medium leading-loose tracking-wide text-base md:text-lg lg:text-xl text-black dark:text-white-bg">
-              {diseases.map((disease, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  className="text-[1.5rem]"
-                  whileHover={{
-                    scale: 1.05,
-                    color: "rgb(236, 72, 153)", // pink color
-                    transition: { duration: 0.2 },
-                  }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {disease}
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
-        ) : (
-          <motion.div
-            className="mt-16"
-            variants={buttonVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            <Button
-              customStyles="hover:!border-pink hover:!bg-transparent hover:!text-pink dark:hover:!text-pink !bg-pink !text-white-bg dark:!text-white-bg transform hover:scale-110 transition-all duration-300 ease-out"
-              onClick={() => {}}
-              aria-label="Show details"
-            >
-              Let's Show You How
-            </Button>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      <motion.div
-        className="fixed inset-0 pointer-events-none"
-        animate={isInView ? { opacity: [0, 0.1, 0] } : {}}
-        transition={{
-          duration: 2,
-          repeat: Infinity,
-          repeatType: "reverse",
-        }}
-      />
-    </motion.div>
+        Obesity <br />
+        Type 2 Diabetes <br />
+        Anthrax Cervical Cancer <br />
+        Hypertension Lung Cancer <br />
+        Malaria Metabolic Syndrome <br />
+        STI Rabies Chronic Heart Disease <br />
+        HIV HPV COPD Bladder Cancer Cholera <br />
+        Work-Related Musculoskeletal Diseases <br />
+        High Cholesterol Slips & Lapses COVID-19 Asthma <br />
+        Food Poisoning Mumps n Syndrome <br />
+        Tuberculosis Chlamydia Sleep Apnea DiphtherInfluenza Hearing Loss
+        Hepatitis <br />
+        Colon Cancer Skin Cancer Hand-Arm Vibratioia Mesothelioma Mpox <br />
+        Brucellosis Measles Occupational Coronary Artery Disease MERS Polio
+      </p>
+    </div>
   );
 };
 
-export default DXPrevention;
+export default OnScrollComponent;
