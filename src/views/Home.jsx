@@ -3,6 +3,9 @@ import React, { useRef, useState, useEffect, lazy } from "react";
 const PackYearsCalculator = lazy(() =>
   import("../components/calculator/index")
 );
+const Hero = lazy(() =>
+  import("../components/hero/Hero")
+);
 const DXPrevention = lazy(() =>
   import("../components/dx-prevention/DXPrevention")
 );
@@ -61,6 +64,9 @@ const Home = React.memo(() => {
 
       <div className="">
         <Bacteria />
+      </div>
+      <div className="panel section">
+        <Hero />
       </div>
     </div>
   );
