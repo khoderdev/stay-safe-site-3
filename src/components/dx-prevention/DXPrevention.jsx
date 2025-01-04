@@ -1,10 +1,16 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState,lazy} from "react";
 import { gsap } from "gsap";
 import Splitting from "splitting";
 import "splitting/dist/splitting.css";
 import "splitting/dist/splitting-cells.css";
-import Button from "../buttons/Button";
-import CircularText from "./CircularText";
+
+const Button = lazy(() =>
+  import("../buttons/Button")
+);
+const CircularText = lazy(() =>
+  import("./CircularText")
+);
+
 
 const OnScrollComponent = () => {
   const [showButton, setShowButton] = useState(false);
