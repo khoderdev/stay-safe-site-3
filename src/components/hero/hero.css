@@ -25,7 +25,7 @@
 	position: relative;
 	width: 3px; /* Width of the vertical line */
 	height: 150px; /* Height of the vertical line */
-	background-color: #e0e0e0; /* Light gray background for the vertical line */
+	background-color: #c0c0c0; /* Light gray background for the vertical line */
 	overflow: hidden; /* Hide overflowing content */
 }
 
