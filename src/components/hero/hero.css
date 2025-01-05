@@ -19,3 +19,38 @@
 	width: 50%;
 	font-weight: bold;
 }
+
+/* Vertical line container */
+.vertical-line {
+	position: relative;
+	width: 3px; /* Width of the vertical line */
+	height: 150px; /* Height of the vertical line */
+	background-color: #e0e0e0; /* Light gray background for the vertical line */
+	overflow: hidden; /* Hide overflowing content */
+}
+
+/* Infinite scrolling line */
+.scrolling-line {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(
+		to bottom,
+		transparent,
+		#e55e72,
+		transparent
+	); /* Gradient for the scrolling effect */
+	animation: scroll 1.5s linear infinite; /* Infinite scroll animation */
+}
+
+/* Keyframes for the scrolling animation */
+@keyframes scroll {
+	0% {
+		transform: translateY(-100%); /* Start above the container */
+	}
+	100% {
+		transform: translateY(100%); /* Move below the container */
+	}
+}

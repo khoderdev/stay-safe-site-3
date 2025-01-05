@@ -1,77 +1,89 @@
-import React, { useRef, useState, useEffect, lazy } from "react";
+import React, { useRef, useState, useEffect, lazy } from 'react';
 
 const PackYearsCalculator = lazy(() =>
-  import("../components/calculator/Text.tsx")
+	import('../components/calculator/Text.tsx')
 );
-const Hero = lazy(() =>
-  import("../components/hero/Hero")
-);
+const Line = lazy(() => import('../components/hero/Line'));
+const Hero1 = lazy(() => import('../components/hero/Hero1'));
+const Hero = lazy(() => import('../components/hero/Hero'));
 const DXPrevention = lazy(() =>
-  import("../components/dx-prevention/DXPrevention")
+	import('../components/dx-prevention/DXPrevention')
 );
-const HandMonster = lazy(() => import("../components/HandMonster"));
+const HandMonster = lazy(() => import('../components/HandMonster'));
 const PrevelenceCircle = lazy(() =>
-  import("../components/circle/PrevelenceCircle")
+	import('../components/circle/PrevelenceCircle')
 );
-const Bacteria = lazy(() => import("../components/bacteria/Bacteria"));
-const Balloon = lazy(() => import("../components/Balloon/Balloon"));
+const Bacteria = lazy(() => import('../components/bacteria/Bacteria'));
+const Balloon = lazy(() => import('../components/Balloon/Balloon'));
 
 const Home = React.memo(() => {
-  const [isInView, setIsInView] = useState(false);
-  const balloonRef = useRef(null);
-  const observer = useRef(null);
+	const [isInView, setIsInView] = useState(false);
+	const balloonRef = useRef(null);
+	const observer = useRef(null);
 
-  useEffect(() => {
-    observer.current = new IntersectionObserver(
-      ([entry]) => {
-        setIsInView(entry.isIntersecting);
-      },
-      { threshold: 0.1 }
-    );
+	useEffect(() => {
+		observer.current = new IntersectionObserver(
+			([entry]) => {
+				setIsInView(entry.isIntersecting);
+			},
+			{ threshold: 0.1 }
+		);
 
-    if (balloonRef.current) {
-      observer.current.observe(balloonRef.current);
-    }
+		if (balloonRef.current) {
+			observer.current.observe(balloonRef.current);
+		}
 
-    return () => {
-      if (observer.current) {
-        observer.current.disconnect();
-      }
-    };
-  }, []);
+		return () => {
+			if (observer.current) {
+				observer.current.disconnect();
+			}
+		};
+	}, []);
 
-  return (
-    <div className="relative bg-white-bg dark:bg-black">
-      {/* Sticky Hero Section */}
-      <div className="">
-        <Balloon />
-      </div>
-      <div className="">
-        <DXPrevention />
-      </div>
+	return (
+		<div className='relative bg-white-bg dark:bg-black'>
+			{/* Sticky Hero Section */}
+			<div className='relative z-10'>
+				<Hero1 />
+			</div>
+			{/* <div
+				className=''
+				// style={{
+				// 	boxShadow: '0px -80px 70px rgba(0, 0, 0, 5)',
+				// }}
+			>
+				<Line />
+			</div> */}
 
-      <div className="p-4 section">
-        <PackYearsCalculator />
-      </div>
+			<div className=''>
+				<Balloon />
+			</div>
+			<div className=''>
+				<DXPrevention />
+			</div>
 
-      <div className="bg-gray-200">
-        <PrevelenceCircle />
-      </div>
+			<div className='p-4 section'>
+				<PackYearsCalculator />
+			</div>
 
-      <div className="py-32">
-        <HandMonster />
-      </div>
+			<div className='bg-gray-200'>
+				<PrevelenceCircle />
+			</div>
 
-      <div className="">
-        <Bacteria />
-      </div>
-      <div className="panel section">
-        <Hero />
-      </div>
-    </div>
-  );
+			<div className='py-32'>
+				<HandMonster />
+			</div>
+
+			<div className=''>
+				<Bacteria />
+			</div>
+			<div className='panel section'>
+				<Hero />
+			</div>
+		</div>
+	);
 });
 
-Home.displayName = "Home";
+Home.displayName = 'Home';
 
 export default Home;
