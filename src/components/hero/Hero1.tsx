@@ -131,7 +131,7 @@ const Hero1 = () => {
             xl:bottom-32 
             2xl:bottom-48 
           ">
-            <h3 className="text-center font-bold leading-relaxed
+            <h3 className="text-center font-bold leading-relaxed 
               xsm:text-4xl
               text-3xl
               sm:text-5xl
