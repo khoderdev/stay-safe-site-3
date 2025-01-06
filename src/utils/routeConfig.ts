@@ -41,6 +41,13 @@ export interface RouteConfig {
 
 export const routes: RouteConfig[] = [
   {
+    path: "/test",
+    component: lazyLoadComponent(() => import("../views/Test")),
+    prerender: true,
+    prefetch: "none",
+    cacheControl: "public, max-age=3600",
+  },
+  {
     path: "/",
     component: lazyLoadComponent(() => import("../views/Home")),
     prerender: true,
