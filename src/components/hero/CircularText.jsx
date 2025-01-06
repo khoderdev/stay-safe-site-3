@@ -70,6 +70,99 @@
 // CircularText.displayName = 'CircularText';
 
 // export default CircularText;
+// import { motion } from 'framer-motion';
+// import { forwardRef } from 'react';
+
+// const CircularText = forwardRef((props, ref, children) => {
+// 	const text =
+// 		'Nutrition Disease Prevention Safety Health Sustainability Environment';
+// 	const textArray = text.split('');
+
+// 	return (
+// 		<>
+// 			{textArray.map((char, index) => (
+// 				<motion.span
+// 					key={index}
+// 					className='absolute text-pink
+//         xsm:w-[100px] xsm:h-[100px]
+//         sm:w-[100px] sm:h-[100px]
+//         md:w-52 md:h-52
+//         lg:w-60 lg:h-60
+//         xl:w-64 xl:h-64
+//         2xl:w-72 2xl:h-72
+//         3xl:w-76 3xl:h-76
+//         '
+// 					style={{
+// 						transformOrigin: '0 140px',
+// 					}}
+// 					animate={{
+// 						rotate: [
+// 							index * (360 / textArray.length),
+// 							index * (360 / textArray.length) + 360,
+// 						],
+// 					}}
+// 					transition={{
+// 						duration: 10,
+// 						ease: 'linear',
+// 						repeat: Infinity,
+// 					}}
+// 				>
+// 					{char}
+// 				</motion.span>
+// 			))}
+// 		</>
+// 	);
+// });
+
+// // Set display name for the component
+// CircularText.displayName = 'CircularText';
+
+// export default CircularText;
+
+// /////////////////////////////
+// /////////////////////////////
+// /////////////////////////////
+
+// import { motion } from 'framer-motion';
+// import { forwardRef } from 'react';
+
+// const CircularText = forwardRef((props, ref, children) => {
+// 	const text =
+// 		'Nutrition Disease Prevention Safety Health Sustainability Environment';
+// 	const textArray = text.split('');
+
+// 	return (
+// 		<>
+// 			{textArray.map((char, index) => (
+// 				<motion.span
+// 					key={index}
+// 					className='absolute text-pink'
+// 					style={{
+// 						transformOrigin: '0 140px',
+// 					}}
+// 					animate={{
+// 						rotate: [
+// 							index * (360 / textArray.length),
+// 							index * (360 / textArray.length) + 360,
+// 						],
+// 					}}
+// 					transition={{
+// 						duration: 10,
+// 						ease: 'linear',
+// 						repeat: Infinity,
+// 					}}
+// 				>
+// 					{char}
+// 				</motion.span>
+// 			))}
+// 		</>
+// 	);
+// });
+
+// // Set display name for the component
+// CircularText.displayName = 'CircularText';
+
+// export default CircularText;
 import { motion } from 'framer-motion';
 import { forwardRef } from 'react';
 
@@ -79,20 +172,29 @@ const CircularText = forwardRef((props, ref) => {
 	const textArray = text.split('');
 
 	return (
-		<>
+		<div className='absolute w-full h-full'>
 			{textArray.map((char, index) => (
 				<motion.span
 					key={index}
-					className='absolute text-pink   
-        xsm:w-[100px] xsm:h-[100px] 
-        sm:w-[100px] sm:h-[100px]
-        md:w-52 md:h-52
-        lg:w-60 lg:h-60
-        xl:w-64 xl:h-64
-        2xl:w-72 2xl:h-72
-        3xl:w-76 3xl:h-76'
+					className='absolute font-bold text-pink 
+          left-1/2 
+          -translate-x-1/2 
+          -top-4
+          sm:-top-8
+          lg:-top-12
+          xl:-top-11
+          2xl:-top-16
+        
+          text-[6px] 
+          sm:text-base 
+          md:text-lg 
+          lg:text-3xl 
+          xl:text-4xl
+          2xl:text-5xl
+          '
+
 					style={{
-						transformOrigin: '0 140px',
+						transformOrigin: '0 800%',
 					}}
 					animate={{
 						rotate: [
@@ -101,7 +203,7 @@ const CircularText = forwardRef((props, ref) => {
 						],
 					}}
 					transition={{
-						duration: 10,
+						duration: 30,
 						ease: 'linear',
 						repeat: Infinity,
 					}}
@@ -109,11 +211,10 @@ const CircularText = forwardRef((props, ref) => {
 					{char}
 				</motion.span>
 			))}
-		</>
+		</div>
 	);
 });
 
-// Set display name for the component
 CircularText.displayName = 'CircularText';
 
 export default CircularText;
