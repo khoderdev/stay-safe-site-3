@@ -138,7 +138,7 @@ const PatientInfoForm = () => {
                     onChange={handleChange}
                 />
                 <Dropdown
-                    label="Health Condition"
+                    label="Medical History"
                     name="healthCondition"
                     value={healthCondition || ''}
                     onChange={handleChange}

@@ -28,6 +28,7 @@ import {
 	specificFoodAllergieAtom,
 	hasFoodAllergieAtom,
 } from '../../atoms/store';
+import Symptoms from './forms/Symptoms';
 
 const Vitrack = () => {
 	const [currentStep, setCurrentStep] = useState(0);
@@ -222,22 +223,29 @@ const Vitrack = () => {
 					/>
 				)}
 				{currentStep === 1 && (
+					<Symptoms
+						formData={{
+							temperature,
+							symptoms,
+						}}
+						handleChange={handleChange}
+					/>
+				)}
+				{currentStep === 2 && (
 					<HealthMetricsForm
 						formData={{
 							leftHandBloodPressure: bloodPressureSets[0]?.leftHand,
 							rightHandBloodPressure: bloodPressureSets[0]?.rightHand,
 							heartRate,
 							respiratoryRate,
-							temperature,
 							painScale,
-							symptoms,
 							leftHandOxygen,
 							rightHandOxygen,
 						}}
 						handleChange={handleChange}
 					/>
 				)}
-				{currentStep === 2 && (
+				{currentStep === 3 && (
 					<ReviewResults
 						formData={{
 							firstName,
