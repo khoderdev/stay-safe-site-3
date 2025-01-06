@@ -35,14 +35,17 @@ function Test() {
     <div className="pt-20 flex items-center justify-center">
       <div
         className="relative border border-yellow-500 rounded-full flex justify-center items-center bg-[#000]
-          w-[15vw] h-[15vw] max-w-[8rem] max-h-[8rem] sm:max-w-[10rem] sm:max-h-[10rem]
-          lg:max-w-[12rem] lg:max-h-[12rem] xl:max-w-[14rem] xl:max-h-[14rem]"
+          w-[15vw] h-[15vw] 
+          max-w-[8rem] max-h-[8rem] 
+          sm:max-w-[10rem] sm:max-h-[10rem]
+          lg:max-w-[12rem] lg:max-h-[12rem] 
+          xl:max-w-[14rem] xl:max-h-[14rem]"
       >
         <img
           src="/white-logo-anim.gif"
           alt="StaySafe Logo"
           loading="lazy"
-          className="absolute ml-1 mt-2 lg:ml-2 lg:mt-3 w-[50%] h-auto"
+          className="absolute ml-1 mt-2 lg:ml-2 lg:mt-6"
         />
       </div>
     </div>
