@@ -83,7 +83,7 @@ const Hero1 = () => {
   const { isDarkMode } = useDarkMode();
 
   return (
-    <section className="w-full min-h-screen flex justify-center items-center">
+    <section className="w-full min-h-screen flex justify-center items-start">
       {/* Container for the eye image, animated logo, line, and text */}
       <div className="relative w-full h-full flex flex-col items-center">
         {/* Eye image */}

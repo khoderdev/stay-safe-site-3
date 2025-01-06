@@ -380,15 +380,16 @@ const CircularText = ({ radius, fontSize, children }) => {
 
 // Combined Component
 function CircularTextHoldingTest() {
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const [radius, setRadius] = useState(0);
   const [fontSize, setFontSize] = useState(0);
 
   useEffect(() => {
     const updateSize = () => {
       if (containerRef.current) {
-        const containerWidth = containerRef.current.offsetWidth;
-        const containerHeight = containerRef.current.offsetHeight;
+        // const containerWidth = containerRef.current.offsetWidth;
+        const containerWidth = containerRef.current?.offsetWidth;
+        const containerHeight = containerRef.current?.offsetHeight;
         const newRadius = Math.min(containerWidth, containerHeight) * 0.6; // Adjust radius based on container size
         const newFontSize = newRadius * 0.1; // Adjust font size based on radius
         setRadius(newRadius);
