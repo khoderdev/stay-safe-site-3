@@ -83,7 +83,7 @@ const Hero1 = () => {
   const { isDarkMode } = useDarkMode();
 
   return (
-    <section className="w-full min-h-screen flex justify-center items-center">
+    <section className="w-full min-h-screen flex justify-center items-start">
       {/* Container for the eye image, animated logo, line, and text */}
       <div className="relative w-full h-full flex flex-col items-center">
         {/* Eye image */}
@@ -102,7 +102,7 @@ const Hero1 = () => {
           md:top-[29%] md:left-[52.5%]
           lg:top-[29%] lg:left-[52.5%]
           xl:top-[29%] xl:left-[52.5%]
-          2xl:top-[29%] 2xl:left-[52.5%]
+          2xl:top-[29.5%] 2xl:left-[52.5%]
         ">
           <CircularTextHoldingTest />
         </div>
@@ -131,7 +131,7 @@ const Hero1 = () => {
             xl:bottom-32 
             2xl:bottom-48 
           ">
-            <h3 className="text-center font-bold leading-relaxed
+            <h3 className="text-center font-bold leading-relaxed 
               xsm:text-4xl
               text-3xl
               sm:text-5xl

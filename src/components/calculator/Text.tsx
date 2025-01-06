@@ -12,8 +12,8 @@ function Text() {
 
   return (
     <>
-      <h1 className="text-9xl font-bold mb-4">iScreen</h1>
-      <div className="w-1/2">
+      <h1 className="text-7xl sm:text-9xl font-bold mb-4">iScreen</h1>
+      <div className="lg:w-1/2">
         Why Wait Until its too late? Why wait for symptoms when you can stay
         ahead of your health? The iScreen calculator is your personalized tool
         to identify the tests you need, empowering you to take control of your
