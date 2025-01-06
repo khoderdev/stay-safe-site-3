@@ -1,0 +1,22 @@
+.circular-text {
+	position: relative;
+	width: 280px;
+	height: 280px;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.char {
+	position: absolute;
+	top: 0%;
+	left: 50%;
+	/* Keeps the letters upright */
+	transform-origin: 0 140px;
+	font-weight: 500;
+}
