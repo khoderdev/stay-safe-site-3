@@ -5,21 +5,49 @@ export default {
 	darkMode: 'class',
 	theme: {
 		extend: {
+			// screens: {
+			// 	xsm: '320px',
+			// 	// => @media (min-width: 320px)
+			// 	sm: '576px',
+			// 	// => @media (min-width: 576px)
+			// 	md: '960px',
+			// 	// => @media (min-width: 960px)
+			// 	lg: '1280px',
+			// 	// => @media (min-width: 1280px)
+			// 	xl: '1440px',
+			// 	// => @media (min-width: 1440px)
+			// 	'2xl': '1536px',
+			// 	// => @media (min-width: 1536px)
+			// 	'3xl': '2560px',
+			// 	// => @media (min-width: 2560px 4k)
+			// },
 			screens: {
-				xsm: '320px',
-				// => @media (min-width: 320px)
-				sm: '576px',
-				// => @media (min-width: 576px)
-				md: '960px',
-				// => @media (min-width: 960px)
-				lg: '1280px',
-				// => @media (min-width: 1280px)
-				xl: '1440px',
-				// => @media (min-width: 1440px)
-				'2xl': '1536px',
-				// => @media (min-width: 1536px)
-				'3xl': '2560px',
-				// => @media (min-width: 2560px 4k)
+				// Extra Small Devices (Mobile Phones)
+				xsm: '480px', // => @media (min-width: 480px)
+
+				// Small Devices (Large Phones, Small Tablets)
+				sm: '640px', // => @media (min-width: 640px)
+
+				// Medium Devices (Tablets, Small Laptops)
+				md: '768px', // => @media (min-width: 768px)
+
+				// Large Devices (Laptops, Desktops)
+				lg: '1024px', // => @media (min-width: 1024px)
+
+				// Extra Large Devices (Large Laptops, Desktops)
+				xl: '1280px', // => @media (min-width: 1280px)
+
+				// 2X Large Devices (Large Desktops, Monitors)
+				'2xl': '1440px', // => @media (min-width: 1440px)
+
+				// 3X Large Devices (Ultra-Wide Monitors, 2K Displays)
+				'3xl': '1920px', // => @media (min-width: 1920px)
+
+				// 4X Large Devices (4K Displays)
+				'4xl': '2560px', // => @media (min-width: 2560px)
+
+				// 5X Large Devices (Ultra-Wide 4K and Beyond)
+				'5xl': '3840px', // => @media (min-width: 3840px)
 			},
 			colors: {
 				white: {
