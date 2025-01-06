@@ -172,30 +172,36 @@ const CircularText = forwardRef((props, ref) => {
 	const textArray = text.split('');
 
 	return (
-		<div className='absolute w-full h-full'>
+		<div className='bg-blue-300'>
 			{textArray.map((char, index) => (
 				<motion.span
 					key={index}
 					className='absolute font-bold text-pink 
-          left-1/2 
-          -translate-x-1/2 
-          -top-4
-          sm:-top-8
+          left-10
+          xsm:left-20
+          sm:left-28
+          md:left-48
+          lg:left-48
+          xl:left-56
+          2xl:left-64
+
+
+          xsm:-top-2
+          sm:-top-2
+          md:top-24
           lg:-top-12
           xl:-top-11
-          2xl:-top-16
+          2xl:top-20
         
-          text-[6px] 
-          sm:text-base 
-          md:text-lg 
-          lg:text-3xl 
-          xl:text-4xl
-          2xl:text-5xl
-          '
+          xsm:text-[4px] 
+          sm:text-[6px] 
+          md:text-[8px] 
+          lg:text-[10px] 
+          xl:text-[12px] 
+          2xl:text-[14px] 
 
-					style={{
-						transformOrigin: '0 800%',
-					}}
+          origin-[0%_800%]
+          '
 					animate={{
 						rotate: [
 							index * (360 / textArray.length),

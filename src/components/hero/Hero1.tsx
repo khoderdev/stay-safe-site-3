@@ -17,24 +17,30 @@ const Hero1 = () => {
           loading="lazy"
           className="object-contain"
         />
+      <div className='absolute border rounded-full flex justify-center items-center 
+      left-[218px] 
+      sm:left-1/3 
+      
+      top-[105px]
 
-        {/* Circular text with the animated logo inside it */}
-        <div className="absolute inset-0 flex justify-center items-center bottom-[38%] left-[1rem] xsm:left-[1.4rem] sm:left-[3rem] md:left-[5rem] lg:left-[4rem] pointer-events-none">
 
-          <div className=" flex justify-center items-center">
-            <div className='border-2 border-purple-950'>
-              <CircularText />
-            </div>
-            {/* Animated logo inside the circular text */}F
-            <img
-              src="/white-logo-anim.gif"
-              alt="StaySafe Logo"
-              loading="lazy"
-              className="absolute left- xsm:w-[110px] sm:w-[280px] object-contain"
-            />
-          </div>
-        </div>
 
+
+        xsm:w-20 xsm:h-20
+        sm:w-32 sm:h-32
+        md:w-48 md:h-48
+        lg:w-[480px] lg:h-[480px]
+        xl:w-[560px] xl:h-[560px]
+        2xl:w-[350px] 2xl:h-[350px]
+        '>
+        <CircularText />
+        <img
+          src="/white-logo-anim.gif"
+          alt="StaySafe Logo"
+          loading="lazy"
+          className=" ml-2 mt-4 sm:mt-8 lg:ml-8 lg:mt-8"
+        />
+    </div>
         {/* Line */}
         <div className="absolute bottom-10 xsm:bottom-0 sm:bottom-24 md:bottom-[25%] lg:bottom-[28%] 2xl:bottom-[33%] w-full flex justify-center">
           <Line />
