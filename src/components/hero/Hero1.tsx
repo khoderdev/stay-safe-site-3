@@ -21,7 +21,7 @@
 
 //         {/* CircularTextHoldingTest Component (Centered on Eye Image) */}
 //         <div className="absolute transform -translate-x-1/2 -translate-y-1/2 min-w-[150px] min-h-[150px]
-//         xsm:top-[33%] xsm:left-[55.5%]
+//         top-[33%] left-[55.5%]
 //         top-[38%] left-[60.8%]
 //         sm:top-[29%] sm:left-[52.5%]
 //         md:top-[29%] md:left-[52.5%]
@@ -39,7 +39,7 @@
 //           </div>
 //           {/* Text */}
 //           <div className="absolute bottom-0 w-full flex justify-center px-4
-//             xsm:-bottom-12
+//             -bottom-12
 //             sm:bottom-12
 //             md:bottom-[5%]
 //             lg:bottom-[15%]
@@ -50,7 +50,7 @@
 //             5xl:bottom-[30%]
 //           ">
 //             <h3 className="text-center text-2xl font-bold leading-relaxed
-//             xsm:text-xl
+//             text-xl
 //             sm:text-2xl
 //             md:text-3xl
 //             lg:text-4xl
@@ -96,7 +96,7 @@ const Hero1 = () => {
 
         {/* CircularTextHoldingTest Component (Centered on Eye Image) */}
         <div className="absolute transform -translate-x-1/2 -translate-y-1/2 min-w-[150px] min-h-[150px]
-          xsm:top-[33%] xsm:left-[55.5%]
+          top-[33%] left-[55.5%]
           top-[38%] left-[60.8%]
           sm:top-[29%] sm:left-[52.5%]
           md:top-[29%] md:left-[52.5%]
@@ -112,7 +112,7 @@ const Hero1 = () => {
           {/* Line */}
           <div className="absolute w-full flex justify-center 
             bottom-0 
-            xsm:bottom-8 
+            bottom-8 
             sm:bottom-36 
             md:bottom-48 
             lg:bottom-80 
@@ -124,7 +124,7 @@ const Hero1 = () => {
 
           {/* Text */}
           <div className="absolute -bottom-28 w-full flex justify-center px-4
-            xsm:-bottom-16 
+            -bottom-16 
             sm:bottom-6 
             md:bottom-10 
             lg:bottom-28 
@@ -132,7 +132,7 @@ const Hero1 = () => {
             2xl:bottom-48 
           ">
             <h3 className="text-center font-bold leading-relaxed 
-              xsm:text-4xl
+              text-4xl
               text-3xl
               sm:text-5xl
               md:text-6xl

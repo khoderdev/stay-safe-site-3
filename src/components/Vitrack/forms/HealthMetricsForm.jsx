@@ -452,7 +452,7 @@ const HealthMetricsForm = () => {
 	return (
 		<div className='p-3 sm:p-7 rounded-lg !bg-white-bg2 dark:!bg-[#000] space-y-6'>
 			{/* Temperature Input */}
-			<div className='sm:w-1/2 mx-auto p-4 dark:bg-black rounded-lg shadow-md'>
+			<div className='sm:w-[60%] md:w-[70%] lg:w-[40%] mx-auto p-4 bg-white-bg2 dark:!bg-[#000] rounded-lg shadow-md'>
 				<h1 className='text-xl font-semibold text-center dark:text-gray-50 mb-4'>
 					Oral Temperature (°C)
 				</h1>
@@ -461,23 +461,10 @@ const HealthMetricsForm = () => {
 					max={40.0}
 					step={0.1}
 					defaultValue='36.5'
-					className='dark:bg-[#000] rounded-lg shadow-none dark:text-gray-50'
+					className='bg-[#fff] dark:bg-black rounded-lg shadow-none dark:text-gray-50'
 				/>
 			</div>
-	
-			{/* General Warnings */}
-			<div className='space-y-4'>
-				{warnings.length > 0 && (
-					<div className='bg-red-500 text-white p-3 rounded'>
-						<h3 className='font-bold'>Warnings:</h3>
-						<ul>
-							{warnings.map((warning, index) => (
-								<li key={index}>{warning.text}</li>
-							))}
-						</ul>
-					</div>
-				)}
-			</div>
+
 			{/* Blood Pressure Inputs */}
 			<div className='border-2 rounded-lg p-2 space-y-2 dark:border-black'>
 				<p className='text-center font-semibold dark:text-white-whites'>
