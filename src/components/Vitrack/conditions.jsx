@@ -81,6 +81,10 @@ export const getWarnings = (formData) => {
 			addMessage(
 				'Get evaluated by your healthcare provider. Keep monitoring your vitals at home.'
 			);
+		} else if (temp >= 35.1 && temp <= 38.9) {
+			addMessage(
+				'Keep Monitoring your Vitals at Home.'
+			);
 		} else if (temp >= 39) {
 			if (hasSevereSymptoms(severeTempSymptoms)) {
 				addMessage(

@@ -52,7 +52,7 @@ const HealthMetricsForm = () => {
 			diastolicBP: diastolic,
 			heartRate,
 			respiratoryRate,
-			spO2: leftHandOxygen, 
+			spO2: leftHandOxygen,
 			symptoms,
 		});
 
@@ -125,6 +125,13 @@ const HealthMetricsForm = () => {
 
 	return (
 		<div className='xsm:p-3 sm:p-7 rounded-lg !bg-white-bg2 dark:!bg-[#000] space-y-6'>
+			<InputField
+				label='Oral Temperature (°C)'
+				name='temperature'
+				value={temperature || ''}
+				onChange={handleChange}
+				type='text'
+			/>
 			{/* Your other form inputs here */}
 			<div className='space-y-4'>
 				{warnings.length > 0 && (
@@ -138,6 +145,28 @@ const HealthMetricsForm = () => {
 					</div>
 				)}
 			</div>
+
+				{/* Symptoms */}
+				{/* <div className='col-span-full mt-6'>
+					<h2 className='text-lg font-semibold dark:text-white-bg2'>
+						Symptoms
+					</h2>
+					<div className='grid grid-cols-1 sm:grid-cols-2 gap-2'>
+						{symptomsList.map((symptom, index) => (
+							<label key={index} className='flex items-center space-x-2'>
+								<input
+									type='checkbox'
+									value={symptom || ''}
+									onChange={handleSymptomsChange}
+									checked={symptoms.includes(symptom)}
+									className='form-checkbox'
+								/>
+								<span className='dark:text-white-bg2'>{symptom}</span>
+							</label>
+						))}
+					</div>
+				</div> */}
+				
 			{/* Blood Pressure Inputs */}
 			<div className='border-2 rounded-lg p-2 space-y-2 dark:border-black'>
 				<p className='text-center font-semibold dark:text-white-whites'>
@@ -154,7 +183,7 @@ const HealthMetricsForm = () => {
 							className='absolute font-bold text-3xl hover:scale-125 duration-200 top-2 right-2 text-red-500'
 							onClick={() => removeBloodPressureSet(set.id)}
 						>
-							- 
+							-
 						</button>
 						<div className='xsm:grid xsm:grid-cols-1 sm:flex-col sm:flex sm:space-x-0 sm:space-y-3 sm:items-center md:flex md:flex-row md:space-x-8 md:space-y-0 md:items-center md:justify-center'>
 							<BloodPressureInput
@@ -232,26 +261,7 @@ const HealthMetricsForm = () => {
 					max={100}
 				/>
 
-				{/* Symptoms */}
-				<div className='col-span-full mt-6'>
-					<h2 className='text-lg font-semibold dark:text-white-bg2'>
-						Symptoms
-					</h2>
-					<div className='grid grid-cols-1 sm:grid-cols-2 gap-2'>
-						{symptomsList.map((symptom, index) => (
-							<label key={index} className='flex items-center space-x-2'>
-								<input
-									type='checkbox'
-									value={symptom || ''}
-									onChange={handleSymptomsChange}
-									checked={symptoms.includes(symptom)}
-									className='form-checkbox'
-								/>
-								<span className='dark:text-white-bg2'>{symptom}</span>
-							</label>
-						))}
-					</div>
-				</div>
+			
 
 				{/* Pain Scale */}
 				<div className='col-span-full mt-6'>
