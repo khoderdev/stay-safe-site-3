@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useAtom } from 'jotai';
 import InputField from '../inputs/InputField';
 import BloodPressureInput from '../inputs/BloodPressureInput';
@@ -32,6 +32,7 @@ const HealthMetricsForm = () => {
 		const defaultSet = bloodPressureSets.find((set) => set.isDefault);
 		if (!defaultSet) return { systolic: null, diastolic: null };
 
+
 		const leftSystolic = parseFloat(defaultSet.leftHand.systolic);
 		const rightSystolic = parseFloat(defaultSet.rightHand.systolic);
 		const leftDiastolic = parseFloat(defaultSet.leftHand.diastolic);
@@ -43,6 +44,15 @@ const HealthMetricsForm = () => {
 		return { systolic: systolicAvg, diastolic: diastolicAvg };
 	};
 
+	// Handler for temperature change
+  const handleTemperatureChange = (value) => {
+    setTemperature(value); // Update Jotai state
+  };
+
+
+	// Format the temperature value if needed
+	const formattedValue = `${temperature} °C`; // Example formatting
+
 	// Get warnings based on current form data
 	const warnings = getWarnings({
 		temperature,
@@ -53,11 +63,6 @@ const HealthMetricsForm = () => {
 		spO2: leftHandOxygen,
 		symptoms,
 	});
-
-	// Handle temperature change from the wheel
-	const handleTemperatureChange = (value) => {
-		setTemperature(value);
-	};
 
 	// Get temperature warning
 	const tempWarning = temperatureWarning(temperature, symptoms);
@@ -119,23 +124,12 @@ const HealthMetricsForm = () => {
 	return (
 		<div className='p-3 sm:p-7 rounded-lg !bg-white-bg2 dark:!bg-[#000] space-y-6'>
 			{/* Temperature Input */}
-			<div className='flex flex-col sm:w-[60%] md:w-[70%] lg:w-[45%] mx-auto p-4 pb-6 bg-white-bg2 dark:!bg-[#000] rounded-lg shadow-md min-h-[400px]'>
-				<h1 className='text-xl font-semibold text-center dark:text-gray-50 mb-4'>
-					Oral Temperature (°C)
-				</h1>
-				<div className='flex-grow flex items-center justify-center'>
+			<div className=''>
+				<div className='w-1/2 pb-6'>
 					<TemperatureWheel
-						min={35.0}
-						max={39.0} // Set max to 39.0
-						step={0.1}
-						defaultValue={temperature || ''}
+						label='Oral Temperature (°C)'
+						value={temperature.toString()} // Ensure value is a string
 						onChange={handleTemperatureChange}
-						className='bg-[#fff] dark:bg-black rounded-lg shadow-none dark:text-gray-50 w-full max-w-[300px] mx-auto'
-						formatValue={(value) => {
-							if (value === '35.0') return '35 and Below';
-							if (value === '39.0') return '39 and Above'; // Handle 39.0
-							return value;
-						}}
 					/>
 				</div>
 				{/* Temperature Warning */}
