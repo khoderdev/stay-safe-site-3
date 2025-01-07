@@ -8,15 +8,17 @@ interface TemperatureWheelProps {
   defaultValue?: string;
   className?: string;
   onChange?: (value: string) => void; // Add onChange prop
+  formatValue?: (value: string) => string; // Add formatValue prop
 }
 
 const TemperatureWheel: React.FC<TemperatureWheelProps> = ({
-  min = 35.1,
+  min = 35.0, // Updated min to 35.0 to include 35.0 and below
   max = 40.1,
   step = 0.1,
   defaultValue = '37.0',
   className = '',
   onChange, // Destructure onChange prop
+  formatValue, // Destructure formatValue prop
 }) => {
   // Generate temperature values dynamically
   const tempValues = useMemo(() => {
@@ -55,12 +57,13 @@ const TemperatureWheel: React.FC<TemperatureWheelProps> = ({
             key={option}
             value={option}
             aria-label={`Temperature ${option}`}
-            className={`transition-all duration-200 ${pickerValue.tempValues === option
-              ? 'text-black dark:text-[#fff] scale-110 transition-all duration-75'
-              : 'text-gray-400'
-              }`}
+            className={`transition-all duration-200 ${
+              pickerValue.tempValues === option
+                ? 'text-black dark:text-[#fff] scale-110 transition-all duration-75'
+                : 'text-gray-400'
+            }`}
           >
-            {option}
+            {formatValue ? formatValue(option) : option} {/* Apply formatValue if provided */}
           </Picker.Item>
         ))}
       </Picker.Column>
