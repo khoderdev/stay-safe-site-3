@@ -38,7 +38,7 @@ function Symptoms() {
 		<div className='p-3 sm:p-7 rounded-lg !bg-white-bg2 dark:!bg-[#000] space-y-6'>
 			{/* Symptoms */}
 			<div className='col-span-full'>
-				<h2 className='text-lg font-semibold dark:text-white-bg2 mb-4'>
+				<h2 className='text-xl font-semibold dark:text-white-bg2 mb-4'>
 					Symptoms
 				</h2>
 				<div className='grid grid-cols-1 sm:grid-cols-2 gap-2'>

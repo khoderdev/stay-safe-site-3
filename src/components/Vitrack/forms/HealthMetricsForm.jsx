@@ -44,22 +44,6 @@ const HealthMetricsForm = () => {
 	};
 
 	// Get warnings based on current form data
-	const getHealthWarnings = () => {
-		const { systolic, diastolic } = calculateAverages();
-		const warnings = getWarnings({
-			temperature,
-			systolicBP: systolic,
-			diastolicBP: diastolic,
-			heartRate,
-			respiratoryRate,
-			spO2: leftHandOxygen,
-			symptoms,
-		});
-
-		return warnings;
-	};
-
-	// Get warnings based on current form data
 	const warnings = getWarnings({
 		temperature,
 		systolicBP: calculateAverages().systolic,
@@ -127,47 +111,45 @@ const HealthMetricsForm = () => {
 		setBloodPressureSets(bloodPressureSets.filter((set) => set.id !== id));
 	};
 
-	// const warnings = getHealthWarnings();
-	// const tempWarning = temperatureWarning();
-
 	return (
 		<div className='p-3 sm:p-7 rounded-lg !bg-white-bg2 dark:!bg-[#000] space-y-6'>
 			{/* Temperature Input */}
-			<div className='sm:w-[60%] md:w-[70%] lg:w-[40%] mx-auto p-4 bg-white-bg2 dark:!bg-[#000] rounded-lg shadow-md'>
+			<div className='flex flex-col sm:w-[60%] md:w-[70%] lg:w-[45%] mx-auto p-4 pb-6 bg-white-bg2 dark:!bg-[#000] rounded-lg shadow-md min-h-[400px]'>
 				<h1 className='text-xl font-semibold text-center dark:text-gray-50 mb-4'>
 					Oral Temperature (°C)
 				</h1>
-				<TemperatureWheel
-					min={35.1}
-					max={40.2}
-					step={0.1}
-					defaultValue={temperature || ''}
-					onChange={handleTemperatureChange} // Pass onChange handler
-					className='bg-[#fff] dark:bg-black rounded-lg shadow-none dark:text-gray-50'
-				/>
-			</div>
-
-			{/* Temperature Warning */}
-			{tempWarning && (
-				<div
-					className={`p-3 rounded  dark:text-white-bg font-medium text-sm ${
-						tempWarning.color === 'green'
-							? 'ring ring-green-500'
-							: tempWarning.color === 'yellow'
-							? 'ring ring-yellow-500'
-							: tempWarning.color === 'orange'
-							? 'ring ring-orange-500'
-							: 'ring ring-red-500'
-					} text-white`}
-				>
-					{tempWarning.message}
+				<div className='flex-grow flex items-center justify-center'>
+					<TemperatureWheel
+						min={35.1}
+						max={40.2}
+						step={0.1}
+						defaultValue={temperature || ''}
+						onChange={handleTemperatureChange} // Pass onChange handler
+						className='bg-[#fff] dark:bg-black rounded-lg shadow-none dark:text-gray-50 w-full max-w-[300px] mx-auto'
+					/>
 				</div>
-			)}
+				{/* Temperature Warning */}
+				{tempWarning && (
+					<div
+						className={`w-full p-3 rounded dark:text-white-bg font-medium text-sm ${
+							tempWarning.color === 'green'
+								? 'ring ring-green-500'
+								: tempWarning.color === 'yellow'
+								? 'ring ring-yellow-500'
+								: tempWarning.color === 'orange'
+								? 'ring ring-orange-500'
+								: 'ring ring-red-500'
+						} text-white`}
+					>
+						{tempWarning.message}
+					</div>
+				)}
+			</div>
 
 			{/* General Warnings */}
 			<div className='space-y-4'>
 				{warnings.length > 0 && (
-					<div className='bg-dark ring ring-gray-200 dark:ring-dark dark:text-gray-50 p-3 rounded'>
+					<div className='bg-gray-200 dark:bg-dark ring ring-gray-200 dark:ring-dark dark:text-gray-50 p-3 rounded'>
 						<h3 className='font-bold mb-2'>Warnings:</h3>
 						<ul>
 							{warnings.map((warning, index) => (
@@ -177,7 +159,6 @@ const HealthMetricsForm = () => {
 					</div>
 				)}
 			</div>
-
 			{/* Blood Pressure Inputs */}
 			<div className='border-2 rounded-lg p-2 space-y-2 dark:border-black'>
 				<p className='text-center font-semibold dark:text-white-whites'>
