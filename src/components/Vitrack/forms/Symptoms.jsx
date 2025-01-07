@@ -1,11 +1,8 @@
 import React, { useEffect } from 'react';
 import { useAtom } from 'jotai';
 import { symptomsList } from '../data';
-import InputField from '../inputs/InputField';
 import { temperatureAtom, symptomsAtom } from '../../../atoms/store';
 import { getWarnings } from '../conditions';
-import validateField from '../Validations';
-
 
 function Symptoms() {
 	const [temperature, setTemperature] = useAtom(temperatureAtom);
@@ -18,17 +15,6 @@ function Symptoms() {
 		});
 
 		return warnings;
-	};
-
-	const handleChange = (e) => {
-		const { name, value } = e.target;
-		switch (name) {
-			case 'temperature':
-				setTemperature(value);
-				break;
-			default:
-				break;
-		}
 	};
 
 	const handleSymptomsChange = (e) => {
@@ -50,23 +36,11 @@ function Symptoms() {
 
 	return (
 		<div className='p-3 sm:p-7 rounded-lg !bg-white-bg2 dark:!bg-[#000] space-y-6'>
-			{/* Your other form inputs here */}
-			<div className='space-y-4'>
-				{warnings.length > 0 && (
-					<div className='bg-red-500 text-white p-3 rounded'>
-						<h3 className='font-bold'>Warnings:</h3>
-						<ul>
-							{warnings.map((warning, index) => (
-								<li key={index}>{warning.text}</li>
-							))}
-						</ul>
-					</div>
-				)}
-			</div>
-
 			{/* Symptoms */}
-			<div className='col-span-full mt-6'>
-				<h2 className='text-lg font-semibold dark:text-white-bg2'>Symptoms</h2>
+			<div className='col-span-full'>
+				<h2 className='text-lg font-semibold dark:text-white-bg2 mb-4'>
+					Symptoms
+				</h2>
 				<div className='grid grid-cols-1 sm:grid-cols-2 gap-2'>
 					{symptomsList.map((symptom, index) => (
 						<label key={index} className='flex items-center space-x-2'>

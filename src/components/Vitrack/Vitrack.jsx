@@ -225,7 +225,6 @@ const Vitrack = () => {
 				{currentStep === 1 && (
 					<Symptoms
 						formData={{
-							temperature,
 							symptoms,
 						}}
 						handleChange={handleChange}
