@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useAtom } from 'jotai';
 import InputField from '../inputs/InputField';
 import BloodPressureInput from '../inputs/BloodPressureInput';
@@ -32,7 +32,6 @@ const HealthMetricsForm = () => {
 		const defaultSet = bloodPressureSets.find((set) => set.isDefault);
 		if (!defaultSet) return { systolic: null, diastolic: null };
 
-
 		const leftSystolic = parseFloat(defaultSet.leftHand.systolic);
 		const rightSystolic = parseFloat(defaultSet.rightHand.systolic);
 		const leftDiastolic = parseFloat(defaultSet.leftHand.diastolic);
@@ -45,13 +44,9 @@ const HealthMetricsForm = () => {
 	};
 
 	// Handler for temperature change
-  const handleTemperatureChange = (value) => {
-    setTemperature(value); // Update Jotai state
-  };
-
-
-	// Format the temperature value if needed
-	const formattedValue = `${temperature} °C`; // Example formatting
+	const handleTemperatureChange = (value) => {
+		setTemperature(value); // Update Jotai state
+	};
 
 	// Get warnings based on current form data
 	const warnings = getWarnings({
@@ -64,8 +59,11 @@ const HealthMetricsForm = () => {
 		symptoms,
 	});
 
-	// Get temperature warning
-	const tempWarning = temperatureWarning(temperature, symptoms);
+	// Get temperature warning (only if temperature is valid)
+	const tempWarning =
+		temperature && !isNaN(temperature)
+			? temperatureWarning(temperature, symptoms)
+			: null;
 
 	// Handle input changes
 	const handleChange = (e) => {
@@ -128,7 +126,7 @@ const HealthMetricsForm = () => {
 				<div className='w-1/2 pb-6'>
 					<TemperatureWheel
 						label='Oral Temperature (°C)'
-						value={temperature.toString()} // Ensure value is a string
+						value={temperature} // Ensure value is a string
 						onChange={handleTemperatureChange}
 					/>
 				</div>

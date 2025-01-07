@@ -296,7 +296,8 @@ export const temperatureWarning = (temperature, symptoms = []) => {
 	} else if (temp > 37 && temp <= 38.9) {
 		return {
 			color: 'yellow',
-			message: 'Your Temperature is Higher than average.',
+			message:
+				'Your Temperature is Higher than average, Continue home monitoring, keep an eye on your symptoms, and contact your healthcare provider if needed.',
 		};
 	} else if (temp >= 39) {
 		if (hasSevereSymptoms(severeTempSymptoms)) {
