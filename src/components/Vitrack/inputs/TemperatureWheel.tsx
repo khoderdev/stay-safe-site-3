@@ -13,7 +13,7 @@ interface TemperatureWheelProps {
 
 const TemperatureWheel: React.FC<TemperatureWheelProps> = ({
   min = 35.0, // Updated min to 35.0 to include 35.0 and below
-  max = 40.1,
+  max = 39.0, // Set max to 39.0
   step = 0.1,
   defaultValue = '37.0',
   className = '',
@@ -25,6 +25,10 @@ const TemperatureWheel: React.FC<TemperatureWheelProps> = ({
     const values: string[] = [];
     for (let i = min; i <= max; i += step) {
       values.push(i.toFixed(1)); // Ensure 1 decimal place
+    }
+    // Explicitly include 39.0 if it's not already included due to floating-point precision
+    if (!values.includes('39.0')) {
+      values.push('39.0');
     }
     return values;
   }, [min, max, step]);
@@ -57,11 +61,10 @@ const TemperatureWheel: React.FC<TemperatureWheelProps> = ({
             key={option}
             value={option}
             aria-label={`Temperature ${option}`}
-            className={`transition-all duration-200 ${
-              pickerValue.tempValues === option
+            className={`transition-all duration-200 ${pickerValue.tempValues === option
                 ? 'text-black dark:text-[#fff] scale-110 transition-all duration-75'
                 : 'text-gray-400'
-            }`}
+              }`}
           >
             {formatValue ? formatValue(option) : option} {/* Apply formatValue if provided */}
           </Picker.Item>
