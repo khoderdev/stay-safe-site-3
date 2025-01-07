@@ -21,7 +21,7 @@ const Hero1 = () => {
 
       {/* CircularTextHoldingTest Component (Centered on Eye Image) */}
       <div className="absolute transform -translate-x-1/2 -translate-y-1/2 min-w-[150px] min-h-[150px]
-        xsm:top-[37.5%] xsm:left-[61%]
+        top-[37.5%] left-[61%]
         sm:top-[33%] sm:left-[56.5%]
         md:top-[29%] md:left-[52.5%]
         lg:top-[29%] lg:left-[52.5%]
@@ -32,12 +32,12 @@ const Hero1 = () => {
 </div>
 
       {/* Line */}
-      <div className="absolute bottom-10 xsm:bottom-0 sm:bottom-24 md:bottom-[25%] lg:bottom-[28%] 2xl:bottom-[33%] w-full flex justify-center">
+      <div className="absolute bottom-10 bottom-0 sm:bottom-24 md:bottom-[25%] lg:bottom-[28%] 2xl:bottom-[33%] w-full flex justify-center">
         <Line />
       </div>
 
       {/* Text */}
-      <div className="absolute -bottom-12 xsm:-bottom-24 sm:bottom-12 md:bottom-[5%] lg:bottom-[15%] 2xl:bottom-[20%] w-full flex justify-center px-4">
+      <div className="absolute -bottom-12 -bottom-24 sm:bottom-12 md:bottom-[5%] lg:bottom-[15%] 2xl:bottom-[20%] w-full flex justify-center px-4">
         <h3 className="text-center text-2xl sm:text-5xl md:text-7xl font-bold leading-relaxed">
           Public Health Innovation <br /> for a Changing World
         </h3>
@@ -59,12 +59,12 @@ const Hero1 = () => {
     //     </div>
      
     //     {/* Line */}
-    //     <div className="absolute bottom-10 xsm:bottom-0 sm:bottom-24 md:bottom-[25%] lg:bottom-[28%] 2xl:bottom-[33%] w-full flex justify-center">
+    //     <div className="absolute bottom-10 bottom-0 sm:bottom-24 md:bottom-[25%] lg:bottom-[28%] 2xl:bottom-[33%] w-full flex justify-center">
     //       <Line />
     //     </div>
 
     //     {/* Text */}
-    //     <div className="absolute -bottom-12 xsm:-bottom-24 sm:-bottom-2 md:bottom-[5%] lg:bottom-[15%] 2xl:bottom-[20%] w-full flex justify-center px-4">
+    //     <div className="absolute -bottom-12 -bottom-24 sm:-bottom-2 md:bottom-[5%] lg:bottom-[15%] 2xl:bottom-[20%] w-full flex justify-center px-4">
     //       <h3 className="text-center text-2xl sm:text-5xl md:text-7xl font-bold leading-relaxed">
     //         Public Health Innovation <br /> for a Changing World
     //       </h3>
@@ -114,7 +114,7 @@ export default Hero1;
 //         />
 
 //         {/* Circular text with the animated logo inside it */}
-//         <div className="absolute inset-0 flex justify-center items-center bottom-[38%] left-[1rem] xsm:left-[1.4rem] sm:left-[3rem] md:left-[5rem] lg:left-[4rem] pointer-events-none border">
+//         <div className="absolute inset-0 flex justify-center items-center bottom-[38%] left-[1rem] left-[1.4rem] sm:left-[3rem] md:left-[5rem] lg:left-[4rem] pointer-events-none border">
           
 //           {/* <div className="relative flex justify-center items-center"> */}
 //             {/* Circular text container */}
@@ -133,12 +133,12 @@ export default Hero1;
 //         </div>
 
 //         {/* Line */}
-//         <div className="absolute bottom-10 xsm:bottom-0 sm:bottom-24 md:bottom-[25%] lg:bottom-[28%] 2xl:bottom-[33%] w-full flex justify-center">
+//         <div className="absolute bottom-10 bottom-0 sm:bottom-24 md:bottom-[25%] lg:bottom-[28%] 2xl:bottom-[33%] w-full flex justify-center">
 //           <Line />
 //         </div>
 
 //         {/* Text */}
-//         <div className="absolute -bottom-12 xsm:-bottom-24 sm:-bottom-2 md:bottom-[5%] lg:bottom-[15%] 2xl:bottom-[20%] w-full flex justify-center px-4">
+//         <div className="absolute -bottom-12 -bottom-24 sm:-bottom-2 md:bottom-[5%] lg:bottom-[15%] 2xl:bottom-[20%] w-full flex justify-center px-4">
 //           <h3 className="text-center text-2xl sm:text-5xl md:text-7xl font-bold leading-relaxed">
 //             Public Health Innovation <br /> for a Changing World
 //           </h3>

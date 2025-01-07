@@ -60,7 +60,7 @@
 //             />
 //           </div>
 //           <div className="w-1/2 2xl:w-1/3">
-//             <p className="xsm:text-[0.6rem] sm:text-[0.8rem] md:text-[1.2rem] lg:text-[1.2rem] xl:text-[1.8rem] font-semibold text-white-bg text-justify">
+//             <p className="text-[0.6rem] sm:text-[0.8rem] md:text-[1.2rem] lg:text-[1.2rem] xl:text-[1.8rem] font-semibold text-white-bg text-justify">
 //               One in Six children and adolescents (ages 2-19) are overweight.
 //               Globally, over one billion people live with obesity, including
 //               nearly 880 million adults and 159 million youths.

@@ -73,15 +73,15 @@ function Fridge() {
 
             {/* Main Fridge */}
             <div className="col-span-2 row-start-1 flex items-end justify-around border">
-              <img loading="lazy" src={PotatoChicken} className='xsm:w-28 sm:w-32 xsm:mt-[-20px] mb-[-10px] sm:mb-[-10px] md:w-32 md:mb-[-10px] lg:w-36 lg:mb-[-20px]' onClick={handleSectionClick} />
-              <img loading="lazy" src={ChickenMeat} className='xsm:w-24 sm:w-32 xsm:mt-[-20px] mb-[-10px] sm:mb-[-10px] md:w-28 md:mb-[-10px] lg:w-36 lg:mb-[-20px]' onClick={handleSectionClick} />
+              <img loading="lazy" src={PotatoChicken} className='w-28 sm:w-32 mt-[-20px] mb-[-10px] sm:mb-[-10px] md:w-32 md:mb-[-10px] lg:w-36 lg:mb-[-20px]' onClick={handleSectionClick} />
+              <img loading="lazy" src={ChickenMeat} className='w-24 sm:w-32 mt-[-20px] mb-[-10px] sm:mb-[-10px] md:w-28 md:mb-[-10px] lg:w-36 lg:mb-[-20px]' onClick={handleSectionClick} />
             </div>
 
             <div className="col-span-2 row-start-2 border flex items-center justify-center">
-              <img loading="lazy" src={Milk} className='xsm:w-10 sm:w-12 xsm:mt-[-25px] sm:mt-[-24px] md:w-14' onClick={handleSectionClick} />
-              <img loading="lazy" src={Cheese} className='xsm:w-20 sm:w-28 xsm:mt-[25px] md:w-32 md:mt-[17px]' onClick={handleSectionClick} />
+              <img loading="lazy" src={Milk} className='w-10 sm:w-12 mt-[-25px] sm:mt-[-24px] md:w-14' onClick={handleSectionClick} />
+              <img loading="lazy" src={Cheese} className='w-20 sm:w-28 mt-[25px] md:w-32 md:mt-[17px]' onClick={handleSectionClick} />
               {/* <img loading="lazy" src={Butter} className='w-20 md:w-36 mt-2' onClick={handleSectionClick} /> */}
-              <img loading="lazy" src={Eggs} className='xsm:w-24 sm:w-28 xsm:mt-[25px] md:w-32 md:mt-[27px]' onClick={handleSectionClick} />
+              <img loading="lazy" src={Eggs} className='w-24 sm:w-28 mt-[25px] md:w-32 md:mt-[27px]' onClick={handleSectionClick} />
             </div>
 
             <div className="col-span-2 row-start-3 border grid grid-cols-3 items-start justify-items-center border-green-500">
@@ -97,13 +97,13 @@ function Fridge() {
 
             {/* Fridge Door */}
             <div className="col-span-3 row-start-1 border flex items-center justify-center">
-              <img loading="lazy" src={SoftDrinks} className='w-20 xsm:w-20 mt-[10px] sm:mt-8 sm:w-28' onClick={handleSectionClick} />
+              <img loading="lazy" src={SoftDrinks} className='w-20 w-20 mt-[10px] sm:mt-8 sm:w-28' onClick={handleSectionClick} />
             </div>
 
             <div className="col-span-3 row-start-2 flex items-start sm:items-center justify-start sm:justify-start">
-              <img loading="lazy" src={Ketchup} className='xsm:w-24 w-24 mt-[-10px] sm:w-28 sm:mt-[-40px] md:w-32 md:mt-[-25px]' onClick={handleSectionClick} />
-              <img loading="lazy" src={Soya} className='xsm:w-16 w-24 sm:w-16 xsm:mt-[25px] sm:mt-[-2px] md:w-20 md:mt-[17px]' onClick={handleSectionClick} />
-              <img loading="lazy" src={Pickles} className='xsm:w-16 w-24 sm:w-14 xsm:mt-[25px] sm:mt-[-2px] md:w-16 md:mt-[17px]' onClick={handleSectionClick} />
+              <img loading="lazy" src={Ketchup} className='w-24 w-24 mt-[-10px] sm:w-28 sm:mt-[-40px] md:w-32 md:mt-[-25px]' onClick={handleSectionClick} />
+              <img loading="lazy" src={Soya} className='w-16 w-24 sm:w-16 mt-[25px] sm:mt-[-2px] md:w-20 md:mt-[17px]' onClick={handleSectionClick} />
+              <img loading="lazy" src={Pickles} className='w-16 w-24 sm:w-14 mt-[25px] sm:mt-[-2px] md:w-16 md:mt-[17px]' onClick={handleSectionClick} />
             </div>
 
             <div className="col-span-3 row-start-3 border mb-[-60px] flex items-center  justify-start pl-4 space-x-6">

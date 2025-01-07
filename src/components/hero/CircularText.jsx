@@ -84,7 +84,7 @@
 // // 				<motion.span
 // // 					key={index}
 // // 					className='absolute text-pink
-// //         xsm:w-[100px] xsm:h-[100px]
+// //         w-[100px] h-[100px]
 // //         sm:w-[100px] sm:h-[100px]
 // //         md:w-52 md:h-52
 // //         lg:w-60 lg:h-60
@@ -185,21 +185,21 @@
 // // 					key={index}
 // // 					className='absolute font-bold text-pink
 // //           left-10
-// //           xsm:left-20
+// //           left-20
 // //           sm:left-28
 // //           md:left-48
 // //           lg:left-48
 // //           xl:left-56
 // //           2xl:left-64
 
-// //           xsm:-top-2
+// //           -top-2
 // //           sm:-top-2
 // //           md:top-24
 // //           lg:-top-12
 // //           xl:-top-11
 // //           2xl:top-20
 
-// //           xsm:text-[4px]
+// //           text-[4px]
 // //           sm:text-[6px]
 // //           md:text-[8px]
 // //           lg:text-[10px]

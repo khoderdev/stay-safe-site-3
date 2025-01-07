@@ -2,7 +2,6 @@ import React from 'react';
 import { useAtom } from 'jotai';
 import InputField from '../inputs/InputField';
 import BloodPressureInput from '../inputs/BloodPressureInput';
-import { symptomsList } from '../data';
 import {
 	temperatureAtom,
 	heartRateAtom,
@@ -13,7 +12,8 @@ import {
 	painScaleAtom,
 	bloodPressureSetsAtom,
 } from '../../../atoms/store';
-import { getWarnings } from '../conditions';
+import { getWarnings, temperatureWarning } from '../conditions';
+import TemperatureWheel from '../inputs/TemperatureWheel';
 
 const HealthMetricsForm = () => {
 	const [temperature, setTemperature] = useAtom(temperatureAtom);
@@ -44,27 +44,26 @@ const HealthMetricsForm = () => {
 	};
 
 	// Get warnings based on current form data
-	const getHealthWarnings = () => {
-		const { systolic, diastolic } = calculateAverages();
-		const warnings = getWarnings({
-			temperature,
-			systolicBP: systolic,
-			diastolicBP: diastolic,
-			heartRate,
-			respiratoryRate,
-			spO2: leftHandOxygen,
-			symptoms,
-		});
+	const warnings = getWarnings({
+		temperature,
+		systolicBP: calculateAverages().systolic,
+		diastolicBP: calculateAverages().diastolic,
+		heartRate,
+		respiratoryRate,
+		spO2: leftHandOxygen,
+		symptoms,
+	});
 
-		return warnings;
+	// Handle temperature change from the wheel
+	const handleTemperatureChange = (value) => {
+		setTemperature(value);
 	};
+
+	const tempWarning = temperatureWarning(temperature);
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
 		switch (name) {
-			case 'temperature':
-				setTemperature(value);
-				break;
 			case 'heartRate':
 				setHeartRate(value);
 				break;
@@ -83,15 +82,6 @@ const HealthMetricsForm = () => {
 			default:
 				break;
 		}
-	};
-
-	const handleSymptomsChange = (e) => {
-		const { value, checked } = e.target;
-		setSymptoms((prevSymptoms) =>
-			checked
-				? [...prevSymptoms, value]
-				: prevSymptoms.filter((symptom) => symptom !== value)
-		);
 	};
 
 	const handleDynamicChange = (id, hand, name, value) => {
@@ -121,22 +111,46 @@ const HealthMetricsForm = () => {
 		setBloodPressureSets(bloodPressureSets.filter((set) => set.id !== id));
 	};
 
-	const warnings = getHealthWarnings();
-
 	return (
-		<div className='xsm:p-3 sm:p-7 rounded-lg !bg-white-bg2 dark:!bg-[#000] space-y-6'>
-			<InputField
-				label='Oral Temperature (°C)'
-				name='temperature'
-				value={temperature || ''}
-				onChange={handleChange}
-				type='text'
-			/>
-			{/* Your other form inputs here */}
+		<div className='p-3 sm:p-7 rounded-lg !bg-white-bg2 dark:!bg-[#000] space-y-6'>
+			{/* Temperature Input */}
+			<div className='flex flex-col sm:w-[60%] md:w-[70%] lg:w-[45%] mx-auto p-4 pb-6 bg-white-bg2 dark:!bg-[#000] rounded-lg shadow-md min-h-[400px]'>
+				<h1 className='text-xl font-semibold text-center dark:text-gray-50 mb-4'>
+					Oral Temperature (°C)
+				</h1>
+				<div className='flex-grow flex items-center justify-center'>
+					<TemperatureWheel
+						min={35.1}
+						max={40.2}
+						step={0.1}
+						defaultValue={temperature || ''}
+						onChange={handleTemperatureChange} // Pass onChange handler
+						className='bg-[#fff] dark:bg-black rounded-lg shadow-none dark:text-gray-50 w-full max-w-[300px] mx-auto'
+					/>
+				</div>
+				{/* Temperature Warning */}
+				{tempWarning && (
+					<div
+						className={`w-full p-3 rounded dark:text-white-bg font-medium text-sm ${
+							tempWarning.color === 'green'
+								? 'ring ring-green-500'
+								: tempWarning.color === 'yellow'
+								? 'ring ring-yellow-500'
+								: tempWarning.color === 'orange'
+								? 'ring ring-orange-500'
+								: 'ring ring-red-500'
+						} text-white`}
+					>
+						{tempWarning.message}
+					</div>
+				)}
+			</div>
+
+			{/* General Warnings */}
 			<div className='space-y-4'>
 				{warnings.length > 0 && (
-					<div className='bg-red-500 text-white p-3 rounded'>
-						<h3 className='font-bold'>Warnings:</h3>
+					<div className='bg-gray-200 dark:bg-dark ring ring-gray-200 dark:ring-dark dark:text-gray-50 p-3 rounded'>
+						<h3 className='font-bold mb-2'>Warnings:</h3>
 						<ul>
 							{warnings.map((warning, index) => (
 								<li key={index}>{warning.text}</li>
@@ -145,28 +159,6 @@ const HealthMetricsForm = () => {
 					</div>
 				)}
 			</div>
-
-				{/* Symptoms */}
-				{/* <div className='col-span-full mt-6'>
-					<h2 className='text-lg font-semibold dark:text-white-bg2'>
-						Symptoms
-					</h2>
-					<div className='grid grid-cols-1 sm:grid-cols-2 gap-2'>
-						{symptomsList.map((symptom, index) => (
-							<label key={index} className='flex items-center space-x-2'>
-								<input
-									type='checkbox'
-									value={symptom || ''}
-									onChange={handleSymptomsChange}
-									checked={symptoms.includes(symptom)}
-									className='form-checkbox'
-								/>
-								<span className='dark:text-white-bg2'>{symptom}</span>
-							</label>
-						))}
-					</div>
-				</div> */}
-				
 			{/* Blood Pressure Inputs */}
 			<div className='border-2 rounded-lg p-2 space-y-2 dark:border-black'>
 				<p className='text-center font-semibold dark:text-white-whites'>
@@ -185,7 +177,7 @@ const HealthMetricsForm = () => {
 						>
 							-
 						</button>
-						<div className='xsm:grid xsm:grid-cols-1 sm:flex-col sm:flex sm:space-x-0 sm:space-y-3 sm:items-center md:flex md:flex-row md:space-x-8 md:space-y-0 md:items-center md:justify-center'>
+						<div className='grid grid-cols-1 sm:flex-col sm:flex sm:space-x-0 sm:space-y-3 sm:items-center md:flex md:flex-row md:space-x-8 md:space-y-0 md:items-center md:justify-center'>
 							<BloodPressureInput
 								hand='Left'
 								systolic={set.leftHand.systolic}
@@ -231,14 +223,18 @@ const HealthMetricsForm = () => {
 				name='heartRate'
 				value={heartRate || ''}
 				onChange={handleChange}
-				type='text'
+				type='number'
+				min={30}
+				max={200}
 			/>
 			<InputField
 				label='Respiratory Rate (breaths/min)'
 				name='respiratoryRate'
 				value={respiratoryRate || ''}
 				onChange={handleChange}
-				type='text'
+				type='number'
+				min={10}
+				max={60}
 			/>
 			<div className='grid grid-cols-2 gap-x-14'>
 				{/* Left Hand Oxygen */}
@@ -247,7 +243,8 @@ const HealthMetricsForm = () => {
 					name='leftHandOxygen'
 					value={leftHandOxygen || ''}
 					onChange={handleChange}
-					type='text'
+					type='number'
+					min={0}
 					max={100}
 				/>
 
@@ -257,30 +254,26 @@ const HealthMetricsForm = () => {
 					name='rightHandOxygen'
 					value={rightHandOxygen || ''}
 					onChange={handleChange}
-					type='text'
+					type='number'
+					min={0}
 					max={100}
 				/>
-
-			
-
-				{/* Pain Scale */}
-				<div className='col-span-full mt-6'>
-					<label className='block text-sm dark:text-white-bg2'>
-						Pain Scale
-					</label>
-					<input
-						type='range'
-						name='painScale'
-						min='0'
-						max='10'
-						value={painScale || 0}
-						onChange={handleChange}
-						className='mt-1 w-full cursor-pointer'
-					/>
-					<span className='block text-center dark:text-white-bg2'>
-						{painScale}/10
-					</span>
-				</div>
+			</div>
+			{/* Pain Scale */}
+			<div className='col-span-full mt-6'>
+				<label className='block text-sm dark:text-white-bg2'>Pain Scale</label>
+				<input
+					type='range'
+					name='painScale'
+					min='0'
+					max='10'
+					value={painScale || 0}
+					onChange={handleChange}
+					className='mt-1 w-full cursor-pointer'
+				/>
+				<span className='block text-center dark:text-white-bg2'>
+					{painScale}/10
+				</span>
 			</div>
 		</div>
 	);
