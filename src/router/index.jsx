@@ -3,32 +3,7 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import { routes } from '../utils/routeConfig';
 import { usePrefetch, setCacheHeaders } from '../utils/optimization';
 import { AnimatePresence, motion } from 'framer-motion';
-import {
-  pageVariants,
-  pageTransition,
-  fadeVariants,
-  fadeTransition,
-  slideVariants,
-  slideTransition,
-  scaleVariants,
-  scaleTransition,
-  rotateVariants,
-  rotateTransition,
-  bounceVariants,
-  bounceTransition,
-  staggerContainer,
-  staggerItem,
-  keyframeVariants,
-  pathVariants,
-  hoverVariants,
-  tapVariants,
-  dragConstraints,
-  exitVariants,
-  colorVariants,
-  textVariants,
-  letterVariants,
-  svgVariants,
-} from '../utils/FramerAnimation';
+import { slideVariants, slideTransition } from '../utils/FramerAnimation';
 
 // Loading component for Suspense fallback
 const Loading = () => (
