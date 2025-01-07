@@ -117,9 +117,9 @@ const HealthMetricsForm = () => {
 	};
 
 	return (
-		<div className='p-3 sm:p-7 rounded-lg !bg-white-bg2 dark:!bg-[#000] space-y-6'>
+		<div className='p-3 sm:p-7 rounded-lg !bg-white-bg2 dark:!bg-[#000] space-y-6 '>
 			{/* Temperature Input */}
-			<div className='flex flex-col sm:w-[60%] md:w-[70%] lg:w-[45%] mx-auto p-4 pb-6 bg-white-bg2 dark:!bg-[#000] rounded-lg shadow-md min-h-[400px]'>
+			<div className='flex flex-col sm:w-[60%] md:w-[70%] lg:w-[45%] mx-auto p-4 pb-6 bg-white-bg2 dark:!bg-[#000] rounded-lg shadow-md min-h-[400px] overflow-hidden'>
 				<h1 className='text-xl font-semibold text-center dark:text-gray-50 mb-4'>
 					Oral Temperature (°C)
 				</h1>
@@ -130,7 +130,7 @@ const HealthMetricsForm = () => {
 						step={0.1}
 						defaultValue={temperature || ''}
 						onChange={handleTemperatureChange}
-						className='bg-[#fff] dark:bg-black rounded-lg shadow-none dark:text-gray-50 w-full max-w-[300px] mx-auto'
+						className='bg-[#fff] dark:bg-black rounded-lg shadow-none dark:text-gray-50 w-full max-w-[300px]  mx-auto'
 						formatValue={(value) => {
 							if (value === '35.0') return '35 and Below';
 							if (value === '39.0') return '39 and Above'; // Handle 39.0

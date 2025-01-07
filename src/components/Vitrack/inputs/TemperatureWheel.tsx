@@ -51,19 +51,21 @@ const TemperatureWheel: React.FC<TemperatureWheelProps> = ({
     <Picker
       value={pickerValue}
       onChange={setPickerValue}
-      wheelMode="natural"
+      wheelMode="normal"
       aria-label="Temperature Picker"
       className={className}
+     
     >
-      <Picker.Column key="tempValues" name="tempValues">
+      <Picker.Column key="tempValues" name="tempValues" >
         {tempValues.map((option) => (
           <Picker.Item
+          
             key={option}
             value={option}
             aria-label={`Temperature ${option}`}
             className={`transition-all duration-200 ${pickerValue.tempValues === option
-                ? 'text-black dark:text-[#fff] scale-110 transition-all duration-75'
-                : 'text-gray-400'
+              ? 'text-black dark:text-[#fff] scale-110 transition-all duration-75'
+              : 'text-gray-400'
               }`}
           >
             {formatValue ? formatValue(option) : option} {/* Apply formatValue if provided */}
