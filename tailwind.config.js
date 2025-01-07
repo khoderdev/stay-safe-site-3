@@ -22,6 +22,9 @@ export default {
 			// 	// => @media (min-width: 2560px 4k)
 			// },
 			screens: {
+				// Super Extra Small Devices (Super Extra Mobile Phones)
+				xs: '320px', // => @media (min-width: 320px)
+
 				// Extra Small Devices (Mobile Phones)
 				xsm: '480px', // => @media (min-width: 480px)
 
