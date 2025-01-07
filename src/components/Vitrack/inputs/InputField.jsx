@@ -11,6 +11,7 @@ const InputField = ({
 	min = 0,
 	max,
 	className = '',
+	step= 0.1,
 	textarea = false,
 }) => {
 	const handleChange = (e) => {

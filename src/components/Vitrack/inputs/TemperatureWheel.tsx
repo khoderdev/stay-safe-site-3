@@ -1,73 +1,95 @@
-import React, { useState, useMemo, useEffect } from 'react';
-import Picker from 'react-mobile-picker';
+// import React, { useState, useEffect } from 'react';
+// import InputField from '../inputs/InputField';
+
+// interface TemperatureWheelProps {
+//   label?: string; // Add label prop
+//   min?: number;
+//   max?: number;
+//   step?: number;
+//   defaultValue?: string;
+//   onChange?: (value: string) => void; // Add onChange prop
+//   formatValue?: (value: string) => string; // Add formatValue prop
+// }
+
+// const TemperatureWheel: React.FC<TemperatureWheelProps> = ({
+//   label, // Destructure label prop
+//   min = 35.0, // Updated min to 35.0 to include 35.0 and below
+//   max = 39.0, // Set max to 39.0
+//   step = 0.1,
+//   defaultValue = '37.0',
+//   onChange, // Destructure onChange prop
+//   formatValue, // Destructure formatValue prop
+// }) => {
+//   // State to manage the input value
+//   const [value, setValue] = useState(defaultValue);
+
+//   // Handle input change
+//   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+//     const newValue = e.target.value;
+//     setValue(newValue);
+
+//     // Call the onChange prop if provided
+//     if (onChange) {
+//       onChange(newValue);
+//     }
+//   };
+
+//   // Format the displayed value
+//   const formattedValue = formatValue ? formatValue(value) : value;
+
+//   return (
+//     <InputField
+//       type="number"
+//       label={label} // Pass the label prop to InputField
+//       min={min}
+//       max={max}
+//       step={step}
+//       value={formattedValue}
+//       onChange={handleChange}
+//       aria-label="Temperature Input"
+//       className="w-full" // Add any necessary className
+//     />
+//   );
+// };
+
+// export default TemperatureWheel;
+
+import React from 'react';
+import InputField from '../inputs/InputField';
 
 interface TemperatureWheelProps {
+  label?: string;
   min?: number;
   max?: number;
   step?: number;
-  defaultValue?: string;
-  className?: string;
-  onChange?: (value: string) => void; // Add onChange prop
-  formatValue?: (value: string) => string; // Add formatValue prop
+  value: string; // Ensure value is a string
+  onChange: (value: string) => void; // Ensure onChange is a function that takes a string
 }
 
 const TemperatureWheel: React.FC<TemperatureWheelProps> = ({
-  min = 35.0, // Updated min to 35.0 to include 35.0 and below
-  max = 40.1,
+  label,
+  min = 35.0,
+  max = 39.0,
   step = 0.1,
-  defaultValue = '37.0',
-  className = '',
-  onChange, // Destructure onChange prop
-  formatValue, // Destructure formatValue prop
+  value,
+  onChange,
 }) => {
-  // Generate temperature values dynamically
-  const tempValues = useMemo(() => {
-    const values: string[] = [];
-    for (let i = min; i <= max; i += step) {
-      values.push(i.toFixed(1)); // Ensure 1 decimal place
-    }
-    return values;
-  }, [min, max, step]);
-
-  // Ensure the default value is within the range
-  const initialValue = tempValues.includes(defaultValue) ? defaultValue : tempValues[Math.floor(tempValues.length / 2)];
-
-  const [pickerValue, setPickerValue] = useState({
-    tempValues: initialValue,
-  });
-
-  // Call onChange when the picker value changes
-  useEffect(() => {
-    if (onChange) {
-      onChange(pickerValue.tempValues);
-    }
-  }, [pickerValue.tempValues, onChange]);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newValue = e.target.value;
+    onChange(newValue); // Pass the new value to the parent component
+  };
 
   return (
-    <Picker
-      value={pickerValue}
-      onChange={setPickerValue}
-      wheelMode="natural"
-      aria-label="Temperature Picker"
-      className={className}
-    >
-      <Picker.Column key="tempValues" name="tempValues">
-        {tempValues.map((option) => (
-          <Picker.Item
-            key={option}
-            value={option}
-            aria-label={`Temperature ${option}`}
-            className={`transition-all duration-200 ${
-              pickerValue.tempValues === option
-                ? 'text-black dark:text-[#fff] scale-110 transition-all duration-75'
-                : 'text-gray-400'
-            }`}
-          >
-            {formatValue ? formatValue(option) : option} {/* Apply formatValue if provided */}
-          </Picker.Item>
-        ))}
-      </Picker.Column>
-    </Picker>
+    <InputField
+      type="text"
+      label={label}
+      min={min}
+      max={max}
+      step={step}
+      value={value}
+      onChange={handleChange}
+      aria-label="Temperature Input"
+      className="w-full" name={undefined}    />
   );
 };
 
