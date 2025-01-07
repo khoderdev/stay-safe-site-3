@@ -69,11 +69,20 @@ function CircularTextHoldingTest() {
       {/* Circular Text with Central Logo */}
       <CircularText radius={radius} fontSize={fontSize}>
         <div
-          className="relative flex items-center justify-center rounded-full"
-          style={{
-            width: '100%', // Central element takes up 100% of the wrapper
-            height: '100%',
-          }}
+          className="relative flex items-center justify-center rounded-full
+          w-[80%]
+          sm:w-[90%] h-auto
+          md:w-[100%]
+          lg:w-[100%]
+          xl:w-[80%]
+          2xl:w-[90%]
+          3xl:w-[100%]
+          
+          "
+        // style={{
+        //   width: '80%', // Central element takes up 80% of the wrapper
+        //   height: '80%',
+        // }}
         >
           <img
             src="/white-logo-anim.gif"

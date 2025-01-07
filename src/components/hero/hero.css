@@ -1,3 +1,9 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 .hero {
 	height: 100dvh;
 	width: 100dvw;
@@ -53,4 +59,62 @@
 	100% {
 		transform: translateY(100%); /* Move below the container */
 	}
+}
+
+
+
+@layer components {
+  .custom-positioning {
+    top: 145px;
+    left: 230px;
+  }
+
+  @media (min-width: 320px) {
+    .custom-positioning {
+      top: 131px;
+      left: 206px;
+    }
+  }
+
+  @media (min-width: 480px) {
+    .custom-positioning {
+      top: 160px;
+      left: 270px;
+    }
+  }
+
+  @media (min-width: 640px) {
+    .custom-positioning {
+      top: 29%;
+      left: 52.5%;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .custom-positioning {
+      top: 29%;
+      left: 52.5%;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .custom-positioning {
+      top: 29%;
+      left: 52.5%;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .custom-positioning {
+      top: 29%;
+      left: 52.5%;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .custom-positioning {
+      top: 29.5%;
+      left: 52.5%;
+    }
+  }
 }
