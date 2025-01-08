@@ -14,12 +14,9 @@ import {
 } from '../../../atoms/store';
 import { getWarnings, temperatureWarning } from '../conditions';
 import TemperatureWheel from '../inputs/TemperatureWheel';
-import TemperatureTabs from '../inputs/TemperatureTabs';
 import NoScrollContainer from '../TemperatureWheelContainer';
+import { celsiusToFahrenheitMapping } from '../data';
 
-const celsiusToFahrenheit = (celsius: number): number => (celsius * 9) / 5 + 32;
-const fahrenheitToCelsius = (fahrenheit: number): number =>
-  ((fahrenheit - 32) * 5) / 9;
 
 const HealthMetricsForm = () => {
   const [temperature, setTemperature] = useAtom(temperatureAtom);
@@ -66,18 +63,18 @@ const HealthMetricsForm = () => {
     if (activeUnit === 'C') {
       setTemperature(value);
     } else {
-      const celsiusValue = fahrenheitToCelsius(parseFloat(value)).toFixed(1);
-      setTemperature(celsiusValue);
+      // Convert Fahrenheit back to Celsius using the mapping
+      const celsiusValue = Object.keys(celsiusToFahrenheitMapping).find(
+        (key) => celsiusToFahrenheitMapping[key] === value
+      );
+      if (celsiusValue) {
+        setTemperature(celsiusValue);
+      }
     }
   };
 
+  // Get temperature warning based on Celsius value
   const tempWarning = temperatureWarning(temperature, symptoms);
-  // const handleTemperatureChange = (value: string) => {
-  //   setTemperature(value);
-  // };
-
-  // // Get temperature warning
-  // const tempWarning = temperatureWarning(temperature, symptoms);
 
   // Handle input changes
   const handleChange = (e) => {
@@ -144,15 +141,13 @@ const HealthMetricsForm = () => {
           <div className="flex justify-center my-4">
             <button
               onClick={() => setActiveUnit('C')}
-              className={`px-4 py-2 ${activeUnit === 'C' ? 'bg-blue-500 text-white' : 'bg-gray-200'
-                }`}
+              className={`px-4 py-2 ${activeUnit === 'C' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
             >
               °C
             </button>
             <button
               onClick={() => setActiveUnit('F')}
-              className={`px-4 py-2 ${activeUnit === 'F' ? 'bg-blue-500 text-white' : 'bg-gray-200'
-                }`}
+              className={`px-4 py-2 ${activeUnit === 'F' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
             >
               °F
             </button>
@@ -177,17 +172,17 @@ const HealthMetricsForm = () => {
               />
             ) : (
               <TemperatureWheel
-                min={celsiusToFahrenheit(35.0)}
-                max={celsiusToFahrenheit(39.0)}
+                min={35.0}
+                max={39.0}
                 step={0.1}
-                defaultValue={celsiusToFahrenheit(parseFloat(temperature)).toFixed(1)}
+                defaultValue={celsiusToFahrenheitMapping[temperature] || ''}
                 onChange={handleTemperatureChange}
                 className="bg-[#fff] dark:bg-black !h-72 !py-9 rounded-xl shadow-inner"
                 formatValue={(value) =>
-                  value === celsiusToFahrenheit(35.0).toFixed(1)
-                    ? `${celsiusToFahrenheit(35.0).toFixed(1)} and Below`
-                    : value === celsiusToFahrenheit(39.0).toFixed(1)
-                      ? `${celsiusToFahrenheit(39.0).toFixed(1)} and Above`
+                  value === '95.0'
+                    ? '95 and Below'
+                    : value === '104.0'
+                      ? '104 and Above'
                       : value
                 }
                 unit="F"
@@ -210,44 +205,6 @@ const HealthMetricsForm = () => {
           )}
         </div>
       </NoScrollContainer>
-      {/* <NoScrollContainer>
-        <div className="flex flex-col w-full max-w-sm mx-auto p-6 bg-white-bg2 dark:!bg-[#000] rounded-xl min-h-[400px] overflow-hidden">
-          <h1 className="text-2xl font-bold text-center text-gray-800 dark:text-gray-50">
-            Oral Temperature
-          </h1>
-          <div className="flex-grow flex items-center justify-center">
-            <TemperatureWheel
-              min={35.0}
-              max={39.0}
-              step={0.1}
-              defaultValue={temperature}
-              onChange={handleTemperatureChange}
-              className="bg-[#fff] dark:bg-black !h-72 !py-9 rounded-xl shadow-inner"
-              formatValue={(value) =>
-                value === '35.0'
-                  ? '35 and Below'
-                  : value === '39.0'
-                    ? '39 and Above'
-                    : value
-              }
-            />
-          </div>
-          {tempWarning && (
-            <div
-              className={`w-full p-3 rounded font-medium text-md text-gray-50 ${tempWarning.color === 'green'
-                  ? 'bg-green-500'
-                  : tempWarning.color === 'yellow'
-                    ? 'bg-yellow-500'
-                    : tempWarning.color === 'orange'
-                      ? 'bg-orange-500'
-                      : 'bg-red-500'
-                }`}
-            >
-              {tempWarning.message}
-            </div>
-          )}
-        </div>
-      </NoScrollContainer> */}
       {/* General Warnings */}
       <div className="space-y-4">
         {warnings.length > 0 && (
