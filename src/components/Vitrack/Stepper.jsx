@@ -14,7 +14,7 @@ const Stepper = ({
 	const isLastStep = currentStep === steps.length - 1;
 
 	return (
-		<div className='mx-auto p-4 !text-black shadow-md rounded-lg space-y-6'>
+		<div className='mx-auto p-4 !text-black rounded-lg space-y-6 '>
 			{/* Render Step Content Dynamically */}
 			<div>{children[currentStep]}</div>
 

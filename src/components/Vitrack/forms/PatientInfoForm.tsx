@@ -90,7 +90,7 @@ const PatientInfoForm = () => {
 
     return (
         <form autoComplete="off">
-            <div className="p-3 sm:p-7 rounded-lg !bg-white-bg2 dark:!bg-[#000] grid grid-cols-1 sm:grid-cols-2 gap-x-14 gap-y-8">
+            <div className="p-6 sm:p-7 rounded-lg !bg-white-bg2 dark:!bg-[#000] grid grid-cols-1 sm:grid-cols-2 gap-x-14 gap-y-8">
                 <InputField
                     label="First Name"
                     name="firstName"
