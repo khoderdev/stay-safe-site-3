@@ -1,0 +1,16 @@
+/* Custom scrollbar styles for the chat messages container */
+.scrollbar-white::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+.scrollbar-white::-webkit-scrollbar-track {
+  background: white; /* Background color of the scrollbar track */
+}
+
+.scrollbar-white::-webkit-scrollbar-thumb {
+  background: #ccc; /* Color of the scrollbar thumb */
+}
+
+.scrollbar-white::-webkit-scrollbar-thumb:hover {
+  background: #aaa; /* Color of the scrollbar thumb on hover */
+}

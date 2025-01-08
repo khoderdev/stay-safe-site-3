@@ -63,7 +63,7 @@ export default function Header() {
   return (
     <header
       ref={headerRef}
-      className="fixed w-full h-[4.5rem] bg-white/60 dark:bg-black/50 backdrop-blur-md shadow-lg dark:shadow-[#00000021] z-50 flex items-center justify-between px-4 sm:px-6 lg:px-8"
+      className="fixed w-full h-[4.5rem] bg-white/60 dark:bg-black/50 backdrop-blur-md shadow-lg dark:shadow-[#00000021] flex items-center justify-between px-4 sm:px-6 lg:px-8"
     >
       {/* Logo */}
       <motion.div
