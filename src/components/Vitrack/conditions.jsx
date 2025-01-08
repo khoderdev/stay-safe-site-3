@@ -237,7 +237,7 @@ export const getWarnings = (formData) => {
 	return messages;
 };
 
-export const temperatureWarning = (temperature, symptoms = []) => {
+export const temperatureWarning = (temperature, symptoms) => {
 	if (!temperature || temperature.trim() === '') {
 		return {
 			color: 'red',
@@ -254,11 +254,9 @@ export const temperatureWarning = (temperature, symptoms = []) => {
 		};
 	}
 
-	// Utility to check if any severe symptoms are present
 	const hasSevereSymptoms = (symptomsArray) =>
 		symptomsArray.some((symptom) => symptoms.includes(symptom));
 
-	// Severe symptoms list
 	const severeTempSymptoms = [
 		'Severe headache',
 		'Rash',
@@ -316,3 +314,83 @@ export const temperatureWarning = (temperature, symptoms = []) => {
 
 	return null;
 };
+
+// export const temperatureWarning = (temperature, symptoms = []) => {
+// 	if (!temperature || temperature.trim() === '') {
+// 		return {
+// 			color: 'red',
+// 			message: 'Invalid temperature reading. Please check your input.',
+// 		};
+// 	}
+
+// 	const temp = parseFloat(temperature);
+
+// 	if (isNaN(temp)) {
+// 		return {
+// 			color: 'red',
+// 			message: 'Invalid temperature reading. Please check your input.',
+// 		};
+// 	}
+
+// 	// Utility to check if any severe symptoms are present
+// 	const hasSevereSymptoms = (symptomsArray) =>
+// 		symptomsArray.some((symptom) => symptoms.includes(symptom));
+
+// 	// Severe symptoms list
+// 	const severeTempSymptoms = [
+// 		'Severe headache',
+// 		'Rash',
+// 		'Unusual sensitivity to bright light',
+// 		'Stiff neck and pain when you bend your head forward',
+// 		'Mental confusion, strange behavior or altered speech',
+// 		'Persistent vomiting',
+// 		'Difficulty breathing or chest pain',
+// 		'Abdominal pain',
+// 		'Pain when urinating',
+// 		'Convulsions or seizures',
+// 	];
+
+// 	if (temp <= 35) {
+// 		return {
+// 			color: 'red',
+// 			message:
+// 				'Get Immediate medical attention, call an ambulance and go to the emergency department right away.',
+// 		};
+// 	} else if (temp <= 35.9) {
+// 		return {
+// 			color: 'red',
+// 			message: 'Get Evaluated Call your healthcare provider right away',
+// 		};
+// 	} else if (temp < 36) {
+// 		return {
+// 			color: 'orange',
+// 			message: 'Mild Hypothermia: Get evaluated by your healthcare provider.',
+// 		};
+// 	} else if (temp >= 36 && temp <= 37) {
+// 		return {
+// 			color: 'green',
+// 			message: 'Your temperature is within the normal range.',
+// 		};
+// 	} else if (temp > 37 && temp <= 38.9) {
+// 		return {
+// 			color: 'yellow',
+// 			message: 'Your Temperature is Higher than average.',
+// 		};
+// 	} else if (temp >= 39) {
+// 		if (hasSevereSymptoms(severeTempSymptoms)) {
+// 			return {
+// 				color: 'red',
+// 				message:
+// 					'Call an Ambulance right away and go to the emergency department.',
+// 			};
+// 		} else {
+// 			return {
+// 				color: 'red',
+// 				message:
+// 					'High Fever: Get Evaluated, Call your healthcare provider right away.',
+// 			};
+// 		}
+// 	}
+
+// 	return null;
+// };

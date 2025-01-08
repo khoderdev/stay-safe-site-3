@@ -197,7 +197,7 @@ const Vitrack = () => {
 	};
 
 	return (
-		<div className='md:w-2/3 md:mx-auto '>
+		<div className='md:w-2/3 md:mx-auto py-10'>
 			<Stepper
 				steps={['Patient Info', 'Health Metrics', 'Review & Submit']}
 				currentStep={currentStep}
