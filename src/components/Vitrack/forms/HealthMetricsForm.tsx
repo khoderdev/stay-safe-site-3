@@ -61,14 +61,14 @@ const HealthMetricsForm = () => {
   // // Handle temperature change from the wheel
   const handleTemperatureChange = (value: string) => {
     if (activeUnit === 'C') {
-      setTemperature(value);
+      setTemperature(value); // Store in Celsius
     } else {
       // Convert Fahrenheit back to Celsius using the mapping
       const celsiusValue = Object.keys(celsiusToFahrenheitMapping).find(
         (key) => celsiusToFahrenheitMapping[key] === value
       );
       if (celsiusValue) {
-        setTemperature(celsiusValue);
+        setTemperature(celsiusValue); // Store in Celsius
       }
     }
   };
@@ -138,16 +138,16 @@ const HealthMetricsForm = () => {
           <h1 className="text-2xl font-bold text-center text-gray-800 dark:text-gray-50">
             Oral Temperature
           </h1>
-          <div className="flex justify-center my-4">
+          <div className="flex justify-center mt-4">
             <button
               onClick={() => setActiveUnit('C')}
-              className={`px-4 py-2 ${activeUnit === 'C' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+              className={`px-4 py-2 font-semibold ${activeUnit === 'C' ? 'bg-pink text-gray-50 shadow-lg transform scale-110 duration-100' : 'bg-gray-200'}`}
             >
               °C
             </button>
             <button
               onClick={() => setActiveUnit('F')}
-              className={`px-4 py-2 ${activeUnit === 'F' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+              className={`px-4 py-2 font-semibold ${activeUnit === 'F' ? 'bg-pink text-gray-50 shadow-lg transform scale-110 duration-100' : 'bg-gray-200'}`}
             >
               °F
             </button>
@@ -158,7 +158,7 @@ const HealthMetricsForm = () => {
                 min={35.0}
                 max={39.0}
                 step={0.1}
-                defaultValue={temperature}
+                defaultValue={temperature} // Default value in Celsius
                 onChange={handleTemperatureChange}
                 className="bg-[#fff] dark:bg-black !h-72 !py-9 rounded-xl shadow-inner"
                 formatValue={(value) =>
@@ -175,7 +175,7 @@ const HealthMetricsForm = () => {
                 min={35.0}
                 max={39.0}
                 step={0.1}
-                defaultValue={celsiusToFahrenheitMapping[temperature] || ''}
+                defaultValue={celsiusToFahrenheitMapping[temperature] || '98.6'} // Default value in Fahrenheit
                 onChange={handleTemperatureChange}
                 className="bg-[#fff] dark:bg-black !h-72 !py-9 rounded-xl shadow-inner"
                 formatValue={(value) =>
@@ -192,12 +192,12 @@ const HealthMetricsForm = () => {
           {tempWarning && (
             <div
               className={`w-full p-3 rounded font-medium text-md text-gray-50 ${tempWarning.color === 'green'
-                ? 'bg-green-500'
-                : tempWarning.color === 'yellow'
-                  ? 'bg-yellow-500'
-                  : tempWarning.color === 'orange'
-                    ? 'bg-orange-500'
-                    : 'bg-red-500'
+                  ? 'bg-green-500'
+                  : tempWarning.color === 'yellow'
+                    ? 'bg-yellow-500'
+                    : tempWarning.color === 'orange'
+                      ? 'bg-orange-500'
+                      : 'bg-red-500'
                 }`}
             >
               {tempWarning.message}
