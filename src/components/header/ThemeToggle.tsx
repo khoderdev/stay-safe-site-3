@@ -3,10 +3,15 @@ import { useTheme } from "../../hooks/useTheme";
 import { useDarkMode } from "../../hooks/DarkModeContext";
 import { FaEnvira } from "react-icons/fa6";
 
+
 export default function ThemeToggle() {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
   const { toggleTheme } = useTheme();
 
+  /**
+   * Toggle the theme between light and dark mode, and also toggle the
+   * DarkModeContext's isDarkMode state.
+   */
   const handleToggle = () => {
     toggleDarkMode();
     toggleTheme();

@@ -6,7 +6,6 @@ import { AppointmentProvider } from "./context/AppointmentContext";
 import ResourceLoader from "./components/preload/ResourceLoader";
 import PreloadResources from "./components/preload/PreloadResources";
 import { Toaster } from "react-hot-toast";
-import ScrollToTop from "./components/ScrollToTop";
 import StaySafeBot from "./components/bot/ChatBot";
 
 import { useGSAP } from '@gsap/react';
@@ -26,9 +25,9 @@ function App() {
           <div className="font-sans antialiased">
             <Layout>
               <AppRoutes />
+              <StaySafeBot />
             </Layout>
-            <ScrollToTop />
-            <StaySafeBot />
+           
             <Toaster
               position="top-right"
               toastOptions={{

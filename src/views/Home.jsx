@@ -43,17 +43,9 @@ const Home = React.memo(() => {
 	return (
 		<div className='relative bg-white-bg dark:bg-black'>
 			{/* Sticky Hero Section */}
-			<div className='relative z-10'>
+			<div className=''>
 				<Hero1 />
 			</div>
-			{/* <div
-				className=''
-				// style={{
-				// 	boxShadow: '0px -80px 70px rgba(0, 0, 0, 5)',
-				// }}
-			>
-				<Line />
-			</div> */}
 
 			<div className=''>
 				<Balloon />
