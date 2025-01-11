@@ -38,7 +38,7 @@ function Symptoms() {
       {/* Symptoms Section */}
       <div className='col-span-full'>
         <h2 className='text-2xl font-bold dark:text-gray-50 mb-6'>Symptoms</h2>
-        <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
+        <div className='grid grid-cols- sm:grid-cols-2 gap-2'>
           {symptomsList.map((symptom, index) => (
             <label
               key={index}
