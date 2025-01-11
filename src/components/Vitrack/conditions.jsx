@@ -44,7 +44,7 @@ export const handleBloodPressure = (
 			heartRate < 60
 		) {
 			addMessage(
-				'Low Blood Pressure with Severe Symptoms: Get Immediate Medical Attention. Call an ambulance and go to the emergency department right away.',
+				'Low Blood Pressure: Get Immediate Medical Attention. Call an ambulance and go to the emergency department right away.',
 				'red'
 			);
 		} else {
@@ -60,7 +60,7 @@ export const handleBloodPressure = (
 		diastolic <= BP_THRESHOLDS.NORMAL_DIASTOLIC_HIGH
 	) {
 		addMessage(
-			'Normal Blood Pressure. Keep monitoring your BP at home.',
+			'Normal Blood Pressure: Keep monitoring your BP at home.',
 			'green'
 		);
 	} else if (
