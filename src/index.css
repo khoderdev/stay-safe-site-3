@@ -1,7 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+:root {
+  --color-pink: #e55e72;
+}
 * {
 	margin: 0;
 	padding: 0;
