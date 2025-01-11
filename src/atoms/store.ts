@@ -13,6 +13,11 @@ interface BloodPressureSet {
 	rightHand: BloodPressure;
 }
 
+interface BloodPressureAverage {
+	systolic: number | null;
+	diastolic: number | null;
+}
+
 // Define atoms with types
 export const firstNameAtom = atom<string>('');
 export const lastNameAtom = atom<string>('');
@@ -44,7 +49,16 @@ export const heartRateAtom = atom<string>('');
 export const respiratoryRateAtom = atom<string>('');
 export const temperatureAtom = atom<string>('');
 export const painScaleAtom = atom<number>(0);
-export const symptomsAtom = atom<string[]>([]);  
+export const symptomsAtom = atom<string[]>([]);
+export const activeUnitAtom = atom<'C' | 'F'>('C');
+export const showModalAtom = atom<boolean>(false);
+export const currentSetIdAtom = atom<number | null>(null);
+export const timerAtom = atom<NodeJS.Timeout | null>(null);
+export const bothHandsResultsAverageAtom = atom<BloodPressureAverage>({
+	systolic: null,
+	diastolic: null,
+});
+export const skipRightHandInputsAtom = atom<boolean>(true);
 
 export const phoneAtom = atom<string>('');
 export const emergencyPhoneAtom = atom<string>('');
