@@ -2756,7 +2756,7 @@ const HealthMetricsForm = () => {
       const rightDiastolic = parseFloat(currentSet.rightHand.diastolic) || 0;
 
       // Calculate the average systolic and diastolic
-      const bothHandsSystolicResultsAverage = (leftSystolic + rightSystolic) / 2 + 0.5; // Adjusted formula
+      const bothHandsSystolicResultsAverage = (leftSystolic + rightSystolic) / 2 ; // Adjusted formula
       const bothHandsDiastolicResultsAverage = (leftDiastolic + rightDiastolic) / 2; // No change
 
       // Update the average results
@@ -2837,7 +2837,7 @@ const HealthMetricsForm = () => {
         console.log('Right Diastolic:', rightDiastolic); // Debugging log
 
         // Calculate the average systolic and diastolic
-        const bothHandsSystolicResultsAverage = ((leftSystolic + rightSystolic) / 2 + 0.5).toFixed(1); // Adjusted formula with rounding
+        const bothHandsSystolicResultsAverage = ((leftSystolic + rightSystolic) / 2 ).toFixed(1); // Adjusted formula with rounding
         const bothHandsDiastolicResultsAverage = ((leftDiastolic + rightDiastolic) / 2).toFixed(1); // No change with rounding
 
         // Log the final result values to the console
@@ -2908,7 +2908,7 @@ const HealthMetricsForm = () => {
 
       {/* Temperature Input */}
       <NoScrollContainer>
-        <div className="flex flex-col w-full max-w-sm mx-auto p-6 bg-white-bg2 dark:!bg-[#000] rounded-xl min-h-[400px] overflow-hidden">
+        <div className="flex flex-col w-full max-w-sm mx-auto p-6 bg-white-bg2 dark:!bg-[#000] rounded-xl overflow-hidden">
           <h1 className="text-2xl font-bold text-center text-gray-800 dark:text-gray-50">
             Oral Temperature
           </h1>

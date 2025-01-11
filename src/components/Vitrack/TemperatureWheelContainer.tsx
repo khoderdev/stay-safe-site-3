@@ -49,7 +49,7 @@ const NoScrollContainer = ({ children }) => {
   return (
     <div
       ref={containerRef}
-      className="w-fit mx-auto"
+      className="w-fit min-h-[500px] h-full mx-auto"
       style={{ overflow: 'hidden' }}
     >
       {children}

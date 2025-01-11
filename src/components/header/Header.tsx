@@ -93,11 +93,11 @@ export default function Header() {
           Home
         </Link>
         <Dropdown
-          title="Preventive Health"
+          title="Patient Services"
           items={[
             {
-              label: "Patient Services",
-              to: "/preventive-health-patient-services",
+              label: "Preventive Health",
+              to: "/preventive-health",
             },
             { label: "Medical Dietary Clinic", to: "/mdc" },
             { label: "Vitrack", to: "/vitrack" },
