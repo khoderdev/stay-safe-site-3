@@ -34,6 +34,7 @@ export const symptomsList = [
 	'Unusual sensitivity to bright light',
 	'Unusual sweating',
 	'Weakness',
+	'Weak and rapid pulse',
 ];
 
 export const diseasesOptions = [

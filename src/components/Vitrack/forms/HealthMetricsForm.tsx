@@ -36,20 +36,6 @@ const HealthMetricsForm = () => {
     // Store the temperature with the correct unit
     setTemperature(`${numericValue} °${activeUnit}`);
   };
-  // const handleTemperatureChange = (value: string) => {
-  //   if (activeUnit === 'C') {
-  //     setTemperature(value); // Store in Celsius
-  //   } else {
-  //     // Convert Fahrenheit back to Celsius using the mapping
-  //     const celsiusValue = Object.keys(celsiusToFahrenheitMapping).find(
-  //       (key) => celsiusToFahrenheitMapping[key] === value
-  //     );
-  //     if (celsiusValue) {
-  //       setTemperature(celsiusValue); // Store in Celsius
-  //     }
-  //   }
-  // };
-
   // Get temperature warning based on Celsius value
   const tempWarning = temperatureWarning(temperature, symptoms);
 
