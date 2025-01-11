@@ -1,7 +1,7 @@
 import React, { lazy } from "react";
 
-const StaySafeBot = lazy(() => import("../components/bot/ChatBot"));
 const CodeOfConduct = lazy(() => import("../components/CodeOfConduct/CodeOfConduct"));
+
 
 const AboutUsPage = () => {
   return (
@@ -9,7 +9,6 @@ const AboutUsPage = () => {
       <div className="">
         <CodeOfConduct />
       </div>
-      {/* <StaySafeBot /> */}
     </div>
   );
 };

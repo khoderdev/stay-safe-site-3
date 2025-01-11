@@ -135,7 +135,7 @@ import {
   coa21,
   coa22,
   vision
-} from './images';
+} from './Images';
 
 function CodeOfConduct() {
   return (
