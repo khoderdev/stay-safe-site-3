@@ -190,7 +190,7 @@ const Vitrack = () => {
 			rightHandOxygen,
 			heartRate,
 			respiratoryRate,
-			temperature,
+			temperature, // This will now include the unit (°C or °F)
 			painScale,
 			symptoms,
 		});

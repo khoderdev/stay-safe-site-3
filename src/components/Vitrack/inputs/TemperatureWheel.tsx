@@ -81,6 +81,7 @@
 
 // export default TemperatureWheel;
 
+
 import React, { useState, useMemo, useEffect } from 'react';
 import Picker from 'react-mobile-picker';
 import { celsiusToFahrenheitMapping } from '../data';
@@ -89,9 +90,9 @@ interface TemperatureWheelProps {
   min?: number;
   max?: number;
   step?: number;
-  defaultValue?: string;
+  defaultValue?: string; // Expects a string with unit, e.g., "37.0 °C" or "98.6 °F"
   className?: string;
-  onChange?: (value: string) => void;
+  onChange?: (value: string) => void; // Returns the value with unit, e.g., "37.0 °C" or "98.6 °F"
   formatValue?: (value: string) => string;
   unit?: 'C' | 'F'; // New prop to handle unit
 }
@@ -100,12 +101,16 @@ const TemperatureWheel: React.FC<TemperatureWheelProps> = ({
   min = 35.0,
   max = 39.0,
   step = 0.1,
-  defaultValue = '37.0',
+  defaultValue = '37.0 °C', // Default value with unit
   className = '',
   onChange,
   formatValue,
   unit = 'C', // Default to Celsius
 }) => {
+  // Extract the numeric value from the defaultValue (e.g., "37.0 °C" -> "37.0")
+  const defaultNumericValue = defaultValue.split(' ')[0];
+
+  // Generate temperature values based on the unit
   const tempValues = useMemo(() => {
     const values: string[] = [];
     for (let i = min; i <= max; i += step) {
@@ -123,17 +128,22 @@ const TemperatureWheel: React.FC<TemperatureWheelProps> = ({
     return values;
   }, [min, max, step, unit]);
 
-  const initialValue = tempValues.includes(defaultValue) ? defaultValue : tempValues[Math.floor(tempValues.length / 2)];
+  // Set the initial picker value
+  const initialValue = tempValues.includes(defaultNumericValue)
+    ? defaultNumericValue
+    : tempValues[Math.floor(tempValues.length / 2)];
 
   const [pickerValue, setPickerValue] = useState({
     tempValues: initialValue,
   });
 
+  // Call the onChange callback with the selected value and unit
   useEffect(() => {
     if (onChange) {
-      onChange(pickerValue.tempValues);
+      const valueWithUnit = `${pickerValue.tempValues} °${unit}`;
+      onChange(valueWithUnit);
     }
-  }, [pickerValue.tempValues, onChange]);
+  }, [pickerValue.tempValues, unit, onChange]);
 
   return (
     <Picker
@@ -149,10 +159,11 @@ const TemperatureWheel: React.FC<TemperatureWheelProps> = ({
             key={option}
             value={option}
             aria-label={`Temperature ${option}`}
-            className={`transition-all duration-200 ${pickerValue.tempValues === option
-              ? 'text-black dark:text-[#fff] scale-110 font-bold'
-              : 'text-gray-400 dark:text-gray-400'
-              }`}
+            className={`transition-all duration-200 ${
+              pickerValue.tempValues === option
+                ? 'text-black dark:text-[#fff] scale-110 font-bold'
+                : 'text-gray-400 dark:text-gray-400'
+            }`}
           >
             {formatValue ? formatValue(option) : `${option}°${unit}`}
           </Picker.Item>
