@@ -31,6 +31,10 @@ const HealthMetricsForm = () => {
   const [currentSetId, setCurrentSetId] = useState<number | null>(null); // Track the current set ID
   const rightHandSystolicRef = useRef<HTMLInputElement>(null);
   const [timer, setTimer] = useState<NodeJS.Timeout | null>(null);
+  const [bothHandsResultsAverage, setBothHandsResultsAverage] = useState<{
+    systolic: number | null;
+    diastolic: number | null;
+  }>({ systolic: null, diastolic: null });
 
   // Handle temperature change from the wheel
   const handleTemperatureChange = (value: string) => {
@@ -77,6 +81,23 @@ const HealthMetricsForm = () => {
       )
     );
 
+    // Calculate the average after updating the state
+    const currentSet = bloodPressureSets.find((set) => set.id === id);
+    if (currentSet) {
+      const leftSystolic = parseFloat(currentSet.leftHand.systolic) || 0;
+      const leftDiastolic = parseFloat(currentSet.leftHand.diastolic) || 0;
+      const rightSystolic = parseFloat(currentSet.rightHand.systolic) || 0;
+      const rightDiastolic = parseFloat(currentSet.rightHand.diastolic) || 0;
+
+      const averageSystolic = (leftSystolic + rightSystolic) / 2;
+      const averageDiastolic = (leftDiastolic + rightDiastolic) / 2;
+
+      setBothHandsResultsAverage({
+        systolic: averageSystolic,
+        diastolic: averageDiastolic,
+      });
+    }
+
     // Check if the input being changed is the left hand diastolic
     if (hand === 'leftHand' && name === 'diastolic') {
       const currentSet = bloodPressureSets.find((set) => set.id === id);
@@ -90,7 +111,7 @@ const HealthMetricsForm = () => {
 
           const newTimer = setTimeout(() => {
             setShowModal(true);
-          }, 1000); 
+          }, 1000);
           setTimer(newTimer);
         }
       }
@@ -129,7 +150,6 @@ const HealthMetricsForm = () => {
   // Close the modal
   const closeModal = () => {
     setShowModal(false);
-
   };
 
   // Handle the "Go Back" button click
@@ -293,18 +313,23 @@ const HealthMetricsForm = () => {
               </div>
 
               {/* Combined Warnings */}
-              {combinedWarnings.length > 0 && (
-                <div className="bg-gray-200 dark:bg-black ring ring-gray-200 dark:ring-black shadow-lg dark:text-gray-50 p-3 rounded">
-                  <h3 className="font-bold mb-2">Blood Pressure Warnings:</h3>
-                  <ul className='space-y-2'>
-                    {combinedWarnings.map((warning, index) => (
-                      <li key={index} className={warning.color ? `text-${warning.color}-500` : ''}>
-                        {warning.text}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
+              {!(
+                (bothHandsResultsAverage.systolic === 0 && bothHandsResultsAverage.diastolic === 0) ||
+                (bothHandsResultsAverage.systolic === null && bothHandsResultsAverage.diastolic === null)
+              ) && bothHandsResultsAverage.systolic !== null && bothHandsResultsAverage.diastolic !== null && (
+                  <div className="bg-gray-200 dark:bg-black ring ring-gray-200 dark:ring-black shadow-lg dark:text-gray-50 p-3 rounded">
+                    <h3 className="font-bold mb-2">Blood Pressure Warnings:</h3>
+                    <ul className="space-y-2">
+                      {calculateWarnings(bothHandsResultsAverage.systolic, bothHandsResultsAverage.diastolic).map(
+                        (warning, index) => (
+                          <li key={index} className={warning.color ? `text-${warning.color}-500` : ''}>
+                            {warning.text}
+                          </li>
+                        )
+                      )}
+                    </ul>
+                  </div>
+                )}
             </div>
           );
         })}
