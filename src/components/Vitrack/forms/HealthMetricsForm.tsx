@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useAtom } from 'jotai';
 import InputField from '../inputs/InputField';
 import BloodPressureInput from '../inputs/BloodPressureInput';
@@ -23,19 +23,21 @@ const HealthMetricsForm = () => {
   const [respiratoryRate, setRespiratoryRate] = useAtom(respiratoryRateAtom);
   const [leftHandOxygen, setLeftHandOxygen] = useAtom(leftHandOxygenAtom);
   const [rightHandOxygen, setRightHandOxygen] = useAtom(rightHandOxygenAtom);
-  const [symptoms,] = useAtom(symptomsAtom);
+  const [symptoms] = useAtom(symptomsAtom);
   const [painScale, setPainScale] = useAtom(painScaleAtom);
   const [bloodPressureSets, setBloodPressureSets] = useAtom(bloodPressureSetsAtom);
   const [activeUnit, setActiveUnit] = useState<'C' | 'F'>('C');
+  const [showModal, setShowModal] = useState(false); // State to control modal visibility
+  const [currentSetId, setCurrentSetId] = useState<number | null>(null); // Track the current set ID
+  const rightHandSystolicRef = useRef<HTMLInputElement>(null);
+  const [timer, setTimer] = useState<NodeJS.Timeout | null>(null);
 
   // Handle temperature change from the wheel
   const handleTemperatureChange = (value: string) => {
-    // Extract the numeric value and unit from the input
     const [numericValue, unit] = value.split(' ');
-
-    // Store the temperature with the correct unit
     setTemperature(`${numericValue} °${activeUnit}`);
   };
+
   // Get temperature warning based on Celsius value
   const tempWarning = temperatureWarning(temperature, symptoms);
 
@@ -74,6 +76,25 @@ const HealthMetricsForm = () => {
           : set
       )
     );
+
+    // Check if the input being changed is the left hand diastolic
+    if (hand === 'leftHand' && name === 'diastolic') {
+      const currentSet = bloodPressureSets.find((set) => set.id === id);
+      if (currentSet) {
+        const hasLeftHandDiastolic = currentSet.leftHand.diastolic;
+        const hasRightHandDiastolic = currentSet.rightHand.diastolic;
+
+        // Show modal if left hand has diastolic data and right hand is empty
+        if (hasLeftHandDiastolic && !hasRightHandDiastolic) {
+          setCurrentSetId(id); // Set the current set ID
+
+          const newTimer = setTimeout(() => {
+            setShowModal(true);
+          }, 1000); 
+          setTimer(newTimer);
+        }
+      }
+    }
   };
 
   // Add a new blood pressure set
@@ -92,38 +113,60 @@ const HealthMetricsForm = () => {
     setBloodPressureSets(bloodPressureSets.filter((set) => set.id !== id));
   };
 
-  // Calculate average blood pressure
-  const calculateAverages = () => {
-    const defaultSet = bloodPressureSets.find((set) => set.isDefault);
-    if (!defaultSet) return { systolic: null, diastolic: null };
-
-    const leftSystolic = parseFloat(defaultSet.leftHand.systolic);
-    const rightSystolic = parseFloat(defaultSet.rightHand.systolic);
-    const leftDiastolic = parseFloat(defaultSet.leftHand.diastolic);
-    const rightDiastolic = parseFloat(defaultSet.rightHand.diastolic);
-
-    const systolicAvg = (leftSystolic + rightSystolic) / 2;
-    const diastolicAvg = (leftDiastolic + rightDiastolic) / 2;
-
-    return { systolic: systolicAvg, diastolic: diastolicAvg };
+  // Calculate warnings for each hand individually
+  const calculateWarnings = (systolic: number, diastolic: number) => {
+    return getWarnings({
+      temperature,
+      systolicBP: systolic,
+      diastolicBP: diastolic,
+      heartRate,
+      respiratoryRate,
+      spO2: leftHandOxygen, // Use left hand oxygen for consistency
+      symptoms,
+    }).filter((warning) => warning.type === 'bloodPressure');
   };
 
-  // Get warnings based on current form data
-  const warnings = getWarnings({
-    temperature,
-    systolicBP: calculateAverages().systolic,
-    diastolicBP: calculateAverages().diastolic,
-    heartRate,
-    respiratoryRate,
-    spO2: leftHandOxygen,
-    symptoms,
-  });
+  // Close the modal
+  const closeModal = () => {
+    setShowModal(false);
 
-  const bloodPressureWarnings = warnings.filter(warning => warning.type === 'bloodPressure');
+  };
 
+  // Handle the "Go Back" button click
+  const handleGoBack = () => {
+    setShowModal(false);
+    if (rightHandSystolicRef.current) {
+      rightHandSystolicRef.current.focus(); // Focus on the right hand systolic input
+    }
+  };
 
   return (
-    <div className='p-3 sm:p-7 rounded-lg !bg-white-bg2 dark:!bg-[#000] space-y-6 '>
+    <div className='p-3 sm:p-7 rounded-lg !bg-white-bg2 dark:!bg-[#000] space-y-6'>
+      {/* Modal */}
+      {showModal && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+          <div className="bg-white-bg dark:bg-dark p-6 rounded-lg shadow-lg max-w-sm">
+            <p className="text-lg font-semibold text-pink text-center">
+              To ensure accurate results, measure blood pressure in both arms. Are you sure you want to proceed?
+            </p>
+            <div className="flex justify-center mt-4 space-x-4">
+              <button
+                onClick={closeModal}
+                className="px-4 py-2 bg-pink text-white rounded hover:bg-pink-dark"
+              >
+                Yes
+              </button>
+              <button
+                onClick={handleGoBack}
+                className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
+              >
+                Go Back
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <NoScrollContainer>
         <div className="flex flex-col w-full max-w-sm mx-auto p-6 bg-white-bg2 dark:!bg-[#000] rounded-xl min-h-[400px] overflow-hidden">
           <h1 className="text-2xl font-bold text-center text-gray-800 dark:text-gray-50">
@@ -187,66 +230,86 @@ const HealthMetricsForm = () => {
           )}
         </div>
       </NoScrollContainer>
+
       {/* Blood Pressure Inputs */}
       <div className='border-2 rounded-lg p-2 space-y-2 border-[#e6e6e6] dark:border-black'>
         <p className='text-center font-semibold dark:text-white-whites'>
           Blood Pressure
         </p>
-        {bloodPressureSets.map((set) => (
-          <div
-            key={set.id}
-            className='space-y-4 relative border border-[#e6e6e6] dark:border-black p-4 rounded'
-          >
-            {/* Blood Pressure Inputs */}
-            <button
-              type='button'
-              className='absolute font-bold text-3xl hover:scale-125 duration-200 top-2 right-2 text-red-500'
-              onClick={() => removeBloodPressureSet(set.id)}
+        {bloodPressureSets.map((set) => {
+          const leftHandWarnings = calculateWarnings(
+            parseFloat(set.leftHand.systolic),
+            parseFloat(set.leftHand.diastolic)
+          );
+          const rightHandWarnings = calculateWarnings(
+            parseFloat(set.rightHand.systolic),
+            parseFloat(set.rightHand.diastolic)
+          );
+
+          // Combine warnings from both hands
+          const combinedWarnings = [...leftHandWarnings, ...rightHandWarnings];
+
+          return (
+            <div
+              key={set.id}
+              className='space-y-4 relative border border-[#e6e6e6] dark:border-black p-4 rounded'
             >
-              -
-            </button>
-            <div className='grid grid-cols-1 sm:flex-col sm:flex sm:space-x-0 sm:space-y-3 sm:items-center md:flex md:flex-row md:space-x-8 md:space-y-0 md:items-center md:justify-center'>
-              <BloodPressureInput
-                hand='Left'
-                systolic={set.leftHand.systolic}
-                diastolic={set.leftHand.diastolic}
-                onChange={(e: { target: { name: string; value: string; }; }) =>
-                  handleDynamicChange(
-                    set.id,
-                    'leftHand',
-                    e.target.name,
-                    e.target.value
-                  )
-                }
-              />
-              <BloodPressureInput
-                hand='Right'
-                systolic={set.rightHand.systolic}
-                diastolic={set.rightHand.diastolic}
-                onChange={(e: { target: { name: string; value: string; }; }) =>
-                  handleDynamicChange(
-                    set.id,
-                    'rightHand',
-                    e.target.name,
-                    e.target.value
-                  )
-                }
-              />
+              {/* Blood Pressure Inputs */}
+              <button
+                type='button'
+                className='absolute font-bold text-3xl hover:scale-125 duration-200 top-2 right-2 text-red-500'
+                onClick={() => removeBloodPressureSet(set.id)}
+              >
+                -
+              </button>
+              <div className='grid grid-cols-1 sm:flex-col sm:flex sm:space-x-0 sm:space-y-3 sm:items-center md:flex md:flex-row md:space-x-8 md:space-y-0 md:items-center md:justify-center'>
+                <BloodPressureInput
+                  hand='Left'
+                  systolic={set.leftHand.systolic}
+                  diastolic={set.leftHand.diastolic}
+                  onChange={(e: { target: { name: string; value: string; }; }) =>
+                    handleDynamicChange(
+                      set.id,
+                      'leftHand',
+                      e.target.name,
+                      e.target.value
+                    )
+                  }
+                />
+                <BloodPressureInput
+                  hand='Right'
+                  systolic={set.rightHand.systolic}
+                  diastolic={set.rightHand.diastolic}
+                  onChange={(e: { target: { name: string; value: string; }; }) =>
+                    handleDynamicChange(
+                      set.id,
+                      'rightHand',
+                      e.target.name,
+                      e.target.value
+                    )
+                  }
+                  ref={rightHandSystolicRef}
+                />
+              </div>
+
+              {/* Combined Warnings */}
+              {combinedWarnings.length > 0 && (
+                <div className="bg-gray-200 dark:bg-black ring ring-gray-200 dark:ring-black shadow-lg dark:text-gray-50 p-3 rounded">
+                  <h3 className="font-bold mb-2">Blood Pressure Warnings:</h3>
+                  <ul className='space-y-2'>
+                    {combinedWarnings.map((warning, index) => (
+                      <li key={index} className={warning.color ? `text-${warning.color}-500` : ''}>
+                        {warning.text}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
-          </div>
-        ))}
-        {bloodPressureWarnings.length > 0 && (
-          <div className="bg-gray-200 dark:bg-black ring ring-gray-200 dark:ring-black shadow-lg dark:text-gray-50 p-3 rounded">
-            <h3 className="font-bold mb-2">Blood Pressure Warnings:</h3>
-            <ul>
-              {bloodPressureWarnings.map((warning, index) => (
-                <li key={index} className={warning.color ? `text-${warning.color}-500` : ''}>
-                  {warning.text}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+          );
+        })}
+
+        {/* Add Blood Pressure Set Button */}
         <div className='flex space-x-4'>
           <button
             type='button'
@@ -265,8 +328,6 @@ const HealthMetricsForm = () => {
         value={heartRate || ''}
         onChange={handleChange}
         type='number'
-      // min={30}
-      // max={200}
       />
       <InputField
         label='Respiratory Rate (breaths/min)'
@@ -274,8 +335,6 @@ const HealthMetricsForm = () => {
         value={respiratoryRate || ''}
         onChange={handleChange}
         type='number'
-      // min={10}
-      // max={60}
       />
       <div className='grid grid-cols-2 gap-x-14'>
         <InputField
@@ -319,3 +378,9 @@ const HealthMetricsForm = () => {
 };
 
 export default HealthMetricsForm;
+
+// //////////////////////////////////////////////////
+// //////////////////////////////////////////////////
+// //////////////////////////////////////////////////
+// //////////////////////////////////////////////////
+
