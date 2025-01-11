@@ -11,23 +11,25 @@ const InputField = ({
 	min = 0,
 	max,
 	className = '',
-	step= 0.1,
+	step = 0.1,
 	textarea = false,
 }) => {
 	const handleChange = (e) => {
 		const newValue = e.target.value;
 
-		// Allow only valid numeric values for number inputs
-		if (type === 'number' && /^\d*$/.test(newValue)) {
-			const numericValue = Number(newValue);
-
-			if (
-				(newValue === '' || numericValue >= min) &&
-				(max === undefined || numericValue <= max)
-			) {
-				onChange(e);
+		if (type === 'number') {
+			// Allow empty string, digits, one decimal point, and minus sign at the start
+			if (/^-?\d*\.?\d*$/.test(newValue)) {
+				const numericValue = parseFloat(newValue);
+				if (
+					newValue === '' ||
+					((isNaN(min) || numericValue >= min) &&
+						(isNaN(max) || numericValue <= max))
+				) {
+					onChange(e);
+				}
 			}
-		} else if (type !== 'number') {
+		} else {
 			onChange(e);
 		}
 	};

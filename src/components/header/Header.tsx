@@ -22,10 +22,9 @@ export default function Header() {
 
   const getLinkClassName = (path: string) => {
     return `relative inline-flex items-center text-base transition-all duration-200
-      ${
-        isActive(path)
-          ? "text-white-bg2 bg-pink dark:bg-pink"
-          : "text-gray-700 dark:text-gray-200 hover:text-pink dark:hover:text-pink"
+      ${isActive(path)
+        ? "text-white-bg2 bg-pink dark:bg-pink"
+        : "text-gray-700 dark:text-gray-200 hover:text-pink dark:hover:text-pink"
       } 
       rounded-lg before:content-[''] before:absolute before:inset-0 before:bg-current 
       before:rounded-lg before:opacity-0 hover:before:opacity-5 active:scale-95`;
@@ -76,16 +75,14 @@ export default function Header() {
           <img
             src="/logo-dark.png"
             alt="staysafe-logo"
-            className={`w-32 p-2 md:w-36 ${
-              theme === "dark" ? "block" : "hidden"
-            }`}
+            className={`w-32 p-2 md:w-36 ${theme === "dark" ? "block" : "hidden"
+              }`}
           />
           <img
             src="/logo-light.png"
             alt="staysafe-logo"
-            className={`w-32 p-2 md:w-36 ${
-              theme === "dark" ? "hidden" : "block"
-            }`}
+            className={`w-32 p-2 md:w-36 ${theme === "dark" ? "hidden" : "block"
+              }`}
           />
         </Link>
       </motion.div>
@@ -106,12 +103,11 @@ export default function Header() {
             { label: "Vitrack", to: "/vitrack" },
           ]}
           className={`relative inline-flex items-center text-base transition-all duration-200
-            ${
-              isActive("/preventive-health-patient-services") ||
+            ${isActive("/preventive-health-patient-services") ||
               isActive("/mdc") ||
               isActive("/vitrack")
-                ? "text-white-bg2 bg-pink"
-                : "text-gray-700 dark:text-gray-200 hover:text-pink dark:hover:text-pink"
+              ? "text-white-bg2 bg-pink"
+              : "text-gray-700 dark:text-gray-200 hover:text-pink dark:hover:text-pink"
             } 
             rounded-lg px-3 py-2`}
           mainLink={undefined}
@@ -148,12 +144,11 @@ export default function Header() {
             { label: "Contact us", to: "/contact-us" },
           ]}
           className={`relative inline-flex items-center text-base transition-all duration-200
-            ${
-              isActive("/about-us") ||
+            ${isActive("/about-us") ||
               isActive("/volunteering") ||
               isActive("/contact-us")
-                ? "text-white-bg2 bg-pink dark:bg-pink"
-                : "text-gray-700 dark:text-gray-200 hover:text-pink dark:hover:text-pink"
+              ? "text-white-bg2 bg-pink dark:bg-pink"
+              : "text-gray-700 dark:text-gray-200 hover:text-pink dark:hover:text-pink"
             } 
             rounded-lg px-3 py-2`}
         />

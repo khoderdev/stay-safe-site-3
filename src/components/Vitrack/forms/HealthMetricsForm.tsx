@@ -23,25 +23,32 @@ const HealthMetricsForm = () => {
   const [respiratoryRate, setRespiratoryRate] = useAtom(respiratoryRateAtom);
   const [leftHandOxygen, setLeftHandOxygen] = useAtom(leftHandOxygenAtom);
   const [rightHandOxygen, setRightHandOxygen] = useAtom(rightHandOxygenAtom);
-  const [symptoms, setSymptoms] = useAtom(symptomsAtom);
+  const [symptoms,] = useAtom(symptomsAtom);
   const [painScale, setPainScale] = useAtom(painScaleAtom);
   const [bloodPressureSets, setBloodPressureSets] = useAtom(bloodPressureSetsAtom);
   const [activeUnit, setActiveUnit] = useState<'C' | 'F'>('C');
 
   // Handle temperature change from the wheel
   const handleTemperatureChange = (value: string) => {
-    if (activeUnit === 'C') {
-      setTemperature(value); // Store in Celsius
-    } else {
-      // Convert Fahrenheit back to Celsius using the mapping
-      const celsiusValue = Object.keys(celsiusToFahrenheitMapping).find(
-        (key) => celsiusToFahrenheitMapping[key] === value
-      );
-      if (celsiusValue) {
-        setTemperature(celsiusValue); // Store in Celsius
-      }
-    }
+    // Extract the numeric value and unit from the input
+    const [numericValue, unit] = value.split(' ');
+
+    // Store the temperature with the correct unit
+    setTemperature(`${numericValue} °${activeUnit}`);
   };
+  // const handleTemperatureChange = (value: string) => {
+  //   if (activeUnit === 'C') {
+  //     setTemperature(value); // Store in Celsius
+  //   } else {
+  //     // Convert Fahrenheit back to Celsius using the mapping
+  //     const celsiusValue = Object.keys(celsiusToFahrenheitMapping).find(
+  //       (key) => celsiusToFahrenheitMapping[key] === value
+  //     );
+  //     if (celsiusValue) {
+  //       setTemperature(celsiusValue); // Store in Celsius
+  //     }
+  //   }
+  // };
 
   // Get temperature warning based on Celsius value
   const tempWarning = temperatureWarning(temperature, symptoms);
@@ -131,7 +138,6 @@ const HealthMetricsForm = () => {
 
   return (
     <div className='p-3 sm:p-7 rounded-lg !bg-white-bg2 dark:!bg-[#000] space-y-6 '>
-      {/* Temperature Input */}
       <NoScrollContainer>
         <div className="flex flex-col w-full max-w-sm mx-auto p-6 bg-white-bg2 dark:!bg-[#000] rounded-xl min-h-[400px] overflow-hidden">
           <h1 className="text-2xl font-bold text-center text-gray-800 dark:text-gray-50">
@@ -140,53 +146,44 @@ const HealthMetricsForm = () => {
           <div className="flex justify-center mt-4">
             <button
               onClick={() => setActiveUnit('C')}
-              className={`px-4 py-2 font-semibold ${activeUnit === 'C' ? 'bg-pink text-gray-50 shadow-lg transform scale-110 duration-100' : 'bg-gray-200'}`}
+              className={`px-4 py-2 font-semibold ${activeUnit === 'C'
+                ? 'bg-pink text-gray-50 shadow-lg transform scale-110 duration-100'
+                : 'bg-gray-200'
+                }`}
             >
               °C
             </button>
             <button
               onClick={() => setActiveUnit('F')}
-              className={`px-4 py-2 font-semibold ${activeUnit === 'F' ? 'bg-pink text-gray-50 shadow-lg transform scale-110 duration-100' : 'bg-gray-200'}`}
+              className={`px-4 py-2 font-semibold ${activeUnit === 'F'
+                ? 'bg-pink text-gray-50 shadow-lg transform scale-110 duration-100'
+                : 'bg-gray-200'
+                }`}
             >
               °F
             </button>
           </div>
           <div className="flex-grow flex items-center justify-center">
-            {activeUnit === 'C' ? (
-              <TemperatureWheel
-                min={35.0}
-                max={39.0}
-                step={0.1}
-                defaultValue={temperature} // Default value in Celsius
-                onChange={handleTemperatureChange}
-                className="bg-[#fff] dark:bg-black !h-72 !py-9 rounded-xl shadow-inner"
-                formatValue={(value) =>
-                  value === '35.0'
-                    ? '35 and Below'
-                    : value === '39.0'
-                      ? '39 and Above'
-                      : value
-                }
-                unit="C"
-              />
-            ) : (
-              <TemperatureWheel
-                min={35.0}
-                max={39.0}
-                step={0.1}
-                defaultValue={celsiusToFahrenheitMapping[temperature] || '98.6'} // Default value in Fahrenheit
-                onChange={handleTemperatureChange}
-                className="bg-[#fff] dark:bg-black !h-72 !py-9 rounded-xl shadow-inner"
-                formatValue={(value) =>
-                  value === '95.0'
-                    ? '95 and Below'
-                    : value === '104.0'
-                      ? '104 and Above'
-                      : value
-                }
-                unit="F"
-              />
-            )}
+            <TemperatureWheel
+              min={35.0}
+              max={39.0}
+              step={0.1}
+              defaultValue={
+                activeUnit === 'C'
+                  ? temperature // Use the stored temperature value (e.g., "36.7 °C")
+                  : celsiusToFahrenheitMapping[temperature.split(' ')[0]] || '98.6 °F' // Convert Celsius to Fahrenheit
+              }
+              onChange={handleTemperatureChange}
+              className="bg-[#fff] dark:bg-black !h-72 !py-9 rounded-xl shadow-inner"
+              formatValue={(value) =>
+                value === (activeUnit === 'C' ? '35.0' : '95.0')
+                  ? `${value} and Below`
+                  : value === (activeUnit === 'C' ? '39.0' : '104.0')
+                    ? `${value} and Above`
+                    : value
+              }
+              unit={activeUnit}
+            />
           </div>
           {tempWarning && (
             <div
@@ -204,20 +201,6 @@ const HealthMetricsForm = () => {
           )}
         </div>
       </NoScrollContainer>
-      {/* General Warnings */}
-      {/* <div className="space-y-4">
-        {warnings.length > 0 && (
-          <div className="bg-gray-200 dark:bg-black ring ring-gray-200 dark:ring-black shadow-lg dark:text-gray-50 p-3 rounded">
-            <h3 className="font-bold mb-2">Warnings:</h3>
-            <ul>
-              {warnings.map((warning, index) => (
-                <li key={index}>{warning.text}</li>
-              ))}
-            </ul>
-          </div>
-        )}
-      </div> */}
-
       {/* Blood Pressure Inputs */}
       <div className='border-2 rounded-lg p-2 space-y-2 border-[#e6e6e6] dark:border-black'>
         <p className='text-center font-semibold dark:text-white-whites'>
@@ -296,8 +279,8 @@ const HealthMetricsForm = () => {
         value={heartRate || ''}
         onChange={handleChange}
         type='number'
-        min={30}
-        max={200}
+      // min={30}
+      // max={200}
       />
       <InputField
         label='Respiratory Rate (breaths/min)'
@@ -305,11 +288,10 @@ const HealthMetricsForm = () => {
         value={respiratoryRate || ''}
         onChange={handleChange}
         type='number'
-        min={10}
-        max={60}
+      // min={10}
+      // max={60}
       />
       <div className='grid grid-cols-2 gap-x-14'>
-        {/* Left Hand Oxygen */}
         <InputField
           label='Left Hand Oxygen Saturation (%)'
           name='leftHandOxygen'
@@ -319,8 +301,6 @@ const HealthMetricsForm = () => {
           min={0}
           max={100}
         />
-
-        {/* Right Hand Oxygen */}
         <InputField
           label='Right Hand Oxygen Saturation (%)'
           name='rightHandOxygen'

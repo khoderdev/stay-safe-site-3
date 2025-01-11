@@ -7,12 +7,14 @@ const BloodPressureInput = ({ hand, systolic, diastolic, onChange }) => (
 		<div className='flex space-x-8'>
 			<InputField
 				label='Systolic'
+				type='number'
 				name='systolic'
 				value={systolic || ''} 
 				onChange={onChange}
 			/>
 			<InputField
 				label='Diastolic'
+				type='number'
 				name='diastolic'
 				value={diastolic || ''} 
 				onChange={onChange}
