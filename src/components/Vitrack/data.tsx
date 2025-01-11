@@ -25,7 +25,7 @@ export const symptomsList = [
 	'Pain in your upper back, both arms, neck, or ear lobes',
 	'Pain when urinating',
 	'Pass out, Faint or near fainting',
-	'Persistent vomiting',
+	'Vomiting',
 	'Rapid, shallow breathing',
 	'Rash',
 	'Stiff neck and pain when you bend your head forward',
