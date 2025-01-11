@@ -18,7 +18,7 @@ import {
     specificAllergiesMedAtom,
     specificFoodAllergieAtom,
     vitrackKitAtom
-} from '../../../atoms/store'; 
+} from '../../../atoms/store';
 import { countriesOptions, nationalitiesOptions, diseasesOptions } from '../data';
 
 const PatientInfoForm = () => {
@@ -192,7 +192,7 @@ const PatientInfoForm = () => {
                         </label>
                     </div>
                     {allergiesMed === 'Yes' && (
-                        <div className="p-2 rounded-md border-2 border-black">
+                        <div className="p-2 rounded-md border-2 border-[#e6e6e6] dark:border-black">
                             <InputField
                                 label="Please specify your medication allergies"
                                 name="specificAllergiesMed"
@@ -239,7 +239,7 @@ const PatientInfoForm = () => {
                         </label>
                     </div>
                     {hasFoodAllergie === 'Yes' && (
-                        <div className="p-2 rounded-md border-2 border-black">
+                        <div className="p-2 rounded-md border-2 border-[#e6e6e6] dark:border-black">
                             <Dropdown
                                 label="Please specify your food allergies"
                                 name="specificFoodAllergie"
@@ -256,7 +256,7 @@ const PatientInfoForm = () => {
                                     'Soybeans',
                                     'Sesame'
                                 ]}
-                                className="w-full p-2 border rounded"
+                                className="w-full p-2 rounded"
                             />
                         </div>
                     )}
