@@ -334,3 +334,280 @@ export const temperatureWarning = (temperature, symptoms) => {
 
 	return null;
 };
+
+// import { symptomsList } from './data';
+
+// export const BP_THRESHOLDS = {
+// 	LOW_SYSTOLIC: 90,
+// 	LOW_DIASTOLIC: 60,
+// 	NORMAL_SYSTOLIC_LOW: 90,
+// 	NORMAL_SYSTOLIC_HIGH: 119,
+// 	NORMAL_DIASTOLIC_LOW: 60,
+// 	NORMAL_DIASTOLIC_HIGH: 79,
+// 	ELEVATED_SYSTOLIC_LOW: 120,
+// 	ELEVATED_SYSTOLIC_HIGH: 129,
+// 	STAGE1_SYSTOLIC_LOW: 130,
+// 	STAGE1_SYSTOLIC_HIGH: 139,
+// 	STAGE1_DIASTOLIC_LOW: 80,
+// 	STAGE1_DIASTOLIC_HIGH: 89,
+// 	STAGE2_SYSTOLIC_LOW: 140,
+// 	STAGE2_SYSTOLIC_HIGH: 180,
+// 	STAGE2_DIASTOLIC_LOW: 90,
+// 	STAGE2_DIASTOLIC_HIGH: 120,
+// 	CRISIS_SYSTOLIC: 180,
+// 	CRISIS_DIASTOLIC: 120,
+// };
+
+// export const handleBloodPressure = (
+// 	systolicBP,
+// 	diastolicBP,
+// 	addMessage,
+// 	hasSevereSymptoms,
+// 	heartRate
+// ) => {
+// 	const systolic = parseFloat(systolicBP);
+// 	const diastolic = parseFloat(diastolicBP);
+
+// 	if (isNaN(systolic) || isNaN(diastolic)) {
+// 		return;
+// 	}
+
+// 	// Check for severe symptoms or high heart rate
+// 	if (hasSevereSymptoms(symptomsList) || heartRate > 99) {
+// 		addMessage(
+// 			'Get Immediate Medical Attention. Call an ambulance and go to the emergency department right away.',
+// 			'red'
+// 		);
+// 		return;
+// 	}
+
+// 	// Determine BP category
+// 	let bpCategory = '';
+// 	let severity = '';
+
+// 	if (
+// 		systolic < BP_THRESHOLDS.LOW_SYSTOLIC &&
+// 		diastolic < BP_THRESHOLDS.LOW_DIASTOLIC
+// 	) {
+// 		bpCategory = 'Low Blood Pressure';
+// 		severity = 'orange';
+// 	} else if (
+// 		systolic >= BP_THRESHOLDS.NORMAL_SYSTOLIC_LOW &&
+// 		systolic <= BP_THRESHOLDS.NORMAL_SYSTOLIC_HIGH &&
+// 		diastolic >= BP_THRESHOLDS.NORMAL_DIASTOLIC_LOW &&
+// 		diastolic <= BP_THRESHOLDS.NORMAL_DIASTOLIC_HIGH
+// 	) {
+// 		bpCategory = 'Normal Blood Pressure';
+// 		severity = 'green';
+// 	} else if (
+// 		systolic >= BP_THRESHOLDS.ELEVATED_SYSTOLIC_LOW &&
+// 		systolic <= BP_THRESHOLDS.ELEVATED_SYSTOLIC_HIGH &&
+// 		diastolic < BP_THRESHOLDS.STAGE1_DIASTOLIC_LOW
+// 	) {
+// 		bpCategory = 'Elevated Blood Pressure';
+// 		severity = 'yellow';
+// 	} else if (
+// 		(systolic >= BP_THRESHOLDS.STAGE1_SYSTOLIC_LOW &&
+// 			systolic <= BP_THRESHOLDS.STAGE1_SYSTOLIC_HIGH) ||
+// 		(diastolic >= BP_THRESHOLDS.STAGE1_DIASTOLIC_LOW &&
+// 			diastolic <= BP_THRESHOLDS.STAGE1_DIASTOLIC_HIGH)
+// 	) {
+// 		bpCategory = 'High Blood Pressure (Stage 1)';
+// 		severity = 'orange';
+// 	} else if (
+// 		(systolic >= BP_THRESHOLDS.STAGE2_SYSTOLIC_LOW &&
+// 			systolic <= BP_THRESHOLDS.STAGE2_SYSTOLIC_HIGH) ||
+// 		(diastolic >= BP_THRESHOLDS.STAGE2_DIASTOLIC_LOW &&
+// 			diastolic <= BP_THRESHOLDS.STAGE2_DIASTOLIC_HIGH)
+// 	) {
+// 		bpCategory = 'High Blood Pressure (Stage 2)';
+// 		severity = 'red';
+// 	} else if (
+// 		systolic > BP_THRESHOLDS.CRISIS_SYSTOLIC ||
+// 		diastolic > BP_THRESHOLDS.CRISIS_DIASTOLIC
+// 	) {
+// 		bpCategory = 'Hypertensive Crisis';
+// 		severity = 'red';
+// 	}
+
+// 	// Add message based on BP category
+// 	if (bpCategory) {
+// 		addMessage(
+// 			`${bpCategory}: ${getActionMessage(
+// 				bpCategory,
+// 				hasSevereSymptoms(symptomsList)
+// 			)}`,
+// 			severity
+// 		);
+// 	}
+// };
+
+// const getActionMessage = (bpCategory, hasSevereSymptoms) => {
+// 	switch (bpCategory) {
+// 		case 'Low Blood Pressure':
+// 			return hasSevereSymptoms
+// 				? 'Get Evaluated. Inform your healthcare provider and keep monitoring your Blood Pressure.'
+// 				: 'Inform your healthcare provider and keep monitoring your Blood Pressure.';
+// 		case 'Normal Blood Pressure':
+// 			return 'Keep monitoring your Blood Pressure at home.';
+// 		case 'Elevated Blood Pressure':
+// 			return hasSevereSymptoms
+// 				? 'Get Immediate Medical Attention. Call an ambulance and go to the emergency department right away.'
+// 				: 'Inform your healthcare provider and keep monitoring your Blood Pressure.';
+// 		case 'High Blood Pressure (Stage 1)':
+// 			return hasSevereSymptoms
+// 				? 'Get Immediate Medical Attention. Call an ambulance and go to the emergency department right away.'
+// 				: 'Get Evaluated, Call your healthcare provider right away. Keep monitoring your Blood Pressure.';
+// 		case 'High Blood Pressure (Stage 2)':
+// 			return hasSevereSymptoms
+// 				? 'Get Immediate Medical Attention. Call an ambulance and go to the emergency department right away.'
+// 				: 'Get Evaluated, Call your healthcare provider right away. Keep monitoring your Blood Pressure.';
+// 		case 'Hypertensive Crisis':
+// 			return 'Get Immediate Medical Attention. Call an ambulance and go to the emergency department right away.';
+// 		default:
+// 			return '';
+// 	}
+// };
+
+// export const getWarnings = (formData) => {
+// 	const {
+// 		temperature,
+// 		systolicBP,
+// 		diastolicBP,
+// 		heartRate,
+// 		symptoms = [],
+// 	} = formData;
+
+// 	const symptomList = new Set(symptoms);
+// 	const messages = [];
+
+// 	const hasValue = (value) =>
+// 		value !== null && value !== undefined && value !== '';
+
+// 	const addMessage = (text, color = null, type = null) =>
+// 		messages.push({ text, color, type });
+
+// 	const hasSevereSymptoms = (symptomsArray) =>
+// 		symptomsArray.some((symptom) => symptomList.has(symptom));
+
+// 	if (hasValue(temperature))
+// 		handleTemperature(temperature, addMessage, hasSevereSymptoms);
+// 	if (hasValue(systolicBP) && hasValue(diastolicBP)) {
+// 		handleBloodPressure(
+// 			systolicBP,
+// 			diastolicBP,
+// 			addMessage,
+// 			hasSevereSymptoms,
+// 			heartRate
+// 		);
+// 	}
+
+// 	return messages;
+// };
+
+// const handleTemperature = (temperature, addMessage, hasSevereSymptoms) => {
+// 	const temp = parseFloat(temperature);
+
+// 	if (isNaN(temp)) {
+// 		addMessage('Invalid temperature reading. Please check your input.', 'red');
+// 		return;
+// 	}
+
+// 	if (temp <= 35) {
+// 		addMessage(
+// 			'Get Immediate medical attention, call an ambulance and go to the emergency department right away.',
+// 			'red'
+// 		);
+// 	} else if (temp <= 35.9) {
+// 		addMessage('Get Evaluated Call your healthcare provider right away', 'red');
+// 	} else if (temp < 36) {
+// 		addMessage(
+// 			'Mild Hypothermia: Get evaluated. Call your healthcare provider for advice.',
+// 			'orange'
+// 		);
+// 	} else if (temp >= 36 && temp <= 37) {
+// 		addMessage('Your temperature is within the normal range.', 'green');
+// 	} else if (temp > 37 && temp <= 38.9) {
+// 		addMessage(
+// 			'Continue home monitoring, keep an eye on your symptoms, and contact your healthcare provider if needed.',
+// 			'yellow'
+// 		);
+// 	} else if (temp >= 39) {
+// 		if (hasSevereSymptoms(symptomsList)) {
+// 			addMessage(
+// 				'Call an Ambulance right away and go to the emergency department.',
+// 				'red'
+// 			);
+// 		} else {
+// 			addMessage(
+// 				'High Fever: Get Evaluated, Call your healthcare provider right away.',
+// 				'orange'
+// 			);
+// 		}
+// 	}
+// };
+
+// export const temperatureWarning = (temperature, symptoms) => {
+// 	if (!temperature || temperature.trim() === '') {
+// 		return {
+// 			color: 'red',
+// 			message: 'Invalid temperature reading. Please check your input.',
+// 		};
+// 	}
+
+// 	const temp = parseFloat(temperature);
+
+// 	if (isNaN(temp)) {
+// 		return {
+// 			color: 'red',
+// 			message: 'Invalid temperature reading. Please check your input.',
+// 		};
+// 	}
+
+// 	const hasSevereSymptoms = (symptomsArray) =>
+// 		symptomsArray.some((symptom) => symptoms.includes(symptom));
+
+// 	if (temp <= 35) {
+// 		return {
+// 			color: 'red',
+// 			message:
+// 				'Get Immediate medical attention, call an ambulance and go to the emergency department right away.',
+// 		};
+// 	} else if (temp <= 35.9) {
+// 		return {
+// 			color: 'red',
+// 			message: 'Get Evaluated Call your healthcare provider right away',
+// 		};
+// 	} else if (temp < 36) {
+// 		return {
+// 			color: 'orange',
+// 			message: 'Mild Hypothermia: Get evaluated by your healthcare provider.',
+// 		};
+// 	} else if (temp >= 36 && temp <= 37) {
+// 		return {
+// 			color: 'green',
+// 			message: 'Your temperature is within the normal range.',
+// 		};
+// 	} else if (temp > 37 && temp <= 38.9) {
+// 		return {
+// 			color: 'yellow',
+// 			message: 'Your Temperature is Higher than average.',
+// 		};
+// 	} else if (temp >= 39) {
+// 		if (hasSevereSymptoms(symptomsList)) {
+// 			return {
+// 				color: 'red',
+// 				message:
+// 					'Call an Ambulance right away and go to the emergency department.',
+// 			};
+// 		} else {
+// 			return {
+// 				color: 'red',
+// 				message:
+// 					'High Fever: Get Evaluated, Call your healthcare provider right away.',
+// 			};
+// 		}
+// 	}
+
+// 	return null;
+// };

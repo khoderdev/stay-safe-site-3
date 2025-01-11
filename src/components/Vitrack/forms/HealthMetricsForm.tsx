@@ -2908,7 +2908,7 @@ const HealthMetricsForm = () => {
 
       {/* Temperature Input */}
       <NoScrollContainer>
-        <div className="flex flex-col w-full max-w-sm mx-auto p-6 bg-white-bg2 dark:!bg-[#000] rounded-xl min-h-[400px] overflow-hidden">
+        <div className="flex flex-col w-full max-w-sm mx-auto p-6 bg-white-bg2 dark:!bg-[#000] rounded-xl overflow-hidden">
           <h1 className="text-2xl font-bold text-center text-gray-800 dark:text-gray-50">
             Oral Temperature
           </h1>

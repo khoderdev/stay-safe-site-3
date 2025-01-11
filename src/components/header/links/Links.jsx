@@ -8,11 +8,11 @@ const menuItems = [
 	{ id: 1, text: 'Home', route: '/' },
 	{
 		id: 2,
-		text: 'Preventive Health',
+		text: 'Patient Services',
 		submenu: [
 			{
 				id: 21,
-				text: 'Patient Services',
+				text: 'Preventive Health',
 				route: '/preventive-health-patient-services',
 			},
 			{ id: 22, text: 'Medical Dietary Clinic', route: '/mdc' },
