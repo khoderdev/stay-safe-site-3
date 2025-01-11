@@ -2756,7 +2756,7 @@ const HealthMetricsForm = () => {
       const rightDiastolic = parseFloat(currentSet.rightHand.diastolic) || 0;
 
       // Calculate the average systolic and diastolic
-      const bothHandsSystolicResultsAverage = (leftSystolic + rightSystolic) / 2 + 0.5; // Adjusted formula
+      const bothHandsSystolicResultsAverage = (leftSystolic + rightSystolic) / 2 ; // Adjusted formula
       const bothHandsDiastolicResultsAverage = (leftDiastolic + rightDiastolic) / 2; // No change
 
       // Update the average results
@@ -2837,7 +2837,7 @@ const HealthMetricsForm = () => {
         console.log('Right Diastolic:', rightDiastolic); // Debugging log
 
         // Calculate the average systolic and diastolic
-        const bothHandsSystolicResultsAverage = ((leftSystolic + rightSystolic) / 2 + 0.5).toFixed(1); // Adjusted formula with rounding
+        const bothHandsSystolicResultsAverage = ((leftSystolic + rightSystolic) / 2 ).toFixed(1); // Adjusted formula with rounding
         const bothHandsDiastolicResultsAverage = ((leftDiastolic + rightDiastolic) / 2).toFixed(1); // No change with rounding
 
         // Log the final result values to the console
