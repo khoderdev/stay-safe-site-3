@@ -1,3 +1,5 @@
+import { useLocation } from "react-router-dom";
+import { SwitchTransition, CSSTransition } from "react-transition-group";
 import Layout from "./views/Layout";
 import AppRoutes from "./router/index";
 import React from "react";
@@ -16,6 +18,26 @@ import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, useGSAP);
 
+function AnimatedRoutes() {
+  const location = useLocation();
+  const nodeRef = React.useRef(null);
+
+  return (
+    <SwitchTransition mode="out-in">
+      <CSSTransition
+        key={location.key}
+        nodeRef={nodeRef}
+        timeout={200} 
+        classNames="slide"
+      >
+        <div ref={nodeRef}>
+          <AppRoutes />
+        </div>
+      </CSSTransition>
+    </SwitchTransition>
+  );
+}
+
 function App() {
   return (
     <LoadingProvider>
@@ -24,10 +46,9 @@ function App() {
           <PreloadResources />
           <div className="font-sans antialiased">
             <Layout>
-              <AppRoutes />
+              <AnimatedRoutes />
               <StaySafeBot />
             </Layout>
-           
             <Toaster
               position="top-right"
               toastOptions={{

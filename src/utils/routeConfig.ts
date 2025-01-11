@@ -1,10 +1,5 @@
 import { lazy } from "react";
 
-// Define a custom type that extends LazyExoticComponent to include preload
-type LazyComponentWithPreload = React.LazyExoticComponent<
-  { preload: () => void } & React.ComponentType<any>
->;
-
 // Lazy load components with retry mechanism
 const lazyLoadComponent = (importFn: () => Promise<any>, retries = 3) => {
   const LazyComponent = lazy(async () => {
