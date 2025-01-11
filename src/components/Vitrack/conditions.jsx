@@ -8,11 +8,15 @@ export const BP_THRESHOLDS = {
 	NORMAL_DIASTOLIC_HIGH: 79,
 	ELEVATED_SYSTOLIC: 120,
 	ELEVATED_DIASTOLIC: 80,
-	HIGH_SYSTOLIC: 130,
-	HIGH_DIASTOLIC: 80,
+	HIGH_SYSTOLIC_STAGE1: 130,
+	HIGH_DIASTOLIC_STAGE1: 80,
+	HIGH_SYSTOLIC_STAGE2: 140, // TILL 180
+	HIGH_DIASTOLIC_STAGE2: 90,
 	CRISIS_SYSTOLIC: 180,
 	CRISIS_DIASTOLIC: 120,
 };
+
+
 export const handleBloodPressure = (
 	systolicBP,
 	diastolicBP,
@@ -64,12 +68,12 @@ export const handleBloodPressure = (
 			heartRate < 60
 		) {
 			addMessage(
-				'Get Immediate Medical Attention. Inform your healthcare provider and keep monitoring your Blood Pressure.',
+				'Your Blood Pressure is Elevated. Get Evaluated. Inform your healthcare provider and keep monitoring your Blood Pressure.',
 				'red'
 			);
 		} else {
 			addMessage(
-				'Low Blood Pressure: Inform your healthcare provider and keep monitoring your BP.',
+				'Low Blood Pressure: Inform your healthcare provider and keep monitoring your Blood Pressure.',
 				'orange'
 			);
 		}
@@ -80,16 +84,16 @@ export const handleBloodPressure = (
 		diastolic <= BP_THRESHOLDS.NORMAL_DIASTOLIC_HIGH
 	) {
 		addMessage(
-			'Normal Blood Pressure: Keep monitoring your BP at home.',
+			'Normal Blood Pressure: Keep monitoring your Blood Pressure at home.',
 			'green'
 		);
 	} else if (
 		systolic >= BP_THRESHOLDS.ELEVATED_SYSTOLIC &&
-		systolic < BP_THRESHOLDS.HIGH_SYSTOLIC &&
+		systolic < BP_THRESHOLDS.HIGH_SYSTOLIC_STAGE1 &&
 		diastolic < BP_THRESHOLDS.ELEVATED_DIASTOLIC
 	) {
 		addMessage(
-			'Elevated Blood Pressure: Inform your healthcare provider and keep monitoring your BP.',
+			'Elevated Blood Pressure: Inform your healthcare provider and keep monitoring your Blood Pressure.',
 			'yellow'
 		);
 		if (hasSevereSymptoms(elevatedBPSymptoms)) {
@@ -99,18 +103,32 @@ export const handleBloodPressure = (
 			);
 		}
 	} else if (
-		systolic >= BP_THRESHOLDS.HIGH_SYSTOLIC &&
-		systolic < BP_THRESHOLDS.CRISIS_SYSTOLIC &&
-		diastolic >= BP_THRESHOLDS.HIGH_DIASTOLIC &&
-		diastolic < BP_THRESHOLDS.CRISIS_DIASTOLIC
+		systolic >= BP_THRESHOLDS.HIGH_SYSTOLIC_STAGE1 &&
+		systolic < BP_THRESHOLDS.HIGH_SYSTOLIC_STAGE2 &&
+		diastolic >= BP_THRESHOLDS.HIGH_DIASTOLIC_STAGE1 &&
+		diastolic < BP_THRESHOLDS.HIGH_DIASTOLIC_STAGE2
 	) {
 		addMessage(
-			'High Blood Pressure: Get Evaluated, Call your healthcare provider right away.',
+			'High Blood Pressure (Stage 1): Get Evaluated, Call your healthcare provider right away.',
 			'orange'
 		);
 		if (hasSevereSymptoms(elevatedBPSymptoms)) {
 			addMessage(
 				'High Blood Pressure with Severe Symptoms: Get Immediate Medical Attention. Call an ambulance and go to the emergency department right away.',
+				'red'
+			);
+		}
+	} else if (
+		(systolic >= BP_THRESHOLDS.HIGH_SYSTOLIC_STAGE2 && systolic < BP_THRESHOLDS.CRISIS_SYSTOLIC) ||
+		(diastolic >= BP_THRESHOLDS.HIGH_DIASTOLIC_STAGE2 && diastolic < BP_THRESHOLDS.CRISIS_DIASTOLIC)
+	) {
+		addMessage(
+			'High Blood Pressure (Stage 2): Get Immediate Medical Attention. Call your healthcare provider right away.',
+			'red'
+		);
+		if (hasSevereSymptoms(elevatedBPSymptoms)) {
+			addMessage(
+				'High Blood Pressure (Stage 2) with Severe Symptoms: Get Immediate Medical Attention. Call an ambulance and go to the emergency department right away.',
 				'red'
 			);
 		}
@@ -124,6 +142,8 @@ export const handleBloodPressure = (
 		);
 	}
 };
+
+
 // export const handleBloodPressure = (
 // 	systolicBP,
 // 	diastolicBP,
@@ -141,6 +161,30 @@ export const handleBloodPressure = (
 // 		return;
 // 	}
 
+// 	// Additional symptoms to check for
+// 	const severeSymptoms = [
+// 		'Confusion',
+// 		'Cold, clammy skin',
+// 		'Rapid, shallow breathing',
+// 		'Pass out, Faint or near fainting',
+// 		'Chest Pain',
+// 		'Fall because of lightheadedness and hit your head',
+// 		'Feeling cold',
+// 		'Unusual sweating',
+// 		'Breathing Fast',
+// 		'Blue tint to the skin of lips or under fingernails',
+// 		'Weak and rapid pulse',
+// 	];
+
+// 	// Check if any of the severe symptoms are present OR heart rate is more than 100
+// 	if (hasSevereSymptoms(severeSymptoms) || heartRate > 99) {
+// 		addMessage(
+// 			'Get Immediate Medical Attention. Call an ambulance and go to the emergency department right away.',
+// 			'red'
+// 		);
+// 		return; // Exit early since this is a critical condition
+// 	}
+
 // 	if (
 // 		systolic < BP_THRESHOLDS.LOW_SYSTOLIC ||
 // 		diastolic < BP_THRESHOLDS.LOW_DIASTOLIC
@@ -151,12 +195,12 @@ export const handleBloodPressure = (
 // 			heartRate < 60
 // 		) {
 // 			addMessage(
-// 				'Get Immediate Medical Attention. inform your healthcare provider and keep monitoring your Blood Pressure.',
+// 				'Your Blood Pressure is Elevated. Get Evaluated. Inform your healthcare provider and keep monitoring your Blood Pressure.',
 // 				'red'
 // 			);
 // 		} else {
 // 			addMessage(
-// 				'Low Blood Pressure: Inform your healthcare provider and keep monitoring your BP.',
+// 				'Low Blood Pressure: Inform your healthcare provider and keep monitoring your Blood Pressure.',
 // 				'orange'
 // 			);
 // 		}
@@ -167,16 +211,16 @@ export const handleBloodPressure = (
 // 		diastolic <= BP_THRESHOLDS.NORMAL_DIASTOLIC_HIGH
 // 	) {
 // 		addMessage(
-// 			'Normal Blood Pressure: Keep monitoring your BP at home.',
+// 			'Normal Blood Pressure: Keep monitoring your Blood Pressure at home.',
 // 			'green'
 // 		);
 // 	} else if (
 // 		systolic >= BP_THRESHOLDS.ELEVATED_SYSTOLIC &&
-// 		systolic < BP_THRESHOLDS.HIGH_SYSTOLIC &&
+// 		systolic < BP_THRESHOLDS.HIGH_SYSTOLIC_STAGE1 &&
 // 		diastolic < BP_THRESHOLDS.ELEVATED_DIASTOLIC
 // 	) {
 // 		addMessage(
-// 			'Elevated Blood Pressure: Inform your healthcare provider and keep monitoring your BP.',
+// 			'Elevated Blood Pressure: Inform your healthcare provider and keep monitoring your Blood Pressure.',
 // 			'yellow'
 // 		);
 // 		if (hasSevereSymptoms(elevatedBPSymptoms)) {
@@ -186,9 +230,9 @@ export const handleBloodPressure = (
 // 			);
 // 		}
 // 	} else if (
-// 		systolic >= BP_THRESHOLDS.HIGH_SYSTOLIC &&
+// 		systolic >= BP_THRESHOLDS.HIGH_SYSTOLIC_STAGE1 &&
 // 		systolic < BP_THRESHOLDS.CRISIS_SYSTOLIC &&
-// 		diastolic >= BP_THRESHOLDS.HIGH_DIASTOLIC &&
+// 		diastolic >= BP_THRESHOLDS.HIGH_DIASTOLIC_STAGE1 &&
 // 		diastolic < BP_THRESHOLDS.CRISIS_DIASTOLIC
 // 	) {
 // 		addMessage(
@@ -211,6 +255,7 @@ export const handleBloodPressure = (
 // 		);
 // 	}
 // };
+
 export const getWarnings = (formData) => {
 	const {
 		temperature,
