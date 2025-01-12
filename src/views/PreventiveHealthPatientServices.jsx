@@ -39,8 +39,8 @@ function PreventiveHealthPatientServicesPage() {
         <BarCharts />
         </div>
 
-        <div className="flex flex-col !justify-items-center md:px-10 md:py-28 bg-white-bg dark:bg-black">
-          <h1 className="text-9xl font-bold mb-4 ml-4">iScreen</h1>
+        <div className="flex flex-col !justify-items-center md:px-10 md:py-28 pt-24 bg-white-bg dark:bg-black">
+          <h1 className="text-8xl sm:text-9xl font-bold mb-4 ml-4">iScreen</h1>
         <PackYearsCalculator />
         </div>
 
