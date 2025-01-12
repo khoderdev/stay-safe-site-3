@@ -1,8 +1,6 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 
 .hero {
 	height: 100dvh;
@@ -60,10 +58,249 @@
 		transform: translateY(100%); /* Move below the container */
 	}
 }
-
-
-
 @layer components {
+	.custom-positioning {
+		top: 75px !important;
+		left: 117px !important;
+	}
+
+	/* Default styles for very small screens */
+	@media (max-width: 359px) {
+		.custom-positioning {
+			top: 95px !important;
+			left: 146px !important;
+		}
+	}
+
+	/* 375px width devices */
+	@media (width >= 375px) and (width < 390px) {
+		.custom-positioning {
+			top: 38.2% !important;
+			left: 53.5% !important;
+		}
+	}
+
+	/* 390px width devices */
+	@media (width >= 390px) and (width < 412px) {
+		.custom-positioning {
+			top: 38.2% !important;
+			left: 53.5% !important;
+		}
+	}
+
+	/* 360px width devices */
+	@media (min-width: 360px) and (max-width: 412px) {
+		.custom-positioning {
+			top: 26.5% !important;
+			left: 41% !important;
+		}
+	}
+
+	/* 430px width devices */
+	@media (min-width: 413px) and (max-width: 480px) {
+		.custom-positioning {
+			top: 26.5% !important;
+			left: 41% !important;
+		}
+	}
+	@media (min-width: 481px) and (max-width: 520px) {
+		.custom-positioning {
+			top: 26.5% !important;
+			left: 41% !important;
+		}
+	}
+
+	@media (min-width: 521px) and (max-width: 640px) {
+		.custom-positioning {
+			top: 27% !important;
+			left: 42% !important;
+		}
+	}
+	@media (min-width: 641px) and (max-width: 768px) {
+		.custom-positioning {
+			top: 26.5% !important;
+			left: 41.5% !important;
+		}
+	}
+	@media (min-width: 767px) and (max-width: 1024px) {
+		.custom-positioning {
+			top: 26.5% !important;
+			left: 42% !important;
+		}
+	}
+	@media (min-width: 1025px) and (max-width: 1280px) {
+		.custom-positioning {
+			top: 26.5% !important;
+			left: 42% !important;
+		}
+	}
+
+	/* 1280px width devices */
+	@media (min-width: 1281px) and (max-width: 1366px) {
+		.custom-positioning {
+			top: 28% !important;
+			left: 42% !important;
+		}
+	}
+
+	/* 1366px width devices */
+	@media (min-width: 1367px) and (max-width: 1440px) {
+		.custom-positioning {
+			top: 29% !important;
+			left: 42.5% !important;
+		}
+	}
+
+	/* 1440px width devices */
+	@media (min-width: 1441px) and (max-width: 1536px) {
+		.custom-positioning {
+      top: 29% !important;
+			left: 43% !important;
+		}
+	}
+
+	/* 1536px width devices */
+	@media (min-width: 1537px) and (max-width: 1600px) {
+		.custom-positioning {
+      top: 29% !important;
+			left: 44% !important;
+		}
+	}
+	@media (min-width: 1601px) and (max-width: 1700px) {
+		.custom-positioning {
+      top: 29.5% !important;
+      left: 43.8% !important;
+		}
+	}
+	@media (min-width: 1701px) and (max-width: 1800px) {
+		.custom-positioning {
+      top: 30% !important;
+      left: 44.5% !important;
+		}
+	}
+	@media (min-width: 1801px) and (max-width: 1920px) {
+		.custom-positioning {
+      top: 30.2% !important;
+      left: 45% !important;
+		}
+	}
+	@media (min-width: 1921px) and (max-width: 2000px) {
+		.custom-positioning {
+      top: 30.1% !important;
+      left: 44.5% !important;
+		}
+	}
+	@media (min-width: 2001px) and (max-width: 2200px) {
+		.custom-positioning {
+      top: 30.1% !important;
+      left: 44.7% !important;
+		}
+	}
+	@media (min-width: 2201px) and (max-width: 2560px) {
+		.custom-positioning {
+      top: 31.3% !important;
+      left: 46% !important;
+		}
+	}
+	@media (min-width: 2560px)  {
+		.custom-positioning {
+      top: 31.3% !important;
+      left: 45.7% !important;
+		}
+	}
+}
+/* @layer components {
+  .custom-positioning {
+    top: 145px;
+    left: 230px;
+  }
+
+  @media (max-width: 320px) {
+    .custom-positioning {
+      top: 145px;
+      left: 230px;
+    }
+  }
+
+  @media (width >= 320px) and (width <= 480px) {
+    .custom-positioning {
+      top: 190px;
+      left: 251px;
+    }
+  }
+
+  @media (width >= 480px) and (width <= 520px) {
+    .custom-positioning {
+      top: 41.5%;
+      left: 57%;
+    }
+  }
+
+  @media (width >= 520px) and (width <= 570px) {
+    .custom-positioning {
+      top: 40.5%;
+      left: 56%;
+    }
+  }
+
+  @media (width >= 570px) and (width <= 640px) {
+    .custom-positioning {
+      top: 38.2%;
+      left: 53.5%;
+    }
+  }
+
+  @media (width >= 640px) and (width <= 768px) {
+    .custom-positioning {
+      top: 38.2%;
+      left: 53.5%;
+    }
+  }
+
+  @media (width >= 768px) and (width <= 1024px) {
+    .custom-positioning {
+      top: 38.2%;
+      left: 53.5%;
+    }
+  }
+
+  @media (width >= 1024px) and (width <= 1280px) {
+    .custom-positioning {
+      top: 38%;
+      left: 52.5%;
+    }
+  }
+
+  @media (width >= 1280px) and (width <= 1440px) {
+    .custom-positioning {
+      top: 37.8%;
+      left: 52.5%;
+    }
+  }
+
+  @media (width >= 1440px) and (width <= 1920px) {
+    .custom-positioning {
+      top: 37.8%;
+      left: 52.7%;
+    }
+  }
+
+  @media (width >= 1920px) and (width <= 2560px) {
+    .custom-positioning {
+      top: 37.8%;
+      left: 52.7%;
+    }
+  }
+
+  @media (width >= 3840px) {
+    .custom-positioning {
+      top: 80.8%;
+      left: 52.7%;
+    }
+  }
+} */
+
+/* @layer components {
   .custom-positioning {
     top: 145px;
     left: 230px;
@@ -71,42 +308,50 @@
 
   @media (min-width: 320px) {
     .custom-positioning {
-      top: 131px;
-      left: 206px;
+      top: 179px;
+      left: 230px;
     }
   }
 
-  @media (min-width: 480px) {
+  @media (min-width: 321px) and (max-width: 479px) {
     .custom-positioning {
-      top: 160px;
-      left: 270px;
+      top: 49%;
+      left: 64.7%;
     }
   }
+
+  @media (min-width: 480px) and (max-width: 640px) {
+    .custom-positioning {
+      top: 41.5%;
+      left: 56.5%;
+    }
+  }
+  
 
   @media (min-width: 640px) {
     .custom-positioning {
-      top: 29%;
-      left: 52.5%;
+      top: 38.2%;
+      left: 53.5%;
     }
   }
 
   @media (min-width: 768px) {
     .custom-positioning {
-      top: 29%;
-      left: 52.5%;
+      top: 38.2%;
+      left: 53.5%;
     }
   }
 
   @media (min-width: 1024px) {
     .custom-positioning {
-      top: 29%;
-      left: 52.5%;
+      top: 38.2%;
+      left: 53.5%;
     }
   }
 
   @media (min-width: 1280px) {
     .custom-positioning {
-      top: 29%;
+      top: 38%;
       left: 52.5%;
     }
   }
@@ -117,4 +362,25 @@
       left: 52.5%;
     }
   }
-}
+
+  @media (min-width: 1920px) {
+    .custom-positioning {
+      top: 28%;
+      left: 51.5%;
+    }
+  }
+
+  @media (min-width: 2560px) {
+    .custom-positioning {
+      top: 27%;
+      left: 50.5%;
+    }
+  }
+
+  @media (min-width: 3840px) {
+    .custom-positioning {
+      top: 26%;
+      left: 50%;
+    }
+  }
+} */
