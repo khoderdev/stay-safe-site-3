@@ -21,7 +21,7 @@ BP_THRESHOLDS = {
       'Breathing fast',
       'Pass out or faint',
       'Fall because of lightheadedness and hit your head’
-    && || 
+    && || (it means AND OR)
     HeartRate > 100
   
     warning message :
@@ -30,7 +30,7 @@ BP_THRESHOLDS = {
 
   
    NORMAL_SYSTOLIC: from 90 to 119
-   &&
+   && (it means AND)
    NORMAL_DIASTOLIC: from 60 to 79
   
   warning message: 
@@ -39,7 +39,7 @@ BP_THRESHOLDS = {
 
   
   ELEVATED_SYSTOLIC: from 120 to 129
-  &&
+  && (it means AND)
   ELEVATED_DIASTOLIC: from 60 to 79
   
   warning message: 
@@ -47,8 +47,8 @@ BP_THRESHOLDS = {
   
 
   
-  HIGH_SYSTOLIC_STAGE1: from 130 to 139 
-  HIGH_DIASTOLIC_STAGE1: from 80 to 89
+HIGH_SYSTOLIC_STAGE1: from 130 to 139 
+HIGH_DIASTOLIC_STAGE1: from 80 to 89
   
   warning message:
   High Blood Pressure, Stage 1. Call your health care provider right away, get evaluated and continue monitoring your blood pressure  
@@ -62,9 +62,8 @@ warning message:
 
 
 
-
  CRISIS_SYSTOLIC: > 180
- && || 
+ && ||  (it means AND OR)
  CRISIS_DIASTOLIC: > 120
 
  warning message: 
@@ -80,3 +79,4 @@ hase the symptoms below:
  
  watning message:
   Get Immediate Medical Attention. Call an ambulance and Go to the emergency department right away.
+}
