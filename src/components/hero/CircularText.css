@@ -17,6 +17,7 @@
   justify-content: center;
   animation: rotate 80s linear infinite;
   transform-origin: center;
+  text-shadow: 3px 3px 3px rgba(29, 57, 68, 0.434); 
 }
 
 .circle-text span {
