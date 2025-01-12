@@ -28,7 +28,7 @@ export default function Layout({ children }: Props) {
   return (
     <div className="min-h-screen text-black dark:text-white-bg dark:bg-black">
       {/* Sticky Header */}
-      <div className="sticky top-0 z-10">
+      <div className="sticky top-0 z-30">
         <Header />
       </div>
 
