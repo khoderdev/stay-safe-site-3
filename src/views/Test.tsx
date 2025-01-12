@@ -9,7 +9,7 @@ const CircularText = ({ radius, fontSize, children }) => {
 
   return (
     <div className="circle-container">
-      <div className="circle-text text-[#000] font-bold">
+      <div className="circle-text text-[#000] font-bold ">
         {textArray.map((char, index) => {
           const style = {
             transform: `rotate(${index * angle}deg) translateY(-${radius}px)`,
@@ -37,11 +37,10 @@ function CircularTextHoldingTest() {
   useEffect(() => {
     const updateSize = () => {
       if (containerRef.current) {
-        // const containerWidth = containerRef.current.offsetWidth;
         const containerWidth = containerRef.current?.offsetWidth;
         const containerHeight = containerRef.current?.offsetHeight;
-        const newRadius = Math.min(containerWidth, containerHeight) * 0.7; // Adjust radius based on container size
-        const newFontSize = newRadius * 0.1; // Adjust font size based on radius
+        const newRadius = Math.min(containerWidth, containerHeight) * (containerWidth < 500 ? 0.7 : 0.7); // Adjust radius based on container size
+        const newFontSize = newRadius * (containerWidth < 560 ? 0.13 : 0.1);
         setRadius(newRadius);
         setFontSize(newFontSize);
       }
@@ -56,33 +55,6 @@ function CircularTextHoldingTest() {
   }, []);
 
   return (
-    // <div
-    //   ref={containerRef}
-    //   className="relative flex items-center justify-center rounded-full 
-    //   w-[18vw] h-[18vw] max-w-[18rem] max-h-[18rem] 
-
-    //   xl:w-[24vw] xl:h-[24vw] xl:max-w-[19rem] xl:max-h-[19rem] 
-    //   2xl:w-[26vw] 2xl:h-[26vw] 2xl:max-w-[20rem] 2xl:max-h-[20rem] 
-    //   3xl:w-[28vw] 3xl:h-[28vw] 3xl:max-w-[22rem] 3xl:max-h-[22rem] 
-    //   4xl:w-[30vw] 4xl:h-[30vw] 4xl:max-w-[23rem] 4xl:max-h-[23rem] 
-
-    //   "
-    // >
-    //   {/* Circular Text with Central Logo */}
-    //   <CircularText radius={radius} fontSize={fontSize}>
-    //     <div
-    //       className="relative flex items-center justify-center rounded-full
-    //       w-[80%] sm:w-[90%] md:w-[100%] lg:w-[100%] xl:w-[80%] 2xl:w-[90%] 3xl:w-[100%] h-auto"
-    //     >
-    //       <img
-    //         src="/white-logo-anim.gif"
-    //         alt="StaySafe Logo"
-    //         loading="lazy"
-    //         className="absolute object-contain transform xl:scale-125 h-auto ml-2 mt-4 sm:mt-8 lg:ml-6 lg:mt-8"
-    //       />
-    //     </div>
-    //   </CircularText>
-    // </div>
     <div
       ref={containerRef}
       className="relative flex items-center justify-center rounded-full 3xl:!w-[28vw] 3xl:!h-[28vw] 3xl:!max-w-[20rem] 3xl:!max-h-[20rem] 4xl:!w-[30vw] 4xl:!h-[30vw] 4xl:!max-w-[23rem] 4xl:!max-h-[23rem] "
