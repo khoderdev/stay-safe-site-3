@@ -73,13 +73,13 @@ export default function Header() {
       >
         <Link to="/">
           <img
-            src="/logo-dark.png"
+            src="/logo-light.png"
             alt="staysafe-logo"
             className={`w-32 p-2 md:w-36 ${theme === "dark" ? "block" : "hidden"
               }`}
           />
           <img
-            src="/logo-light.png"
+            src="/logo-dark.png"
             alt="staysafe-logo"
             className={`w-32 p-2 md:w-36 ${theme === "dark" ? "hidden" : "block"
               }`}
