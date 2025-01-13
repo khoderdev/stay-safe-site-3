@@ -1,26 +1,214 @@
+
+// import { symptomsList } from './data';
+
+// export const BP_THRESHOLDS = {
+//   LOW: { systolic: 90, diastolic: 60 },
+//   NORMAL: { systolic: { low: 90, high: 120 }, diastolic: { low: 60, high: 79 } },
+//   ELEVATED: { systolic: { low: 121, high: 129 }, diastolic: { low: 60, high: 79 } },
+//   HIGH_STAGE1: { systolic: { low: 130, high: 139 }, diastolic: { low: 80, high: 89 } },
+//   HIGH_STAGE2: { systolic: { low: 140, high: 180 }, diastolic: { low: 90, high: 120 } },
+//   CRISIS: { systolic: 180, diastolic: 120 },
+// };
+
+// export const handleBloodPressure = (
+//   systolicBP,
+//   diastolicBP,
+//   addMessage,
+//   hasSymptoms,
+//   heartRate
+// ) => {
+//   const systolic = parseFloat(systolicBP);
+//   const diastolic = parseFloat(diastolicBP);
+
+//   if (isNaN(systolic) || isNaN(diastolic)) {
+//     return;
+//   }
+
+//   const getCategory = (systolic, diastolic) => {
+//     if (systolic < BP_THRESHOLDS.LOW.systolic && diastolic < BP_THRESHOLDS.LOW.diastolic) {
+//       return 'LOW';
+//     } else if (
+//       systolic >= BP_THRESHOLDS.NORMAL.systolic.low &&
+//       systolic <= BP_THRESHOLDS.NORMAL.systolic.high &&
+//       diastolic < BP_THRESHOLDS.NORMAL.diastolic.high
+//     ) {
+//       return 'NORMAL';
+//     } else if (
+//       systolic >= BP_THRESHOLDS.ELEVATED.systolic.low &&
+//       systolic <= BP_THRESHOLDS.ELEVATED.systolic.high &&
+//       diastolic < BP_THRESHOLDS.ELEVATED.diastolic.high
+//     ) {
+//       return 'ELEVATED';
+//     } else if (
+//       (systolic >= BP_THRESHOLDS.HIGH_STAGE1.systolic.low &&
+//         systolic <= BP_THRESHOLDS.HIGH_STAGE1.systolic.high) ||
+//       (diastolic >= BP_THRESHOLDS.HIGH_STAGE1.diastolic.low &&
+//         diastolic <= BP_THRESHOLDS.HIGH_STAGE1.diastolic.high)
+//     ) {
+//       return 'HIGH_STAGE1';
+//     } else if (
+//       (systolic >= BP_THRESHOLDS.HIGH_STAGE2.systolic.low &&
+//         systolic < BP_THRESHOLDS.CRISIS.systolic) ||
+//       (diastolic >= BP_THRESHOLDS.HIGH_STAGE2.diastolic.low &&
+//         diastolic < BP_THRESHOLDS.CRISIS.diastolic)
+//     ) {
+//       return 'HIGH_STAGE2';
+//     } else if (systolic >= BP_THRESHOLDS.CRISIS.systolic || diastolic >= BP_THRESHOLDS.CRISIS.diastolic) {
+//       return 'CRISIS';
+//     }
+//     return null;
+//   };
+
+//   const category = getCategory(systolic, diastolic);
+
+//   switch (category) {
+//     case 'LOW':
+//       if (hasSymptoms(symptomsList) || heartRate > 100) {
+//         addMessage(
+//           'Your Blood Pressure is low. Get Immediate Medical Attention. Call an ambulance and Go to the emergency department right away.',
+//           'red'
+//         );
+//       } else {
+//         addMessage(
+//           'Your Blood Pressure is low. Inform your healthcare provider and keep monitoring your Blood Pressure.',
+//           'orange'
+//         );
+//       }
+//       break;
+
+//     case 'NORMAL':
+//       addMessage(
+//         'Your Blood Pressure is normal. Continue Monitoring your blood pressure.',
+//         'green'
+//       );
+//       break;
+
+//     case 'ELEVATED':
+//       addMessage(
+//         'Elevated Blood Pressure. Inform your healthcare provider, get evaluated and continue monitoring your blood pressure.',
+//         'yellow'
+//       );
+//       break;
+
+//     case 'HIGH_STAGE1':
+//       if (hasSymptoms(symptomsList)) {
+//         addMessage(
+//           'Get Immediate Medical Attention. Call an ambulance and Go to the emergency department right away.',
+//           'red'
+//         );
+//       } else {
+//         addMessage(
+//           'High Blood Pressure, Stage 1. Call your health care provider right away, get evaluated and continue monitoring your blood pressure.',
+//           'orange'
+//         );
+//       }
+//       break;
+
+//     case 'HIGH_STAGE2':
+//       if (hasSymptoms(symptomsList)) {
+//         addMessage(
+//           'Get Immediate Medical Attention. Call an ambulance and Go to the emergency department right away.',
+//           'red'
+//         );
+//       } else {
+//         addMessage(
+//           'High Blood Pressure, Stage 2. Call your health care provider right away, get evaluated and continue monitoring your blood pressure.',
+//           'orange'
+//         );
+//       }
+//       break;
+
+//     case 'CRISIS':
+//       addMessage(
+//         'Your Blood pressure is very high. Get Immediate Medical Attention. Call an ambulance and Go to the emergency department right away.',
+//         'red'
+//       );
+//       break;
+
+//     default:
+//       break;
+//   }
+// };
+
+// export const temperatureWarning = (temperature, symptoms) => {
+// 	if (!temperature || temperature.trim() === '') {
+// 		return {
+// 			color: 'red',
+// 			message: 'Invalid temperature reading. Please check your input.',
+// 		};
+// 	}
+
+// 	const temp = parseFloat(temperature);
+
+// 	if (isNaN(temp)) {
+// 		return {
+// 			color: 'red',
+// 			message: 'Invalid temperature reading. Please check your input.',
+// 		};
+// 	}
+
+// 	const hasSevereSymptoms = (symptomsArray) =>
+// 		symptomsArray.some((symptom) => symptoms.includes(symptom));
+
+// 	// Use the full symptomsList for severe symptoms
+// 	const severeTempSymptoms = symptomsList;
+
+// 	if (temp <= 35) {
+// 		return {
+// 			color: 'red',
+// 			message:
+// 				'Get Immediate medical attention, call an ambulance and go to the emergency department right away.',
+// 		};
+// 	} else if (temp <= 35.9) {
+// 		return {
+// 			color: 'red',
+// 			message: 'Get Evaluated Call your healthcare provider right away',
+// 		};
+// 	} else if (temp < 36) {
+// 		return {
+// 			color: 'orange',
+// 			message: 'Mild Hypothermia: Get evaluated by your healthcare provider.',
+// 		};
+// 	} else if (temp >= 36 && temp <= 37) {
+// 		return {
+// 			color: 'green',
+// 			message: 'Your temperature is within the normal range.',
+// 		};
+// 	} else if (temp > 37 && temp <= 38.9) {
+// 		return {
+// 			color: 'yellow',
+// 			message: 'Your Temperature is Higher than average.',
+// 		};
+// 	} else if (temp >= 39) {
+// 		if (hasSevereSymptoms(severeTempSymptoms)) {
+// 			return {
+// 				color: 'red',
+// 				message:
+// 					'Call an Ambulance right away and go to the emergency department.',
+// 			};
+// 		} else {
+// 			return {
+// 				color: 'red',
+// 				message:
+// 					'High Fever: Get Evaluated, Call your healthcare provider right away.',
+// 			};
+// 		}
+// 	}
+
+// 	return null;
+// };
+
+
+
 import { symptomsList } from './data';
 
 export const BP_THRESHOLDS = {
-	LOW_SYSTOLIC: 90,
-	LOW_DIASTOLIC: 60,
-	NORMAL_SYSTOLIC_LOW: 90,
-	NORMAL_SYSTOLIC_HIGH: 119,
-	NORMAL_DIASTOLIC_LOW: 60,
-	NORMAL_DIASTOLIC_HIGH: 79,
-	ELEVATED_SYSTOLIC_LOW: 120,
-	ELEVATED_SYSTOLIC_HIGH: 129,
-	ELEVATED_DIASTOLIC_LOW: 60,
-	ELEVATED_DIASTOLIC_HIGH: 79,
-	HIGH_SYSTOLIC_STAGE1_LOW: 130,
-	HIGH_SYSTOLIC_STAGE1_HIGH: 139,
-	HIGH_DIASTOLIC_STAGE1_LOW: 80,
-	HIGH_DIASTOLIC_STAGE1_HIGH: 89,
-	HIGH_SYSTOLIC_STAGE2_LOW: 140,
-	HIGH_SYSTOLIC_STAGE2_HIGH: 180,
-	HIGH_DIASTOLIC_STAGE2_LOW: 90,
-	HIGH_DIASTOLIC_STAGE2_HIGH: 120,
-	CRISIS_SYSTOLIC: 180,
-	CRISIS_DIASTOLIC: 120,
+  LOW: { systolic: 90, diastolic: 60 },
+  NORMAL: { systolic: { low: 90, high: 120 }, diastolic: { low: 60, high: 79 } },
+  ELEVATED: { systolic: { low: 121, high: 129 }, diastolic: { low: 60, high: 79 } },
+  HIGH_STAGE1: { systolic: { low: 130, high: 139 }, diastolic: { low: 80, high: 89 } },
+  HIGH_STAGE2: { systolic: { low: 140, high: 180 }, diastolic: { low: 90, high: 120 } },
+  CRISIS: { systolic: 180, diastolic: 120 },
 };
 
 export const handleBloodPressure = (
@@ -37,107 +225,185 @@ export const handleBloodPressure = (
     return;
   }
 
-  // Low Blood Pressure
-  if (
-    systolic < BP_THRESHOLDS.LOW_SYSTOLIC ||
-    diastolic < BP_THRESHOLDS.LOW_DIASTOLIC
-  ) {
-    if (hasSymptoms(symptomsList) || heartRate > 100) {
+  const getCategory = (systolic, diastolic) => {
+    // Determine the category based on systolic and diastolic values
+    let category = 'LOW';
+
+    if (
+      systolic >= BP_THRESHOLDS.CRISIS.systolic ||
+      diastolic >= BP_THRESHOLDS.CRISIS.diastolic
+    ) {
+      category = 'CRISIS';
+    } else if (
+      systolic >= BP_THRESHOLDS.HIGH_STAGE2.systolic.low ||
+      diastolic >= BP_THRESHOLDS.HIGH_STAGE2.diastolic.low
+    ) {
+      category = 'HIGH_STAGE2';
+    } else if (
+      systolic >= BP_THRESHOLDS.HIGH_STAGE1.systolic.low ||
+      diastolic >= BP_THRESHOLDS.HIGH_STAGE1.diastolic.low
+    ) {
+      category = 'HIGH_STAGE1';
+    } else if (
+      systolic >= BP_THRESHOLDS.ELEVATED.systolic.low &&
+      systolic <= BP_THRESHOLDS.ELEVATED.systolic.high &&
+      diastolic < BP_THRESHOLDS.ELEVATED.diastolic.high
+    ) {
+      category = 'ELEVATED';
+    } else if (
+      systolic >= BP_THRESHOLDS.NORMAL.systolic.low &&
+      systolic <= BP_THRESHOLDS.NORMAL.systolic.high &&
+      diastolic < BP_THRESHOLDS.NORMAL.diastolic.high
+    ) {
+      category = 'NORMAL';
+    } else if (
+      systolic < BP_THRESHOLDS.LOW.systolic &&
+      diastolic < BP_THRESHOLDS.LOW.diastolic
+    ) {
+      category = 'LOW';
+    }
+
+    return category;
+  };
+
+  const category = getCategory(systolic, diastolic);
+
+  switch (category) {
+    case 'LOW':
+      if (hasSymptoms(symptomsList) || heartRate > 100) {
+        addMessage(
+          'Your Blood Pressure is low. Get Immediate Medical Attention. Call an ambulance and Go to the emergency department right away.',
+          'red'
+        );
+      } else {
+        addMessage(
+          'Your Blood Pressure is low. Inform your healthcare provider and keep monitoring your Blood Pressure.',
+          'orange'
+        );
+      }
+      break;
+
+    case 'NORMAL':
       addMessage(
-        'Your Blood Pressure is low. Get Immediate Medical Attention. Call an ambulance and Go to the emergency department right away.',
+        'Your Blood Pressure is normal. Continue Monitoring your blood pressure.',
+        'green'
+      );
+      break;
+
+    case 'ELEVATED':
+      addMessage(
+        'Elevated Blood Pressure. Inform your healthcare provider, get evaluated and continue monitoring your blood pressure.',
+        'yellow'
+      );
+      break;
+
+    case 'HIGH_STAGE1':
+      if (hasSymptoms(symptomsList)) {
+        addMessage(
+          'Get Immediate Medical Attention. Call an ambulance and Go to the emergency department right away.',
+          'red'
+        );
+      } else {
+        addMessage(
+          'High Blood Pressure, Stage 1. Call your health care provider right away, get evaluated and continue monitoring your blood pressure.',
+          'orange'
+        );
+      }
+      break;
+
+    case 'HIGH_STAGE2':
+      if (hasSymptoms(symptomsList)) {
+        addMessage(
+          'Get Immediate Medical Attention. Call an ambulance and Go to the emergency department right away.',
+          'red'
+        );
+      } else {
+        addMessage(
+          'High Blood Pressure, Stage 2. Call your health care provider right away, get evaluated and continue monitoring your blood pressure.',
+          'orange'
+        );
+      }
+      break;
+
+    case 'CRISIS':
+      addMessage(
+        'Your Blood pressure is very high. Get Immediate Medical Attention. Call an ambulance and Go to the emergency department right away.',
         'red'
       );
-    } else {
-      addMessage(
-        'Your Blood Pressure is low. Inform your healthcare provider and keep monitoring your Blood Pressure.',
-        'orange'
-      );
-    }
-    return;
+      break;
+
+    default:
+      break;
+  }
+};
+
+export const temperatureWarning = (temperature, symptoms) => {
+  if (!temperature || temperature.trim() === '') {
+    return {
+      color: 'red',
+      message: 'Invalid temperature reading. Please check your input.',
+    };
   }
 
-	// Normal Blood Pressure
-	if (
-		systolic >= BP_THRESHOLDS.NORMAL_SYSTOLIC_LOW &&
-		systolic <= BP_THRESHOLDS.NORMAL_SYSTOLIC_HIGH &&
-		diastolic >= BP_THRESHOLDS.NORMAL_DIASTOLIC_LOW &&
-		diastolic <= BP_THRESHOLDS.NORMAL_DIASTOLIC_HIGH
-	) {
-		addMessage(
-			'Your Blood Pressure is normal. Continue Monitoring your blood pressure.',
-			'green'
-		);
-		return;
-	}
+  const temp = parseFloat(temperature);
 
-	// Elevated Blood Pressure
-	if (
-		systolic >= BP_THRESHOLDS.ELEVATED_SYSTOLIC_LOW &&
-		systolic <= BP_THRESHOLDS.ELEVATED_SYSTOLIC_HIGH &&
-		diastolic >= BP_THRESHOLDS.ELEVATED_DIASTOLIC_LOW &&
-		diastolic <= BP_THRESHOLDS.ELEVATED_DIASTOLIC_HIGH
-	) {
-		addMessage(
-			'Elevated Blood Pressure. Inform your healthcare provider, get evaluated and continue monitoring your blood pressure.',
-			'yellow'
-		);
-		return;
-	}
+  if (isNaN(temp)) {
+    return {
+      color: 'red',
+      message: 'Invalid temperature reading. Please check your input.',
+    };
+  }
 
-	// High Blood Pressure Stage 1
-	if (
-		(systolic >= BP_THRESHOLDS.HIGH_SYSTOLIC_STAGE1_LOW &&
-			systolic <= BP_THRESHOLDS.HIGH_SYSTOLIC_STAGE1_HIGH) ||
-		(diastolic >= BP_THRESHOLDS.HIGH_DIASTOLIC_STAGE1_LOW &&
-			diastolic <= BP_THRESHOLDS.HIGH_DIASTOLIC_STAGE1_HIGH)
-	) {
-		if (hasSymptoms(symptomsList)) {
-			addMessage(
-				'Get Immediate Medical Attention. Call an ambulance and Go to the emergency department right away.',
-				'red'
-			);
-		} else {
-			addMessage(
-				'High Blood Pressure, Stage 1. Call your health care provider right away, get evaluated and continue monitoring your blood pressure.',
-				'orange'
-			);
-		}
-		return;
-	}
+  const hasSevereSymptoms = (symptomsArray) =>
+    symptomsArray.some((symptom) => symptoms.includes(symptom));
 
-	// High Blood Pressure Stage 2
-	if (
-		(systolic >= BP_THRESHOLDS.HIGH_SYSTOLIC_STAGE2_LOW &&
-			systolic < BP_THRESHOLDS.CRISIS_SYSTOLIC) ||
-		(diastolic >= BP_THRESHOLDS.HIGH_DIASTOLIC_STAGE2_LOW &&
-			diastolic < BP_THRESHOLDS.CRISIS_DIASTOLIC)
-	) {
-		if (hasSymptoms(symptomsList)) {
-			addMessage(
-				'Get Immediate Medical Attention. Call an ambulance and Go to the emergency department right away.',
-				'red'
-			);
-		} else {
-			addMessage(
-				'High Blood Pressure, Stage 2. Call your health care provider right away, get evaluated and continue monitoring your blood pressure.',
-				'orange'
-			);
-		}
-		return;
-	}
+  const severeTempSymptoms = symptomsList;
 
-	// Hypertensive Crisis
-	if (
-		systolic >= BP_THRESHOLDS.CRISIS_SYSTOLIC ||
-		diastolic >= BP_THRESHOLDS.CRISIS_DIASTOLIC
-	) {
-		addMessage(
-			'Your Blood pressure is very high. Get Immediate Medical Attention. Call an ambulance and Go to the emergency department right away.',
-			'red'
-		);
-		return;
-	}
+  if (temp <= 35) {
+    return {
+      color: 'red',
+      message:
+        'Get Immediate medical attention, call an ambulance and go to the emergency department right away.',
+    };
+  } else if (temp <= 35.9) {
+    return {
+      color: 'red',
+      message: 'Get Evaluated Call your healthcare provider right away',
+    };
+  } else if (temp < 36) {
+    return {
+      color: 'orange',
+      message: 'Mild Hypothermia: Get evaluated by your healthcare provider.',
+    };
+  } else if (temp >= 36 && temp <= 37) {
+    return {
+      color: 'green',
+      message: 'Your temperature is within the normal range.',
+    };
+  } else if (temp > 37 && temp <= 38.9) {
+    return {
+      color: 'yellow',
+      message: 'Your Temperature is Higher than average.',
+    };
+  } else if (temp >= 39) {
+    if (hasSevereSymptoms(severeTempSymptoms)) {
+      return {
+        color: 'red',
+        message:
+          'Call an Ambulance right away and go to the emergency department.',
+      };
+    } else {
+      return {
+        color: 'red',
+        message:
+          'High Fever: Get Evaluated, Call your healthcare provider right away.',
+      };
+    }
+  }
+
+  return null;
 };
+
 
 export const getWarnings = (formData) => {
 	const {
@@ -242,72 +508,4 @@ export const getWarnings = (formData) => {
 	}
 
 	return messages;
-};
-
-export const temperatureWarning = (temperature, symptoms) => {
-	if (!temperature || temperature.trim() === '') {
-		return {
-			color: 'red',
-			message: 'Invalid temperature reading. Please check your input.',
-		};
-	}
-
-	const temp = parseFloat(temperature);
-
-	if (isNaN(temp)) {
-		return {
-			color: 'red',
-			message: 'Invalid temperature reading. Please check your input.',
-		};
-	}
-
-	const hasSevereSymptoms = (symptomsArray) =>
-		symptomsArray.some((symptom) => symptoms.includes(symptom));
-
-	// Use the full symptomsList for severe symptoms
-	const severeTempSymptoms = symptomsList;
-
-	if (temp <= 35) {
-		return {
-			color: 'red',
-			message:
-				'Get Immediate medical attention, call an ambulance and go to the emergency department right away.',
-		};
-	} else if (temp <= 35.9) {
-		return {
-			color: 'red',
-			message: 'Get Evaluated Call your healthcare provider right away',
-		};
-	} else if (temp < 36) {
-		return {
-			color: 'orange',
-			message: 'Mild Hypothermia: Get evaluated by your healthcare provider.',
-		};
-	} else if (temp >= 36 && temp <= 37) {
-		return {
-			color: 'green',
-			message: 'Your temperature is within the normal range.',
-		};
-	} else if (temp > 37 && temp <= 38.9) {
-		return {
-			color: 'yellow',
-			message: 'Your Temperature is Higher than average.',
-		};
-	} else if (temp >= 39) {
-		if (hasSevereSymptoms(severeTempSymptoms)) {
-			return {
-				color: 'red',
-				message:
-					'Call an Ambulance right away and go to the emergency department.',
-			};
-		} else {
-			return {
-				color: 'red',
-				message:
-					'High Fever: Get Evaluated, Call your healthcare provider right away.',
-			};
-		}
-	}
-
-	return null;
 };
