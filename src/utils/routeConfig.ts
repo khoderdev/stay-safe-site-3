@@ -109,7 +109,7 @@ export const routes: RouteConfig[] = [
     cacheControl: "public, max-age=1800",
   },
   {
-    path: "/preventive-health-patient-services",
+    path: "/preventive-health",
     component: lazyLoadComponent(
       () => import("../views/PreventiveHealthPatientServices")
     ),
