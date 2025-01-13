@@ -1,7 +1,7 @@
 import React, { useState, useReducer } from 'react';
 import Stepper from '../Stepper';
-import PatientInfoForm from '../PatientInfoForm';
-import HealthMetricsForm from '../HealthMetricsForm';
+import PatientInfoForm from './PatientInfoForm';
+import HealthMetricsForm from './HealthMetricsForm';
 import ReviewSection from '../ReviewSection';
 import { formReducer, initialState } from './formReducer';
 
@@ -15,7 +15,10 @@ const MonitoringForm = () => {
 			const [key, subKey] = name.split('.');
 			dispatch({ name: key, value, subKey });
 		} else {
-			dispatch({ name, value });
+			dispatch({
+				name, value,
+				subKey: undefined
+			});
 		}
 	};
 
