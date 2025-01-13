@@ -1,8 +1,8 @@
 import { symptomsList } from './data';
 
 export const BP_THRESHOLDS = {
-	LOW_SYSTOLIC: 89,
-	LOW_DIASTOLIC: 59,
+	LOW_SYSTOLIC: 90,
+	LOW_DIASTOLIC: 60,
 	NORMAL_SYSTOLIC_LOW: 90,
 	NORMAL_SYSTOLIC_HIGH: 119,
 	NORMAL_DIASTOLIC_LOW: 60,
@@ -24,37 +24,37 @@ export const BP_THRESHOLDS = {
 };
 
 export const handleBloodPressure = (
-	systolicBP,
-	diastolicBP,
-	addMessage,
-	hasSymptoms,
-	heartRate
+  systolicBP,
+  diastolicBP,
+  addMessage,
+  hasSymptoms,
+  heartRate
 ) => {
-	const systolic = parseFloat(systolicBP);
-	const diastolic = parseFloat(diastolicBP);
+  const systolic = parseFloat(systolicBP);
+  const diastolic = parseFloat(diastolicBP);
 
-	if (isNaN(systolic) || isNaN(diastolic)) {
-		return;
-	}
+  if (isNaN(systolic) || isNaN(diastolic)) {
+    return;
+  }
 
-	// Low Blood Pressure
-	if (
-		systolic < BP_THRESHOLDS.LOW_SYSTOLIC ||
-		diastolic < BP_THRESHOLDS.LOW_DIASTOLIC
-	) {
-		if (hasSymptoms(symptomsList) || heartRate > 100) {
-			addMessage(
-				'Your Blood Pressure is low. Get Immediate Medical Attention. Call an ambulance and Go to the emergency department right away.',
-				'red'
-			);
-		} else {
-			addMessage(
-				'Your Blood Pressure is low. Inform your healthcare provider and keep monitoring your Blood Pressure.',
-				'orange'
-			);
-		}
-		return;
-	}
+  // Low Blood Pressure
+  if (
+    systolic < BP_THRESHOLDS.LOW_SYSTOLIC ||
+    diastolic < BP_THRESHOLDS.LOW_DIASTOLIC
+  ) {
+    if (hasSymptoms(symptomsList) || heartRate > 100) {
+      addMessage(
+        'Your Blood Pressure is low. Get Immediate Medical Attention. Call an ambulance and Go to the emergency department right away.',
+        'red'
+      );
+    } else {
+      addMessage(
+        'Your Blood Pressure is low. Inform your healthcare provider and keep monitoring your Blood Pressure.',
+        'orange'
+      );
+    }
+    return;
+  }
 
 	// Normal Blood Pressure
 	if (
