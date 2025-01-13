@@ -511,7 +511,7 @@ const StaySafeBot = () => {
 							🔍 Check Screening Requirements
 						</CustomLink>
 						<CustomLink
-							to='/preventive-health-patient-services'
+							to='/preventive-health'
 							className={linkStyles}
 							setMinimized={setMinimized}
 						>
@@ -525,7 +525,7 @@ const StaySafeBot = () => {
 							📊 BMI Calculator
 						</CustomLink>
 						<CustomLink
-							to='/preventive-health-patient-services'
+							to='/preventive-health'
 							className={linkStyles}
 							setMinimized={setMinimized}
 						>

@@ -27,7 +27,7 @@ function AnimatedRoutes() {
       <CSSTransition
         key={location.key}
         nodeRef={nodeRef}
-        timeout={200} 
+        timeout={200}
         classNames="slide"
       >
         <div ref={nodeRef}>
@@ -44,22 +44,20 @@ function App() {
       <AppointmentProvider>
         <ResourceLoader>
           <PreloadResources />
-          <div className="font-sans antialiased">
-            <Layout>
-              <AnimatedRoutes />
-              <StaySafeBot />
-            </Layout>
-            <Toaster
-              position="top-right"
-              toastOptions={{
-                duration: 1500,
-                style: {
-                  background: "#333",
-                  color: "#fff",
-                },
-              }}
-            />
-          </div>
+          <Layout>
+            <AnimatedRoutes />
+            <StaySafeBot />
+          </Layout>
+          <Toaster
+            position="top-right"
+            toastOptions={{
+              duration: 1500,
+              style: {
+                background: "#333",
+                color: "#fff",
+              },
+            }}
+          />
         </ResourceLoader>
       </AppointmentProvider>
     </LoadingProvider>

@@ -20,9 +20,21 @@ const Hero1 = () => {
         />
 
         {/* CircularTextHoldingTest Component (Centered on Eye Image) */}
-        <div className="absolute custom-positioning">
+        <div className="absolute transform -translate-x-1/2 -translate-y-1/2 min-w-[150px] min-h-[150px] custom-positioning">
           <CircularTextHoldingTest />
         </div>
+        {/* <div className="absolute transform -translate-x-1/2 -translate-y-1/2 min-w-[150px] min-h-[150px]
+         top-[145px] left-[230px]
+         xs:top-[131px] xs:left-[206px]
+          xsm:top-[190px] xsm:left-[338px]
+          sm:top-[29%] sm:left-[52.5%]
+          md:top-[29%] md:left-[52.5%]
+          lg:top-[29%] lg:left-[52.5%]
+          xl:top-[29%] xl:left-[52.5%]
+          2xl:top-[29.5%] 2xl:left-[52.5%]
+        ">
+          <CircularTextHoldingTest />
+        </div> */}
 
         {/* Container for Line and Text */}
         <div className="relative w-full flex justify-center items-center">

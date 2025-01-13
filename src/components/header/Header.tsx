@@ -73,13 +73,13 @@ export default function Header() {
       >
         <Link to="/">
           <img
-            src="/logo-dark.png"
+            src="/logo-light.png"
             alt="staysafe-logo"
             className={`w-32 p-2 md:w-36 ${theme === "dark" ? "block" : "hidden"
               }`}
           />
           <img
-            src="/logo-light.png"
+            src="/logo-dark.png"
             alt="staysafe-logo"
             className={`w-32 p-2 md:w-36 ${theme === "dark" ? "hidden" : "block"
               }`}
@@ -101,6 +101,8 @@ export default function Header() {
             },
             { label: "Medical Dietary Clinic", to: "/mdc" },
             { label: "Vitrack", to: "/vitrack" },
+            { label: "iScreen", to: "/iscreen" },
+            { label: "Assistive Devices", to: "/assistive-devices" },
           ]}
           className={`relative inline-flex items-center text-base transition-all duration-200
             ${isActive("/preventive-health-patient-services") ||
@@ -120,6 +122,20 @@ export default function Header() {
         >
           Health & Safety
         </Link>
+        <Dropdown
+          title="Environmental Health"
+          mainLink=""
+          items={[
+            { label: "Digital Sustainability", to: "/digital-sustainability" },
+          ]}
+          className={`relative inline-flex items-center text-base transition-all duration-200
+            ${isActive("/digital-sustainability") ||
+              isActive("/digital-sustainability")
+              ? "text-white-bg2 bg-pink dark:bg-pink"
+              : "text-gray-700 dark:text-gray-200 hover:text-pink dark:hover:text-pink"
+            } 
+            rounded-lg px-3 py-2`}
+        />
         <Link
           to="/public-health-interventions"
           className={`${getLinkClassName(
@@ -138,10 +154,13 @@ export default function Header() {
         </Link>
         <Dropdown
           title="About us"
-          mainLink="/about-us"
+          mainLink=""
           items={[
+            { label: "Who we are", to: "/who-we-are" },
             { label: "Volunteers", to: "/volunteering" },
             { label: "Contact us", to: "/contact-us" },
+            { label: "Carrers", to: "/carreres" },
+            { label: "NewsLetter", to: "/newsletter" },
           ]}
           className={`relative inline-flex items-center text-base transition-all duration-200
             ${isActive("/about-us") ||

@@ -9,7 +9,7 @@ const CircularText = ({ radius, fontSize, children }) => {
 
   return (
     <div className="circle-container">
-      <div className="circle-text text-[#000] font-bold ">
+      <div className="circle-text text-[#000] font-bold">
         {textArray.map((char, index) => {
           const style = {
             transform: `rotate(${index * angle}deg) translateY(-${radius}px)`,
@@ -37,10 +37,11 @@ function CircularTextHoldingTest() {
   useEffect(() => {
     const updateSize = () => {
       if (containerRef.current) {
+        // const containerWidth = containerRef.current.offsetWidth;
         const containerWidth = containerRef.current?.offsetWidth;
         const containerHeight = containerRef.current?.offsetHeight;
-        const newRadius = Math.min(containerWidth, containerHeight) * (containerWidth < 500 ? 0.7 : 0.7); // Adjust radius based on container size
-        const newFontSize = newRadius * (containerWidth < 560 ? 0.13 : 0.1);
+        const newRadius = Math.min(containerWidth, containerHeight) * 0.7; // Adjust radius based on container size
+        const newFontSize = newRadius * 0.1; // Adjust font size based on radius
         setRadius(newRadius);
         setFontSize(newFontSize);
       }
@@ -57,7 +58,7 @@ function CircularTextHoldingTest() {
   return (
     <div
       ref={containerRef}
-      className="relative flex items-center justify-center rounded-full 3xl:!w-[28vw] 3xl:!h-[28vw] 3xl:!max-w-[20rem] 3xl:!max-h-[20rem] 4xl:!w-[30vw] 4xl:!h-[30vw] 4xl:!max-w-[23rem] 4xl:!max-h-[23rem] "
+      className="relative flex items-center justify-center rounded-full"
       style={{
         width: '22vw', // Wrapper size to fit circular text
         height: '22vw',
@@ -76,9 +77,12 @@ function CircularTextHoldingTest() {
           xl:w-[80%]
           2xl:w-[90%]
           3xl:w-[100%]
-
+          
           "
-
+        // style={{
+        //   width: '80%', // Central element takes up 80% of the wrapper
+        //   height: '80%',
+        // }}
         >
           <img
             src="/white-logo-anim.gif"

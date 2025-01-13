@@ -18,11 +18,9 @@ function TimeLine() {
 				iconStyle={{ background: 'rgb(25, 118, 210)', color: '#fff' }}
 				icon={<FaBriefcase />}
 			>
-				<h3 className='vertical-timeline-element-title'>Creative Director</h3>
-				<h4 className='vertical-timeline-element-subtitle'>Miami, FL</h4>
-				<p>
-					Creative Direction, User Experience, Visual Design, Project
-					Management, Team Leading
+				<h3 className='vertical-timeline-element-title'>Hospital Without Walls</h3>
+				<p className='text-white-whites'>
+				Steps toward better health and well being. "Hospital without Walls",  (14 July, 2018).
 				</p>
 			</VerticalTimelineElement>
 			<VerticalTimelineElement
