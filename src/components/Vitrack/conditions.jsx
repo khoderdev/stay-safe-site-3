@@ -86,8 +86,7 @@ export const handleBloodPressure = (
 
 	// High Blood Pressure Stage 1
 	if (
-		(systolic <= BP_THRESHOLDS.HIGH_SYSTOLIC_STAGE1_LOW &&
-			systolic >= BP_THRESHOLDS.ELEVATED_SYSTOLIC_LOW &&
+		(systolic >= BP_THRESHOLDS.HIGH_SYSTOLIC_STAGE1_LOW &&
 			systolic <= BP_THRESHOLDS.HIGH_SYSTOLIC_STAGE1_HIGH) ||
 		(diastolic >= BP_THRESHOLDS.HIGH_DIASTOLIC_STAGE1_LOW &&
 			diastolic <= BP_THRESHOLDS.HIGH_DIASTOLIC_STAGE1_HIGH)
