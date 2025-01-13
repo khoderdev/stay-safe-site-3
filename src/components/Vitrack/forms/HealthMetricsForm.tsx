@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import {  BP_THRESHOLDS, getWarnings } from '../conditions';
-import { symptomsList,} from '../data';
+import { handleBloodPressure, BP_THRESHOLDS, getWarnings } from '../conditions';
+import { symptomsList } from '../data';
 import './styles.css';
+
+
+
 const HealthMonitor = () => {
   // State to hold form data
   const [formData, setFormData] = useState({
-    temperature: '',
     systolicBP: '',
     diastolicBP: '',
     heartRate: '',
@@ -43,8 +45,22 @@ const HealthMonitor = () => {
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    const warnings = getWarnings(formData);
-    setWarnings(warnings);
+    const messages = [];
+
+    const addMessage = (text, color) => messages.push({ text, color });
+
+    const hasSymptoms = (symptomsArray) =>
+      symptomsArray.some((symptom) => formData.symptoms.includes(symptom));
+
+    handleBloodPressure(
+      formData.systolicBP,
+      formData.diastolicBP,
+      addMessage,
+      hasSymptoms,
+      formData.heartRate
+    );
+
+    setWarnings(messages);
   };
 
   return (
@@ -71,8 +87,32 @@ const HealthMonitor = () => {
             placeholder="Enter diastolic BP"
           />
         </div>
-      
-      
+        {/* <div>
+          <label>Heart Rate (bpm):</label>
+          <input
+            type="number"
+            name="heartRate"
+            value={formData.heartRate}
+            onChange={handleInputChange}
+            placeholder="Enter heart rate"
+          />
+        </div> */}
+        {/* <div>
+          <label>Symptoms:</label>
+          {symptomsList.map((symptom) => (
+            <div key={symptom}>
+              <label>
+                <input
+                  type="checkbox"
+                  value={symptom}
+                  checked={formData.symptoms.includes(symptom)}
+                  onChange={handleSymptomChange}
+                />
+                {symptom}
+              </label>
+            </div>
+          ))}
+        </div> */}
         <button type="submit">Check Health</button>
       </form>
 
