@@ -204,106 +204,126 @@ export const temperatureWarning = (temperature, symptoms) => {
 
 
 export const getWarnings = (formData) => {
-	const {
-		temperature,
-		systolicBP,
-		diastolicBP,
-		heartRate,
-		respiratoryRate,
-		spO2,
-		symptoms = [],
-	} = formData;
+  const {
+    temperature,
+    systolicBP,
+    diastolicBP,
+    heartRate,
+    respiratoryRate,
+    spO2,
+    symptoms = [],
+  } = formData;
 
-	const symptomList = new Set(symptoms);
-	const messages = [];
+  const symptomList = new Set(symptoms);
+  const messages = [];
 
-	const hasValue = (value) =>
-		value !== null && value !== undefined && value !== '';
+  const hasValue = (value) =>
+    value !== null && value !== undefined && value !== '';
 
-	const addMessage = (text, color = null, type = null) =>
-		messages.push({ text, color, type });
+  const addMessage = (text, color = null, type = null) =>
+    messages.push({ text, color, type });
 
-	const hasSevereSymptoms = (symptomsArray) =>
-		symptomsArray.some((symptom) => symptomList.has(symptom));
+  const hasSevereSymptoms = (symptomsArray) =>
+    symptomsArray.some((symptom) => symptomList.has(symptom));
 
-	// Use the full symptomsList for all symptom checks
-	const severeTempSymptoms = symptomsList;
-	const lowBPSevereSymptoms = symptomsList;
-	const elevatedBPSymptoms = symptomsList;
+  // Use the full symptomsList for all symptom checks
+  const severeTempSymptoms = symptomsList;
+  const lowBPSevereSymptoms = symptomsList;
+  const elevatedBPSymptoms = symptomsList;
 
-	const TEMPERATURE_THRESHOLDS = {
-		CRITICAL_LOW: 35,
-		HYPOTHERMIA: 35.9,
-		NORMAL_LOW: 36,
-		NORMAL_HIGH: 37,
-		FEVER_LOW: 37.1,
-		FEVER_HIGH: 38.9,
-		HIGH_FEVER: 39,
-	};
+  const TEMPERATURE_THRESHOLDS = {
+    CRITICAL_LOW: 35,
+    HYPOTHERMIA: 35.9,
+    NORMAL_LOW: 36,
+    NORMAL_HIGH: 37,
+    FEVER_LOW: 37.1,
+    FEVER_HIGH: 38.9,
+    HIGH_FEVER: 39,
+  };
 
-	const handleTemperature = (temperature) => {
-		const temp = parseFloat(temperature);
+  const handleTemperature = (temperature) => {
+    const temp = parseFloat(temperature);
 
-		if (isNaN(temp)) {
-			addMessage(
-				'Invalid temperature reading. Please check your input.',
-				'red'
-			);
-			return;
-		}
+    if (isNaN(temp)) {
+      addMessage(
+        'Invalid temperature reading. Please check your input.',
+        'red'
+      );
+      return;
+    }
 
-		if (temp <= TEMPERATURE_THRESHOLDS.CRITICAL_LOW) {
-			addMessage(
-				'Get Immediate medical attention, call an ambulance and go to the emergency department right away.',
-				'red'
-			);
-		} else if (temp <= 35.9) {
-			addMessage(
-				'Get Evaluated Call your healthcare provider right away',
-				'red'
-			);
-		} else if (temp < 36) {
-			addMessage(
-				'Mild Hypothermia: Get evaluated. Call your healthcare provider for advice.',
-				'orange'
-			);
-		} else if (temp >= 36 && temp <= 37) {
-			addMessage(
-				'The normal body temperature of a person varies depending on gender, recent activity, food and fluid consumption, time of day, and, in women, the stage of the menstrual cycle. Normal body temperature can range from 36.5 degrees Celsius to 37.2 degrees Celsius for a healthy adult.',
-				'green'
-			);
-		} else if (temp > 37 && temp <= 38.9) {
-			addMessage(
-				'Continue home monitoring, keep an eye on your symptoms, and contact your healthcare provider if needed.',
-				'yellow'
-			);
-		} else if (temp >= 39) {
-			if (hasSevereSymptoms(severeTempSymptoms)) {
-				addMessage(
-					'Call an Ambulance right away and go to the emergency department.',
-					'red'
-				);
-			} else {
-				addMessage(
-					'High Fever: Get Evaluated, Call your healthcare provider right away.',
-					'orange'
-				);
-			}
-		}
-	};
+    if (temp <= TEMPERATURE_THRESHOLDS.CRITICAL_LOW) {
+      addMessage(
+        'Get Immediate medical attention, call an ambulance and go to the emergency department right away.',
+        'red'
+      );
+    } else if (temp <= 35.9) {
+      addMessage(
+        'Get Evaluated Call your healthcare provider right away',
+        'red'
+      );
+    } else if (temp < 36) {
+      addMessage(
+        'Mild Hypothermia: Get evaluated. Call your healthcare provider for advice.',
+        'orange'
+      );
+    } else if (temp >= 36 && temp <= 37) {
+      addMessage(
+        'The normal body temperature of a person varies depending on gender, recent activity, food and fluid consumption, time of day, and, in women, the stage of the menstrual cycle. Normal body temperature can range from 36.5 degrees Celsius to 37.2 degrees Celsius for a healthy adult.',
+        'green'
+      );
+    } else if (temp > 37 && temp <= 38.9) {
+      addMessage(
+        'Continue home monitoring, keep an eye on your symptoms, and contact your healthcare provider if needed.',
+        'yellow'
+      );
+    } else if (temp >= 39) {
+      if (hasSevereSymptoms(severeTempSymptoms)) {
+        addMessage(
+          'Call an Ambulance right away and go to the emergency department.',
+          'red'
+        );
+      } else {
+        addMessage(
+          'High Fever: Get Evaluated, Call your healthcare provider right away.',
+          'orange'
+        );
+      }
+    }
+  };
 
-	if (hasValue(temperature)) handleTemperature(temperature);
-	if (hasValue(systolicBP) && hasValue(diastolicBP)) {
-		handleBloodPressure(
-			systolicBP,
-			diastolicBP,
-			(text, color) => addMessage(text, color, 'bloodPressure'),
-			hasSevereSymptoms,
-			lowBPSevereSymptoms,
-			elevatedBPSymptoms,
-			heartRate
-		);
-	}
+  // Add a check for heart rate
+  const handleHeartRate = (heartRate) => {
+    const hr = parseFloat(heartRate);
 
-	return messages;
+    if (isNaN(hr)) {
+      addMessage('Invalid heart rate reading. Please check your input.', 'red');
+      return;
+    }
+
+    if (hr > 100) {
+      addMessage(
+        'Get immediate medical attention, call an ambulance and go to the emergency right away.',
+        'red',
+        'heartRate'
+      );
+    }
+  };
+
+  if (hasValue(temperature)) handleTemperature(temperature);
+  if (hasValue(systolicBP) && hasValue(diastolicBP)) {
+    handleBloodPressure(
+      systolicBP,
+      diastolicBP,
+      (text, color) => addMessage(text, color, 'bloodPressure'),
+      hasSevereSymptoms,
+      lowBPSevereSymptoms,
+      elevatedBPSymptoms,
+      heartRate
+    );
+  }
+
+  if (hasValue(heartRate)) handleHeartRate(heartRate);
+
+  return messages;
 };
