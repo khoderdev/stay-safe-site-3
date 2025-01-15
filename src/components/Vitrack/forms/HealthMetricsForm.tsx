@@ -3,19 +3,7 @@ import { useAtom } from 'jotai';
 import InputField from '../inputs/InputField';
 import BloodPressureInput from '../inputs/BloodPressureInput';
 import {
-  temperatureAtom,
-  heartRateAtom,
-  respiratoryRateAtom,
-  leftHandOxygenAtom,
-  rightHandOxygenAtom,
-  symptomsAtom,
-  painScaleAtom,
-  bloodPressureSetsAtom,
-  activeUnitAtom,
-  showModalAtom,
-  currentSetIdAtom,
-  timerAtom,
-  bothHandsResultsAverageAtom,
+  temperatureAtom, heartRateAtom, respiratoryRateAtom, leftHandOxygenAtom, rightHandOxygenAtom, symptomsAtom, painScaleAtom, bloodPressureSetsAtom, activeUnitAtom, showModalAtom, currentSetIdAtom, timerAtom, bothHandsResultsAverageAtom,
 } from '../../../atoms/store';
 import { getWarnings, temperatureWarning } from '../conditions';
 import TemperatureWheel from '../inputs/TemperatureWheel';
@@ -525,25 +513,6 @@ const HealthMetricsForm = () => {
           max={100}
         />
       </div>
-
-      {/* Pain Scale */}
-      <div className='col-span-full mt-6'>
-        <label className='block text-sm dark:text-white-bg2'>Pain Scale</label>
-        <input
-          type='range'
-          name='painScale'
-          min='0'
-          max='10'
-          value={painScale || 0}
-          onChange={handleChange}
-          className='mt-1 w-full cursor-pointer'
-        />
-        <span className='block text-center dark:text-white-bg2'>
-          {painScale}/10
-        </span>
-      </div>
-
-
     </div>
 
   );

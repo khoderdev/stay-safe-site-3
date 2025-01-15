@@ -159,7 +159,7 @@ export default function Header() {
             { label: "Who we are", to: "/who-we-are" },
             { label: "Volunteers", to: "/volunteering" },
             { label: "Contact us", to: "/contact-us" },
-            { label: "Carrers", to: "/carreres" },
+            { label: "Carrers", to: "/careers" },
             { label: "NewsLetter", to: "/newsletter" },
           ]}
           className={`relative inline-flex items-center text-base transition-all duration-200

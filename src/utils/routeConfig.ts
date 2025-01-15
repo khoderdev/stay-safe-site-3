@@ -117,9 +117,24 @@ export const routes: RouteConfig[] = [
     prefetch: "none",
     cacheControl: "public, max-age=3600",
   },
+
   {
     path: "/vitrack",
     component: lazyLoadComponent(() => import("../components/Vitrack/Vitrack")),
+    prerender: false,
+    prefetch: "none",
+    cacheControl: "private, no-cache",
+  },
+  {
+    path: "/iscreen",
+    component: lazyLoadComponent(() => import("../views/Iscreen")),
+    prerender: false,
+    prefetch: "none",
+    cacheControl: "private, no-cache",
+  },
+  {
+    path: "/assistive-devices",
+    component: lazyLoadComponent(() => import("../views/AssistiveDevices")),
     prerender: false,
     prefetch: "none",
     cacheControl: "private, no-cache",
@@ -148,7 +163,7 @@ export const routes: RouteConfig[] = [
     cacheControl: "private, no-cache",
   },
   {
-    path: "/about-us",
+    path: "/who-we-are",
     component: lazyLoadComponent(() => import("../views/AboutUs")),
     prerender: false,
     prefetch: "none",
@@ -182,9 +197,27 @@ export const routes: RouteConfig[] = [
     cacheControl: "public, max-age=1800",
   },
   {
+    path: "/careers",
+    component: lazyLoadComponent(
+      () => import("../views/Careers")
+    ),
+    prerender: true,
+    prefetch: "none",
+    cacheControl: "public, max-age=1800",
+  },
+  {
     path: "/contact-us",
     component: lazyLoadComponent(
       () => import("../components/contact/Contact")
+    ),
+    prerender: true,
+    prefetch: "none",
+    cacheControl: "public, max-age=1800",
+  },
+  {
+    path: "/newsletter",
+    component: lazyLoadComponent(
+      () => import("../views/NewsLetter")
     ),
     prerender: true,
     prefetch: "none",
