@@ -232,6 +232,34 @@ const HealthMetricsForm = () => {
     }
   };
 
+  // Inside the HealthMetricsForm component
+  const heartRateWarnings = getWarnings({
+    temperature,
+    systolicBP: bothHandsResultsAverage.systolic,
+    diastolicBP: bothHandsResultsAverage.diastolic,
+    heartRate,
+    respiratoryRate,
+    spO2: leftHandOxygen,
+    symptoms,
+  }).filter((warning) => warning.type === 'heartRate');
+
+  // Render the heart rate warnings
+  {
+    heartRateWarnings.length > 0 && (
+      <div className="bg-gray-200 dark:bg-black ring ring-gray-200 dark:ring-black shadow-lg dark:text-gray-50 p-3 rounded">
+        <h3 className="font-bold mb-2">Heart Rate Warnings:</h3>
+        <ul className="space-y-2">
+          {heartRateWarnings.map((warning, index) => (
+            <li key={index} className={warning.color ? `text-${warning.color}-500` : ''}>
+              {warning.text}
+            </li>
+          ))}
+        </ul>
+      </div>
+    )
+  }
+
+  // Inside the HealthMetricsForm component
   return (
     <div className='p-3 sm:p-7 rounded-lg !bg-white-bg2 dark:!bg-[#000] space-y-6'>
       {/* Modal */}
@@ -423,6 +451,20 @@ const HealthMetricsForm = () => {
                   </ul>
                 </div>
               )}
+
+              {/* Render Heart Rate Warnings */}
+              {heartRateWarnings.length > 0 && (
+                <div className="bg-gray-200 dark:bg-black ring ring-gray-200 dark:ring-black shadow-lg dark:text-gray-50 p-3 rounded mt-4">
+                  <h3 className="font-bold mb-2">Heart Rate Warnings:</h3>
+                  <ul className="space-y-2">
+                    {heartRateWarnings.map((warning, index) => (
+                      <li key={index} className={warning.color ? `text-${warning.color}-500` : ''}>
+                        {warning.text}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
           );
         })}
@@ -500,7 +542,10 @@ const HealthMetricsForm = () => {
           {painScale}/10
         </span>
       </div>
+
+
     </div>
+
   );
 };
 
